@@ -1,0 +1,3797 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>chapter4-Process Scheduling · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-bottom-navigation/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter5-System Calls.html" />
+    
+    
+    <link rel="prev" href="chapter3-Process Management.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../../">
+            
+                <a href="../../../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../../c&c++/readme.html">
+            
+                <a href="../../../c&c++/readme.html">
+            
+                    
+                    c&c++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../../c&c++/boost asio/readme.html">
+            
+                <a href="../../../c&c++/boost asio/readme.html">
+            
+                    
+                    boost asio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../../c&c++/c++2.0/readme.html">
+            
+                <a href="../../../c&c++/c++2.0/readme.html">
+            
+                    
+                    c++2.0
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../../../c&c++/c++2.0/01 decltype.html">
+            
+                <a href="../../../c&c++/c++2.0/01 decltype.html">
+            
+                    
+                    01 decltype
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../../../c&c++/c++2.0/02 auto & decltype(auto">
+            
+                <span>
+            
+                    
+                    02 auto & decltype(auto)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../../../c&c++/c++2.0/03 value categories & rvalue reference.html">
+            
+                <a href="../../../c&c++/c++2.0/03 value categories & rvalue reference.html">
+            
+                    
+                    03 value categories & rvalue reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../../../c&c++/c++2.0/04 universal reference & reference collpsing.html">
+            
+                <a href="../../../c&c++/c++2.0/04 universal reference & reference collpsing.html">
+            
+                    
+                    04 universal reference & reference collpsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../../../c&c++/c++2.0/05 move semantics.html">
+            
+                <a href="../../../c&c++/c++2.0/05 move semantics.html">
+            
+                    
+                    05 move semantics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../../../c&c++/c++2.0/06 perfect forwarding.html">
+            
+                <a href="../../../c&c++/c++2.0/06 perfect forwarding.html">
+            
+                    
+                    06 perfect forwarding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../../../c&c++/c++2.0/07 lambda.html">
+            
+                <a href="../../../c&c++/c++2.0/07 lambda.html">
+            
+                    
+                    07 lambda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="../../../c&c++/c++2.0/08 可变模板.html">
+            
+                <a href="../../../c&c++/c++2.0/08 可变模板.html">
+            
+                    
+                    08 可变模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="../../../c&c++/c++2.0/09 uniform initialzation.html">
+            
+                <a href="../../../c&c++/c++2.0/09 uniform initialzation.html">
+            
+                    
+                    09 uniform initialzation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="../../../c&c++/c++2.0/10 template alias.html">
+            
+                <a href="../../../c&c++/c++2.0/10 template alias.html">
+            
+                    
+                    10 template alias
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="../../../c&c++/c++2.0/11 function.html">
+            
+                <a href="../../../c&c++/c++2.0/11 function.html">
+            
+                    
+                    11 function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="../../../c&c++/c++2.0/12 bind.html">
+            
+                <a href="../../../c&c++/c++2.0/12 bind.html">
+            
+                    
+                    12 bind
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.13" data-path="../../../c&c++/c++2.0/13 keywords.html">
+            
+                <a href="../../../c&c++/c++2.0/13 keywords.html">
+            
+                    
+                    13 keywords
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.14" data-path="../../../c&c++/c++2.0/14 shared_ptr.html">
+            
+                <a href="../../../c&c++/c++2.0/14 shared_ptr.html">
+            
+                    
+                    14 shared_ptr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.15" data-path="../../../c&c++/c++2.0/15 weak_ptr.html">
+            
+                <a href="../../../c&c++/c++2.0/15 weak_ptr.html">
+            
+                    
+                    15 weak_ptr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.16" data-path="../../../c&c++/c++2.0/16 unique_ptr.html">
+            
+                <a href="../../../c&c++/c++2.0/16 unique_ptr.html">
+            
+                    
+                    16 unique_ptr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.17" data-path="../../../c&c++/c++2.0/17 declval.html">
+            
+                <a href="../../../c&c++/c++2.0/17 declval.html">
+            
+                    
+                    17 declval
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../../c&c++/exceptional c++/readme.html">
+            
+                <a href="../../../c&c++/exceptional c++/readme.html">
+            
+                    
+                    exceptional c++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../../../c&c++/exceptional c++/item1.html">
+            
+                <a href="../../../c&c++/exceptional c++/item1.html">
+            
+                    
+                    item1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../../../c&c++/exceptional c++/item2.html">
+            
+                <a href="../../../c&c++/exceptional c++/item2.html">
+            
+                    
+                    item2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../../../c&c++/exceptional c++/item5.html">
+            
+                <a href="../../../c&c++/exceptional c++/item5.html">
+            
+                    
+                    item5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../../../c&c++/exceptional c++/item6.html">
+            
+                <a href="../../../c&c++/exceptional c++/item6.html">
+            
+                    
+                    item6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../../../c&c++/exceptional c++/item8.html">
+            
+                <a href="../../../c&c++/exceptional c++/item8.html">
+            
+                    
+                    item8
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../../../c&c++/exceptional c++/item20.html">
+            
+                <a href="../../../c&c++/exceptional c++/item20.html">
+            
+                    
+                    item20
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../../../c&c++/exceptional c++/item21.html">
+            
+                <a href="../../../c&c++/exceptional c++/item21.html">
+            
+                    
+                    item21
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../../../c&c++/exceptional c++/item22.html">
+            
+                <a href="../../../c&c++/exceptional c++/item22.html">
+            
+                    
+                    item22
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.9" data-path="../../../c&c++/exceptional c++/item23.html">
+            
+                <a href="../../../c&c++/exceptional c++/item23.html">
+            
+                    
+                    item23
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.10" data-path="../../../c&c++/exceptional c++/item24.html">
+            
+                <a href="../../../c&c++/exceptional c++/item24.html">
+            
+                    
+                    item24
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.11" data-path="../../../c&c++/exceptional c++/item26.html">
+            
+                <a href="../../../c&c++/exceptional c++/item26.html">
+            
+                    
+                    item26
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.12" data-path="../../../c&c++/exceptional c++/item29.html">
+            
+                <a href="../../../c&c++/exceptional c++/item29.html">
+            
+                    
+                    item29
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.13" data-path="../../../c&c++/exceptional c++/item31.html">
+            
+                <a href="../../../c&c++/exceptional c++/item31.html">
+            
+                    
+                    item31
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.14" data-path="../../../c&c++/exceptional c++/item38.html">
+            
+                <a href="../../../c&c++/exceptional c++/item38.html">
+            
+                    
+                    item38
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.15" data-path="../../../c&c++/exceptional c++/item40.html">
+            
+                <a href="../../../c&c++/exceptional c++/item40.html">
+            
+                    
+                    item40
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.16" data-path="../../../c&c++/exceptional c++/item43.html">
+            
+                <a href="../../../c&c++/exceptional c++/item43.html">
+            
+                    
+                    item43
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.17" data-path="../../../c&c++/exceptional c++/item47.html">
+            
+                <a href="../../../c&c++/exceptional c++/item47.html">
+            
+                    
+                    item47
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../../c&c++/inside the c++ object model/readme.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/readme.html">
+            
+                    
+                    inside the c++ object model
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../../../c&c++/inside the c++ object model/Chapter 1. Object Lessons.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/Chapter 1. Object Lessons.html">
+            
+                    
+                    Chapter 1. Object Lessons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../../../c&c++/inside the c++ object model/Chapter 2. The Semantics of Constructors.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/Chapter 2. The Semantics of Constructors.html">
+            
+                    
+                    Chapter 2. The Semantics of Constructors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="../../../c&c++/inside the c++ object model/Chapter 3. The Semantics of Data.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/Chapter 3. The Semantics of Data.html">
+            
+                    
+                    Chapter 3. The Semantics of Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="../../../c&c++/inside the c++ object model/Chapter 4. The Semantics of Function.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/Chapter 4. The Semantics of Function.html">
+            
+                    
+                    Chapter 4. The Semantics of Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="../../../c&c++/inside the c++ object model/Chapter 5. Semantics of Construction, Destruction, and Copy.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/Chapter 5. Semantics of Construction, Destruction, and Copy.html">
+            
+                    
+                    Chapter 5. Semantics of Construction, Destruction, and Copy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.6" data-path="../../../c&c++/inside the c++ object model/Chapter 6. Runtime Semantics.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/Chapter 6. Runtime Semantics.html">
+            
+                    
+                    Chapter 6. Runtime Semantics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.7" data-path="../../../c&c++/inside the c++ object model/Chapter 7. On the Cusp of the Object Model.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/Chapter 7. On the Cusp of the Object Model.html">
+            
+                    
+                    Chapter 7. On the Cusp of the Object Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../../c&c++/more exceptional c++/readme.html">
+            
+                <a href="../../../c&c++/more exceptional c++/readme.html">
+            
+                    
+                    more exceptional c++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="../../../c&c++/more exceptional c++/item1.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item1.html">
+            
+                    
+                    item1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="../../../c&c++/more exceptional c++/item4.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item4.html">
+            
+                    
+                    item4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="../../../c&c++/more exceptional c++/item5.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item5.html">
+            
+                    
+                    item5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.4" data-path="../../../c&c++/more exceptional c++/item6.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item6.html">
+            
+                    
+                    item6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.5" data-path="../../../c&c++/more exceptional c++/item11.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item11.html">
+            
+                    
+                    item11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.6" data-path="../../../c&c++/more exceptional c++/item13.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item13.html">
+            
+                    
+                    item13
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.7" data-path="../../../c&c++/more exceptional c++/item17.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item17.html">
+            
+                    
+                    item17
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.8" data-path="../../../c&c++/more exceptional c++/item19.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item19.html">
+            
+                    
+                    item19
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.9" data-path="../../../c&c++/more exceptional c++/item20.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item20.html">
+            
+                    
+                    item20
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.10" data-path="../../../c&c++/more exceptional c++/item22.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item22.html">
+            
+                    
+                    item22
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.11" data-path="../../../c&c++/more exceptional c++/item23.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item23.html">
+            
+                    
+                    item23
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.12" data-path="../../../c&c++/more exceptional c++/item24.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item24.html">
+            
+                    
+                    item24
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.13" data-path="../../../c&c++/more exceptional c++/item25.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item25.html">
+            
+                    
+                    item25
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.14" data-path="../../../c&c++/more exceptional c++/item26.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item26.html">
+            
+                    
+                    item26
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.15" data-path="../../../c&c++/more exceptional c++/item27.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item27.html">
+            
+                    
+                    item27
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.16" data-path="../../../c&c++/more exceptional c++/item28.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item28.html">
+            
+                    
+                    item28
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.17" data-path="../../../c&c++/more exceptional c++/item29.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item29.html">
+            
+                    
+                    item29
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.18" data-path="../../../c&c++/more exceptional c++/item32.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item32.html">
+            
+                    
+                    item32
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.19" data-path="../../../c&c++/more exceptional c++/item33.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item33.html">
+            
+                    
+                    item33
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.20" data-path="../../../c&c++/more exceptional c++/item34.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item34.html">
+            
+                    
+                    item34
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.21" data-path="../../../c&c++/more exceptional c++/item35.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item35.html">
+            
+                    
+                    item35
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.22" data-path="../../../c&c++/more exceptional c++/item36.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item36.html">
+            
+                    
+                    item36
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.23" data-path="../../../c&c++/more exceptional c++/item37.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item37.html">
+            
+                    
+                    item37
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.24" data-path="../../../c&c++/more exceptional c++/item39.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item39.html">
+            
+                    
+                    item39
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../../c&c++/stl/readme.html">
+            
+                <a href="../../../c&c++/stl/readme.html">
+            
+                    
+                    stl
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="../../../c&c++/stl/1.前序：模板知识.html">
+            
+                <a href="../../../c&c++/stl/1.前序：模板知识.html">
+            
+                    
+                    1.前序：模板知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" data-path="../../../c&c++/stl/2.总述.html">
+            
+                <a href="../../../c&c++/stl/2.总述.html">
+            
+                    
+                    2.总述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.3" data-path="../../../c&c++/stl/3.分配器.html">
+            
+                <a href="../../../c&c++/stl/3.分配器.html">
+            
+                    
+                    3.分配器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.4" data-path="../../../c&c++/stl/4.序列式容器之list.html">
+            
+                <a href="../../../c&c++/stl/4.序列式容器之list.html">
+            
+                    
+                    4.序列式容器之list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.5" data-path="../../../c&c++/stl/5.迭代器的属性和分类.html">
+            
+                <a href="../../../c&c++/stl/5.迭代器的属性和分类.html">
+            
+                    
+                    5.迭代器的属性和分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.6" data-path="../../../c&c++/stl/6.序列式容器之vector.html">
+            
+                <a href="../../../c&c++/stl/6.序列式容器之vector.html">
+            
+                    
+                    6.序列式容器之vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.7" data-path="../../../c&c++/stl/7.序列式容器之array,forward_list.html">
+            
+                <a href="../../../c&c++/stl/7.序列式容器之array,forward_list.html">
+            
+                    
+                    7.序列式容器之array,forward_list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.8" data-path="../../../c&c++/stl/8.序列式容器之deque.html">
+            
+                <a href="../../../c&c++/stl/8.序列式容器之deque.html">
+            
+                    
+                    8.序列式容器之deque
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.9" data-path="../../../c&c++/stl/9.以红黑树为底层数据结构的关联式容器.html">
+            
+                <a href="../../../c&c++/stl/9.以红黑树为底层数据结构的关联式容器.html">
+            
+                    
+                    9.以红黑树为底层数据结构的关联式容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.10" data-path="../../../c&c++/stl/10.以哈希表为底层数据结构的关联式容器.html">
+            
+                <a href="../../../c&c++/stl/10.以哈希表为底层数据结构的关联式容器.html">
+            
+                    
+                    10.以哈希表为底层数据结构的关联式容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.11" data-path="../../../c&c++/stl/11.算法.html">
+            
+                <a href="../../../c&c++/stl/11.算法.html">
+            
+                    
+                    11.算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.12" data-path="../../../c&c++/stl/12.仿函数.html">
+            
+                <a href="../../../c&c++/stl/12.仿函数.html">
+            
+                    
+                    12.仿函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.13" data-path="../../../c&c++/stl/13.适配器.html">
+            
+                <a href="../../../c&c++/stl/13.适配器.html">
+            
+                    
+                    13.适配器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.14" data-path="../../../c&c++/stl/14.其他.html">
+            
+                <a href="../../../c&c++/stl/14.其他.html">
+            
+                    
+                    14.其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.15" data-path="../../../c&c++/stl/15.string.html">
+            
+                <a href="../../../c&c++/stl/15.string.html">
+            
+                    
+                    15.string
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../../c&c++/其他/readme.html">
+            
+                <a href="../../../c&c++/其他/readme.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.7.1" data-path="../../../c&c++/其他/access specifiers.html">
+            
+                <a href="../../../c&c++/其他/access specifiers.html">
+            
+                    
+                    access specifiers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.2" data-path="../../../c&c++/其他/c++ casting opeartion.html">
+            
+                <a href="../../../c&c++/其他/c++ casting opeartion.html">
+            
+                    
+                    c++ casting opeartion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.3" data-path="../../../c&c++/其他/characters in c++.html">
+            
+                <a href="../../../c&c++/其他/characters in c++.html">
+            
+                    
+                    characters in c++
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.4" data-path="../../../c&c++/其他/contextual conversion to bool.html">
+            
+                <a href="../../../c&c++/其他/contextual conversion to bool.html">
+            
+                    
+                    contextual conversion to bool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.5" data-path="../../../c&c++/其他/enum class.html">
+            
+                <a href="../../../c&c++/其他/enum class.html">
+            
+                    
+                    enum class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.6" data-path="../../../c&c++/其他/simple threadpool.html">
+            
+                <a href="../../../c&c++/其他/simple threadpool.html">
+            
+                    
+                    simple threadpool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.7" data-path="../../../c&c++/其他/the most vexing parse problem.html">
+            
+                <a href="../../../c&c++/其他/the most vexing parse problem.html">
+            
+                    
+                    the most vexing parse problem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.8" data-path="../../../c&c++/其他/关于模板参数是Functor的模板类的实例化.html">
+            
+                <a href="../../../c&c++/其他/关于模板参数是Functor的模板类的实例化.html">
+            
+                    
+                    关于模板参数是Functor的模板类的实例化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.9" data-path="../../../c&c++/其他/线程函数传递引用参数.html">
+            
+                <a href="../../../c&c++/其他/线程函数传递引用参数.html">
+            
+                    
+                    线程函数传递引用参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../../c&c++/内存管理/readme.html">
+            
+                <a href="../../../c&c++/内存管理/readme.html">
+            
+                    
+                    内存管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="../../../c&c++/内存管理/01 总述.html">
+            
+                <a href="../../../c&c++/内存管理/01 总述.html">
+            
+                    
+                    01 总述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.2" data-path="../../../c&c++/内存管理/02 operator new & operator delete.html">
+            
+                <a href="../../../c&c++/内存管理/02 operator new & operator delete.html">
+            
+                    
+                    02 operator new & operator delete
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.3" data-path="../../../c&c++/内存管理/03 ptmalloc.html">
+            
+                <a href="../../../c&c++/内存管理/03 ptmalloc.html">
+            
+                    
+                    03 ptmalloc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.4" data-path="../../../c&c++/内存管理/04 tcmalloc.html">
+            
+                <a href="../../../c&c++/内存管理/04 tcmalloc.html">
+            
+                    
+                    04 tcmalloc
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../../../c&c++/设计模式/readme.html">
+            
+                <a href="../../../c&c++/设计模式/readme.html">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.1" data-path="../../../c&c++/设计模式/创建型/readme.html">
+            
+                <a href="../../../c&c++/设计模式/创建型/readme.html">
+            
+                    
+                    创建型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.1.1" data-path="../../../c&c++/设计模式/创建型/01 单例模式.html">
+            
+                <a href="../../../c&c++/设计模式/创建型/01 单例模式.html">
+            
+                    
+                    01 单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.2" data-path="../../../c&c++/设计模式/创建型/02 工厂模式.html">
+            
+                <a href="../../../c&c++/设计模式/创建型/02 工厂模式.html">
+            
+                    
+                    02 工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.3" data-path="../../../c&c++/设计模式/创建型/03 建造者模式.html">
+            
+                <a href="../../../c&c++/设计模式/创建型/03 建造者模式.html">
+            
+                    
+                    03 建造者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.4" data-path="../../../c&c++/设计模式/创建型/04 原型模式.html">
+            
+                <a href="../../../c&c++/设计模式/创建型/04 原型模式.html">
+            
+                    
+                    04 原型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2" data-path="../../../c&c++/设计模式/结构型/readme.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/readme.html">
+            
+                    
+                    结构型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.2.1" data-path="../../../c&c++/设计模式/结构型/05 代理模式.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/05 代理模式.html">
+            
+                    
+                    05 代理模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.2" data-path="../../../c&c++/设计模式/结构型/06 装饰器模式.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/06 装饰器模式.html">
+            
+                    
+                    06 装饰器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.3" data-path="../../../c&c++/设计模式/结构型/07 适配器模式.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/07 适配器模式.html">
+            
+                    
+                    07 适配器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.4" data-path="../../../c&c++/设计模式/结构型/08 桥接模式.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/08 桥接模式.html">
+            
+                    
+                    08 桥接模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.5" data-path="../../../c&c++/设计模式/结构型/09 门面模式.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/09 门面模式.html">
+            
+                    
+                    09 门面模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.6" data-path="../../../c&c++/设计模式/结构型/10 组合模式.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/10 组合模式.html">
+            
+                    
+                    10 组合模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.7" data-path="../../../c&c++/设计模式/结构型/11 享元模式.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/11 享元模式.html">
+            
+                    
+                    11 享元模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3" data-path="../../../c&c++/设计模式/行为型/readme.html">
+            
+                <a href="../../../c&c++/设计模式/行为型/readme.html">
+            
+                    
+                    行为型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.3.1" data-path="../../../c&c++/设计模式/行为型/12 观察者模式.html">
+            
+                <a href="../../../c&c++/设计模式/行为型/12 观察者模式.html">
+            
+                    
+                    12 观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.2" data-path="../../../c&c++/设计模式/行为型/13 模版模式.html">
+            
+                <a href="../../../c&c++/设计模式/行为型/13 模版模式.html">
+            
+                    
+                    13 模版模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.3" data-path="../../../c&c++/设计模式/行为型/14 策略模式.html">
+            
+                <a href="../../../c&c++/设计模式/行为型/14 策略模式.html">
+            
+                    
+                    14 策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.4" data-path="../../../c&c++/设计模式/行为型/15 职责链模式.html">
+            
+                <a href="../../../c&c++/设计模式/行为型/15 职责链模式.html">
+            
+                    
+                    15 职责链模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.5" data-path="../../../c&c++/设计模式/行为型/16 状态模式.html">
+            
+                <a href="../../../c&c++/设计模式/行为型/16 状态模式.html">
+            
+                    
+                    16 状态模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.6" data-path="../../../c&c++/设计模式/行为型/17 迭代器模式.html">
+            
+                <a href="../../../c&c++/设计模式/行为型/17 迭代器模式.html">
+            
+                    
+                    17 迭代器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../mysql/readme.html">
+            
+                <a href="../../../mysql/readme.html">
+            
+                    
+                    mysql
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../../mysql/01 basic.html">
+            
+                <a href="../../../mysql/01 basic.html">
+            
+                    
+                    01 basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../../mysql/02 variables.html">
+            
+                <a href="../../../mysql/02 variables.html">
+            
+                    
+                    02 variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../readme.html">
+            
+                <a href="../../readme.html">
+            
+                    
+                    os
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../readme.html">
+            
+                <a href="../readme.html">
+            
+                    
+                    linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    lkd
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1.1" data-path="chapter1-Introduction to linux kernel.html">
+            
+                <a href="chapter1-Introduction to linux kernel.html">
+            
+                    
+                    chapter1-Introduction to linux kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.2" data-path="chapter2-Getting Started with the Kernel.html">
+            
+                <a href="chapter2-Getting Started with the Kernel.html">
+            
+                    
+                    chapter2-Getting Started with the Kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.3" data-path="chapter3-Process Management.html">
+            
+                <a href="chapter3-Process Management.html">
+            
+                    
+                    chapter3-Process Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.1.1.4" data-path="chapter4-Process Scheduling.html">
+            
+                <a href="chapter4-Process Scheduling.html">
+            
+                    
+                    chapter4-Process Scheduling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.5" data-path="chapter5-System Calls.html">
+            
+                <a href="chapter5-System Calls.html">
+            
+                    
+                    chapter5-System Calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.6" data-path="chapter7-Interrupts and Interrupt Handlers.html">
+            
+                <a href="chapter7-Interrupts and Interrupt Handlers.html">
+            
+                    
+                    chapter7-Interrupts and Interrupt Handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.7" data-path="chapter8-Bottom Halves and Deferring Work.html">
+            
+                <a href="chapter8-Bottom Halves and Deferring Work.html">
+            
+                    
+                    chapter8-Bottom Halves and Deferring Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.8" data-path="chapter10-Kernel Synchronization Methods.html">
+            
+                <a href="chapter10-Kernel Synchronization Methods.html">
+            
+                    
+                    chapter10-Kernel Synchronization Methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.9" data-path="chapter11-Timers ans Time Management.html">
+            
+                <a href="chapter11-Timers ans Time Management.html">
+            
+                    
+                    chapter11-Timers ans Time Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.10" data-path="chapter12-Memroy Management.html">
+            
+                <a href="chapter12-Memroy Management.html">
+            
+                    
+                    chapter12-Memroy Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.11" data-path="chapter13-The Process Address Space.html">
+            
+                <a href="chapter13-The Process Address Space.html">
+            
+                    
+                    chapter13-The Process Address Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.12" data-path="chapter14-The Virtual Filesystem.html">
+            
+                <a href="chapter14-The Virtual Filesystem.html">
+            
+                    
+                    chapter14-The Virtual Filesystem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.13" data-path="chapter15-FileIO and Page Cache.html">
+            
+                <a href="chapter15-FileIO and Page Cache.html">
+            
+                    
+                    chapter15-FileIO and Page Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.14" data-path="chapter16-The BlockIO.html">
+            
+                <a href="chapter16-The BlockIO.html">
+            
+                    
+                    chapter16-The BlockIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.15" data-path="chapter17-Module.html">
+            
+                <a href="chapter17-Module.html">
+            
+                    
+                    chapter17-Module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.16" data-path="chapter18-Devide Model and Sysfs.html">
+            
+                <a href="chapter18-Devide Model and Sysfs.html">
+            
+                    
+                    chapter18-Devide Model and Sysfs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.17" data-path="chapter19-Portability.html">
+            
+                <a href="chapter19-Portability.html">
+            
+                    
+                    chapter19-Portability
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../temp.html">
+            
+                <a href="../temp.html">
+            
+                    
+                    temp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../ulk/readme.html">
+            
+                <a href="../ulk/readme.html">
+            
+                    
+                    ulk
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.3.1" data-path="../ulk/chapter1-Introduction.html">
+            
+                <a href="../ulk/chapter1-Introduction.html">
+            
+                    
+                    chapter1-Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.2" data-path="../ulk/chapter2-Memory Addressing.html">
+            
+                <a href="../ulk/chapter2-Memory Addressing.html">
+            
+                    
+                    chapter2-Memory Addressing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.3" data-path="../ulk/chapter8-Memory Management.html">
+            
+                <a href="../ulk/chapter8-Memory Management.html">
+            
+                    
+                    chapter8-Memory Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.4" data-path="../ulk/chapter9-Process Address Space.html">
+            
+                <a href="../ulk/chapter9-Process Address Space.html">
+            
+                    
+                    chapter9-Process Address Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.5" data-path="../ulk/chapter20-Program Execution.html">
+            
+                <a href="../ulk/chapter20-Program Execution.html">
+            
+                    
+                    chapter20-Program Execution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.6" data-path="../ulk/system startup.html">
+            
+                <a href="../ulk/system startup.html">
+            
+                    
+                    system startup
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../其它/readme.html">
+            
+                <a href="../其它/readme.html">
+            
+                    
+                    其它
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.4.1" data-path="../其它/memory barrier.html">
+            
+                <a href="../其它/memory barrier.html">
+            
+                    
+                    memory barrier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4.2" data-path="../其它/pthread线程资源的回收.html">
+            
+                <a href="../其它/pthread线程资源的回收.html">
+            
+                    
+                    pthread线程资源的回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4.3" data-path="../其它/为什么说从用户态切换到内核态开销大.html">
+            
+                <a href="../其它/为什么说从用户态切换到内核态开销大.html">
+            
+                    
+                    为什么说从用户态切换到内核态开销大
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4.4" data-path="../其它/经典的计算机系统架构.html">
+            
+                <a href="../其它/经典的计算机系统架构.html">
+            
+                    
+                    经典的计算机系统架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../windows/readme.html">
+            
+                <a href="../../windows/readme.html">
+            
+                    
+                    windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../../shell/readme.html">
+            
+                <a href="../../../shell/readme.html">
+            
+                    
+                    shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../../shell/bashrc.html">
+            
+                <a href="../../../shell/bashrc.html">
+            
+                    
+                    bashrc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../../shell/man page.html">
+            
+                <a href="../../../shell/man page.html">
+            
+                    
+                    man page
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../../shell/shell语法.html">
+            
+                <a href="../../../shell/shell语法.html">
+            
+                    
+                    shell语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../../shell/常用命令.md/readme.html">
+            
+                <a href="../../../shell/常用命令.md/readme.html">
+            
+                    
+                    常用命令.md
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.4.1" data-path="../../../shell/常用命令.md/01 regular expression & grep.html">
+            
+                <a href="../../../shell/常用命令.md/01 regular expression & grep.html">
+            
+                    
+                    01 regular expression & grep
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.2" data-path="../../../shell/常用命令.md/02 tr.html">
+            
+                <a href="../../../shell/常用命令.md/02 tr.html">
+            
+                    
+                    02 tr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.3" data-path="../../../shell/常用命令.md/03 sed.html">
+            
+                <a href="../../../shell/常用命令.md/03 sed.html">
+            
+                    
+                    03 sed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.4" data-path="../../../shell/常用命令.md/04 awk.html">
+            
+                <a href="../../../shell/常用命令.md/04 awk.html">
+            
+                    
+                    04 awk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.5" data-path="../../../shell/常用命令.md/05 cat.html">
+            
+                <a href="../../../shell/常用命令.md/05 cat.html">
+            
+                    
+                    05 cat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.6" data-path="../../../shell/常用命令.md/06 tee.html">
+            
+                <a href="../../../shell/常用命令.md/06 tee.html">
+            
+                    
+                    06 tee
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.7" data-path="../../../shell/常用命令.md/07 env.html">
+            
+                <a href="../../../shell/常用命令.md/07 env.html">
+            
+                    
+                    07 env
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.8" data-path="../../../shell/常用命令.md/08 head&tail.html">
+            
+                <a href="../../../shell/常用命令.md/08 head&tail.html">
+            
+                    
+                    08 head&tail
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.9" data-path="../../../shell/常用命令.md/09 cut&paste.html">
+            
+                <a href="../../../shell/常用命令.md/09 cut&paste.html">
+            
+                    
+                    09 cut&paste
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.10" data-path="../../../shell/常用命令.md/10 diff&cmp&comm.html">
+            
+                <a href="../../../shell/常用命令.md/10 diff&cmp&comm.html">
+            
+                    
+                    10 diff&cmp&comm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.11" data-path="../../../shell/常用命令.md/11 sort&uniq&wc.html">
+            
+                <a href="../../../shell/常用命令.md/11 sort&uniq&wc.html">
+            
+                    
+                    11 sort&uniq&wc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.12" data-path="../../../shell/常用命令.md/12 find&xargs.html">
+            
+                <a href="../../../shell/常用命令.md/12 find&xargs.html">
+            
+                    
+                    12 find&xargs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.13" data-path="../../../shell/常用命令.md/13 lsof.html">
+            
+                <a href="../../../shell/常用命令.md/13 lsof.html">
+            
+                    
+                    13 lsof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.14" data-path="../../../shell/常用命令.md/temp.html">
+            
+                <a href="../../../shell/常用命令.md/temp.html">
+            
+                    
+                    temp
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../../shell/待整理.html">
+            
+                <a href="../../../shell/待整理.html">
+            
+                    
+                    待整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../../容器/readme.html">
+            
+                <a href="../../../容器/readme.html">
+            
+                    
+                    容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../../容器/docker容器.html">
+            
+                <a href="../../../容器/docker容器.html">
+            
+                    
+                    docker容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../../网络/readme.html">
+            
+                <a href="../../../网络/readme.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../../网络/csrf.html">
+            
+                <a href="../../../网络/csrf.html">
+            
+                    
+                    csrf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../../网络/Linux 网络编程/readme.html">
+            
+                <a href="../../../网络/Linux 网络编程/readme.html">
+            
+                    
+                    Linux 网络编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.2.1" data-path="../../../网络/Linux 网络编程/01 stream socket.html">
+            
+                <a href="../../../网络/Linux 网络编程/01 stream socket.html">
+            
+                    
+                    01 stream socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.2" data-path="../../../网络/Linux 网络编程/02 datagram socket.html">
+            
+                <a href="../../../网络/Linux 网络编程/02 datagram socket.html">
+            
+                    
+                    02 datagram socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.3" data-path="../../../网络/Linux 网络编程/03 unix domain socket.html">
+            
+                <a href="../../../网络/Linux 网络编程/03 unix domain socket.html">
+            
+                    
+                    03 unix domain socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.4" data-path="../../../网络/Linux 网络编程/04 raw socket.html">
+            
+                <a href="../../../网络/Linux 网络编程/04 raw socket.html">
+            
+                    
+                    04 raw socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.5" data-path="../../../网络/Linux 网络编程/05 select.html">
+            
+                <a href="../../../网络/Linux 网络编程/05 select.html">
+            
+                    
+                    05 select
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.6" data-path="../../../网络/Linux 网络编程/06 poll.html">
+            
+                <a href="../../../网络/Linux 网络编程/06 poll.html">
+            
+                    
+                    06 poll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.7" data-path="../../../网络/Linux 网络编程/07 epoll.html">
+            
+                <a href="../../../网络/Linux 网络编程/07 epoll.html">
+            
+                    
+                    07 epoll
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../../../网络/nettools/readme.html">
+            
+                <a href="../../../网络/nettools/readme.html">
+            
+                    
+                    nettools
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.3.1" data-path="../../../网络/nettools/arp-scan.html">
+            
+                <a href="../../../网络/nettools/arp-scan.html">
+            
+                    
+                    arp-scan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.2" data-path="../../../网络/nettools/arping.html">
+            
+                <a href="../../../网络/nettools/arping.html">
+            
+                    
+                    arping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.3" data-path="../../../网络/nettools/host.html">
+            
+                <a href="../../../网络/nettools/host.html">
+            
+                    
+                    host
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.4" data-path="../../../网络/nettools/iproute2-ip.html">
+            
+                <a href="../../../网络/nettools/iproute2-ip.html">
+            
+                    
+                    iproute2-ip
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.5" data-path="../../../网络/nettools/iptables.html">
+            
+                <a href="../../../网络/nettools/iptables.html">
+            
+                    
+                    iptables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.6" data-path="../../../网络/nettools/netcat.html">
+            
+                <a href="../../../网络/nettools/netcat.html">
+            
+                    
+                    netcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.7" data-path="../../../网络/nettools/nettools-arp.html">
+            
+                <a href="../../../网络/nettools/nettools-arp.html">
+            
+                    
+                    nettools-arp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.8" data-path="../../../网络/nettools/nettools-hostname.html">
+            
+                <a href="../../../网络/nettools/nettools-hostname.html">
+            
+                    
+                    nettools-hostname
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.9" data-path="../../../网络/nettools/nettools-ifconfig.html">
+            
+                <a href="../../../网络/nettools/nettools-ifconfig.html">
+            
+                    
+                    nettools-ifconfig
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.10" data-path="../../../网络/nettools/nettools-netstat.html">
+            
+                <a href="../../../网络/nettools/nettools-netstat.html">
+            
+                    
+                    nettools-netstat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.11" data-path="../../../网络/nettools/nettools-route.html">
+            
+                <a href="../../../网络/nettools/nettools-route.html">
+            
+                    
+                    nettools-route
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.12" data-path="../../../网络/nettools/temp.html">
+            
+                <a href="../../../网络/nettools/temp.html">
+            
+                    
+                    temp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.13" data-path="../../../网络/nettools/tmpdump.html">
+            
+                <a href="../../../网络/nettools/tmpdump.html">
+            
+                    
+                    tmpdump
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../../../网络/oauth.html">
+            
+                <a href="../../../网络/oauth.html">
+            
+                    
+                    oauth
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../../../网络/REST&RESTful.html">
+            
+                <a href="../../../网络/REST&RESTful.html">
+            
+                    
+                    REST&RESTful
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../../../网络/ssh-tunnel.html">
+            
+                <a href="../../../网络/ssh-tunnel.html">
+            
+                    
+                    ssh-tunnel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../../../网络/协议/readme.html">
+            
+                <a href="../../../网络/协议/readme.html">
+            
+                    
+                    协议
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.7.1" data-path="../../../网络/协议/01网络协议概览.html">
+            
+                <a href="../../../网络/协议/01网络协议概览.html">
+            
+                    
+                    01网络协议概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.2" data-path="../../../网络/协议/02 以太网与WiFi协议.html">
+            
+                <a href="../../../网络/协议/02 以太网与WiFi协议.html">
+            
+                    
+                    02 以太网与WiFi协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.3" data-path="../../../网络/协议/03 IP包的路由.html">
+            
+                <a href="../../../网络/协议/03 IP包的路由.html">
+            
+                    
+                    03 IP包的路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.4" data-path="../../../网络/协议/04 IP地址的分配.html">
+            
+                <a href="../../../网络/协议/04 IP地址的分配.html">
+            
+                    
+                    04 IP地址的分配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.5" data-path="../../../网络/协议/05 IP协议详解.html">
+            
+                <a href="../../../网络/协议/05 IP协议详解.html">
+            
+                    
+                    05 IP协议详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.6" data-path="../../../网络/协议/06 ICMP协议.html">
+            
+                <a href="../../../网络/协议/06 ICMP协议.html">
+            
+                    
+                    06 ICMP协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.7" data-path="../../../网络/协议/07 UDP.html">
+            
+                <a href="../../../网络/协议/07 UDP.html">
+            
+                    
+                    07 UDP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.8" data-path="../../../网络/协议/08 TCP 概述.html">
+            
+                <a href="../../../网络/协议/08 TCP 概述.html">
+            
+                    
+                    08 TCP 概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.9" data-path="../../../网络/协议/09 TCP 协议字段.html">
+            
+                <a href="../../../网络/协议/09 TCP 协议字段.html">
+            
+                    
+                    09 TCP 协议字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.10" data-path="../../../网络/协议/10 TCP 状态转换.html">
+            
+                <a href="../../../网络/协议/10 TCP 状态转换.html">
+            
+                    
+                    10 TCP 状态转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.11" data-path="../../../网络/协议/11 DNS协议.html">
+            
+                <a href="../../../网络/协议/11 DNS协议.html">
+            
+                    
+                    11 DNS协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.12" data-path="../../../网络/协议/12 CIDR.html">
+            
+                <a href="../../../网络/协议/12 CIDR.html">
+            
+                    
+                    12 CIDR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.13" data-path="../../../网络/协议/13 NAT.html">
+            
+                <a href="../../../网络/协议/13 NAT.html">
+            
+                    
+                    13 NAT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.14" data-path="../../../网络/协议/14 DHCP.html">
+            
+                <a href="../../../网络/协议/14 DHCP.html">
+            
+                    
+                    14 DHCP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.15" data-path="../../../网络/协议/15 http.html">
+            
+                <a href="../../../网络/协议/15 http.html">
+            
+                    
+                    15 http
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.16" data-path="../../../网络/协议/16 http2.html">
+            
+                <a href="../../../网络/协议/16 http2.html">
+            
+                    
+                    16 http2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.17" data-path="../../../网络/协议/17 ssl协议.html">
+            
+                <a href="../../../网络/协议/17 ssl协议.html">
+            
+                    
+                    17 ssl协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.18" data-path="../../../网络/协议/18 数字签名和证书.html">
+            
+                <a href="../../../网络/协议/18 数字签名和证书.html">
+            
+                    
+                    18 数字签名和证书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.19" data-path="../../../网络/协议/19 正向代理&反向代理.html">
+            
+                <a href="../../../网络/协议/19 正向代理&反向代理.html">
+            
+                    
+                    19 正向代理&反向代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../../.." >chapter4-Process Scheduling</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="进程的优先级">进程的优先级</h3>
+<p>调度器分配CPU时间的基本依据，就是进程的优先级。根据程序任务性质的不同，程序可以有不同的执行优先级。根据优先级特点，我们可以把进程分为两种类别。</p>
+<ul>
+<li>实时进程（Real-Time Process）：优先级高、需要尽快被执行的进程。它们一定不能被普通进程所阻挡，例如各种监测系统。</li>
+<li>普通进程（Normal Process）：优先级低、更长执行时间的进程。例如文本编译器、批处理一段文档。</li>
+</ul>
+<p>普通进程根据行为的不同，还可以被分成互动进程（interactive process）和批处理进程（batch process）。互动进程的例子有图形界面，它们可能处在长时间的等待状态，例如等待用户的输入。一旦特定事件发生，互动进程需要尽快被运行响应。一般来说，图形界面的反应时间是50到100毫秒。批处理进程没有与用户交互的，往往在后台被默默地执行。</p>
+<p>linux调度favor interactive process over batch process。</p>
+<p>实时进程由Linux操作系统创造，普通用户只能创建普通进程。两种进程的优先级不同，实时进程的优先级永远高于普通进程。进程的优先级是一个0到139的整数。数字越小，优先级越高。其中，优先级0到99留给实时进程，100到139留给普通进程。</p>
+<p>一个普通进程的默认优先级是120。我们可以用命令nice来修改一个进程的默认优先级。例如有一个可执行程序叫app，执行命令：</p>
+<pre><code>$nice -n -20 ./app
+</code></pre><p>命令中的-20指的是从默认优先级上减去20。通过这个命令，内核会将app进程的默认优先级设置成100，也就是普通进程的最高优先级。命令中的-20可以被换成-20至19中任何一个整数。默认优先级将会变成执行时的静态优先级（static priority）。调度器最终使用的优先级是进程的动态优先级： <code>动态优先级 = 静态优先级 – Bonus + 5</code></p>
+<p>如果这个公式的计算结果小于100或大于139，则为100或139。公式中的Bonus是一个估计值，这个数字越大，代表着它可能越需要被优先执行。如果内核发现这个进程需要经常跟用户交互，将会把Bonus值设置成大于5的数字。如果进程不经常跟用户交互，内核将会把进程的Bonus设置成小于5的数。也就是interactive process的动态优先级要高于batch process。</p>
+<h3 id="on调度器">O(n)调度器</h3>
+<p>Linux 2.4内核推出的O(n)调度器，O(n)表示这个调度器的时间复杂度和活跃进程的数量成正比。</p>
+<p>O(n)调度器把时间分成大量的微小时间片（Epoch）。每次调度的时候，调度器会检查所有处在就绪状态的进程。调度器计算每个进程的优先级，然后选择优先级最高的进程来执行。一旦被调度器切换到执行，进程可以不被打扰地用尽这个时间片。如果进程没有用尽时间片，那么该时间片的剩余时间会增加到下一个时间片中。</p>
+<p>O(n)调度器在每次调度前都要检查所有就绪进程的优先级。这个检查时间和进程中进程数目n成正比，当计算机中有大量进程在运行时，这个调度器的性能将会被大大降低。O(n)调度器是Linux 2.6之前使用的进程调度器。当Java语言逐渐流行后，由于Java虚拟机会创建大量进程，调度器的性能问题变得更加明显。</p>
+<h3 id="o1调度器">O(1)调度器</h3>
+<p>为了解决O(n)调度器的性能问题，O(1)调度器被发明了出来，并从Linux 2.6内核开始使用。顾名思义，O(1)调度器是指调度器每次选择要执行的进程的时间和系统中的进程数量无关。这样，就算系统中有大量的进程，调度器的性能也不会下降。O(1)调度器的创新之处在于，它会把进程按照优先级排好，放入特定的数据结构中。在选择下一个要执行的进程时，调度器不用遍历进程，就可以直接选择优先级最高的进程。</p>
+<p>和O(n)调度器类似，O(1)也是把时间片分配给进程。优先级为120以下的进程时间片为：<code>(140–priority)×20毫秒</code>
+优先级120及以上的进程时间片为：<code>(140–priority)×5 毫秒</code></p>
+<p>这个时间片的分配是有问题的，比如有如下优先级的进程和他们的时间片：
+<img src="../../../../images/os/lkd/lkd-52.png" alt=""></img>
+从表格中你会发现，优先级为110和120的进程的时间片长度差距比120和130之间的大了10倍。也就是说，进程时间片长度的计算存在很大的随机性。</p>
+<p>O(1)调度器创建140个活跃队列和过期队列，对应优先级0到139的进程。一开始，所有进程都会放在活跃队列中。然后操作系统会从优先级最高的活跃队列开始依次选择进程来执行。执行一次后，这个进程会被从活跃队列中剔除。如果这个进程在这次时间片中没有彻底完成，它会被加入优先级相同的过期队列中。当140个活跃队列的所有进程都被执行完后，过期队列中将会有很多进程。调度器将对调优先级相同的活跃队列和过期队列继续执行下去。</p>
+<p>之前说过，linux调度器 favor interactive process over batch process的。尤其是，它希望如果interactive process的特定事件发生，比如用户点击，需要被尽快唤醒运行响应用户操作。
+同时，通常interactive process不需要很长的时间片，而需要的是能及时的响应，而batch process不需要及时响应，而希望获得更长的运行时间。</p>
+<p>假设有两个进程，一个text editor,一个video encoder。显然，text editor 是interactive process,video encoder是batch process。如果我们没有设置进程优先级，则两个进程优先级相同,放在相同的队列。在text editor的时间片用完后(或者没有用完，因为interactive process通常每次响应的运行时间很短)，被放到过期队列中。如果再有特定事件发生，它没有办法及时的响应。也就是这种调度算法not suitable for desktop system with many interactive processes(scheduling latency sensitive application)</p>
+<h3 id="cfs调度器">CFS调度器</h3>
+<p>从2007年发布的Linux 2.6.23版本起，完全公平调度器（CFS，Completely Fair Scheduler）取代了O(1)调度器。CFS调度器不对进程进行任何形式的估计和猜测，它假设所有进程完全公平。这一点和O(1)区分互动和非互动进程的做法完全不同。</p>
+<p>CFS调度器增加了一个虚拟运行时（virtual runtime）的概念。它假设所有进程完全公平，所以所有进程的vruntime应该一样。每次一个进程在CPU中被执行了一段时间，就会增加它虚拟运行时。在每次选择要执行的进程时，不是选择优先级最高的进程，而是选择虚拟运行时最少的进程。完全公平调度器用红黑树取代了O(1)调度器的140个队列。红黑树可以高效地找到虚拟运行最小的进程。</p>
+<p>但如果虚拟运行时就是每个进程的实际运行时间，那么进程的优先级就毫无意义了。CFS调度器会根据进程的优先级来计算一个时间片因子。同样是增加250纳秒的虚拟运行时，优先级低的进程实际获得的可能只有200纳秒的运行时间，而优先级高的进程实际获得可能有300纳秒的运行时间。这样，优先级高的进程就获得了更多的计算资源。</p>
+<p>CFS调度器会根据进程的优先级来计算一个weight。进程运行一段时间后，增加的vtime等于<code>运行的时间/weight</code>,进程优先级越高的，weight越大，增加的vtime就越少，优先级越低的，weight越小，增加的vtime就越多。</p>
+<p>现在对于同样的text editor和video encoder，优先级相同，对应同样的weight。对于text editor,因为每次在运行时，只会运行一小段时间，很快又block了，故而其vtime是会很小的，在它睡眠时，剩下的cpu 时间都在运行video encoder,其vtime是会大于text editor,从而每次text editor 被唤醒后，都会抢占video encoder运行。</p>
+<p>如果进程的优先级不一样，对于优先级高的进程而言，weight高，每次运行增加的vtime小于优先级低的进程，所以其在被唤醒后也会抢占优先级低的进程运行。而我们在设置进程优先级时，互动进程的优先级应该设置得大于非互动进程的优先级。</p>
+<p>同时，权重是几何分布的，如下。</p>
+<pre><code class="lang-c"><span class="hljs-comment">/*nice到weight的对应关系,0对应默认优先级120，也就是没有设置nice*/</span>
+<span class="hljs-type">const</span> <span class="hljs-type">int</span> sched_prio_to_weight[<span class="hljs-number">40</span>] = {
+ <span class="hljs-comment">/* -20 */</span>     <span class="hljs-number">88761</span>,     <span class="hljs-number">71755</span>,     <span class="hljs-number">56483</span>,     <span class="hljs-number">46273</span>,     <span class="hljs-number">36291</span>,
+ <span class="hljs-comment">/* -15 */</span>     <span class="hljs-number">29154</span>,     <span class="hljs-number">23254</span>,     <span class="hljs-number">18705</span>,     <span class="hljs-number">14949</span>,     <span class="hljs-number">11916</span>,
+ <span class="hljs-comment">/* -10 */</span>      <span class="hljs-number">9548</span>,      <span class="hljs-number">7620</span>,      <span class="hljs-number">6100</span>,      <span class="hljs-number">4904</span>,      <span class="hljs-number">3906</span>,
+ <span class="hljs-comment">/*  -5 */</span>      <span class="hljs-number">3121</span>,      <span class="hljs-number">2501</span>,      <span class="hljs-number">1991</span>,      <span class="hljs-number">1586</span>,      <span class="hljs-number">1277</span>,
+ <span class="hljs-comment">/*   0 */</span>      <span class="hljs-number">1024</span>,       <span class="hljs-number">820</span>,       <span class="hljs-number">655</span>,       <span class="hljs-number">526</span>,       <span class="hljs-number">423</span>,
+ <span class="hljs-comment">/*   5 */</span>       <span class="hljs-number">335</span>,       <span class="hljs-number">272</span>,       <span class="hljs-number">215</span>,       <span class="hljs-number">172</span>,       <span class="hljs-number">137</span>,
+ <span class="hljs-comment">/*  10 */</span>       <span class="hljs-number">110</span>,        <span class="hljs-number">87</span>,        <span class="hljs-number">70</span>,        <span class="hljs-number">56</span>,        <span class="hljs-number">45</span>,
+ <span class="hljs-comment">/*  15 */</span>        <span class="hljs-number">36</span>,        <span class="hljs-number">29</span>,        <span class="hljs-number">23</span>,        <span class="hljs-number">18</span>,        <span class="hljs-number">15</span>,
+};
+</code></pre>
+<p>几何分布的权重，对于110和120,120和130这两对进程优先级而言，其权重的比值是一样的，比如110和120，其权重比为9528：1024， 120和130,其比值为1024：110，都是9：1的比例，不会存在O(1)算法中时间片的分配，110和120分配的时间差为500，而120和130，分配的时间差为50.</p>
+<p>CFS记录每个进程的vtime在task_struct中，在timer tick后，计算当前应该增加的vtime:</p>
+<pre><code class="lang-c">vtime=delta*weight/lw.weight
+</code></pre>
+<p>delta就是这次时间运行了多少时间，weight是基准权重，也就是nice为0的权重。当进程nice为0时，vtime就等于delta。lw.weight是自己的权重，权重越大，所算得的vtime越小。</p>
+<p>vtime的计算，在每次system timer tick之后都会计算。</p>
+<p>新创建的进程，会变为runnable状态，但其vtime并不能为0，而是当前所有runnable进程的vtime的最小值，这能保证该进程被较快地执行。</p>
+<h3 id="内核调度相关代码">内核调度相关代码</h3>
+<h4 id="struct-schedclass">struct sched_class</h4>
+<p>linux使用sched_class表示调度类，并创建调度实时进程和调度普通进程的实例。实时进程的调度优先于普通进程。还有调度idle进程的实例，用于在没有进程时调度idle进程，如下</p>
+<p>注意其中的enqueue_task，dequeue_task，check_preempt_curr，pick_next_task，put_prev_task这几个比较重要的方法。每个不同的调度实例的实现不一样。</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-type">const</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">sched_class</span> <span class="hljs-title">rt_sched_class</span> =</span> {
+    .next            = &amp;fair_sched_class,
+    .enqueue_task        = enqueue_task_rt,
+    .dequeue_task        = dequeue_task_rt,
+    .yield_task        = yield_task_rt,
+
+    .check_preempt_curr    = check_preempt_curr_rt,
+
+    .pick_next_task        = pick_next_task_rt,
+    .put_prev_task        = put_prev_task_rt,
+<span class="hljs-comment">//.....</span>
+};
+<span class="hljs-type">static</span> <span class="hljs-type">const</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">sched_class</span> <span class="hljs-title">fair_sched_class</span> =</span> {
+    .next            = &amp;idle_sched_class,
+    .enqueue_task        = enqueue_task_fair,
+    .dequeue_task        = dequeue_task_fair,
+    .yield_task        = yield_task_fair,
+
+    .check_preempt_curr    = check_preempt_wakeup,
+
+    .pick_next_task        = pick_next_task_fair,
+    .put_prev_task        = put_prev_task_fair,
+<span class="hljs-comment">//...</span>
+};
+
+<span class="hljs-comment">/*
+ * Simple, special scheduling class for the per-CPU idle tasks:
+ */</span>
+<span class="hljs-type">static</span> <span class="hljs-type">const</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">sched_class</span> <span class="hljs-title">idle_sched_class</span> =</span> {
+    <span class="hljs-comment">/* .next is NULL */</span>
+    <span class="hljs-comment">/* no enqueue/yield_task for idle tasks */</span>
+
+    <span class="hljs-comment">/* dequeue is not valid, we print a debug message there: */</span>
+    .dequeue_task        = dequeue_task_idle,
+
+    .check_preempt_curr    = check_preempt_curr_idle,
+
+    .pick_next_task        = pick_next_task_idle,
+    .put_prev_task        = put_prev_task_idle,
+<span class="hljs-comment">//...</span>
+};
+</code></pre>
+<p>最高优先级是<code>rt_sched_class</code></p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> sched_class_highest (&amp;rt_sched_class)</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> for_each_class(class) \
+   for (class = sched_class_highest; class; class = class-&gt;next)</span>
+</code></pre>
+<p>调度例程的入口是schedule()，其调用pick_next_task(),go through each scheduler class object,返回可调度进程</p>
+<pre><code class="lang-c"><span class="hljs-comment">//rq是每个cpu的runqueue,其中主要包括cfs_rq 和rt_rq</span>
+<span class="hljs-type">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">struct</span> task_struct *
+<span class="hljs-title function_">pick_next_task</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> rq *rq)</span>
+{
+    <span class="hljs-type">const</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">sched_class</span> *<span class="hljs-keyword">class</span>;</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">task_struct</span> *<span class="hljs-title">p</span>;</span>
+
+    <span class="hljs-comment">/*
+     * Optimization: we know that if all tasks are in
+     * the fair class we can call that function directly:
+     */</span>
+    <span class="hljs-keyword">if</span> (likely(rq-&gt;nr_running == rq-&gt;cfs.nr_running)) {
+        p = fair_sched_class.pick_next_task(rq);
+        <span class="hljs-keyword">if</span> (likely(p))
+            <span class="hljs-keyword">return</span> p;
+    }
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> =</span> sched_class_highest;
+    <span class="hljs-keyword">for</span> ( ; ; ) {
+        p = class-&gt;pick_next_task(rq);
+        <span class="hljs-keyword">if</span> (p)
+            <span class="hljs-keyword">return</span> p;
+        <span class="hljs-comment">/*
+         * Will never be NULL as the idle class object  always
+         * returns a non-NULL p:
+         */</span>
+        <span class="hljs-class"><span class="hljs-keyword">class</span> =</span> <span class="hljs-class"><span class="hljs-keyword">class</span>-&gt;</span>next;
+    }
+}
+</code></pre>
+<h4 id="wait-queue">wait queue</h4>
+<p>进程在某个条件不满足时，可以睡眠在等待队列上，等待某个条件的满足。内核提供的等待队列数据结构如下</p>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> __<span class="hljs-title">wait_queue_head</span> {</span>
+    <span class="hljs-type">spinlock_t</span> lock;
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">task_list</span>;</span>
+};
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> __<span class="hljs-title">wait_queue_head</span> <span class="hljs-title">wait_queue_head_t</span>;</span>
+</code></pre>
+<p>其中task_list指向等待队列链表，链表结构元素如下</p>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> __<span class="hljs-title">wait_queue</span> {</span>
+    <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> flags;
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> WQ_FLAG_EXCLUSIVE    0x01</span>
+    <span class="hljs-type">void</span> *private;
+    <span class="hljs-type">wait_queue_func_t</span> func;
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">task_list</span>;</span>
+};
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> __<span class="hljs-title">wait_queue</span> <span class="hljs-title">wait_queue_t</span>;</span>
+<span class="hljs-keyword">typedef</span> <span class="hljs-title function_">int</span> <span class="hljs-params">(*<span class="hljs-type">wait_queue_func_t</span>)</span><span class="hljs-params">(<span class="hljs-type">wait_queue_t</span> *wait, <span class="hljs-type">unsigned</span> mode, <span class="hljs-type">int</span> flags, <span class="hljs-type">void</span> *key)</span>;
+</code></pre>
+<p>其中private指向task_struct进程描述符，func为唤醒时需要执行的函数。</p>
+<p>内核提供了DEFINE_WAIT宏给当前进程初始化一个wait_queue_t对象，如下</p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> DEFINE_WAIT_FUNC(name, function)                \
+    wait_queue_t name = {                        \
+        .private    = current,                \
+        .func        = function,                \
+        .task_list    = LIST_HEAD_INIT((name).task_list),    \
+    }</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> DEFINE_WAIT(name) DEFINE_WAIT_FUNC(name, autoremove_wake_function)</span>
+</code></pre>
+<p>其中函数autoremove_wake_function的执行如下，在try_to_wake_up()成功后，会将进程的wait_queue_t对象从等待队列中移出。详细见后文描述。</p>
+<pre><code class="lang-c"><span class="hljs-type">int</span> <span class="hljs-title function_">autoremove_wake_function</span><span class="hljs-params">(<span class="hljs-type">wait_queue_t</span> *wait, <span class="hljs-type">unsigned</span> mode, <span class="hljs-type">int</span> sync, <span class="hljs-type">void</span> *key)</span>
+{
+    <span class="hljs-type">int</span> ret = default_wake_function(wait, mode, sync, key);
+
+    <span class="hljs-keyword">if</span> (ret)
+        list_del_init(&amp;wait-&gt;task_list);
+    <span class="hljs-keyword">return</span> ret;
+}
+</code></pre>
+<p>一般使用等待队列将当前进程切换到睡眠状态，放入等待队列等待某个条件成立的代码如下</p>
+<pre><code class="lang-c">DEFINE_WAIT(wait);
+<span class="hljs-comment">//q为需要加入的等待队列wait_queue_head_t</span>
+<span class="hljs-comment">//将wait加入q链表</span>
+add_wait_queue(q,&amp;wait);
+
+<span class="hljs-keyword">while</span>(!condition){
+    prepare_to_wait(&amp;q,&amp;wait,TASK_INTERRUPTIBLE);
+    <span class="hljs-keyword">if</span>(signal_pending(current))
+        <span class="hljs-comment">/*handle signal*/</span>
+    schedule();
+}
+
+<span class="hljs-comment">//将当前进程状态设置为TASK_RUNNING，并从q链表中移出</span>
+finish_wait(&amp;q,&amp;wait);
+</code></pre>
+<p>prepare_to_wait:</p>
+<pre><code class="lang-c">prepare_to_wait(<span class="hljs-type">wait_queue_head_t</span> *q, <span class="hljs-type">wait_queue_t</span> *wait, <span class="hljs-type">int</span> state)
+{
+    <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> flags;
+    <span class="hljs-comment">//...</span>
+    spin_lock_irqsave(&amp;q-&gt;lock, flags);
+    <span class="hljs-keyword">if</span> (list_empty(&amp;wait-&gt;task_list))
+        __add_wait_queue(q, wait);
+    set_current_state(state);
+    spin_unlock_irqrestore(&amp;q-&gt;lock, flags);
+}
+</code></pre>
+<p>prepare_to_wait除了将状态设置为睡眠状态(TASK_INTERRUPTIBLE or TASK_UNINTERRUPTIBLE),基本又重复执行了add_wait_queue中执行的部分，这里是为了防止提前被信号唤醒，而条件并没有满足，如果唤醒时执行的函数中将wait从等待队列中删除，比如autoremove_wake_function,还需要再次执行放到等待队列中。</p>
+<h4 id="wake-up">wake up</h4>
+<p>唤醒函数为__wake_up,会唤醒等待队列上task。如下，就是简单的调用wait_queue_t.func，也就是唤醒时需要执行的函数</p>
+<pre><code class="lang-c"><span class="hljs-type">void</span> __wake_up(<span class="hljs-type">wait_queue_head_t</span> *q, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> mode,
+            <span class="hljs-type">int</span> nr_exclusive, <span class="hljs-type">void</span> *key)
+{
+    <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> flags;
+
+    spin_lock_irqsave(&amp;q-&gt;lock, flags);
+    __wake_up_common(q, mode, nr_exclusive, <span class="hljs-number">0</span>, key);
+    spin_unlock_irqrestore(&amp;q-&gt;lock, flags);
+}
+
+
+<span class="hljs-type">static</span> <span class="hljs-type">void</span> __wake_up_common(<span class="hljs-type">wait_queue_head_t</span> *q, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> mode,
+            <span class="hljs-type">int</span> nr_exclusive, <span class="hljs-type">int</span> wake_flags, <span class="hljs-type">void</span> *key)
+{
+    <span class="hljs-type">wait_queue_t</span> *curr, *next;
+
+    list_for_each_entry_safe(curr, next, &amp;q-&gt;task_list, task_list) {
+        <span class="hljs-type">unsigned</span> flags = curr-&gt;flags;
+
+        <span class="hljs-keyword">if</span> (curr-&gt;func(curr, mode, wake_flags, key) &amp;&amp;
+                (flags &amp; WQ_FLAG_EXCLUSIVE) &amp;&amp; !--nr_exclusive)
+            <span class="hljs-keyword">break</span>;
+    }
+}
+</code></pre>
+<p>宏DEFINE_WAIT创建wait_queue_t时，传入的是autoremove_wake_function函数，定义如下</p>
+<pre><code class="lang-c"><span class="hljs-type">int</span> <span class="hljs-title function_">autoremove_wake_function</span><span class="hljs-params">(<span class="hljs-type">wait_queue_t</span> *wait, <span class="hljs-type">unsigned</span> mode, <span class="hljs-type">int</span> sync, <span class="hljs-type">void</span> *key)</span>
+{
+    <span class="hljs-type">int</span> ret = default_wake_function(wait, mode, sync, key);
+
+    <span class="hljs-keyword">if</span> (ret)
+        list_del_init(&amp;wait-&gt;task_list);
+    <span class="hljs-keyword">return</span> ret;
+}
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">default_wake_function</span><span class="hljs-params">(<span class="hljs-type">wait_queue_t</span> *curr, <span class="hljs-type">unsigned</span> mode, <span class="hljs-type">int</span> wake_flags,
+              <span class="hljs-type">void</span> *key)</span>
+{
+    <span class="hljs-keyword">return</span> try_to_wake_up(curr-&gt;private, mode, wake_flags);
+}
+</code></pre>
+<p>try_to_wake_up(),这个函数主要就是将p加入到runqueue中，然后检查是否需要preempt current，如果需要的话，设置当前进程的need_resched标志(thread_info flags 中的TIF_NEED_RESCHED位)</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">try_to_wake_up</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> task_struct *p, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> state, <span class="hljs-type">int</span> sync)</span>
+{
+    <span class="hljs-comment">//如果success为0返回失败，通常为进程已经是runnable状态</span>
+    <span class="hljs-type">int</span> cpu, this_cpu, success = <span class="hljs-number">0</span>;
+    <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> flags;
+    <span class="hljs-type">long</span> old_state;
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rq</span> *<span class="hljs-title">rq</span>;</span>
+
+<span class="hljs-comment">//...</span>
+    <span class="hljs-comment">//获取该进程应该对应的runqueue</span>
+    rq = task_rq_lock(p, &amp;flags);
+    old_state = p-&gt;state;
+    <span class="hljs-comment">//p的状态已经是TASK_RUNNING了，返回失败(success为0)</span>
+    <span class="hljs-keyword">if</span> (!(old_state &amp; state))
+        <span class="hljs-keyword">goto</span> out;
+    <span class="hljs-comment">//p已经在runqueue上了，将状态设置为TASK_RUNING,返回失败(success为0)</span>
+    <span class="hljs-keyword">if</span> (p-&gt;se.on_rq)
+        <span class="hljs-keyword">goto</span> out_running;
+
+    cpu = task_cpu(p);
+    this_cpu = smp_processor_id();
+
+<span class="hljs-comment">//...</span>
+
+    update_rq_clock(rq);
+    <span class="hljs-comment">//将p enqueue 到 runqueue上</span>
+    activate_task(rq, p, <span class="hljs-number">1</span>);
+
+    <span class="hljs-comment">/*
+     * Sync wakeups (i.e. those types of wakeups where the waker
+     * has indicated that it will leave the CPU in short order)
+     * don't trigger a preemption, if the woken up task will run on
+     * this cpu. (in this case the 'I will reschedule' promise of
+     * the waker guarantees that the freshly woken up task is going
+     * to be considered on this CPU.)
+     */</span>
+
+    <span class="hljs-comment">//如果sync标志被设置了，表示waker has indicated that it will leave the CPU in short order and don't trigger a preemption。 同时,sync标志也只能在p 和current在同一个cpu上是才能被设置。</span>
+    <span class="hljs-comment">//cpu != this_cpu,则检查是否需要抢占，应该在另一个cpu的runqueue上进行，所以也是需要检查preemption的。</span>
+    <span class="hljs-comment">//也就是通常情况下，这里都需要做preemtion检查</span>
+    <span class="hljs-keyword">if</span> (!sync || cpu != this_cpu)
+        <span class="hljs-comment">//检查是否需要preempt current process.</span>
+        <span class="hljs-comment">//如果是普通进程，使用fair_sched_class.check_preempt_curr方法</span>
+        <span class="hljs-comment">//如果需要preempt current process，则给current process 的thread_info 设置need_resched标志。</span>
+        check_preempt_curr(rq, p);
+    success = <span class="hljs-number">1</span>;
+
+out_running:
+    p-&gt;state = TASK_RUNNING;
+out:
+    task_rq_unlock(rq, &amp;flags);
+
+    <span class="hljs-keyword">return</span> success;
+}
+
+<span class="hljs-type">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title function_">check_preempt_curr</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> rq *rq, <span class="hljs-keyword">struct</span> task_struct *p)</span>
+{
+    rq-&gt;curr-&gt;sched_class-&gt;check_preempt_curr(rq, p);
+}
+</code></pre>
+<p>fair_sched_class.check_preempt_curr方法检查完需要preempt current，则执行resched_task函数，设置当前进程的struct thread_info中的flags field中的TIF_NEED_RESCHED标志。第三章中我们说过，当前进程的struct thread_info 存储在内核栈栈顶。</p>
+<pre><code class="lang-c"><span class="hljs-comment">/*
+ * resched_task - mark a task 'to be rescheduled now'.
+ *
+ * On UP this means the setting of the need_resched flag, on SMP it
+ * might also involve a cross-CPU call to trigger the scheduler on
+ * the target CPU.
+ */</span>
+<span class="hljs-type">static</span> <span class="hljs-type">void</span> <span class="hljs-title function_">resched_task</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> task_struct *p)</span>
+{
+    <span class="hljs-type">int</span> cpu;
+
+    assert_raw_spin_locked(&amp;task_rq(p)-&gt;lock);
+
+    <span class="hljs-keyword">if</span> (test_tsk_need_resched(p))
+        <span class="hljs-keyword">return</span>;
+
+    set_tsk_need_resched(p);
+
+    cpu = task_cpu(p);
+    <span class="hljs-keyword">if</span> (cpu == smp_processor_id())
+        <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-comment">/* NEED_RESCHED must be visible before we test polling */</span>
+    smp_mb();
+    <span class="hljs-keyword">if</span> (!tsk_is_polling(p))
+        smp_send_reschedule(cpu);
+}
+</code></pre>
+<p>由此可见，当一个睡眠在等待队列的进程被唤醒后，他是放入runnable queue等待被调度。而根据cfs调度算法判断当前正在运行的进程需要被resched放弃cpu后，cfs调度算法会设置当前进程的need_resched标志。如果当前进程的need_resched标志被设置了，很快schedule()函数就会在某个执行路径上被执行。</p>
+<h3 id="context-switching">Context Switching</h3>
+<p>context switch,是由context_switch函数完成的，schedule()会调用context_switch做进程上下文切换。这个函数主要完成两部分功能</p>
+<ul>
+<li>switch_mm(),定义在<asm mmu_context.h="">中，执行地址空间的切换。（其实主要是设置处理器的global页表地址寄存器）</asm></li>
+<li>switch_to():定义在<asm system.h="">中，做上下文切换，这里包括保存当前进程的上下文（栈寄存器，通用寄存器和其他一些体系结构需要的信息），将cpu上下文切换为需要调用的新进程。</asm></li>
+</ul>
+<h3 id="preemption">Preemption</h3>
+<p>之前我们说过，try_to_wake_up()在唤醒某个进程后，会检查当前进程是否需要preempt,如果需要，设置当前进程的need_resched标志。
+同时，每次system timer tick后，scheduler_tick()函数也会检查是否需要preempt current process并设置need_resched标志
+如果当前进程的need_resched标志被设置了，很快schedule()函数就会在某个执行路径上被执行。
+<img src="../../../../images/os/lkd/lkd-7.png" alt=""></img></p>
+<p>那么当前进程被Preempted的具体时机有哪些呢？也就是哪些执行路径上会检查need_resched标志并调用schedule()函数？</p>
+<ul>
+<li><p>user Preemption
+  当从内核空间返回用户空间，都会检查need_resched flag,如果设置了，会调用schedule(),这种preemption 叫做user preemption.
+  这些返回路径代码是architecture-dependent，定义在entry.S中。</p>
+</li>
+<li><p>kernel Preemption
+  linux内核从2.6版本开始，支持kernel的抢占，即使当前进程运行在内核态，也是可被抢占的，只要kernel所处的状态is safe to reschedule.</p>
+<p>  当当前进程没有hold a lock时，即使其处于内核态，也是可以被抢占的。thread_info中的preempt_count 计数其当前持有的锁数量。当preempt_count为0时，当前task是抢占安全的。</p>
+<ul>
+<li>当从interrupt_handler返回到 kernel space,如果need_resched标志设置了，并且preempt_count为0，系统会调用schudule()。</li>
+<li>当preempt_count减为0时，表示现在可安全被调度，这时内核会检查need_resched是否被设置了，如果设置了，会调用schedule().</li>
+<li>内核代码显示调用schedule(),比如内核态的进程在执行内核代码时阻塞了，如之前所示，会将自己放入等待队列中并显示调用schedule(). 当然这种情况下的调度是否是安全的，比如当前是否持有锁，需要内核代码自己保证</li>
+</ul>
+</li>
+</ul>
+<h3 id="real-time-scheduling-policies">Real-Time Scheduling Policies</h3>
+<p>实时进程的优先级从0到99，数据越大，优先级越高。
+normal进程的优先级从100到139，数据越大，优先级越低。对应的nice为-20~+19。
+每个进程都对应某个调度策略，比如normal进程一般调度策略是SCHED_NORMAL,对于实时进程，调度策略有SCHED_FIFO和SCHED_RR.
+进程的调度策略存储在task_struct中的policy字段中。</p>
+<pre><code class="lang-c"><span class="hljs-comment">/*
+ * Scheduling policies
+ */</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> SCHED_NORMAL        0</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> SCHED_FIFO        1</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> SCHED_RR        2</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> SCHED_BATCH        3</span>
+<span class="hljs-comment">/* SCHED_ISO: reserved but not implemented yet */</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> SCHED_IDLE        5</span>
+</code></pre>
+<div class="navPagesContainer"> <div class="navPagesLinks"> <a class="card cardPrevious"> <div class="cardIcon"> <i class="fa fa-angle-left"></i> </div> <div class="cardPreviousBody"> <div class="cardHint"> <span>Previous</span> </div> <div class="cardTitle"> <span>chapter3-Process Management</span> </div> </div> </a> <a class="card cardNext"> <div class="cardNextBody"> <div class="cardHint"> <span>Next</span> </div> <div class="cardTitle"> <span>chapter5-System Calls</span> </div> </div> <div class="cardIcon"> <i class="fa fa-angle-right"></i> </div> </a> </div> </div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter3-Process Management.html" class="navigation navigation-prev " aria-label="Previous page: chapter3-Process Management">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter5-System Calls.html" class="navigation navigation-next " aria-label="Next page: chapter5-System Calls">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"chapter4-Process Scheduling","level":"1.4.1.1.4","depth":4,"next":{"title":"chapter5-System Calls","level":"1.4.1.1.5","depth":4,"path":"posts/os/linux/lkd/chapter5-System Calls.md","ref":"./posts/os/linux/lkd/chapter5-System Calls.md","articles":[]},"previous":{"title":"chapter3-Process Management","level":"1.4.1.1.3","depth":4,"path":"posts/os/linux/lkd/chapter3-Process Management.md","ref":"./posts/os/linux/lkd/chapter3-Process Management.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["bottom-navigation","collapsible-menu","livereload"],"pluginsConfig":{"bottom-navigation":{"navPrevSelector":null,"navNextSelector":null,"iconColor":null,"titleColor":null,"borderColor":"#873077","pageInnerWidth":null,"prevText":"Previous","nextText":"Next"},"collapsible-menu":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"posts/os/linux/lkd/chapter4-Process Scheduling.md","mtime":"2024-06-07T01:11:56.000Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-05-02T00:47:25.524Z"},"basePath":"../../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../../../../gitbook/gitbook.js"></script>
+    <script src="../../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-bottom-navigation/stylish.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-bottom-navigation/href.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,4118 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>chapter14-The Virtual Filesystem · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-bottom-navigation/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter15-FileIO and Page Cache.html" />
+    
+    
+    <link rel="prev" href="chapter13-The Process Address Space.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../../">
+            
+                <a href="../../../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../../c&c++/readme.html">
+            
+                <a href="../../../c&c++/readme.html">
+            
+                    
+                    c&c++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../../c&c++/boost asio/readme.html">
+            
+                <a href="../../../c&c++/boost asio/readme.html">
+            
+                    
+                    boost asio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../../c&c++/c++2.0/readme.html">
+            
+                <a href="../../../c&c++/c++2.0/readme.html">
+            
+                    
+                    c++2.0
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../../../c&c++/c++2.0/01 decltype.html">
+            
+                <a href="../../../c&c++/c++2.0/01 decltype.html">
+            
+                    
+                    01 decltype
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../../../c&c++/c++2.0/02 auto & decltype(auto">
+            
+                <span>
+            
+                    
+                    02 auto & decltype(auto)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../../../c&c++/c++2.0/03 value categories & rvalue reference.html">
+            
+                <a href="../../../c&c++/c++2.0/03 value categories & rvalue reference.html">
+            
+                    
+                    03 value categories & rvalue reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../../../c&c++/c++2.0/04 universal reference & reference collpsing.html">
+            
+                <a href="../../../c&c++/c++2.0/04 universal reference & reference collpsing.html">
+            
+                    
+                    04 universal reference & reference collpsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../../../c&c++/c++2.0/05 move semantics.html">
+            
+                <a href="../../../c&c++/c++2.0/05 move semantics.html">
+            
+                    
+                    05 move semantics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../../../c&c++/c++2.0/06 perfect forwarding.html">
+            
+                <a href="../../../c&c++/c++2.0/06 perfect forwarding.html">
+            
+                    
+                    06 perfect forwarding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../../../c&c++/c++2.0/07 lambda.html">
+            
+                <a href="../../../c&c++/c++2.0/07 lambda.html">
+            
+                    
+                    07 lambda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="../../../c&c++/c++2.0/08 可变模板.html">
+            
+                <a href="../../../c&c++/c++2.0/08 可变模板.html">
+            
+                    
+                    08 可变模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="../../../c&c++/c++2.0/09 uniform initialzation.html">
+            
+                <a href="../../../c&c++/c++2.0/09 uniform initialzation.html">
+            
+                    
+                    09 uniform initialzation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="../../../c&c++/c++2.0/10 template alias.html">
+            
+                <a href="../../../c&c++/c++2.0/10 template alias.html">
+            
+                    
+                    10 template alias
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="../../../c&c++/c++2.0/11 function.html">
+            
+                <a href="../../../c&c++/c++2.0/11 function.html">
+            
+                    
+                    11 function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="../../../c&c++/c++2.0/12 bind.html">
+            
+                <a href="../../../c&c++/c++2.0/12 bind.html">
+            
+                    
+                    12 bind
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.13" data-path="../../../c&c++/c++2.0/13 keywords.html">
+            
+                <a href="../../../c&c++/c++2.0/13 keywords.html">
+            
+                    
+                    13 keywords
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.14" data-path="../../../c&c++/c++2.0/14 shared_ptr.html">
+            
+                <a href="../../../c&c++/c++2.0/14 shared_ptr.html">
+            
+                    
+                    14 shared_ptr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.15" data-path="../../../c&c++/c++2.0/15 weak_ptr.html">
+            
+                <a href="../../../c&c++/c++2.0/15 weak_ptr.html">
+            
+                    
+                    15 weak_ptr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.16" data-path="../../../c&c++/c++2.0/16 unique_ptr.html">
+            
+                <a href="../../../c&c++/c++2.0/16 unique_ptr.html">
+            
+                    
+                    16 unique_ptr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.17" data-path="../../../c&c++/c++2.0/17 declval.html">
+            
+                <a href="../../../c&c++/c++2.0/17 declval.html">
+            
+                    
+                    17 declval
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../../c&c++/exceptional c++/readme.html">
+            
+                <a href="../../../c&c++/exceptional c++/readme.html">
+            
+                    
+                    exceptional c++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../../../c&c++/exceptional c++/item1.html">
+            
+                <a href="../../../c&c++/exceptional c++/item1.html">
+            
+                    
+                    item1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../../../c&c++/exceptional c++/item2.html">
+            
+                <a href="../../../c&c++/exceptional c++/item2.html">
+            
+                    
+                    item2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../../../c&c++/exceptional c++/item5.html">
+            
+                <a href="../../../c&c++/exceptional c++/item5.html">
+            
+                    
+                    item5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../../../c&c++/exceptional c++/item6.html">
+            
+                <a href="../../../c&c++/exceptional c++/item6.html">
+            
+                    
+                    item6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../../../c&c++/exceptional c++/item8.html">
+            
+                <a href="../../../c&c++/exceptional c++/item8.html">
+            
+                    
+                    item8
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../../../c&c++/exceptional c++/item20.html">
+            
+                <a href="../../../c&c++/exceptional c++/item20.html">
+            
+                    
+                    item20
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../../../c&c++/exceptional c++/item21.html">
+            
+                <a href="../../../c&c++/exceptional c++/item21.html">
+            
+                    
+                    item21
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../../../c&c++/exceptional c++/item22.html">
+            
+                <a href="../../../c&c++/exceptional c++/item22.html">
+            
+                    
+                    item22
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.9" data-path="../../../c&c++/exceptional c++/item23.html">
+            
+                <a href="../../../c&c++/exceptional c++/item23.html">
+            
+                    
+                    item23
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.10" data-path="../../../c&c++/exceptional c++/item24.html">
+            
+                <a href="../../../c&c++/exceptional c++/item24.html">
+            
+                    
+                    item24
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.11" data-path="../../../c&c++/exceptional c++/item26.html">
+            
+                <a href="../../../c&c++/exceptional c++/item26.html">
+            
+                    
+                    item26
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.12" data-path="../../../c&c++/exceptional c++/item29.html">
+            
+                <a href="../../../c&c++/exceptional c++/item29.html">
+            
+                    
+                    item29
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.13" data-path="../../../c&c++/exceptional c++/item31.html">
+            
+                <a href="../../../c&c++/exceptional c++/item31.html">
+            
+                    
+                    item31
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.14" data-path="../../../c&c++/exceptional c++/item38.html">
+            
+                <a href="../../../c&c++/exceptional c++/item38.html">
+            
+                    
+                    item38
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.15" data-path="../../../c&c++/exceptional c++/item40.html">
+            
+                <a href="../../../c&c++/exceptional c++/item40.html">
+            
+                    
+                    item40
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.16" data-path="../../../c&c++/exceptional c++/item43.html">
+            
+                <a href="../../../c&c++/exceptional c++/item43.html">
+            
+                    
+                    item43
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.17" data-path="../../../c&c++/exceptional c++/item47.html">
+            
+                <a href="../../../c&c++/exceptional c++/item47.html">
+            
+                    
+                    item47
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../../c&c++/inside the c++ object model/readme.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/readme.html">
+            
+                    
+                    inside the c++ object model
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../../../c&c++/inside the c++ object model/Chapter 1. Object Lessons.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/Chapter 1. Object Lessons.html">
+            
+                    
+                    Chapter 1. Object Lessons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../../../c&c++/inside the c++ object model/Chapter 2. The Semantics of Constructors.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/Chapter 2. The Semantics of Constructors.html">
+            
+                    
+                    Chapter 2. The Semantics of Constructors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="../../../c&c++/inside the c++ object model/Chapter 3. The Semantics of Data.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/Chapter 3. The Semantics of Data.html">
+            
+                    
+                    Chapter 3. The Semantics of Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="../../../c&c++/inside the c++ object model/Chapter 4. The Semantics of Function.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/Chapter 4. The Semantics of Function.html">
+            
+                    
+                    Chapter 4. The Semantics of Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="../../../c&c++/inside the c++ object model/Chapter 5. Semantics of Construction, Destruction, and Copy.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/Chapter 5. Semantics of Construction, Destruction, and Copy.html">
+            
+                    
+                    Chapter 5. Semantics of Construction, Destruction, and Copy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.6" data-path="../../../c&c++/inside the c++ object model/Chapter 6. Runtime Semantics.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/Chapter 6. Runtime Semantics.html">
+            
+                    
+                    Chapter 6. Runtime Semantics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.7" data-path="../../../c&c++/inside the c++ object model/Chapter 7. On the Cusp of the Object Model.html">
+            
+                <a href="../../../c&c++/inside the c++ object model/Chapter 7. On the Cusp of the Object Model.html">
+            
+                    
+                    Chapter 7. On the Cusp of the Object Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../../c&c++/more exceptional c++/readme.html">
+            
+                <a href="../../../c&c++/more exceptional c++/readme.html">
+            
+                    
+                    more exceptional c++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="../../../c&c++/more exceptional c++/item1.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item1.html">
+            
+                    
+                    item1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="../../../c&c++/more exceptional c++/item4.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item4.html">
+            
+                    
+                    item4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="../../../c&c++/more exceptional c++/item5.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item5.html">
+            
+                    
+                    item5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.4" data-path="../../../c&c++/more exceptional c++/item6.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item6.html">
+            
+                    
+                    item6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.5" data-path="../../../c&c++/more exceptional c++/item11.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item11.html">
+            
+                    
+                    item11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.6" data-path="../../../c&c++/more exceptional c++/item13.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item13.html">
+            
+                    
+                    item13
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.7" data-path="../../../c&c++/more exceptional c++/item17.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item17.html">
+            
+                    
+                    item17
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.8" data-path="../../../c&c++/more exceptional c++/item19.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item19.html">
+            
+                    
+                    item19
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.9" data-path="../../../c&c++/more exceptional c++/item20.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item20.html">
+            
+                    
+                    item20
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.10" data-path="../../../c&c++/more exceptional c++/item22.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item22.html">
+            
+                    
+                    item22
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.11" data-path="../../../c&c++/more exceptional c++/item23.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item23.html">
+            
+                    
+                    item23
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.12" data-path="../../../c&c++/more exceptional c++/item24.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item24.html">
+            
+                    
+                    item24
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.13" data-path="../../../c&c++/more exceptional c++/item25.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item25.html">
+            
+                    
+                    item25
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.14" data-path="../../../c&c++/more exceptional c++/item26.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item26.html">
+            
+                    
+                    item26
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.15" data-path="../../../c&c++/more exceptional c++/item27.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item27.html">
+            
+                    
+                    item27
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.16" data-path="../../../c&c++/more exceptional c++/item28.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item28.html">
+            
+                    
+                    item28
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.17" data-path="../../../c&c++/more exceptional c++/item29.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item29.html">
+            
+                    
+                    item29
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.18" data-path="../../../c&c++/more exceptional c++/item32.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item32.html">
+            
+                    
+                    item32
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.19" data-path="../../../c&c++/more exceptional c++/item33.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item33.html">
+            
+                    
+                    item33
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.20" data-path="../../../c&c++/more exceptional c++/item34.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item34.html">
+            
+                    
+                    item34
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.21" data-path="../../../c&c++/more exceptional c++/item35.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item35.html">
+            
+                    
+                    item35
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.22" data-path="../../../c&c++/more exceptional c++/item36.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item36.html">
+            
+                    
+                    item36
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.23" data-path="../../../c&c++/more exceptional c++/item37.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item37.html">
+            
+                    
+                    item37
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.24" data-path="../../../c&c++/more exceptional c++/item39.html">
+            
+                <a href="../../../c&c++/more exceptional c++/item39.html">
+            
+                    
+                    item39
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../../c&c++/stl/readme.html">
+            
+                <a href="../../../c&c++/stl/readme.html">
+            
+                    
+                    stl
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="../../../c&c++/stl/1.前序：模板知识.html">
+            
+                <a href="../../../c&c++/stl/1.前序：模板知识.html">
+            
+                    
+                    1.前序：模板知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" data-path="../../../c&c++/stl/2.总述.html">
+            
+                <a href="../../../c&c++/stl/2.总述.html">
+            
+                    
+                    2.总述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.3" data-path="../../../c&c++/stl/3.分配器.html">
+            
+                <a href="../../../c&c++/stl/3.分配器.html">
+            
+                    
+                    3.分配器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.4" data-path="../../../c&c++/stl/4.序列式容器之list.html">
+            
+                <a href="../../../c&c++/stl/4.序列式容器之list.html">
+            
+                    
+                    4.序列式容器之list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.5" data-path="../../../c&c++/stl/5.迭代器的属性和分类.html">
+            
+                <a href="../../../c&c++/stl/5.迭代器的属性和分类.html">
+            
+                    
+                    5.迭代器的属性和分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.6" data-path="../../../c&c++/stl/6.序列式容器之vector.html">
+            
+                <a href="../../../c&c++/stl/6.序列式容器之vector.html">
+            
+                    
+                    6.序列式容器之vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.7" data-path="../../../c&c++/stl/7.序列式容器之array,forward_list.html">
+            
+                <a href="../../../c&c++/stl/7.序列式容器之array,forward_list.html">
+            
+                    
+                    7.序列式容器之array,forward_list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.8" data-path="../../../c&c++/stl/8.序列式容器之deque.html">
+            
+                <a href="../../../c&c++/stl/8.序列式容器之deque.html">
+            
+                    
+                    8.序列式容器之deque
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.9" data-path="../../../c&c++/stl/9.以红黑树为底层数据结构的关联式容器.html">
+            
+                <a href="../../../c&c++/stl/9.以红黑树为底层数据结构的关联式容器.html">
+            
+                    
+                    9.以红黑树为底层数据结构的关联式容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.10" data-path="../../../c&c++/stl/10.以哈希表为底层数据结构的关联式容器.html">
+            
+                <a href="../../../c&c++/stl/10.以哈希表为底层数据结构的关联式容器.html">
+            
+                    
+                    10.以哈希表为底层数据结构的关联式容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.11" data-path="../../../c&c++/stl/11.算法.html">
+            
+                <a href="../../../c&c++/stl/11.算法.html">
+            
+                    
+                    11.算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.12" data-path="../../../c&c++/stl/12.仿函数.html">
+            
+                <a href="../../../c&c++/stl/12.仿函数.html">
+            
+                    
+                    12.仿函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.13" data-path="../../../c&c++/stl/13.适配器.html">
+            
+                <a href="../../../c&c++/stl/13.适配器.html">
+            
+                    
+                    13.适配器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.14" data-path="../../../c&c++/stl/14.其他.html">
+            
+                <a href="../../../c&c++/stl/14.其他.html">
+            
+                    
+                    14.其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.15" data-path="../../../c&c++/stl/15.string.html">
+            
+                <a href="../../../c&c++/stl/15.string.html">
+            
+                    
+                    15.string
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../../c&c++/其他/readme.html">
+            
+                <a href="../../../c&c++/其他/readme.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.7.1" data-path="../../../c&c++/其他/access specifiers.html">
+            
+                <a href="../../../c&c++/其他/access specifiers.html">
+            
+                    
+                    access specifiers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.2" data-path="../../../c&c++/其他/c++ casting opeartion.html">
+            
+                <a href="../../../c&c++/其他/c++ casting opeartion.html">
+            
+                    
+                    c++ casting opeartion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.3" data-path="../../../c&c++/其他/characters in c++.html">
+            
+                <a href="../../../c&c++/其他/characters in c++.html">
+            
+                    
+                    characters in c++
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.4" data-path="../../../c&c++/其他/contextual conversion to bool.html">
+            
+                <a href="../../../c&c++/其他/contextual conversion to bool.html">
+            
+                    
+                    contextual conversion to bool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.5" data-path="../../../c&c++/其他/enum class.html">
+            
+                <a href="../../../c&c++/其他/enum class.html">
+            
+                    
+                    enum class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.6" data-path="../../../c&c++/其他/simple threadpool.html">
+            
+                <a href="../../../c&c++/其他/simple threadpool.html">
+            
+                    
+                    simple threadpool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.7" data-path="../../../c&c++/其他/the most vexing parse problem.html">
+            
+                <a href="../../../c&c++/其他/the most vexing parse problem.html">
+            
+                    
+                    the most vexing parse problem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.8" data-path="../../../c&c++/其他/关于模板参数是Functor的模板类的实例化.html">
+            
+                <a href="../../../c&c++/其他/关于模板参数是Functor的模板类的实例化.html">
+            
+                    
+                    关于模板参数是Functor的模板类的实例化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.9" data-path="../../../c&c++/其他/线程函数传递引用参数.html">
+            
+                <a href="../../../c&c++/其他/线程函数传递引用参数.html">
+            
+                    
+                    线程函数传递引用参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../../c&c++/内存管理/readme.html">
+            
+                <a href="../../../c&c++/内存管理/readme.html">
+            
+                    
+                    内存管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="../../../c&c++/内存管理/01 总述.html">
+            
+                <a href="../../../c&c++/内存管理/01 总述.html">
+            
+                    
+                    01 总述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.2" data-path="../../../c&c++/内存管理/02 operator new & operator delete.html">
+            
+                <a href="../../../c&c++/内存管理/02 operator new & operator delete.html">
+            
+                    
+                    02 operator new & operator delete
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.3" data-path="../../../c&c++/内存管理/03 ptmalloc.html">
+            
+                <a href="../../../c&c++/内存管理/03 ptmalloc.html">
+            
+                    
+                    03 ptmalloc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.4" data-path="../../../c&c++/内存管理/04 tcmalloc.html">
+            
+                <a href="../../../c&c++/内存管理/04 tcmalloc.html">
+            
+                    
+                    04 tcmalloc
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../../../c&c++/设计模式/readme.html">
+            
+                <a href="../../../c&c++/设计模式/readme.html">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.1" data-path="../../../c&c++/设计模式/创建型/readme.html">
+            
+                <a href="../../../c&c++/设计模式/创建型/readme.html">
+            
+                    
+                    创建型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.1.1" data-path="../../../c&c++/设计模式/创建型/01 单例模式.html">
+            
+                <a href="../../../c&c++/设计模式/创建型/01 单例模式.html">
+            
+                    
+                    01 单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.2" data-path="../../../c&c++/设计模式/创建型/02 工厂模式.html">
+            
+                <a href="../../../c&c++/设计模式/创建型/02 工厂模式.html">
+            
+                    
+                    02 工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.3" data-path="../../../c&c++/设计模式/创建型/03 建造者模式.html">
+            
+                <a href="../../../c&c++/设计模式/创建型/03 建造者模式.html">
+            
+                    
+                    03 建造者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.4" data-path="../../../c&c++/设计模式/创建型/04 原型模式.html">
+            
+                <a href="../../../c&c++/设计模式/创建型/04 原型模式.html">
+            
+                    
+                    04 原型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2" data-path="../../../c&c++/设计模式/结构型/readme.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/readme.html">
+            
+                    
+                    结构型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.2.1" data-path="../../../c&c++/设计模式/结构型/05 代理模式.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/05 代理模式.html">
+            
+                    
+                    05 代理模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.2" data-path="../../../c&c++/设计模式/结构型/06 装饰器模式.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/06 装饰器模式.html">
+            
+                    
+                    06 装饰器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.3" data-path="../../../c&c++/设计模式/结构型/07 适配器模式.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/07 适配器模式.html">
+            
+                    
+                    07 适配器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.4" data-path="../../../c&c++/设计模式/结构型/08 桥接模式.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/08 桥接模式.html">
+            
+                    
+                    08 桥接模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.5" data-path="../../../c&c++/设计模式/结构型/09 门面模式.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/09 门面模式.html">
+            
+                    
+                    09 门面模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.6" data-path="../../../c&c++/设计模式/结构型/10 组合模式.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/10 组合模式.html">
+            
+                    
+                    10 组合模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.7" data-path="../../../c&c++/设计模式/结构型/11 享元模式.html">
+            
+                <a href="../../../c&c++/设计模式/结构型/11 享元模式.html">
+            
+                    
+                    11 享元模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3" data-path="../../../c&c++/设计模式/行为型/readme.html">
+            
+                <a href="../../../c&c++/设计模式/行为型/readme.html">
+            
+                    
+                    行为型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.3.1" data-path="../../../c&c++/设计模式/行为型/12 观察者模式.html">
+            
+                <a href="../../../c&c++/设计模式/行为型/12 观察者模式.html">
+            
+                    
+                    12 观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.2" data-path="../../../c&c++/设计模式/行为型/13 模版模式.html">
+            
+                <a href="../../../c&c++/设计模式/行为型/13 模版模式.html">
+            
+                    
+                    13 模版模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.3" data-path="../../../c&c++/设计模式/行为型/14 策略模式.html">
+            
+                <a href="../../../c&c++/设计模式/行为型/14 策略模式.html">
+            
+                    
+                    14 策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.4" data-path="../../../c&c++/设计模式/行为型/15 职责链模式.html">
+            
+                <a href="../../../c&c++/设计模式/行为型/15 职责链模式.html">
+            
+                    
+                    15 职责链模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.5" data-path="../../../c&c++/设计模式/行为型/16 状态模式.html">
+            
+                <a href="../../../c&c++/设计模式/行为型/16 状态模式.html">
+            
+                    
+                    16 状态模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.6" data-path="../../../c&c++/设计模式/行为型/17 迭代器模式.html">
+            
+                <a href="../../../c&c++/设计模式/行为型/17 迭代器模式.html">
+            
+                    
+                    17 迭代器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../mysql/readme.html">
+            
+                <a href="../../../mysql/readme.html">
+            
+                    
+                    mysql
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../../mysql/01 basic.html">
+            
+                <a href="../../../mysql/01 basic.html">
+            
+                    
+                    01 basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../../mysql/02 variables.html">
+            
+                <a href="../../../mysql/02 variables.html">
+            
+                    
+                    02 variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../readme.html">
+            
+                <a href="../../readme.html">
+            
+                    
+                    os
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../readme.html">
+            
+                <a href="../readme.html">
+            
+                    
+                    linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    lkd
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1.1" data-path="chapter1-Introduction to linux kernel.html">
+            
+                <a href="chapter1-Introduction to linux kernel.html">
+            
+                    
+                    chapter1-Introduction to linux kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.2" data-path="chapter2-Getting Started with the Kernel.html">
+            
+                <a href="chapter2-Getting Started with the Kernel.html">
+            
+                    
+                    chapter2-Getting Started with the Kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.3" data-path="chapter3-Process Management.html">
+            
+                <a href="chapter3-Process Management.html">
+            
+                    
+                    chapter3-Process Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.4" data-path="chapter4-Process Scheduling.html">
+            
+                <a href="chapter4-Process Scheduling.html">
+            
+                    
+                    chapter4-Process Scheduling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.5" data-path="chapter5-System Calls.html">
+            
+                <a href="chapter5-System Calls.html">
+            
+                    
+                    chapter5-System Calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.6" data-path="chapter7-Interrupts and Interrupt Handlers.html">
+            
+                <a href="chapter7-Interrupts and Interrupt Handlers.html">
+            
+                    
+                    chapter7-Interrupts and Interrupt Handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.7" data-path="chapter8-Bottom Halves and Deferring Work.html">
+            
+                <a href="chapter8-Bottom Halves and Deferring Work.html">
+            
+                    
+                    chapter8-Bottom Halves and Deferring Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.8" data-path="chapter10-Kernel Synchronization Methods.html">
+            
+                <a href="chapter10-Kernel Synchronization Methods.html">
+            
+                    
+                    chapter10-Kernel Synchronization Methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.9" data-path="chapter11-Timers ans Time Management.html">
+            
+                <a href="chapter11-Timers ans Time Management.html">
+            
+                    
+                    chapter11-Timers ans Time Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.10" data-path="chapter12-Memroy Management.html">
+            
+                <a href="chapter12-Memroy Management.html">
+            
+                    
+                    chapter12-Memroy Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.11" data-path="chapter13-The Process Address Space.html">
+            
+                <a href="chapter13-The Process Address Space.html">
+            
+                    
+                    chapter13-The Process Address Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.1.1.12" data-path="chapter14-The Virtual Filesystem.html">
+            
+                <a href="chapter14-The Virtual Filesystem.html">
+            
+                    
+                    chapter14-The Virtual Filesystem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.13" data-path="chapter15-FileIO and Page Cache.html">
+            
+                <a href="chapter15-FileIO and Page Cache.html">
+            
+                    
+                    chapter15-FileIO and Page Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.14" data-path="chapter16-The BlockIO.html">
+            
+                <a href="chapter16-The BlockIO.html">
+            
+                    
+                    chapter16-The BlockIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.15" data-path="chapter17-Module.html">
+            
+                <a href="chapter17-Module.html">
+            
+                    
+                    chapter17-Module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.16" data-path="chapter18-Devide Model and Sysfs.html">
+            
+                <a href="chapter18-Devide Model and Sysfs.html">
+            
+                    
+                    chapter18-Devide Model and Sysfs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.17" data-path="chapter19-Portability.html">
+            
+                <a href="chapter19-Portability.html">
+            
+                    
+                    chapter19-Portability
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../temp.html">
+            
+                <a href="../temp.html">
+            
+                    
+                    temp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../ulk/readme.html">
+            
+                <a href="../ulk/readme.html">
+            
+                    
+                    ulk
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.3.1" data-path="../ulk/chapter1-Introduction.html">
+            
+                <a href="../ulk/chapter1-Introduction.html">
+            
+                    
+                    chapter1-Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.2" data-path="../ulk/chapter2-Memory Addressing.html">
+            
+                <a href="../ulk/chapter2-Memory Addressing.html">
+            
+                    
+                    chapter2-Memory Addressing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.3" data-path="../ulk/chapter8-Memory Management.html">
+            
+                <a href="../ulk/chapter8-Memory Management.html">
+            
+                    
+                    chapter8-Memory Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.4" data-path="../ulk/chapter9-Process Address Space.html">
+            
+                <a href="../ulk/chapter9-Process Address Space.html">
+            
+                    
+                    chapter9-Process Address Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.5" data-path="../ulk/chapter20-Program Execution.html">
+            
+                <a href="../ulk/chapter20-Program Execution.html">
+            
+                    
+                    chapter20-Program Execution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.6" data-path="../ulk/system startup.html">
+            
+                <a href="../ulk/system startup.html">
+            
+                    
+                    system startup
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../其它/readme.html">
+            
+                <a href="../其它/readme.html">
+            
+                    
+                    其它
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.4.1" data-path="../其它/memory barrier.html">
+            
+                <a href="../其它/memory barrier.html">
+            
+                    
+                    memory barrier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4.2" data-path="../其它/pthread线程资源的回收.html">
+            
+                <a href="../其它/pthread线程资源的回收.html">
+            
+                    
+                    pthread线程资源的回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4.3" data-path="../其它/为什么说从用户态切换到内核态开销大.html">
+            
+                <a href="../其它/为什么说从用户态切换到内核态开销大.html">
+            
+                    
+                    为什么说从用户态切换到内核态开销大
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4.4" data-path="../其它/经典的计算机系统架构.html">
+            
+                <a href="../其它/经典的计算机系统架构.html">
+            
+                    
+                    经典的计算机系统架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../windows/readme.html">
+            
+                <a href="../../windows/readme.html">
+            
+                    
+                    windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../../shell/readme.html">
+            
+                <a href="../../../shell/readme.html">
+            
+                    
+                    shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../../shell/bashrc.html">
+            
+                <a href="../../../shell/bashrc.html">
+            
+                    
+                    bashrc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../../shell/man page.html">
+            
+                <a href="../../../shell/man page.html">
+            
+                    
+                    man page
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../../shell/shell语法.html">
+            
+                <a href="../../../shell/shell语法.html">
+            
+                    
+                    shell语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../../shell/常用命令.md/readme.html">
+            
+                <a href="../../../shell/常用命令.md/readme.html">
+            
+                    
+                    常用命令.md
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.4.1" data-path="../../../shell/常用命令.md/01 regular expression & grep.html">
+            
+                <a href="../../../shell/常用命令.md/01 regular expression & grep.html">
+            
+                    
+                    01 regular expression & grep
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.2" data-path="../../../shell/常用命令.md/02 tr.html">
+            
+                <a href="../../../shell/常用命令.md/02 tr.html">
+            
+                    
+                    02 tr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.3" data-path="../../../shell/常用命令.md/03 sed.html">
+            
+                <a href="../../../shell/常用命令.md/03 sed.html">
+            
+                    
+                    03 sed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.4" data-path="../../../shell/常用命令.md/04 awk.html">
+            
+                <a href="../../../shell/常用命令.md/04 awk.html">
+            
+                    
+                    04 awk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.5" data-path="../../../shell/常用命令.md/05 cat.html">
+            
+                <a href="../../../shell/常用命令.md/05 cat.html">
+            
+                    
+                    05 cat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.6" data-path="../../../shell/常用命令.md/06 tee.html">
+            
+                <a href="../../../shell/常用命令.md/06 tee.html">
+            
+                    
+                    06 tee
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.7" data-path="../../../shell/常用命令.md/07 env.html">
+            
+                <a href="../../../shell/常用命令.md/07 env.html">
+            
+                    
+                    07 env
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.8" data-path="../../../shell/常用命令.md/08 head&tail.html">
+            
+                <a href="../../../shell/常用命令.md/08 head&tail.html">
+            
+                    
+                    08 head&tail
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.9" data-path="../../../shell/常用命令.md/09 cut&paste.html">
+            
+                <a href="../../../shell/常用命令.md/09 cut&paste.html">
+            
+                    
+                    09 cut&paste
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.10" data-path="../../../shell/常用命令.md/10 diff&cmp&comm.html">
+            
+                <a href="../../../shell/常用命令.md/10 diff&cmp&comm.html">
+            
+                    
+                    10 diff&cmp&comm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.11" data-path="../../../shell/常用命令.md/11 sort&uniq&wc.html">
+            
+                <a href="../../../shell/常用命令.md/11 sort&uniq&wc.html">
+            
+                    
+                    11 sort&uniq&wc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.12" data-path="../../../shell/常用命令.md/12 find&xargs.html">
+            
+                <a href="../../../shell/常用命令.md/12 find&xargs.html">
+            
+                    
+                    12 find&xargs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.13" data-path="../../../shell/常用命令.md/13 lsof.html">
+            
+                <a href="../../../shell/常用命令.md/13 lsof.html">
+            
+                    
+                    13 lsof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.14" data-path="../../../shell/常用命令.md/temp.html">
+            
+                <a href="../../../shell/常用命令.md/temp.html">
+            
+                    
+                    temp
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../../shell/待整理.html">
+            
+                <a href="../../../shell/待整理.html">
+            
+                    
+                    待整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../../容器/readme.html">
+            
+                <a href="../../../容器/readme.html">
+            
+                    
+                    容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../../容器/docker容器.html">
+            
+                <a href="../../../容器/docker容器.html">
+            
+                    
+                    docker容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../../网络/readme.html">
+            
+                <a href="../../../网络/readme.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../../网络/csrf.html">
+            
+                <a href="../../../网络/csrf.html">
+            
+                    
+                    csrf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../../网络/Linux 网络编程/readme.html">
+            
+                <a href="../../../网络/Linux 网络编程/readme.html">
+            
+                    
+                    Linux 网络编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.2.1" data-path="../../../网络/Linux 网络编程/01 stream socket.html">
+            
+                <a href="../../../网络/Linux 网络编程/01 stream socket.html">
+            
+                    
+                    01 stream socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.2" data-path="../../../网络/Linux 网络编程/02 datagram socket.html">
+            
+                <a href="../../../网络/Linux 网络编程/02 datagram socket.html">
+            
+                    
+                    02 datagram socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.3" data-path="../../../网络/Linux 网络编程/03 unix domain socket.html">
+            
+                <a href="../../../网络/Linux 网络编程/03 unix domain socket.html">
+            
+                    
+                    03 unix domain socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.4" data-path="../../../网络/Linux 网络编程/04 raw socket.html">
+            
+                <a href="../../../网络/Linux 网络编程/04 raw socket.html">
+            
+                    
+                    04 raw socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.5" data-path="../../../网络/Linux 网络编程/05 select.html">
+            
+                <a href="../../../网络/Linux 网络编程/05 select.html">
+            
+                    
+                    05 select
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.6" data-path="../../../网络/Linux 网络编程/06 poll.html">
+            
+                <a href="../../../网络/Linux 网络编程/06 poll.html">
+            
+                    
+                    06 poll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.7" data-path="../../../网络/Linux 网络编程/07 epoll.html">
+            
+                <a href="../../../网络/Linux 网络编程/07 epoll.html">
+            
+                    
+                    07 epoll
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../../../网络/nettools/readme.html">
+            
+                <a href="../../../网络/nettools/readme.html">
+            
+                    
+                    nettools
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.3.1" data-path="../../../网络/nettools/arp-scan.html">
+            
+                <a href="../../../网络/nettools/arp-scan.html">
+            
+                    
+                    arp-scan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.2" data-path="../../../网络/nettools/arping.html">
+            
+                <a href="../../../网络/nettools/arping.html">
+            
+                    
+                    arping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.3" data-path="../../../网络/nettools/host.html">
+            
+                <a href="../../../网络/nettools/host.html">
+            
+                    
+                    host
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.4" data-path="../../../网络/nettools/iproute2-ip.html">
+            
+                <a href="../../../网络/nettools/iproute2-ip.html">
+            
+                    
+                    iproute2-ip
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.5" data-path="../../../网络/nettools/iptables.html">
+            
+                <a href="../../../网络/nettools/iptables.html">
+            
+                    
+                    iptables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.6" data-path="../../../网络/nettools/netcat.html">
+            
+                <a href="../../../网络/nettools/netcat.html">
+            
+                    
+                    netcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.7" data-path="../../../网络/nettools/nettools-arp.html">
+            
+                <a href="../../../网络/nettools/nettools-arp.html">
+            
+                    
+                    nettools-arp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.8" data-path="../../../网络/nettools/nettools-hostname.html">
+            
+                <a href="../../../网络/nettools/nettools-hostname.html">
+            
+                    
+                    nettools-hostname
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.9" data-path="../../../网络/nettools/nettools-ifconfig.html">
+            
+                <a href="../../../网络/nettools/nettools-ifconfig.html">
+            
+                    
+                    nettools-ifconfig
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.10" data-path="../../../网络/nettools/nettools-netstat.html">
+            
+                <a href="../../../网络/nettools/nettools-netstat.html">
+            
+                    
+                    nettools-netstat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.11" data-path="../../../网络/nettools/nettools-route.html">
+            
+                <a href="../../../网络/nettools/nettools-route.html">
+            
+                    
+                    nettools-route
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.12" data-path="../../../网络/nettools/temp.html">
+            
+                <a href="../../../网络/nettools/temp.html">
+            
+                    
+                    temp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.13" data-path="../../../网络/nettools/tmpdump.html">
+            
+                <a href="../../../网络/nettools/tmpdump.html">
+            
+                    
+                    tmpdump
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../../../网络/oauth.html">
+            
+                <a href="../../../网络/oauth.html">
+            
+                    
+                    oauth
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../../../网络/REST&RESTful.html">
+            
+                <a href="../../../网络/REST&RESTful.html">
+            
+                    
+                    REST&RESTful
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../../../网络/ssh-tunnel.html">
+            
+                <a href="../../../网络/ssh-tunnel.html">
+            
+                    
+                    ssh-tunnel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../../../网络/协议/readme.html">
+            
+                <a href="../../../网络/协议/readme.html">
+            
+                    
+                    协议
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.7.1" data-path="../../../网络/协议/01网络协议概览.html">
+            
+                <a href="../../../网络/协议/01网络协议概览.html">
+            
+                    
+                    01网络协议概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.2" data-path="../../../网络/协议/02 以太网与WiFi协议.html">
+            
+                <a href="../../../网络/协议/02 以太网与WiFi协议.html">
+            
+                    
+                    02 以太网与WiFi协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.3" data-path="../../../网络/协议/03 IP包的路由.html">
+            
+                <a href="../../../网络/协议/03 IP包的路由.html">
+            
+                    
+                    03 IP包的路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.4" data-path="../../../网络/协议/04 IP地址的分配.html">
+            
+                <a href="../../../网络/协议/04 IP地址的分配.html">
+            
+                    
+                    04 IP地址的分配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.5" data-path="../../../网络/协议/05 IP协议详解.html">
+            
+                <a href="../../../网络/协议/05 IP协议详解.html">
+            
+                    
+                    05 IP协议详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.6" data-path="../../../网络/协议/06 ICMP协议.html">
+            
+                <a href="../../../网络/协议/06 ICMP协议.html">
+            
+                    
+                    06 ICMP协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.7" data-path="../../../网络/协议/07 UDP.html">
+            
+                <a href="../../../网络/协议/07 UDP.html">
+            
+                    
+                    07 UDP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.8" data-path="../../../网络/协议/08 TCP 概述.html">
+            
+                <a href="../../../网络/协议/08 TCP 概述.html">
+            
+                    
+                    08 TCP 概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.9" data-path="../../../网络/协议/09 TCP 协议字段.html">
+            
+                <a href="../../../网络/协议/09 TCP 协议字段.html">
+            
+                    
+                    09 TCP 协议字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.10" data-path="../../../网络/协议/10 TCP 状态转换.html">
+            
+                <a href="../../../网络/协议/10 TCP 状态转换.html">
+            
+                    
+                    10 TCP 状态转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.11" data-path="../../../网络/协议/11 DNS协议.html">
+            
+                <a href="../../../网络/协议/11 DNS协议.html">
+            
+                    
+                    11 DNS协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.12" data-path="../../../网络/协议/12 CIDR.html">
+            
+                <a href="../../../网络/协议/12 CIDR.html">
+            
+                    
+                    12 CIDR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.13" data-path="../../../网络/协议/13 NAT.html">
+            
+                <a href="../../../网络/协议/13 NAT.html">
+            
+                    
+                    13 NAT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.14" data-path="../../../网络/协议/14 DHCP.html">
+            
+                <a href="../../../网络/协议/14 DHCP.html">
+            
+                    
+                    14 DHCP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.15" data-path="../../../网络/协议/15 http.html">
+            
+                <a href="../../../网络/协议/15 http.html">
+            
+                    
+                    15 http
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.16" data-path="../../../网络/协议/16 http2.html">
+            
+                <a href="../../../网络/协议/16 http2.html">
+            
+                    
+                    16 http2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.17" data-path="../../../网络/协议/17 ssl协议.html">
+            
+                <a href="../../../网络/协议/17 ssl协议.html">
+            
+                    
+                    17 ssl协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.18" data-path="../../../网络/协议/18 数字签名和证书.html">
+            
+                <a href="../../../网络/协议/18 数字签名和证书.html">
+            
+                    
+                    18 数字签名和证书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.19" data-path="../../../网络/协议/19 正向代理&反向代理.html">
+            
+                <a href="../../../网络/协议/19 正向代理&反向代理.html">
+            
+                    
+                    19 正向代理&反向代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../../.." >chapter14-The Virtual Filesystem</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>VFS文件系统中的文件和目录组织成树形结构，如下
+<img src="../../../../images/ulk/01.png" alt=""></img>
+该树的所有节点，除了页节点，都是目录。叶节点是文件。虽然文件的种类不同，但VFS文件系统给所有文件提供了统一的系统调用，比如open(),read(),wirte()</p>
+<p>一台物理机有不同的存储介质，其中运行的文件系统也不相同，甚至同一个存储介质上，比如硬盘，不同的分区也可以装载不同的文件系统。不同设备的各个文件系统，可统一挂载在VFS提供的树形结构上，其中存储的文件，可被用户程序以统一的方式访问。</p>
+<p>如图所示，VFS可使得不同的文件系统coexist,interoperate,同时给用户提供统一的系统调用接口。</p>
+<p><img src="../../../../images/os/lkd/lkd-43.png" alt=""></img></p>
+<h4 id="通用的文件系统模型">通用的文件系统模型</h4>
+<p>那么vfs是如何做到的？通过提供一个通用的文件系统模型和接口，具体地由各个文件系统去适配该模型，其接口实现由各个文件系统自己决定。
+这样，不管是内核其他代码还是用户层代码，都不需要关心实现细节，只需要调用通用接口即可。</p>
+<p>该通用接口最终会调用到文件对象所处的具体文件系统实现的实际接口。</p>
+<p>如图所示，用户空间的write()调用，调用的是vfs层提供的sys_write()系统调用，sys_write()系统调用根据文件所处的文件系统，调用其实现的写文件方法
+<img src="../../../../images/os/lkd/lkd-44.png" alt=""></img></p>
+<p>假设我们file所处的文件系统是ext3,ext3文件系统提供的file operation如下</p>
+<pre><code class="lang-c"><span class="hljs-type">const</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file_operations</span> <span class="hljs-title">ext3_file_operations</span> =</span> {
+    .llseek        = generic_file_llseek,
+    .read        = do_sync_read,
+    .write        = do_sync_write, 
+    .aio_read    = generic_file_aio_read,
+    .aio_write    = ext3_file_write,
+    .ioctl        = ext3_ioctl,
+<span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> CONFIG_COMPAT</span>
+    .compat_ioctl    = ext3_compat_ioctl,
+<span class="hljs-meta">#<span class="hljs-keyword">endif</span></span>
+    .mmap        = generic_file_mmap,
+    .open        = generic_file_open,
+    .release    = ext3_release_file,
+    .fsync        = ext3_sync_file,
+    .splice_read    = generic_file_splice_read,
+    .splice_write    = generic_file_splice_write,
+};
+</code></pre>
+<p>这个通用的文件系统模型包括以下抽象的概念：</p>
+<ul>
+<li>files</li>
+<li>inode</li>
+<li>directory entry</li>
+<li>mount points</li>
+</ul>
+<p>文件就是包含信息的字节序列，第一个字节是文件的开始，最后一个字节是文件的结束。 </p>
+<p>inode中存储文件的控制信息，又叫metadata. 具体的磁盘文件系统，可以将文件的控制信息和文件的信息分开存储，inode存储在单独的磁盘块中。也可将文件的控制信息和文件的信息放在一起，并没有inode这个实体存储在磁盘上。这需要具体的文件系统适配linux vfs的抽象概念，根据自己的数据组织，实现inode的相关接口</p>
+<p>文件的种类有很多，其中有目录文件，目录文件是其他文件的索引。目录文件的每一项通常是一个目录项的名称(文件或子目录的名称)和它对应的 inode 编号.</p>
+<p>内核在执行根据路径查找文件时，如果每次都需要解析路径，找到对应的目录文件，一项项对比，找到对应的inode number,是非常费时的。因此，内核使用dentry加速对文件的查找。dentry就是目录文件中的每一项对应在内核中的缓存，其中包括该目录项的名称，对应的inode编号，层级关系，以及相关的控制信息。内核将路径和对应的dentry哈希存储在内存中，加快根据路径查找文件的操作。</p>
+<p>不同的磁盘文件系统，被纳入vfs的整体框架中，被用户以统一的方式使用，是通过挂载这个操作实现的。 vfs文件系统的树形结构中，某个目录可以是一个挂载点，只有磁盘文件系统被挂载后，其中的文件才可见。</p>
+<h4 id="vfs-objects-and-their-data-structures">VFS Objects and Their Data Structures</h4>
+<p>VFS提供了几个数据结构，这些数据结构中既包括数据，也包括操作该数据的指针。这表现为一种面向对象的编程模型。</p>
+<h5 id="filesystemtype">file_system_type</h5>
+<p>file_system_type描述一个文件系统类型，如下</p>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file_system_type</span> {</span>
+    <span class="hljs-comment">//文件系统的名称，如“ext4”、“vfat”等，这通常是注册文件系统时用户能够看到的名称。</span>
+    <span class="hljs-type">const</span> <span class="hljs-type">char</span> *name;
+
+    <span class="hljs-comment">//文件系统的标志，用于定义文件系统的特性，例如只读、支持执行文件等。</span>
+    <span class="hljs-type">int</span> fs_flags;
+
+    <span class="hljs-comment">//超级块的获取函数。当挂载一个文件系统时，内核会调用这个函数来读取并解析文件系统的超级块（superblock），其中包括文件系统的元数据。</span>
+    <span class="hljs-comment">//在挂载文件系统时，获取的超级块由挂载点vfsmount.mnt_sb指向</span>
+    <span class="hljs-type">int</span> (*get_sb) (<span class="hljs-keyword">struct</span> file_system_type *, <span class="hljs-type">int</span>,<span class="hljs-type">const</span> <span class="hljs-type">char</span> *, <span class="hljs-type">void</span> *, <span class="hljs-keyword">struct</span> vfsmount *);
+
+    <span class="hljs-comment">//超级块的销毁函数。当需要卸载文件系统时，这个函数会被调用来清理相关的超级块数据。</span>
+    <span class="hljs-type">void</span> (*kill_sb) (<span class="hljs-keyword">struct</span> super_block *);
+
+
+    <span class="hljs-comment">//指向拥有这个文件系统模块的指针。在Linux中，所有的文件系统都可以作为模块加载，这个字段指明了拥有这个模块的模块对象。</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">module</span> *<span class="hljs-title">owner</span>;</span><span class="hljs-comment">/*for internal VFS use: you should initialize this to THIS_MODULE in most cases.*/</span>
+
+    <span class="hljs-comment">//Linux内核中所有注册的文件系统都会被链接到一个全局链表中，这个字段用于维护这个链表。</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file_system_type</span> * <span class="hljs-title">next</span>;</span><span class="hljs-comment">/* for internal VFS use: you should initialize this to NULL*/</span>
+
+
+    <span class="hljs-comment">//这个文件系统类型的所有实例的超级块列表。每个挂载的文件系统实例都会有一个超级块，它们通过这个列表链接在一起。</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">fs_supers</span>;</span>
+
+<span class="hljs-comment">//...</span>
+};
+</code></pre>
+<p>ext3 文件系统的file_system_type初始化如下</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file_system_type</span> <span class="hljs-title">ext3_fs_type</span> =</span> {
+    .owner        = THIS_MODULE,
+    .name        = <span class="hljs-string">"ext3"</span>,
+    .get_sb        = ext3_get_sb,
+    .kill_sb    = kill_block_super,
+    .fs_flags    = FS_REQUIRES_DEV,
+};
+</code></pre>
+<p>每个文件系统类型被实现为一个模块，需要在模块初始化时调用<code>register_filesystem</code>注册该文件系统，在模块退出时unregister.</p>
+<pre><code class="lang-c">   <span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;linux/fs.h&gt;</span></span>
+
+   <span class="hljs-keyword">extern</span> <span class="hljs-type">int</span> <span class="hljs-title function_">register_filesystem</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> file_system_type *)</span>;
+   <span class="hljs-keyword">extern</span> <span class="hljs-type">int</span> <span class="hljs-title function_">unregister_filesystem</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> file_system_type *)</span>;
+</code></pre>
+<p>比如ext3模块的初始化和退出</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-type">int</span> __init <span class="hljs-title function_">init_ext3_fs</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+{
+    <span class="hljs-type">int</span> err = init_ext3_xattr();
+    <span class="hljs-keyword">if</span> (err)
+        <span class="hljs-keyword">return</span> err;
+    err = init_inodecache();
+    <span class="hljs-keyword">if</span> (err)
+        <span class="hljs-keyword">goto</span> out1;
+        err = register_filesystem(&amp;ext3_fs_type);
+    <span class="hljs-keyword">if</span> (err)
+        <span class="hljs-keyword">goto</span> out;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+out:
+    destroy_inodecache();
+out1:
+    exit_ext3_xattr();
+    <span class="hljs-keyword">return</span> err;
+}
+
+<span class="hljs-type">static</span> <span class="hljs-type">void</span> __exit <span class="hljs-title function_">exit_ext3_fs</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+{
+    unregister_filesystem(&amp;ext3_fs_type);
+    destroy_inodecache();
+    exit_ext3_xattr();
+}
+
+module_init(init_ext3_fs)
+module_exit(exit_ext3_fs)
+</code></pre>
+<h5 id="the-superblock-object">The Superblock Object</h5>
+<p>superblock object包括该文件系统的信息。大部分文件系统都会将其存储在磁盘某个单独的块中。对于不是disk-based的文件系统，比如 virtual memory-based filesystem, 比如sysfs 而言，动态生成，只在内存中.
+在挂载文件系统时，内核会调用file_system_type中的get_sb方法，这个方法需要返回当前文件系统的super block，存储在vfsmount.mnt_sb中。</p>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">super_block</span> {</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span>    <span class="hljs-title">s_list</span>;</span>     <span class="hljs-comment">/* 某个file_system_type的所有超级块的链表*/</span>
+    <span class="hljs-type">dev_t</span>            s_dev;        <span class="hljs-comment">/* 表示是那个设备的*/</span>
+    <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>        s_blocksize; <span class="hljs-comment">/*block size in bytes*/</span>
+    <span class="hljs-type">unsigned</span> <span class="hljs-type">char</span>        s_blocksize_bits; <span class="hljs-comment">/*block size in bits，用于快速计算*/</span>
+    <span class="hljs-type">unsigned</span> <span class="hljs-type">char</span>        s_dirt; <span class="hljs-comment">/* dirty flag,表示超级块是否被修改*/</span>
+    <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span>    s_maxbytes;    <span class="hljs-comment">/* 文件系统中文件的最大大小 */</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file_system_type</span>    *<span class="hljs-title">s_type</span>;</span><span class="hljs-comment">/*文件系统类型*/</span>
+    <span class="hljs-type">const</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">super_operations</span>    *<span class="hljs-title">s_op</span>;</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">dquot_operations</span>    *<span class="hljs-title">dq_op</span>;</span> <span class="hljs-comment">/* 跟配额有关*/</span>
+     <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">quotactl_ops</span>    *<span class="hljs-title">s_qcop</span>;</span> <span class="hljs-comment">/* 跟配额有关*/</span>
+<span class="hljs-comment">//...</span>
+    <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>        s_flags; <span class="hljs-comment">/*mount flag*/</span>
+    <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>        s_magic;<span class="hljs-comment">/* filesystem magic number,用于识别文件系统类型*/</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">dentry</span>        *<span class="hljs-title">s_root</span>;</span> <span class="hljs-comment">/* mount point dentry*/</span>
+<span class="hljs-comment">//...</span>
+    <span class="hljs-type">int</span>            s_count; <span class="hljs-comment">/*超级块的引用计数*/</span>
+    <span class="hljs-type">int</span>            s_syncing; <span class="hljs-comment">/* 表示文件系统是否正在同步*/</span>
+    <span class="hljs-type">int</span>            s_need_sync_fs; <span class="hljs-comment">/* 表示文件系统是否需要同步*/</span>
+    <span class="hljs-comment">//...</span>
+
+
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span>    <span class="hljs-title">s_inodes</span>;</span>    <span class="hljs-comment">/* all inodes */</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span>    <span class="hljs-title">s_dirty</span>;</span>    <span class="hljs-comment">/* dirty inodes */</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span>    <span class="hljs-title">s_io</span>;</span>        <span class="hljs-comment">/* 正在等待写回的inode列表 */</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span>    <span class="hljs-title">s_more_io</span>;</span>    <span class="hljs-comment">/* 需要更多I/O操作的inode列表 */</span>
+<span class="hljs-comment">//...</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span>    <span class="hljs-title">s_files</span>;</span> <span class="hljs-comment">/*list of opened files*/</span>
+
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">block_device</span>    *<span class="hljs-title">s_bdev</span>;</span> <span class="hljs-comment">/*associated block device*/</span>
+
+<span class="hljs-comment">//......</span>
+
+};
+</code></pre>
+<p>其中最重要的是super_operations</p>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">super_operations</span> {</span>
+        <span class="hljs-comment">//分配一个新的inode结构体。当内核需要创建一个新的inode时调用</span>
+        <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">inode</span> *(*<span class="hljs-title">alloc_inode</span>)(<span class="hljs-keyword">struct</span> <span class="hljs-title">super_block</span> *<span class="hljs-title">sb</span>);</span>
+        <span class="hljs-comment">// 释放一个inode结构体。当inode不再需要时调用。</span>
+        <span class="hljs-type">void</span> (*destroy_inode)(<span class="hljs-keyword">struct</span> inode *);
+        <span class="hljs-comment">//从磁盘读取一个inode的信息并填充到inode结构体中。</span>
+        <span class="hljs-type">void</span> (*read_inode) (<span class="hljs-keyword">struct</span> inode *);
+        <span class="hljs-comment">//标记一个inode为“脏”，即它的数据需要写回磁盘。</span>
+        <span class="hljs-type">void</span> (*dirty_inode) (<span class="hljs-keyword">struct</span> inode *);
+        <span class="hljs-comment">//将inode的数据写回磁盘。这通常在inode被标记为脏后调用。The wait parameter specifies whether the operation should be synchronous.</span>
+        <span class="hljs-type">int</span> (*write_inode) (<span class="hljs-keyword">struct</span> inode *, <span class="hljs-type">int</span> wait);
+        <span class="hljs-comment">//减少inode的引用计数。</span>
+        <span class="hljs-type">void</span> (*put_inode) (<span class="hljs-keyword">struct</span> inode *);
+        <span class="hljs-comment">// 当inode的引用计数降至零时调用</span>
+        <span class="hljs-type">void</span> (*drop_inode) (<span class="hljs-keyword">struct</span> inode *);
+        <span class="hljs-comment">//清除inode的所有数据，通常在删除文件后调用。</span>
+        <span class="hljs-type">void</span> (*clear_inode) (<span class="hljs-keyword">struct</span> inode *);
+        <span class="hljs-comment">// Deletes the given inode from the disk. 完全删除一个inode。这通常发生在文件被永久删除时。</span>
+        <span class="hljs-type">void</span> (*delete_inode) (<span class="hljs-keyword">struct</span> inode *);
+
+
+        <span class="hljs-comment">//Called by the VFS on unmount to release the given superblock object.</span>
+        <span class="hljs-type">void</span> (*put_super) (<span class="hljs-keyword">struct</span> super_block *);
+        <span class="hljs-comment">//将超级块的信息写回磁盘。这通常在修改了超级块信息后调用。</span>
+        <span class="hljs-type">void</span> (*write_super) (<span class="hljs-keyword">struct</span> super_block *);
+        <span class="hljs-comment">//Synchronizes filesystem metadata with the on-disk filesystem.The wait parameter specifies whether the operation is synchronous。</span>
+        <span class="hljs-type">int</span> (*sync_fs)(<span class="hljs-keyword">struct</span> super_block *sb, <span class="hljs-type">int</span> wait);
+        <span class="hljs-comment">//Prevents changes to the filesystem, and then updates the on-disk superblock with the specified superblock. It is currently used by LVM (the LogicalVolume Manager)</span>
+        <span class="hljs-type">void</span> (*write_super_lockfs) (<span class="hljs-keyword">struct</span> super_block *);
+        <span class="hljs-comment">//Unlocks the filesystem against changes as done by write_super_lockfs().</span>
+        <span class="hljs-type">void</span> (*unlockfs) (<span class="hljs-keyword">struct</span> super_block *);
+        <span class="hljs-comment">//Called by the VFS to obtain filesystem statistics.如总大小、可用空间等。The statistics related to the given filesystem are placed in statfs.</span>
+        <span class="hljs-type">int</span> (*statfs) (<span class="hljs-keyword">struct</span> dentry *, <span class="hljs-keyword">struct</span> kstatfs * statfs);
+        <span class="hljs-comment">//Called by the VFS when the filesystem is remounted with new mount options.</span>
+        <span class="hljs-type">int</span> (*remountf_s) (<span class="hljs-keyword">struct</span> super_block *, <span class="hljs-type">int</span> *, <span class="hljs-type">char</span> *);
+        <span class="hljs-comment">//在开始卸载文件系统时调用，用于执行任何必要的清理工作。</span>
+        <span class="hljs-type">void</span> (*umount_begin) (<span class="hljs-keyword">struct</span> super_block *);
+        <span class="hljs-comment">//print文件系统的挂载选项。这通常在执行mount命令时使用。</span>
+        <span class="hljs-type">int</span> (*show_options)(<span class="hljs-keyword">struct</span> seq_file *, <span class="hljs-keyword">struct</span> vfsmount *);
+        <span class="hljs-comment">//读取配额信息。这用于支持磁盘配额的系统。</span>
+        <span class="hljs-type">ssize_t</span> (*quota_read)(<span class="hljs-keyword">struct</span> super_block *, <span class="hljs-type">int</span>, <span class="hljs-type">char</span> *, <span class="hljs-type">size_t</span>, <span class="hljs-type">loff_t</span>);
+        <span class="hljs-comment">//写入配额信息。这也用于支持磁盘配额的系统</span>
+        <span class="hljs-type">ssize_t</span> (*quota_write)(<span class="hljs-keyword">struct</span> super_block *, <span class="hljs-type">int</span>, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *, <span class="hljs-type">size_t</span>, <span class="hljs-type">loff_t</span>);
+};
+</code></pre>
+<h5 id="inode-object">Inode Object</h5>
+<p>inode中存储的是文件的元数据，对于unix-style filesystem而言，这些数据在磁盘上是单独存储的，也就是磁盘上也会有对应的inode对象。而有些其他文件系统，文件元数据是和文件数据放在一起的。不管磁盘存储如何，vfs调用获取inode的接口时，文件系统都要根据自己的实际情况获取元数据，返回inode对象。</p>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">inode</span> {</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">hlist_node</span> <span class="hljs-title">i_hash</span>;</span> <span class="hljs-comment">//快速查找inode的哈希表节点</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">i_list</span>;</span> <span class="hljs-comment">//全局inode列表</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">i_sb_list</span>;</span> <span class="hljs-comment">//属于同一super block的inode列表</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">i_dentry</span>;</span> <span class="hljs-comment">//该inode关联的所有dentry</span>
+  <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> i_ino; <span class="hljs-comment">/* inode number */</span>
+  <span class="hljs-type">atomic_t</span> i_count; <span class="hljs-comment">/* reference counter */</span>
+  <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> i_nlink; <span class="hljs-comment">/* number of hard links */</span>
+  <span class="hljs-type">uid_t</span> i_uid; <span class="hljs-comment">/* user id of owner */</span>
+  <span class="hljs-type">gid_t</span> i_gid; <span class="hljs-comment">/* group id of owner */</span>
+  <span class="hljs-type">kdev_t</span> i_rdev; <span class="hljs-comment">/* real device node */</span>
+  u64 i_version; <span class="hljs-comment">/* versioning number 通常在每次修改inode时增加*/</span>
+  <span class="hljs-type">loff_t</span> i_size; <span class="hljs-comment">/* file size in bytes */</span>
+  <span class="hljs-type">seqcount_t</span> i_size_seqcount; <span class="hljs-comment">/* serializer for i_size,用于原子地更新i_size */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">timespec</span> <span class="hljs-title">i_atime</span>;</span> <span class="hljs-comment">/* last access time 文件的上次访问时间*/</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">timespec</span> <span class="hljs-title">i_mtime</span>;</span> <span class="hljs-comment">/* last modify time 文件的上次修改时间*/</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">timespec</span> <span class="hljs-title">i_ctime</span>;</span> <span class="hljs-comment">/* last change time  文件inode的上次修改时间*/</span> 
+  <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> i_blkbits; <span class="hljs-comment">/* block size in bits */</span>
+  <span class="hljs-type">blkcnt_t</span> i_blocks; <span class="hljs-comment">/* file size in blocks */</span>
+  <span class="hljs-type">unsigned</span> <span class="hljs-type">short</span> i_bytes; <span class="hljs-comment">/* bytes consumed ，inode消耗的字节数*/</span>
+  <span class="hljs-type">umode_t</span> i_mode; <span class="hljs-comment">/* file type + access permissions  */</span>
+
+  <span class="hljs-comment">//并发访问相关</span>
+  <span class="hljs-type">spinlock_t</span> i_lock; 
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rw_semaphore</span> <span class="hljs-title">i_alloc_sem</span>;</span> 
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">semaphore</span> <span class="hljs-title">i_sem</span>;</span> 
+
+
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">inode_operations</span> *<span class="hljs-title">i_op</span>;</span> <span class="hljs-comment">/* 与inode有关的操作*/</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file_operations</span> *<span class="hljs-title">i_fop</span>;</span> <span class="hljs-comment">/* 与打开的文件有关的操作 */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">super_block</span> *<span class="hljs-title">i_sb</span>;</span> <span class="hljs-comment">/* associated superblock */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file_lock</span> *<span class="hljs-title">i_flock</span>;</span> <span class="hljs-comment">/* file lock list */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">address_space</span> *<span class="hljs-title">i_mapping</span>;</span> <span class="hljs-comment">/* 普通文件的内存映射(使用的page chache)*/</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">address_space</span> <span class="hljs-title">i_data</span>;</span> <span class="hljs-comment">/* 内嵌的 address_space 结构体，用于设备文件或者特殊类型文件的内存映射*/</span>
+<span class="hljs-comment">//...</span>
+  <span class="hljs-class"><span class="hljs-keyword">union</span> {</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">pipe_inode_info</span> *<span class="hljs-title">i_pipe</span>;</span> <span class="hljs-comment">/* pipe information */</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">block_device</span> *<span class="hljs-title">i_bdev</span>;</span> <span class="hljs-comment">/* block device driver */</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">cdev</span> *<span class="hljs-title">i_cdev</span>;</span> <span class="hljs-comment">/* character device driver */</span>
+  }; 
+ <span class="hljs-comment">//...</span>
+}
+</code></pre>
+<p>An inode represents each file on a filesystem, but the inode object is constructed in memory only as files are accessed.This includes special files, such as device files or pipes.Consequently, some of the entries in struct inode are related to these special files. For example, the i_pipe entry points to a named pipe data structure, i_bdev points to a block device structure, and i_cdev points to a character device structure.These three pointers are stored in a union because a given inode can represent only one of these (or none of them) at a time.</p>
+<p>inode中最重要的是</p>
+<pre><code>  struct inode_operations *i_op; /* 与inode有关的操作*/
+  struct file_operations *i_fop; /* 与打开的文件有关的操作 */
+</code></pre><p>这两个字段，它们分别表示了inode级别的操作和文件级别的操作。inode级别的操作通常涉及到文件系统结构的更改，比如创建文件，删除文件，创建目录，删除目录，重命名文件等操作。而i_fop与打开的文件相关，通常为读写文件数据操作。
+当一个文件被打开时，内核会为该文件创建一个<code>struct file</code>结构体，根据文件被打开的模式（只读，读写等）设置struct_file结构体中f_op字段的相应指针，这些指针是从i_fop中获取。</p>
+<p>inode_operations </p>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">inode_operations</span> {</span>
+<span class="hljs-type">int</span> (*create) (<span class="hljs-keyword">struct</span> inode *,<span class="hljs-keyword">struct</span> dentry *,<span class="hljs-type">int</span>);
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">dentry</span> * (*<span class="hljs-title">lookup</span>) (<span class="hljs-keyword">struct</span> <span class="hljs-title">inode</span> *,<span class="hljs-keyword">struct</span> <span class="hljs-title">dentry</span> *);</span>
+<span class="hljs-type">int</span> (*link) (<span class="hljs-keyword">struct</span> dentry *,<span class="hljs-keyword">struct</span> inode *,<span class="hljs-keyword">struct</span> dentry *);
+<span class="hljs-type">int</span> (*unlink) (<span class="hljs-keyword">struct</span> inode *,<span class="hljs-keyword">struct</span> dentry *);
+<span class="hljs-type">int</span> (*symlink) (<span class="hljs-keyword">struct</span> inode *,<span class="hljs-keyword">struct</span> dentry *,<span class="hljs-type">const</span> <span class="hljs-type">char</span> *);
+<span class="hljs-type">int</span> (*mkdir) (<span class="hljs-keyword">struct</span> inode *,<span class="hljs-keyword">struct</span> dentry *,<span class="hljs-type">int</span>);
+<span class="hljs-type">int</span> (*rmdir) (<span class="hljs-keyword">struct</span> inode *,<span class="hljs-keyword">struct</span> dentry *);
+<span class="hljs-type">int</span> (*mknod) (<span class="hljs-keyword">struct</span> inode *,<span class="hljs-keyword">struct</span> dentry *,<span class="hljs-type">int</span>,<span class="hljs-type">dev_t</span>);
+<span class="hljs-type">int</span> (*rename) (<span class="hljs-keyword">struct</span> inode *, <span class="hljs-keyword">struct</span> dentry *,<span class="hljs-keyword">struct</span> inode *, <span class="hljs-keyword">struct</span> dentry *);
+<span class="hljs-type">int</span> (*readlink) (<span class="hljs-keyword">struct</span> dentry *, <span class="hljs-type">char</span> __user *,<span class="hljs-type">int</span>);
+<span class="hljs-type">void</span> * (*follow_link) (<span class="hljs-keyword">struct</span> dentry *, <span class="hljs-keyword">struct</span> nameidata *);
+<span class="hljs-type">void</span> (*put_link) (<span class="hljs-keyword">struct</span> dentry *, <span class="hljs-keyword">struct</span> nameidata *, <span class="hljs-type">void</span> *);
+<span class="hljs-type">void</span> (*truncate) (<span class="hljs-keyword">struct</span> inode *);
+<span class="hljs-type">int</span> (*permission) (<span class="hljs-keyword">struct</span> inode *, <span class="hljs-type">int</span>);
+<span class="hljs-type">int</span> (*setattr) (<span class="hljs-keyword">struct</span> dentry *, <span class="hljs-keyword">struct</span> iattr *);
+<span class="hljs-type">int</span> (*getattr) (<span class="hljs-keyword">struct</span> vfsmount *mnt, <span class="hljs-keyword">struct</span> dentry *, <span class="hljs-keyword">struct</span> kstat *);
+<span class="hljs-type">int</span> (*setxattr) (<span class="hljs-keyword">struct</span> dentry *, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *,<span class="hljs-type">const</span> <span class="hljs-type">void</span> *,<span class="hljs-type">size_t</span>,<span class="hljs-type">int</span>);
+<span class="hljs-type">ssize_t</span> (*getxattr) (<span class="hljs-keyword">struct</span> dentry *, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *, <span class="hljs-type">void</span> *, <span class="hljs-type">size_t</span>);
+<span class="hljs-type">ssize_t</span> (*listxattr) (<span class="hljs-keyword">struct</span> dentry *, <span class="hljs-type">char</span> *, <span class="hljs-type">size_t</span>);
+<span class="hljs-type">int</span> (*removexattr) (<span class="hljs-keyword">struct</span> dentry *, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *);
+<span class="hljs-comment">// 截断文件的一部分内容。</span>
+<span class="hljs-type">void</span> (*truncate_range)(<span class="hljs-keyword">struct</span> inode *, <span class="hljs-type">loff_t</span>, <span class="hljs-type">loff_t</span>);
+<span class="hljs-comment">//在文件中预分配空间。</span>
+<span class="hljs-type">long</span> (*fallocate)(<span class="hljs-keyword">struct</span> inode *inode, <span class="hljs-type">int</span> mode, <span class="hljs-type">loff_t</span> offset,
+<span class="hljs-type">loff_t</span> len);
+<span class="hljs-comment">//获取文件的物理布局信息。</span>
+<span class="hljs-type">int</span> (*fiemap)(<span class="hljs-keyword">struct</span> inode *, <span class="hljs-keyword">struct</span> fiemap_extent_info *, u64 start,
+u64 len);
+};
+</code></pre>
+<ul>
+<li><p>int create(struct inode <em>dir, struct dentry </em>dentry, int mode)
+The VFS calls this function from the creat() and open() system calls to create a new inode under given dir associated with the given dentry object with the specified initial access mode.
+这个dentry在调用前没有关联inode,调用后关联新创建的inode</p>
+</li>
+<li><p>struct dentry <em> lookup(struct inode </em>dir, struct dentry *dentry)
+This function searches a directory for an inode corresponding to a filename specified in the given dentry.
+如果找到，返回的dentry中的inode被设置为找到的inode， The "i_count" field in the inode structure should be incremented..If the named inode does not exist a NULL inode should be inserted into the return dentry (this is called a negative dentry). </p>
+</li>
+<li><p>int link(struct dentry <em>old_dentry, struct inode </em>dir, struct dentry *dentry)
+Invoked by the link() system call to create a hard link of the file old_dentry in the directory dir with the new filename dentry.</p>
+</li>
+<li><p>int unlink(struct inode <em>dir, struct dentry </em>dentry)
+Called from the unlink() system call to remove the  dentry from the directory dir,which also set the inode of dentry to NULL</p>
+</li>
+<li><p>int symlink(struct inode <em>dir, struct dentry </em>dentry, const char *symname)
+Called from the symlink() system call to create a symbolic link named symname to the file represented by dentry in the directory dir.</p>
+</li>
+<li><p>int mkdir(struct inode <em>dir, struct dentry </em>dentry,int mode)
+Called from the mkdir() system call to create a new directory with the given initial mode.</p>
+</li>
+<li><p>int rmdir(struct inode <em>dir, struct dentry </em>dentry)
+Called by the rmdir() system call to remove the directory referenced by dentry from the directory dir.</p>
+</li>
+<li><p>int rename(struct inode <em>old_dir, struct dentry </em>old_dentry, struct inode <em>new_dir, struct dentry </em>new_dentry)
+Called by the VFS to move the file specified by old_dentry from the old_dir directory to the directory new_dir, with the filename specified by new_dentry.</p>
+</li>
+<li><p>int mknod(struct inode <em>dir, struct dentry </em>dentry, int mode, dev_t rdev)
+Called by the mknod() system call to create a special file (device file, named pipe, or socket).The file is referenced by the device rdev and the directory entry dentry in the directory dir.The initial permissions are given via mode.</p>
+</li>
+<li><p>int readlink(struct dentry <em>dentry, char </em>buffer, int buflen)
+Called by the readlink() system call to copy at most buflen bytes of the full path associated with the symbolic link specified by dentry into the specified buffer.</p>
+</li>
+<li><p>int follow_link(struct dentry <em>dentry, struct nameidata </em>nd)
+Called by the VFS to translate a symbolic link to the inode to which it points.The link pointed at by dentry is translated, and the result is stored in the nameidata structure pointed at by nd.</p>
+</li>
+<li><p>int put_link(struct dentry <em>dentry, struct nameidata </em>nd)
+Called by the VFS to clean up after a call to follow_link().</p>
+</li>
+<li><p>void truncate(struct inode *inode)
+Called by the VFS to modify the size of the given file. </p>
+</li>
+<li><p>int permission(struct inode *inode, int mask)
+Checks whether the specified access mode is allowed for the file referenced by inode.This function returns zero if the access is allowed and a negative error code otherwise. Most filesystems set this field to NULL and use the generic VFS method, which simply compares the mode bits in the inode’s objects to the given mask.More complicated filesystems, such as those supporting access control lists (ACLs),have a specific permission() method.</p>
+</li>
+<li><p>int setattr(struct dentry <em>dentry, struct iattr </em>attr)
+called by the VFS to set attributes for a file. This method is called by chmod(2) and related system calls.</p>
+</li>
+<li><p>int getattr(struct vfsmount <em>mnt, struct dentry </em>dentry, struct kstat *stat)
+called by the VFS to get attributes of a file. This method is called by stat(2) and related system calls.</p>
+</li>
+<li><p>int setxattr(struct dentry <em>dentry, const char </em>name, const void *value, size_t size, int flags)
+called by the VFS to set an extended attribute for a file.Extended attribute is a name:value pair associated with an inode. This method is called by setxattr(2) system call.</p>
+</li>
+<li><p>ssize_t getxattr(struct dentry <em>dentry, const char </em>name, void *value, size_t size)
+called by the VFS to retrieve the value of an extended attribute name. This method is called by getxattr(2) function call.</p>
+</li>
+<li><p>ssize_t listxattr(struct dentry <em>dentry,char </em>list, size_t size)
+called by the VFS to list all extended attributes for a given file. This method is called by listxattr(2) system call.</p>
+</li>
+<li><p>int removexattr(struct dentry <em>dentry, const char </em>name)
+called by the VFS to remove an extended attribute from a file. This method is called by removexattr(2) system call.</p>
+</li>
+</ul>
+<p>以上的这些操作，凡是跟路径相关的都用dentry表示。内核在处理路径时，将路径转为dentry.</p>
+<p>file_operations 留在struct file 打开文件对象中说明。</p>
+<h5 id="the-dentry-object">The Dentry Object</h5>
+<p>在常见的unix文件系统的目录文件中，目录文件的每一项通常是一个目录项的名称(文件或子目录的名称)和它对应的 inode 编号.</p>
+<p>内核在执行根据路径查找文件时，如果每次都需要打开目录文件，一项项的对比，是非常费时的。因此，内核使用dentry加速对文件的查找。dentry就是目录文件中的每一项对应在内核中的缓存，其中包括该目录项的名称，对应的inode编号，层级关系，以及相关的控制信息。</p>
+<p>内核在执行路径解析查找文件的工作时，这个工作如果没有任何缓存机制的话，涉及到字符串的分解，文件读取，查找判断，这是个非常费时的工作。如果路径对应的dentry被缓存了，则可以直接从dentry cache中获取dentry，找到对应的inode,进而找到文件。</p>
+<p>比如我们有<code>/bin/vi</code>这个路径，这个路径一共有3项， /,bin,vi,这每一项都对应着dentry.
+当我们在执行open, chmod,create这些操作时，都是传入的路径，而实际到vfs层的接口时，需要的是dentry.如果路径对应的dentry在dcache中，直接获取即可。如果不在，则需要解析路径，访问每一个目录文件，查找判断，生成对应的dentry,cache到缓存中。
+根目录的dentry在文件系统被挂载时生成。并且一直在内存中。</p>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">dentry</span> {</span>
+<span class="hljs-type">atomic_t</span> d_count; <span class="hljs-comment">//表示 dentry 的引用计数，用于跟踪有多少个进程或内核结构正在引用这个 dentry</span>
+<span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> d_flags;<span class="hljs-comment">//包含一些标志，如 DCACHE_OP_HASH、DCACHE_MOUNTED 等，表示 dentry 的状态或特性。</span>
+<span class="hljs-type">spinlock_t</span> d_lock; <span class="hljs-comment">//自旋锁，用于保护 dentry。</span>
+<span class="hljs-type">int</span> d_mounted; <span class="hljs-comment">/* is this a mount point? */</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">inode</span> *<span class="hljs-title">d_inode</span>;</span> <span class="hljs-comment">/* associated inode */</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">hlist_node</span> <span class="hljs-title">d_hash</span>;</span> <span class="hljs-comment">//用于将 dentry 加入到哈希表中，以便快速查找。</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">dentry</span> *<span class="hljs-title">d_parent</span>;</span> <span class="hljs-comment">/* dentry object of parent */</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">qstr</span> <span class="hljs-title">d_name</span>;</span> <span class="hljs-comment">/* dentry name */</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">d_lru</span>;</span> <span class="hljs-comment">//用于维护最近最少使用的 dentry 列表</span>
+<span class="hljs-class"><span class="hljs-keyword">union</span> {</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">d_child</span>;</span> <span class="hljs-comment">/* list of dentries within */</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rcu_head</span> <span class="hljs-title">d_rcu</span>;</span> <span class="hljs-comment">/* RCU locking */</span>
+} d_u;
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">d_subdirs</span>;</span> <span class="hljs-comment">//子目录列表，如果 dentry 是目录，则这个列表包含所有子目录的 dentry。</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">d_alias</span>;</span> <span class="hljs-comment">//别名列表，如果一个 inode 有多个路径，则这些路径的 dentry 会通过这个列表链接起来，链表头在inode.i_dentry</span>
+<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> d_time; <span class="hljs-comment">//用于记录 dentry 最后一次被查询的时间，用于决定何时需要重新验证 dentry。</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">dentry_operations</span> *<span class="hljs-title">d_op</span>;</span> <span class="hljs-comment">/* dentry operations table */</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">super_block</span> *<span class="hljs-title">d_sb</span>;</span> <span class="hljs-comment">//指向这个 dentry 所属的文件系统的 super_block。</span>
+<span class="hljs-type">void</span> *d_fsdata; <span class="hljs-comment">/* filesystem-specific data */</span>
+<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> d_iname[DNAME_INLINE_LEN_MIN]; <span class="hljs-comment">/* short name */</span> <span class="hljs-comment">//一个短名称，用于小文件的文件名存储。</span>
+};
+</code></pre>
+<h6 id="dentry-state">Dentry State</h6>
+<p>一个有效的dentry的状态有3中，used,unused,negative
+used：dentry points to an inode, d_inode not NULL, and currently in use,d_count is positive. cannot be discarded.
+unused: dentry points to an inode, d_inode not NULL，but no one is using, d_count is zero. better in cache, can be discarded.
+negative: not associated with an inode, d_inode is NULL. it can be kept around, so that future lookups can be resolved quickly. For example, consider a daemon that continually tries to open and read a config file that is not present.The open() system calls continually returns ENOENT, but not until after the kernel constructs the path, walks the on-disk directory structure, and verifies the file’s inexistence. Because even this failed lookup is expensive, caching the “negative” results are worthwhile.Although a negative dentry is useful, it can be destroyed if memory is at a premium</p>
+<h6 id="dentry-cache">Dentry Cache</h6>
+<p>The dentry cache consists of three parts:</p>
+<ul>
+<li>Lists of “used” dentries linked off their associated inode via the i_dentry field of the inode object.</li>
+<li>A doubly linked LRU list of unused and negative dentry objects.The list is inserted at the head, such that entries toward the head of the list are newer than entries toward the tail.When the kernel must remove entries to reclaim memory, the entries are removed from the tail; those are the oldest and presumably have the least chance of being used in the near future.</li>
+<li>A hash table and hashing function used to quickly resolve a given path into the associated dentry object.</li>
+</ul>
+<p>hash table</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">hlist_head</span> *<span class="hljs-title">dentry_hashtable</span>
+</span></code></pre>
+<p>d_hash()返回路径对应的hash值。
+d_lookup()查找哈希表</p>
+<ul>
+<li>Dentry Operations<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">dentry_operations</span> {</span>
+<span class="hljs-type">int</span> (*d_revalidate) (<span class="hljs-keyword">struct</span> dentry *, <span class="hljs-keyword">struct</span> nameidata *);
+<span class="hljs-type">int</span> (*d_hash) (<span class="hljs-keyword">struct</span> dentry *, <span class="hljs-keyword">struct</span> qstr *);
+<span class="hljs-type">int</span> (*d_compare) (<span class="hljs-keyword">struct</span> dentry *, <span class="hljs-keyword">struct</span> qstr *, <span class="hljs-keyword">struct</span> qstr *);
+<span class="hljs-type">int</span> (*d_delete) (<span class="hljs-keyword">struct</span> dentry *);
+<span class="hljs-type">void</span> (*d_release) (<span class="hljs-keyword">struct</span> dentry *);
+<span class="hljs-type">void</span> (*d_iput) (<span class="hljs-keyword">struct</span> dentry *, <span class="hljs-keyword">struct</span> inode *);
+<span class="hljs-type">char</span> *(*d_dname) (<span class="hljs-keyword">struct</span> dentry *, <span class="hljs-type">char</span> *, <span class="hljs-type">int</span>);
+};
+</code></pre>
+<code>int d_revalidate(struct dentry *dentry,struct nameidata *)</code>
+Determines whether the given dentry object is valid.The VFS calls this function whenever it is preparing to use a dentry from the dcache. Most filesystems set this method to NULL because their dentry objects in the dcache are always valid.</li>
+</ul>
+<p><code>int d_hash(struct dentry *dentry, struct qstr *name)</code>
+Creates a hash value from the given dentry.The VFS calls this function whenever it adds a dentry to the hash table.</p>
+<p><code>int d_compare(struct dentry *dentry,struct qstr *name1, struct qstr *name2)</code>
+Called by the VFS to compare two filenames, name1 and name2. Most filesystems leave this at the VFS default, which is a simple string compare. For some filesystems, such as FAT, a simple string compare is insufficient.The FAT filesystem is not casesensitive and therefore needs to implement a comparison function that disregards case.This function requires the dcache_lock.</p>
+<p><code>int d_delete (struct dentry *dentry)</code>
+called when the last reference to a dentry is dropped and the dcache is deciding whether or not to cache it. Return 1 to delete immediately, or 0 to cache the dentry. Default is NULL which means to always cache a reachable dentry. d_delete must be constant and idempotent.</p>
+<p><code>void d_release(struct dentry *dentry)</code>
+Called by the VFS when the specified dentry is going to be freed.The default function does nothing.</p>
+<p><code>void d_iput(struct dentry *dentry,struct inode *inode)</code>
+Called when a dentry loses its inode (just prior to its being deallocated). The default when this is NULL is that the VFS calls iput(). If you define this method, you must call iput() yourself</p>
+<h5 id="struct-vfsmount">struct vfsmount</h5>
+<p>该结构体在将某个文件系统挂载到某个挂载点时会生成</p>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">vfsmount</span> {</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">mnt_hash</span>;</span> <span class="hljs-comment">//vfsmount的哈希存储，基于挂载点的dentry快速查找vfsmount</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">vfsmount</span> *<span class="hljs-title">mnt_parent</span>;</span>    <span class="hljs-comment">//指向父挂载点的指针。当我们挂载一个文件系统到另一个文件系统上时，这个字段会指向被挂载的父文件系统的vfsmount结构。</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">dentry</span> *<span class="hljs-title">mnt_mountpoint</span>;</span>    <span class="hljs-comment">/* dentry of mountpoint */</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">dentry</span> *<span class="hljs-title">mnt_root</span>;</span>    <span class="hljs-comment">//指向挂载文件系统的根目录的dentry。这是挂载文件系统的最高级目录。</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">super_block</span> *<span class="hljs-title">mnt_sb</span>;</span>    <span class="hljs-comment">/* pointer to superblock */</span>
+
+    <span class="hljs-comment">//mnt_mounts.next指向第一个孩子的mnt_child字段，第一个孩子的mnt_child.next 指向的是下一个孩子的mnt_child</span>
+    <span class="hljs-comment">//类似于tast_struct中的children和sibling</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">mnt_mounts</span>;</span>    <span class="hljs-comment">/* list of children, anchored here */</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">mnt_child</span>;</span>    <span class="hljs-comment">/* and going through their mnt_child */</span>
+
+
+    <span class="hljs-type">int</span> mnt_flags; <span class="hljs-comment">/*mnt flags ，指示了挂载点的特定属性，如只读、nosuid等。*/</span> 
+
+
+    <span class="hljs-type">char</span> *mnt_devname;        <span class="hljs-comment">/* Name of device e.g. /dev/dsk/hda1 */</span>
+
+
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">mnt_list</span>;</span> <span class="hljs-comment">//一个mount namespace下的所有挂载点由这个字段链接</span>
+
+<span class="hljs-comment">//...</span>
+
+    <span class="hljs-comment">//共享挂载和主从挂载相关</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">mnt_share</span>;</span>    
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">mnt_slave_list</span>;</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">mnt_slave</span>;</span>    
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">vfsmount</span> *<span class="hljs-title">mnt_master</span>;</span>    
+
+
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">mnt_namespace</span> *<span class="hljs-title">mnt_ns</span>;</span>    <span class="hljs-comment">/* containing namespace */</span>
+
+<span class="hljs-comment">//...</span>
+};
+</code></pre>
+<p>其中和共享挂载和主从挂载相关的字段</p>
+<pre><code class="lang-c">    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">mnt_share</span>;</span>    
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">mnt_slave_list</span>;</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">mnt_slave</span>;</span>    
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">vfsmount</span> *<span class="hljs-title">mnt_master</span>;</span>
+</code></pre>
+<p>struct list_head mnt_share: 这个字段用于链接所有共享同一个挂载点的vfsmount结构。当一个挂载点被多个目录共享时，所有这些vfsmount结构通过它们的mnt_share字段链接成一个列表。这样，当其中一个挂载点被卸载时，其他共享的挂载点也会受到影响。
+struct list_head mnt_slave_list: 这个字段是一个列表头，用于链接所有将当前挂载点作为其主挂载点的从挂载点。如果一个挂载点有从属挂载点，那么这些从属挂载点的mnt_slave字段会被插入到主挂载点的mnt_slave_list中。
+struct list_head mnt_slave:这个字段用于将当前挂载点链接到其主挂载点的mnt_slave_list中。
+struct vfsmount *mnt_master:这个字段是指向当前挂载点的主挂载点的指针。</p>
+<p>共享挂载和主从挂载机制在容器化和虚拟化环境中特别有用，可以在不同的挂载点之间保持同步</p>
+<p><img src="../../../../images/os/lkd/lkd-45.png" alt=""></img></p>
+<h5 id="mntnamespace">mnt_namespace</h5>
+<p>mnt_namespace 用于隔离一组进程的挂载点视图,task_struct中的 mnt_namespace字段指向该结构体，表示对该进程的可见mount point</p>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">mnt_namespace</span> {</span>
+  <span class="hljs-type">atomic_t</span> count; <span class="hljs-comment">/* usage count */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">vfsmount</span> *<span class="hljs-title">root</span>;</span> <span class="hljs-comment">/* 这个mnt namespace的根文件系统挂载点 */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">list</span>;</span> <span class="hljs-comment">/* 这个mnt namespace下的所有挂载点链表，由vfsmount.mnt_list链接*/</span>
+  <span class="hljs-type">wait_queue_head_t</span> poll; <span class="hljs-comment">/* polling waitqueue，这是一个等待队列头，用于实现挂载等待mnt namespace中某些事件发生的进程的等待队列。例如，当mnt namespace中的某些操作完成或者发生变化时，可以通过这个等待队列通知等待的进程。 */</span>
+  <span class="hljs-type">int</span> event; <span class="hljs-comment">/* event count，这是一个事件计数器，用于记录mnt namespace中发生的事件。当mnt namespace中的文件系统发生变化（如挂载、卸载操作）时，可以通过增加这个计数器来通知可能对此感兴趣的进程。 */</span>
+};
+</code></pre>
+<p>根文件系统：每个挂载空间中所有的文件系统都挂载在一个根目录下，而struct vfsmount *root指向的就是这个根目录的挂载点。对于每个进程，它们的根目录可能不同，这取决于它们所在的挂载命名空间。mnt_namespace结构体的root字段定义了该命名空间的根目录。每个挂载空间都可以有自己的根文件系统挂载点，这意味着在不同的挂载空间中，进程可以看到不同的文件系统层次结构。这种机制为进程提供了文件系统的隔离，使得每个挂载空间中的进程都像是在一个独立的文件系统环境中运行。</p>
+<p>一个根目录挂载点vfsmount,代表一个单独文件系统视图。通过root vfsmount的mnt_mounts和mnt_child字段，可以遍历挂载空间下的所有挂载点。</p>
+<p>当创建子进程时，默认子进程共享父进程的mnt namespace,也就是其task_struct中的mnt_namespace字段指向父进程的mnt_namespace。
+如果开启了CLONE_NEWNS，子进程创建自己的mnt namespace,其root字段是父进程mnt_namespace的根vfsmount的复制，复制是通过copy_tree函数完成的，它递归地复制了父进程的根vfsmount及其所有的子挂载点(<code>new_ns-&gt;root = copy_tree(mnt_ns-&gt;root, mnt_ns-&gt;root-&gt;mnt_root,...)</code> )，也就是初始视图和父进程一样的。后续对这个mnt namespace 的操作，只对该mnt namespace空间中的进程可见。如果后续将当前进程的mnt namespace的root切换为别的vfsmount,则整个文件系统视图被切换。</p>
+<h4 id="与进程打开文件相关的数据结构">与进程打开文件相关的数据结构</h4>
+<h5 id="file-object">file object</h5>
+<p>file object表示进程打开的一个文件。进程与vfs通过file object打交道。</p>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file</span> {</span>
+  <span class="hljs-class"><span class="hljs-keyword">union</span> {</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">fu_list</span>;</span> <span class="hljs-comment">/* 一个super block的所有打开文件链表，该链表由super_block中的s_files字段表示 */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rcu_head</span> <span class="hljs-title">fu_rcuhead</span>;</span> <span class="hljs-comment">/* RCU list after freeing,RCU相关的链表 */</span>
+  } f_u;
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">path</span> <span class="hljs-title">f_path</span>;</span> <span class="hljs-comment">/* contains the dentry */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file_operations</span> *<span class="hljs-title">f_op</span>;</span> <span class="hljs-comment">/* file operations table */</span>
+  <span class="hljs-type">spinlock_t</span> f_lock; <span class="hljs-comment">/* per-file struct lock */</span>
+  <span class="hljs-type">atomic_t</span> f_count; <span class="hljs-comment">/* file object’s usage count */</span>
+  <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> f_flags; <span class="hljs-comment">/* flags specified on open，比如O_RDONLY，O_WRONLY，O_RDWR，O_APPEND，O_NONBLOCK等 */</span>
+  <span class="hljs-type">mode_t</span> f_mode; <span class="hljs-comment">/* file access mode， 比如S_IRUSR，S_IWUSR，S_IXUSR，S_IRGRP, S_IWGRP, S_IXGRP，S_IROTH, S_IWOTH, S_IXOTH*/</span>
+  <span class="hljs-type">loff_t</span> f_pos; <span class="hljs-comment">/* file offset (file pointer) */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">fown_struct</span> <span class="hljs-title">f_owner</span>;</span> <span class="hljs-comment">/* owner data for signals */</span>
+  <span class="hljs-type">const</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">cred</span> *<span class="hljs-title">f_cred</span>;</span> <span class="hljs-comment">/*This is a pointer to the credentials of the process that opened the file.  一个进程的credentials包括 uid，gid,euid,egid,capabilities等，详见ulk chapter 20*/</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file_ra_state</span> <span class="hljs-title">f_ra</span>;</span> <span class="hljs-comment">/* read-ahead state */</span>
+  u64 f_version; <span class="hljs-comment">/* This is a version number that gets incremented each time the file is changed. */</span>
+  <span class="hljs-type">void</span> *f_security; <span class="hljs-comment">/* This is a pointer to security-specific data. */</span>
+  <span class="hljs-type">void</span> *private_data; <span class="hljs-comment">/* This is a pointer to any private data associated with the file. This is often used by device drivers. */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">list_head</span> <span class="hljs-title">f_ep_links</span>;</span> <span class="hljs-comment">/* This is a list of epoll instances that are listening to this file. */</span>
+  <span class="hljs-type">spinlock_t</span> f_ep_lock; <span class="hljs-comment">/*  lock  of epoll list */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">address_space</span> *<span class="hljs-title">f_mapping</span>;</span> <span class="hljs-comment">/* page cache mapping */</span>
+  <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> f_mnt_write_state; <span class="hljs-comment">/* This is used to track the file's write state for filesystem quota tracking.*/</span>
+};
+</code></pre>
+<p>fu_rcuhead: 这个字段用于Linux内核中的RCU（Read-Copy-Update）机制。RCU是一种同步机制，它允许在读取数据时不需要获取任何锁，这使得读取操作非常快速。RCU的核心思想是在更新数据结构时，首先复制要更新的部分，然后进行修改，最后在适当的时刻更新原始数据结构，这个时刻是在所有旧的读取操作完成之后。fu_rcuhead用于在文件结构被释放时进行RCU回调。当一个file结构体不再被使用，并且其引用计数（f_count）降到0时，它不能立即被释放，因为可能还有正在进行的读取操作。相反，file结构体会被添加到一个RCU链表中，并且fu_rcuhead被用来链接这个链表。When a file is being freed, it needs to be done in a way that ensures any ongoing operations on the file can complete safely. This is where fu_rcuhead comes into play, it's used during the call to call_rcu() which schedules the RCU callback for freeing the file.So, if there are parts of the kernel still accessing the struct file, they can continue to do so in a safe manner. Once it's guaranteed that no other parts of the kernel are accessing the struct file, the memory occupied by the struct  file can be safely freed.</p>
+<p>综上，fu_rcuhead是跟struct file的释放相关。所以一个struct file不可能同时位于fu_list和fu_rcuhead这两个链表。所以我们用union表示这两个字段。</p>
+<h5 id="fileoperations">file_operations</h5>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file_operations</span> {</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">module</span> *<span class="hljs-title">owner</span>;</span>
+  <span class="hljs-type">loff_t</span> (*llseek) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">loff_t</span>, <span class="hljs-type">int</span>);
+  <span class="hljs-type">ssize_t</span> (*read) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">char</span> __user *, <span class="hljs-type">size_t</span>, <span class="hljs-type">loff_t</span> *);
+  <span class="hljs-type">ssize_t</span> (*write) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">const</span> <span class="hljs-type">char</span> __user *, <span class="hljs-type">size_t</span>, <span class="hljs-type">loff_t</span> *);
+  <span class="hljs-type">ssize_t</span> (*aio_read) (<span class="hljs-keyword">struct</span> kiocb *, <span class="hljs-type">const</span> <span class="hljs-keyword">struct</span> iovec *,<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>, <span class="hljs-type">loff_t</span>);
+  <span class="hljs-type">ssize_t</span> (*aio_write) (<span class="hljs-keyword">struct</span> kiocb *, <span class="hljs-type">const</span> <span class="hljs-keyword">struct</span> iovec *,<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>, <span class="hljs-type">loff_t</span>);
+  <span class="hljs-type">int</span> (*readdir) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">void</span> *, <span class="hljs-type">filldir_t</span>);
+  <span class="hljs-type">unsigned</span> <span class="hljs-title function_">int</span> <span class="hljs-params">(*poll)</span> <span class="hljs-params">(<span class="hljs-keyword">struct</span> file *, <span class="hljs-keyword">struct</span> poll_table_struct *)</span>;
+  <span class="hljs-type">int</span> (*ioctl) (<span class="hljs-keyword">struct</span> inode *, <span class="hljs-keyword">struct</span> file *, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span>,<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>);
+  <span class="hljs-type">long</span> (*unlocked_ioctl) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span>, <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>);
+  <span class="hljs-type">long</span> (*compat_ioctl) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span>, <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>);
+  <span class="hljs-type">int</span> (*mmap) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-keyword">struct</span> vm_area_struct *);
+  <span class="hljs-type">int</span> (*open) (<span class="hljs-keyword">struct</span> inode *, <span class="hljs-keyword">struct</span> file *);
+  <span class="hljs-type">int</span> (*flush) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">fl_owner_t</span> id);
+  <span class="hljs-type">int</span> (*release) (<span class="hljs-keyword">struct</span> inode *, <span class="hljs-keyword">struct</span> file *);
+  <span class="hljs-type">int</span> (*fsync) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-keyword">struct</span> dentry *, <span class="hljs-type">int</span> datasync);
+  <span class="hljs-type">int</span> (*aio_fsync) (<span class="hljs-keyword">struct</span> kiocb *, <span class="hljs-type">int</span> datasync);
+  <span class="hljs-type">int</span> (*fasync) (<span class="hljs-type">int</span>, <span class="hljs-keyword">struct</span> file *, <span class="hljs-type">int</span>);
+  <span class="hljs-type">int</span> (*lock) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">int</span>, <span class="hljs-keyword">struct</span> file_lock *);
+  <span class="hljs-type">ssize_t</span> (*sendpage) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-keyword">struct</span> page *,<span class="hljs-type">int</span>, <span class="hljs-type">size_t</span>, <span class="hljs-type">loff_t</span> *, <span class="hljs-type">int</span>);
+  <span class="hljs-type">unsigned</span> <span class="hljs-title function_">long</span> <span class="hljs-params">(*get_unmapped_area)</span> <span class="hljs-params">(<span class="hljs-keyword">struct</span> file *,<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>,<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>,<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>,<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)</span>;
+  <span class="hljs-type">int</span> (*check_flags) (<span class="hljs-type">int</span>);
+  <span class="hljs-type">int</span> (*flock) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">int</span>, <span class="hljs-keyword">struct</span> file_lock *);
+  <span class="hljs-type">ssize_t</span> (*splice_write) (<span class="hljs-keyword">struct</span> pipe_inode_info *,<span class="hljs-keyword">struct</span> file *,<span class="hljs-type">loff_t</span> *,<span class="hljs-type">size_t</span>, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span>);
+  <span class="hljs-type">ssize_t</span> (*splice_read) (<span class="hljs-keyword">struct</span> file *,<span class="hljs-type">loff_t</span> *,<span class="hljs-keyword">struct</span> pipe_inode_info *,<span class="hljs-type">size_t</span>,<span class="hljs-type">unsigned</span> <span class="hljs-type">int</span>);
+  <span class="hljs-type">int</span> (*setlease) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">long</span>, <span class="hljs-keyword">struct</span> file_lock **);
+};
+</code></pre>
+<ul>
+<li><p>loff_t llseek(struct file *file, loff_t offset, int origin)
+Updates the file pointer to the given offset. It is called via the llseek() system call.</p>
+</li>
+<li><p>ssize_t read(struct file <em>file,char </em>buf, size_t count, loff_t *offset)
+Reads count bytes from the given file at position offset into buf.The file pointer is then updated.This function is called by the read() system call</p>
+</li>
+<li><p>ssize_t aio_read(struct kiocb <em>iocb,char </em>buf, size_t count,loff_t offset)
+Begins an asynchronous read of count bytes into buf of the file described in iocb. This function is called by the aio_read() system call.</p>
+</li>
+<li><p>ssize_t write(struct file <em>file,const char </em>buf, size_t count, loff_t *offset)
+Writes count bytes from buf into the given file at position offset.The file pointer is then updated.This function is called by the write() system call.</p>
+</li>
+<li><p>ssize_t aio_write(struct kiocb <em>iocb, const char </em>buf, size_t count, loff_t offset)
+Begins an asynchronous write of count bytes from buf into the file described in iocb. This function is called by the aio_write() system call.</p>
+</li>
+<li><p>int readdir(struct file <em>file, void </em>dirent, filldir_t filldir)
+Returns the next directory in a directory listing.This function is called by the readdir() system call. The file should be a directory file.</p>
+</li>
+<li><p>unsigned int poll(struct file <em>file, struct poll_table_struct </em>poll_table)
+Sleeps, waiting for activity on the given file. It is called by the poll() system call.</p>
+</li>
+<li><p>int ioctl(struct inode <em>inode,struct file </em>file,unsigned int cmd, unsigned long arg)
+Sends a command and argument pair to a device. It is used when the file is an open device node.This function is called from the ioctl() system call. Callers must hold the BKL(big kernel lock)</p>
+</li>
+<li><p>int unlocked_ioctl(struct file *file,unsigned int cmd,unsigned long arg)
+Implements the same functionality as ioctl() but without needing to hold the BKL.The VFS calls unlocked_ioctl() if it exists in lieu of ioctl() when userspace invokes the ioctl() system call.Thus filesystems need implement only one, preferably unlocked_ioctl()</p>
+</li>
+<li><p>int compat_ioctl(struct file *file,unsigned int cmd,unsigned long arg)
+Implements a portable variant of ioctl() for use on 64-bit systems by 32-bit applications.This function is designed to be 32-bit safe even on 64-bit architectures, performing any necessary size conversions. New drivers should design their ioctl commands such that all are portable, and thus enable compat_ioctl() and unlocked_ioctl() to point to the same function. Like unlocked_ioctl(), compat_ioctl() does not hold the BKL.</p>
+</li>
+<li><p>int mmap(struct file <em>file, struct vm_area_struct </em>vma)
+Memory maps the given file onto the given address space and is called by the mmap() system call.</p>
+</li>
+<li><p>int open(struct inode <em>inode, struct file </em>file)
+Creates a new file object and links it to the corresponding inode object. It is called by the open() system call.</p>
+</li>
+<li><p>int flush(struct file *file)
+Called by the VFS whenever the reference count of an open file decreases. Its purpose is filesystem-dependent.</p>
+</li>
+<li><p>int release(struct inode <em>inode, struct file </em>file)
+Called by the VFS when the last remaining reference to the file is destroyed—for example, when the last process sharing a file descriptor calls close() or exits. Its purpose is filesystem-dependent.</p>
+</li>
+<li><p>int fsync(struct file <em>file, struct dentry </em>dentry, int datasync)
+Called by the fsync() system call to write all cached data for the file to disk.</p>
+</li>
+<li><p>int aio_fsync(struct kiocb *iocb, int datasync)
+Called by the aio_fsync() system call to write all cached data for the file associated with iocb to disk.</p>
+</li>
+<li><p>int fasync(int fd, struct file *file, int on)
+Enables or disables signal notification of asynchronous I/O.</p>
+</li>
+<li><p>int lock(struct file <em>file, int cmd，struct file_lock </em>lock)
+Manipulates a file lock on the given file.</p>
+</li>
+<li><p>ssize_t readv(struct file <em>file, const struct iovec </em>vector, unsigned long count, loff_t *offset)
+Called by the readv() system call to read from the given file and put the results into the count buffers described by vector.The file offset is then incremented.</p>
+</li>
+<li><p>ssize_t writev(struct file <em>file,const struct iovec </em>vector,unsigned long count, loff_t *offset)
+Called by the writev() system call to write from the count buffers described by vector into the file specified by file.The file offset is then incremented.</p>
+</li>
+<li><p>ssize_t sendfile(struct file <em>file, loff_t </em>offset,size_t size, read_actor_t actor, void *target)
+Called by the sendfile() system call to copy data from one file to another. It performs the copy entirely in the kernel and avoids an extraneous copy to user-space.</p>
+</li>
+<li><p>ssize_t sendpage(struct file <em>file, struct page </em>page, int offset, size_t size, loff_t *pos, int more)
+Used to send data from one file to another.</p>
+</li>
+<li><p>unsigned long get_unmapped_area(struct file *file, unsigned long addr, unsigned long len,unsigned long offset, unsigned long flags)
+Gets unused address space to map the given file.</p>
+</li>
+<li><p>int check_flags(int flags)
+Used to check the validity of the flags passed to the fcntl() system call when the SETFL command is given.As with many VFS operations, filesystems need not implement check_flags(); currently, only NFS does so.This function enables filesystems to restrict invalid SETFL flags otherwise enabled by the generic fcntl() function. In the case of NFS, combining O_APPEND and O_DIRECT is not enabled.</p>
+</li>
+<li><p>int flock(struct file <em>filp, int cmd, struct file_lock </em>fl)
+Used to implement the flock() system call, which provides advisory locking</p>
+</li>
+</ul>
+<h5 id="filesstruct">files_struct</h5>
+<p>files_srtuct是一个进程的打开文件描述符表，task_struct中的files字段指向该结构体</p>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">files_struct</span> {</span>
+  <span class="hljs-type">atomic_t</span> count; <span class="hljs-comment">/* usage count */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">fdtable</span> *<span class="hljs-title">fdt</span>;</span> <span class="hljs-comment">/* pointer to other fd table */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">fdtable</span> <span class="hljs-title">fdtab</span>;</span> <span class="hljs-comment">/* base fd table */</span>
+  <span class="hljs-type">spinlock_t</span> file_lock; <span class="hljs-comment">/* per-file lock */</span>
+  <span class="hljs-type">int</span> next_fd; <span class="hljs-comment">/* cache of next available fd */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">embedded_fd_set</span> <span class="hljs-title">close_on_exec_init</span>;</span> <span class="hljs-comment">/* list of close-on-exec fds */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">embedded_fd_set</span> <span class="hljs-title">open_fds_init</span> /* <span class="hljs-title">list</span> <span class="hljs-title">of</span> <span class="hljs-title">open</span> <span class="hljs-title">fds</span> */
+  <span class="hljs-keyword">struct</span> <span class="hljs-title">file</span> *<span class="hljs-title">fd_array</span>[<span class="hljs-title">NR_OPEN_DEFAULT</span>];</span> <span class="hljs-comment">/* base files array */</span>
+};
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">fdtable</span> {</span>
+    <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> max_fds;
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file</span> ** <span class="hljs-title">fd</span>;</span>      <span class="hljs-comment">/* current fd array */</span>
+    fd_set *close_on_exec;
+    fd_set *open_fds;
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rcu_head</span> <span class="hljs-title">rcu</span>;</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">fdtable</span> *<span class="hljs-title">next</span>;</span>
+};
+
+<span class="hljs-comment">/*
+ * The embedded_fd_set is a small fd_set,
+ * suitable for most tasks (which open &lt;= BITS_PER_LONG files)
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">embedded_fd_set</span> {</span>
+    <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> fds_bits[<span class="hljs-number">1</span>];
+};
+</code></pre>
+<p>The array fd_array points to the list of open file objects. Because NR_OPEN_DEFAULT
+is equal to BITS_PER_LONG, which is 64 on a 64-bit architecture; this includes room for
+64 file objects. If a process opens more than 64 file objects, the kernel allocates a new
+array and points the fdt pointer at it. In this fashion, access to a reasonable number of file
+objects is quick, taking place in a static array. If a process opens an abnormal number of
+files, the kernel can create a new array. If the majority of processes on a system opens
+more than 64 files, for optimum performance the administrator can increase the
+NR_OPEN_DEFAULT preprocessor macro to match.</p>
+<p>子进程默认复制父进程的打开文件描述符表，其数组的指针指向同一个struct file.
+如果创建子进程时指定了CLONE_FILES标志，则会共享父进程的打开文件描述符表。</p>
+<h5 id="fsstruct">fs_struct</h5>
+<p>task_struct中的fs字段指向该结构体</p>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">fs_struct</span> {</span>
+  <span class="hljs-type">int</span> users; <span class="hljs-comment">/* user count */</span>
+  <span class="hljs-type">rwlock_t</span> lock; <span class="hljs-comment">/* per-structure lock */</span>
+  <span class="hljs-type">int</span> umask; <span class="hljs-comment">/* umask */</span>
+  <span class="hljs-type">int</span> in_exec; <span class="hljs-comment">/* currently executing a file */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">path</span> <span class="hljs-title">root</span>;</span> <span class="hljs-comment">/* root directory */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">path</span> <span class="hljs-title">pwd</span>;</span> <span class="hljs-comment">/* current working directory */</span>
+};
+</code></pre>
+<p>The fs_struct structure in the Linux kernel represents the file system related information for a process.</p>
+<p>It contains the following key information:</p>
+<ul>
+<li><p>The current working directory (pwd) of the process: This is the directory where the process starts, and it's the default directory for any relative file paths the process uses.</p>
+</li>
+<li><p>The root directory (root) of the process: This is the top-level directory from which the process's file system starts. This is usually the root of the entire file system hierarchy (/), but it can be changed by the process.</p>
+</li>
+<li><p>The current umask value: The umask is used to determine the file permission for newly created files and directories.</p>
+</li>
+</ul>
+<p>子进程默认复制父进程的fs_struct，如果进程在创建时指定了CLONE_FS标志，则会共享父进程的该结构体。</p>
+<h4 id="ps1">PS1</h4>
+<p>what's advisory locking?</p>
+<p>GPT-4:
+Advisory locking is a mechanism that allows programs to regulate their access to shared resources without the kernel enforcing it. In other words, these locks are "advisories", meaning they only work if all programs follow the locking protocol.</p>
+<p>There are two types of advisory locks:</p>
+<ul>
+<li><p>Shared Lock (or Read Lock): Multiple processes can hold a shared lock for a given resource at the same time, but no process can hold an exclusive lock (write lock).</p>
+</li>
+<li><p>Exclusive Lock (or Write Lock): Only one process can hold an exclusive lock for a given resource at a time and no other process can hold any lock (read or write) on it.</p>
+</li>
+</ul>
+<p>If a process doesn't respect the advisory locks and accesses the resource without acquiring the appropriate lock, the kernel doesn't prevent it. Therefore, all processes accessing a given resource must agree to use advisory locks for them to be effective.</p>
+<p>In Linux, advisory locking can be implemented via the fcntl() or lockf() system calls.</p>
+<p>GLM-4:
+Advisory locking is a mechanism used in computer systems to allow processes to coordinate with each other by acquiring and releasing locks on shared resources. Unlike mandatory locks, which are enforced by the operating system at the file system level, advisory locks are not enforced and are used only if the participating processes choose to honor them.</p>
+<p>Advisory locks are typically used in situations where multiple processes need to access the same resource, such as a file or a database, and need to ensure that they do not interfere with each other. By using advisory locks, processes can avoid conflicts such as data corruption or inconsistent state by coordinating their access to the shared resource.</p>
+<p>In many systems, advisory locks are implemented using system calls such as flock on Unix-like systems or LockFile on Windows. These system calls allow a process to request a lock on a file, and other processes can check whether the lock is held before attempting to access the file.</p>
+<p>It’s important to note that advisory locks rely on the cooperation of all processes that access the shared resource. If a process does not check for or respect advisory locks, it may still access the resource even if another process has acquired a lock on it. Therefore, advisory locks are most effective when all processes are designed to use them correctly.</p>
+<div class="navPagesContainer"> <div class="navPagesLinks"> <a class="card cardPrevious"> <div class="cardIcon"> <i class="fa fa-angle-left"></i> </div> <div class="cardPreviousBody"> <div class="cardHint"> <span>Previous</span> </div> <div class="cardTitle"> <span>chapter13-The Process Address Space</span> </div> </div> </a> <a class="card cardNext"> <div class="cardNextBody"> <div class="cardHint"> <span>Next</span> </div> <div class="cardTitle"> <span>chapter15-FileIO and Page Cache</span> </div> </div> <div class="cardIcon"> <i class="fa fa-angle-right"></i> </div> </a> </div> </div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter13-The Process Address Space.html" class="navigation navigation-prev " aria-label="Previous page: chapter13-The Process Address Space">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter15-FileIO and Page Cache.html" class="navigation navigation-next " aria-label="Next page: chapter15-FileIO and Page Cache">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"chapter14-The Virtual Filesystem","level":"1.4.1.1.12","depth":4,"next":{"title":"chapter15-FileIO and Page Cache","level":"1.4.1.1.13","depth":4,"path":"posts/os/linux/lkd/chapter15-FileIO and Page Cache.md","ref":"./posts/os/linux/lkd/chapter15-FileIO and Page Cache.md","articles":[]},"previous":{"title":"chapter13-The Process Address Space","level":"1.4.1.1.11","depth":4,"path":"posts/os/linux/lkd/chapter13-The Process Address Space.md","ref":"./posts/os/linux/lkd/chapter13-The Process Address Space.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["bottom-navigation","collapsible-menu","livereload"],"pluginsConfig":{"bottom-navigation":{"navPrevSelector":null,"navNextSelector":null,"iconColor":null,"titleColor":null,"borderColor":"#873077","pageInnerWidth":null,"prevText":"Previous","nextText":"Next"},"collapsible-menu":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"posts/os/linux/lkd/chapter14-The Virtual Filesystem.md","mtime":"2024-06-18T07:02:38.000Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-05-02T00:47:25.524Z"},"basePath":"../../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../../../../gitbook/gitbook.js"></script>
+    <script src="../../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-bottom-navigation/stylish.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-bottom-navigation/href.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

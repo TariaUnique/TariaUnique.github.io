@@ -1,0 +1,4352 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>9.以红黑树为底层数据结构的关联式容器 · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-bottom-navigation/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="10.以哈希表为底层数据结构的关联式容器.html" />
+    
+    
+    <link rel="prev" href="8.序列式容器之deque.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../readme.html">
+            
+                <a href="../readme.html">
+            
+                    
+                    c&c++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../boost asio/readme.html">
+            
+                <a href="../boost asio/readme.html">
+            
+                    
+                    boost asio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../c++2.0/readme.html">
+            
+                <a href="../c++2.0/readme.html">
+            
+                    
+                    c++2.0
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../c++2.0/01 decltype.html">
+            
+                <a href="../c++2.0/01 decltype.html">
+            
+                    
+                    01 decltype
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../c++2.0/02 auto & decltype(auto">
+            
+                <span>
+            
+                    
+                    02 auto & decltype(auto)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../c++2.0/03 value categories & rvalue reference.html">
+            
+                <a href="../c++2.0/03 value categories & rvalue reference.html">
+            
+                    
+                    03 value categories & rvalue reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../c++2.0/04 universal reference & reference collpsing.html">
+            
+                <a href="../c++2.0/04 universal reference & reference collpsing.html">
+            
+                    
+                    04 universal reference & reference collpsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../c++2.0/05 move semantics.html">
+            
+                <a href="../c++2.0/05 move semantics.html">
+            
+                    
+                    05 move semantics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../c++2.0/06 perfect forwarding.html">
+            
+                <a href="../c++2.0/06 perfect forwarding.html">
+            
+                    
+                    06 perfect forwarding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../c++2.0/07 lambda.html">
+            
+                <a href="../c++2.0/07 lambda.html">
+            
+                    
+                    07 lambda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="../c++2.0/08 可变模板.html">
+            
+                <a href="../c++2.0/08 可变模板.html">
+            
+                    
+                    08 可变模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="../c++2.0/09 uniform initialzation.html">
+            
+                <a href="../c++2.0/09 uniform initialzation.html">
+            
+                    
+                    09 uniform initialzation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="../c++2.0/10 template alias.html">
+            
+                <a href="../c++2.0/10 template alias.html">
+            
+                    
+                    10 template alias
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="../c++2.0/11 function.html">
+            
+                <a href="../c++2.0/11 function.html">
+            
+                    
+                    11 function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="../c++2.0/12 bind.html">
+            
+                <a href="../c++2.0/12 bind.html">
+            
+                    
+                    12 bind
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.13" data-path="../c++2.0/13 keywords.html">
+            
+                <a href="../c++2.0/13 keywords.html">
+            
+                    
+                    13 keywords
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.14" data-path="../c++2.0/14 shared_ptr.html">
+            
+                <a href="../c++2.0/14 shared_ptr.html">
+            
+                    
+                    14 shared_ptr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.15" data-path="../c++2.0/15 weak_ptr.html">
+            
+                <a href="../c++2.0/15 weak_ptr.html">
+            
+                    
+                    15 weak_ptr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.16" data-path="../c++2.0/16 unique_ptr.html">
+            
+                <a href="../c++2.0/16 unique_ptr.html">
+            
+                    
+                    16 unique_ptr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.17" data-path="../c++2.0/17 declval.html">
+            
+                <a href="../c++2.0/17 declval.html">
+            
+                    
+                    17 declval
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../exceptional c++/readme.html">
+            
+                <a href="../exceptional c++/readme.html">
+            
+                    
+                    exceptional c++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../exceptional c++/item1.html">
+            
+                <a href="../exceptional c++/item1.html">
+            
+                    
+                    item1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../exceptional c++/item2.html">
+            
+                <a href="../exceptional c++/item2.html">
+            
+                    
+                    item2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../exceptional c++/item5.html">
+            
+                <a href="../exceptional c++/item5.html">
+            
+                    
+                    item5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../exceptional c++/item6.html">
+            
+                <a href="../exceptional c++/item6.html">
+            
+                    
+                    item6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../exceptional c++/item8.html">
+            
+                <a href="../exceptional c++/item8.html">
+            
+                    
+                    item8
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../exceptional c++/item20.html">
+            
+                <a href="../exceptional c++/item20.html">
+            
+                    
+                    item20
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../exceptional c++/item21.html">
+            
+                <a href="../exceptional c++/item21.html">
+            
+                    
+                    item21
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../exceptional c++/item22.html">
+            
+                <a href="../exceptional c++/item22.html">
+            
+                    
+                    item22
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.9" data-path="../exceptional c++/item23.html">
+            
+                <a href="../exceptional c++/item23.html">
+            
+                    
+                    item23
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.10" data-path="../exceptional c++/item24.html">
+            
+                <a href="../exceptional c++/item24.html">
+            
+                    
+                    item24
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.11" data-path="../exceptional c++/item26.html">
+            
+                <a href="../exceptional c++/item26.html">
+            
+                    
+                    item26
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.12" data-path="../exceptional c++/item29.html">
+            
+                <a href="../exceptional c++/item29.html">
+            
+                    
+                    item29
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.13" data-path="../exceptional c++/item31.html">
+            
+                <a href="../exceptional c++/item31.html">
+            
+                    
+                    item31
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.14" data-path="../exceptional c++/item38.html">
+            
+                <a href="../exceptional c++/item38.html">
+            
+                    
+                    item38
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.15" data-path="../exceptional c++/item40.html">
+            
+                <a href="../exceptional c++/item40.html">
+            
+                    
+                    item40
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.16" data-path="../exceptional c++/item43.html">
+            
+                <a href="../exceptional c++/item43.html">
+            
+                    
+                    item43
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.17" data-path="../exceptional c++/item47.html">
+            
+                <a href="../exceptional c++/item47.html">
+            
+                    
+                    item47
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../inside the c++ object model/readme.html">
+            
+                <a href="../inside the c++ object model/readme.html">
+            
+                    
+                    inside the c++ object model
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../inside the c++ object model/Chapter 1. Object Lessons.html">
+            
+                <a href="../inside the c++ object model/Chapter 1. Object Lessons.html">
+            
+                    
+                    Chapter 1. Object Lessons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../inside the c++ object model/Chapter 2. The Semantics of Constructors.html">
+            
+                <a href="../inside the c++ object model/Chapter 2. The Semantics of Constructors.html">
+            
+                    
+                    Chapter 2. The Semantics of Constructors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="../inside the c++ object model/Chapter 3. The Semantics of Data.html">
+            
+                <a href="../inside the c++ object model/Chapter 3. The Semantics of Data.html">
+            
+                    
+                    Chapter 3. The Semantics of Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="../inside the c++ object model/Chapter 4. The Semantics of Function.html">
+            
+                <a href="../inside the c++ object model/Chapter 4. The Semantics of Function.html">
+            
+                    
+                    Chapter 4. The Semantics of Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="../inside the c++ object model/Chapter 5. Semantics of Construction, Destruction, and Copy.html">
+            
+                <a href="../inside the c++ object model/Chapter 5. Semantics of Construction, Destruction, and Copy.html">
+            
+                    
+                    Chapter 5. Semantics of Construction, Destruction, and Copy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.6" data-path="../inside the c++ object model/Chapter 6. Runtime Semantics.html">
+            
+                <a href="../inside the c++ object model/Chapter 6. Runtime Semantics.html">
+            
+                    
+                    Chapter 6. Runtime Semantics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.7" data-path="../inside the c++ object model/Chapter 7. On the Cusp of the Object Model.html">
+            
+                <a href="../inside the c++ object model/Chapter 7. On the Cusp of the Object Model.html">
+            
+                    
+                    Chapter 7. On the Cusp of the Object Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../more exceptional c++/readme.html">
+            
+                <a href="../more exceptional c++/readme.html">
+            
+                    
+                    more exceptional c++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="../more exceptional c++/item1.html">
+            
+                <a href="../more exceptional c++/item1.html">
+            
+                    
+                    item1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="../more exceptional c++/item4.html">
+            
+                <a href="../more exceptional c++/item4.html">
+            
+                    
+                    item4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="../more exceptional c++/item5.html">
+            
+                <a href="../more exceptional c++/item5.html">
+            
+                    
+                    item5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.4" data-path="../more exceptional c++/item6.html">
+            
+                <a href="../more exceptional c++/item6.html">
+            
+                    
+                    item6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.5" data-path="../more exceptional c++/item11.html">
+            
+                <a href="../more exceptional c++/item11.html">
+            
+                    
+                    item11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.6" data-path="../more exceptional c++/item13.html">
+            
+                <a href="../more exceptional c++/item13.html">
+            
+                    
+                    item13
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.7" data-path="../more exceptional c++/item17.html">
+            
+                <a href="../more exceptional c++/item17.html">
+            
+                    
+                    item17
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.8" data-path="../more exceptional c++/item19.html">
+            
+                <a href="../more exceptional c++/item19.html">
+            
+                    
+                    item19
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.9" data-path="../more exceptional c++/item20.html">
+            
+                <a href="../more exceptional c++/item20.html">
+            
+                    
+                    item20
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.10" data-path="../more exceptional c++/item22.html">
+            
+                <a href="../more exceptional c++/item22.html">
+            
+                    
+                    item22
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.11" data-path="../more exceptional c++/item23.html">
+            
+                <a href="../more exceptional c++/item23.html">
+            
+                    
+                    item23
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.12" data-path="../more exceptional c++/item24.html">
+            
+                <a href="../more exceptional c++/item24.html">
+            
+                    
+                    item24
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.13" data-path="../more exceptional c++/item25.html">
+            
+                <a href="../more exceptional c++/item25.html">
+            
+                    
+                    item25
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.14" data-path="../more exceptional c++/item26.html">
+            
+                <a href="../more exceptional c++/item26.html">
+            
+                    
+                    item26
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.15" data-path="../more exceptional c++/item27.html">
+            
+                <a href="../more exceptional c++/item27.html">
+            
+                    
+                    item27
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.16" data-path="../more exceptional c++/item28.html">
+            
+                <a href="../more exceptional c++/item28.html">
+            
+                    
+                    item28
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.17" data-path="../more exceptional c++/item29.html">
+            
+                <a href="../more exceptional c++/item29.html">
+            
+                    
+                    item29
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.18" data-path="../more exceptional c++/item32.html">
+            
+                <a href="../more exceptional c++/item32.html">
+            
+                    
+                    item32
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.19" data-path="../more exceptional c++/item33.html">
+            
+                <a href="../more exceptional c++/item33.html">
+            
+                    
+                    item33
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.20" data-path="../more exceptional c++/item34.html">
+            
+                <a href="../more exceptional c++/item34.html">
+            
+                    
+                    item34
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.21" data-path="../more exceptional c++/item35.html">
+            
+                <a href="../more exceptional c++/item35.html">
+            
+                    
+                    item35
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.22" data-path="../more exceptional c++/item36.html">
+            
+                <a href="../more exceptional c++/item36.html">
+            
+                    
+                    item36
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.23" data-path="../more exceptional c++/item37.html">
+            
+                <a href="../more exceptional c++/item37.html">
+            
+                    
+                    item37
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.24" data-path="../more exceptional c++/item39.html">
+            
+                <a href="../more exceptional c++/item39.html">
+            
+                    
+                    item39
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    stl
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="1.前序：模板知识.html">
+            
+                <a href="1.前序：模板知识.html">
+            
+                    
+                    1.前序：模板知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" data-path="2.总述.html">
+            
+                <a href="2.总述.html">
+            
+                    
+                    2.总述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.3" data-path="3.分配器.html">
+            
+                <a href="3.分配器.html">
+            
+                    
+                    3.分配器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.4" data-path="4.序列式容器之list.html">
+            
+                <a href="4.序列式容器之list.html">
+            
+                    
+                    4.序列式容器之list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.5" data-path="5.迭代器的属性和分类.html">
+            
+                <a href="5.迭代器的属性和分类.html">
+            
+                    
+                    5.迭代器的属性和分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.6" data-path="6.序列式容器之vector.html">
+            
+                <a href="6.序列式容器之vector.html">
+            
+                    
+                    6.序列式容器之vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.7" data-path="7.序列式容器之array,forward_list.html">
+            
+                <a href="7.序列式容器之array,forward_list.html">
+            
+                    
+                    7.序列式容器之array,forward_list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.8" data-path="8.序列式容器之deque.html">
+            
+                <a href="8.序列式容器之deque.html">
+            
+                    
+                    8.序列式容器之deque
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.6.9" data-path="9.以红黑树为底层数据结构的关联式容器.html">
+            
+                <a href="9.以红黑树为底层数据结构的关联式容器.html">
+            
+                    
+                    9.以红黑树为底层数据结构的关联式容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.10" data-path="10.以哈希表为底层数据结构的关联式容器.html">
+            
+                <a href="10.以哈希表为底层数据结构的关联式容器.html">
+            
+                    
+                    10.以哈希表为底层数据结构的关联式容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.11" data-path="11.算法.html">
+            
+                <a href="11.算法.html">
+            
+                    
+                    11.算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.12" data-path="12.仿函数.html">
+            
+                <a href="12.仿函数.html">
+            
+                    
+                    12.仿函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.13" data-path="13.适配器.html">
+            
+                <a href="13.适配器.html">
+            
+                    
+                    13.适配器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.14" data-path="14.其他.html">
+            
+                <a href="14.其他.html">
+            
+                    
+                    14.其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.15" data-path="15.string.html">
+            
+                <a href="15.string.html">
+            
+                    
+                    15.string
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../其他/readme.html">
+            
+                <a href="../其他/readme.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.7.1" data-path="../其他/access specifiers.html">
+            
+                <a href="../其他/access specifiers.html">
+            
+                    
+                    access specifiers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.2" data-path="../其他/c++ casting opeartion.html">
+            
+                <a href="../其他/c++ casting opeartion.html">
+            
+                    
+                    c++ casting opeartion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.3" data-path="../其他/characters in c++.html">
+            
+                <a href="../其他/characters in c++.html">
+            
+                    
+                    characters in c++
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.4" data-path="../其他/contextual conversion to bool.html">
+            
+                <a href="../其他/contextual conversion to bool.html">
+            
+                    
+                    contextual conversion to bool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.5" data-path="../其他/enum class.html">
+            
+                <a href="../其他/enum class.html">
+            
+                    
+                    enum class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.6" data-path="../其他/simple threadpool.html">
+            
+                <a href="../其他/simple threadpool.html">
+            
+                    
+                    simple threadpool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.7" data-path="../其他/the most vexing parse problem.html">
+            
+                <a href="../其他/the most vexing parse problem.html">
+            
+                    
+                    the most vexing parse problem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.8" data-path="../其他/关于模板参数是Functor的模板类的实例化.html">
+            
+                <a href="../其他/关于模板参数是Functor的模板类的实例化.html">
+            
+                    
+                    关于模板参数是Functor的模板类的实例化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.9" data-path="../其他/线程函数传递引用参数.html">
+            
+                <a href="../其他/线程函数传递引用参数.html">
+            
+                    
+                    线程函数传递引用参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../内存管理/readme.html">
+            
+                <a href="../内存管理/readme.html">
+            
+                    
+                    内存管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="../内存管理/01 总述.html">
+            
+                <a href="../内存管理/01 总述.html">
+            
+                    
+                    01 总述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.2" data-path="../内存管理/02 operator new & operator delete.html">
+            
+                <a href="../内存管理/02 operator new & operator delete.html">
+            
+                    
+                    02 operator new & operator delete
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.3" data-path="../内存管理/03 ptmalloc.html">
+            
+                <a href="../内存管理/03 ptmalloc.html">
+            
+                    
+                    03 ptmalloc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.4" data-path="../内存管理/04 tcmalloc.html">
+            
+                <a href="../内存管理/04 tcmalloc.html">
+            
+                    
+                    04 tcmalloc
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../设计模式/readme.html">
+            
+                <a href="../设计模式/readme.html">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.1" data-path="../设计模式/创建型/readme.html">
+            
+                <a href="../设计模式/创建型/readme.html">
+            
+                    
+                    创建型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.1.1" data-path="../设计模式/创建型/01 单例模式.html">
+            
+                <a href="../设计模式/创建型/01 单例模式.html">
+            
+                    
+                    01 单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.2" data-path="../设计模式/创建型/02 工厂模式.html">
+            
+                <a href="../设计模式/创建型/02 工厂模式.html">
+            
+                    
+                    02 工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.3" data-path="../设计模式/创建型/03 建造者模式.html">
+            
+                <a href="../设计模式/创建型/03 建造者模式.html">
+            
+                    
+                    03 建造者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.4" data-path="../设计模式/创建型/04 原型模式.html">
+            
+                <a href="../设计模式/创建型/04 原型模式.html">
+            
+                    
+                    04 原型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2" data-path="../设计模式/结构型/readme.html">
+            
+                <a href="../设计模式/结构型/readme.html">
+            
+                    
+                    结构型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.2.1" data-path="../设计模式/结构型/05 代理模式.html">
+            
+                <a href="../设计模式/结构型/05 代理模式.html">
+            
+                    
+                    05 代理模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.2" data-path="../设计模式/结构型/06 装饰器模式.html">
+            
+                <a href="../设计模式/结构型/06 装饰器模式.html">
+            
+                    
+                    06 装饰器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.3" data-path="../设计模式/结构型/07 适配器模式.html">
+            
+                <a href="../设计模式/结构型/07 适配器模式.html">
+            
+                    
+                    07 适配器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.4" data-path="../设计模式/结构型/08 桥接模式.html">
+            
+                <a href="../设计模式/结构型/08 桥接模式.html">
+            
+                    
+                    08 桥接模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.5" data-path="../设计模式/结构型/09 门面模式.html">
+            
+                <a href="../设计模式/结构型/09 门面模式.html">
+            
+                    
+                    09 门面模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.6" data-path="../设计模式/结构型/10 组合模式.html">
+            
+                <a href="../设计模式/结构型/10 组合模式.html">
+            
+                    
+                    10 组合模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.7" data-path="../设计模式/结构型/11 享元模式.html">
+            
+                <a href="../设计模式/结构型/11 享元模式.html">
+            
+                    
+                    11 享元模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3" data-path="../设计模式/行为型/readme.html">
+            
+                <a href="../设计模式/行为型/readme.html">
+            
+                    
+                    行为型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.3.1" data-path="../设计模式/行为型/12 观察者模式.html">
+            
+                <a href="../设计模式/行为型/12 观察者模式.html">
+            
+                    
+                    12 观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.2" data-path="../设计模式/行为型/13 模版模式.html">
+            
+                <a href="../设计模式/行为型/13 模版模式.html">
+            
+                    
+                    13 模版模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.3" data-path="../设计模式/行为型/14 策略模式.html">
+            
+                <a href="../设计模式/行为型/14 策略模式.html">
+            
+                    
+                    14 策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.4" data-path="../设计模式/行为型/15 职责链模式.html">
+            
+                <a href="../设计模式/行为型/15 职责链模式.html">
+            
+                    
+                    15 职责链模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.5" data-path="../设计模式/行为型/16 状态模式.html">
+            
+                <a href="../设计模式/行为型/16 状态模式.html">
+            
+                    
+                    16 状态模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.6" data-path="../设计模式/行为型/17 迭代器模式.html">
+            
+                <a href="../设计模式/行为型/17 迭代器模式.html">
+            
+                    
+                    17 迭代器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../mysql/readme.html">
+            
+                <a href="../../mysql/readme.html">
+            
+                    
+                    mysql
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../mysql/01 basic.html">
+            
+                <a href="../../mysql/01 basic.html">
+            
+                    
+                    01 basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../mysql/02 variables.html">
+            
+                <a href="../../mysql/02 variables.html">
+            
+                    
+                    02 variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../os/readme.html">
+            
+                <a href="../../os/readme.html">
+            
+                    
+                    os
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../os/linux/readme.html">
+            
+                <a href="../../os/linux/readme.html">
+            
+                    
+                    linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../../os/linux/lkd/readme.html">
+            
+                <a href="../../os/linux/lkd/readme.html">
+            
+                    
+                    lkd
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1.1" data-path="../../os/linux/lkd/chapter1-Introduction to linux kernel.html">
+            
+                <a href="../../os/linux/lkd/chapter1-Introduction to linux kernel.html">
+            
+                    
+                    chapter1-Introduction to linux kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.2" data-path="../../os/linux/lkd/chapter2-Getting Started with the Kernel.html">
+            
+                <a href="../../os/linux/lkd/chapter2-Getting Started with the Kernel.html">
+            
+                    
+                    chapter2-Getting Started with the Kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.3" data-path="../../os/linux/lkd/chapter3-Process Management.html">
+            
+                <a href="../../os/linux/lkd/chapter3-Process Management.html">
+            
+                    
+                    chapter3-Process Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.4" data-path="../../os/linux/lkd/chapter4-Process Scheduling.html">
+            
+                <a href="../../os/linux/lkd/chapter4-Process Scheduling.html">
+            
+                    
+                    chapter4-Process Scheduling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.5" data-path="../../os/linux/lkd/chapter5-System Calls.html">
+            
+                <a href="../../os/linux/lkd/chapter5-System Calls.html">
+            
+                    
+                    chapter5-System Calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.6" data-path="../../os/linux/lkd/chapter7-Interrupts and Interrupt Handlers.html">
+            
+                <a href="../../os/linux/lkd/chapter7-Interrupts and Interrupt Handlers.html">
+            
+                    
+                    chapter7-Interrupts and Interrupt Handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.7" data-path="../../os/linux/lkd/chapter8-Bottom Halves and Deferring Work.html">
+            
+                <a href="../../os/linux/lkd/chapter8-Bottom Halves and Deferring Work.html">
+            
+                    
+                    chapter8-Bottom Halves and Deferring Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.8" data-path="../../os/linux/lkd/chapter10-Kernel Synchronization Methods.html">
+            
+                <a href="../../os/linux/lkd/chapter10-Kernel Synchronization Methods.html">
+            
+                    
+                    chapter10-Kernel Synchronization Methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.9" data-path="../../os/linux/lkd/chapter11-Timers ans Time Management.html">
+            
+                <a href="../../os/linux/lkd/chapter11-Timers ans Time Management.html">
+            
+                    
+                    chapter11-Timers ans Time Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.10" data-path="../../os/linux/lkd/chapter12-Memroy Management.html">
+            
+                <a href="../../os/linux/lkd/chapter12-Memroy Management.html">
+            
+                    
+                    chapter12-Memroy Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.11" data-path="../../os/linux/lkd/chapter13-The Process Address Space.html">
+            
+                <a href="../../os/linux/lkd/chapter13-The Process Address Space.html">
+            
+                    
+                    chapter13-The Process Address Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.12" data-path="../../os/linux/lkd/chapter14-The Virtual Filesystem.html">
+            
+                <a href="../../os/linux/lkd/chapter14-The Virtual Filesystem.html">
+            
+                    
+                    chapter14-The Virtual Filesystem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.13" data-path="../../os/linux/lkd/chapter15-FileIO and Page Cache.html">
+            
+                <a href="../../os/linux/lkd/chapter15-FileIO and Page Cache.html">
+            
+                    
+                    chapter15-FileIO and Page Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.14" data-path="../../os/linux/lkd/chapter16-The BlockIO.html">
+            
+                <a href="../../os/linux/lkd/chapter16-The BlockIO.html">
+            
+                    
+                    chapter16-The BlockIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.15" data-path="../../os/linux/lkd/chapter17-Module.html">
+            
+                <a href="../../os/linux/lkd/chapter17-Module.html">
+            
+                    
+                    chapter17-Module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.16" data-path="../../os/linux/lkd/chapter18-Devide Model and Sysfs.html">
+            
+                <a href="../../os/linux/lkd/chapter18-Devide Model and Sysfs.html">
+            
+                    
+                    chapter18-Devide Model and Sysfs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.17" data-path="../../os/linux/lkd/chapter19-Portability.html">
+            
+                <a href="../../os/linux/lkd/chapter19-Portability.html">
+            
+                    
+                    chapter19-Portability
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../../os/linux/temp.html">
+            
+                <a href="../../os/linux/temp.html">
+            
+                    
+                    temp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../../os/linux/ulk/readme.html">
+            
+                <a href="../../os/linux/ulk/readme.html">
+            
+                    
+                    ulk
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.3.1" data-path="../../os/linux/ulk/chapter1-Introduction.html">
+            
+                <a href="../../os/linux/ulk/chapter1-Introduction.html">
+            
+                    
+                    chapter1-Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.2" data-path="../../os/linux/ulk/chapter2-Memory Addressing.html">
+            
+                <a href="../../os/linux/ulk/chapter2-Memory Addressing.html">
+            
+                    
+                    chapter2-Memory Addressing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.3" data-path="../../os/linux/ulk/chapter8-Memory Management.html">
+            
+                <a href="../../os/linux/ulk/chapter8-Memory Management.html">
+            
+                    
+                    chapter8-Memory Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.4" data-path="../../os/linux/ulk/chapter9-Process Address Space.html">
+            
+                <a href="../../os/linux/ulk/chapter9-Process Address Space.html">
+            
+                    
+                    chapter9-Process Address Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.5" data-path="../../os/linux/ulk/chapter20-Program Execution.html">
+            
+                <a href="../../os/linux/ulk/chapter20-Program Execution.html">
+            
+                    
+                    chapter20-Program Execution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.6" data-path="../../os/linux/ulk/system startup.html">
+            
+                <a href="../../os/linux/ulk/system startup.html">
+            
+                    
+                    system startup
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../../os/linux/其它/readme.html">
+            
+                <a href="../../os/linux/其它/readme.html">
+            
+                    
+                    其它
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.4.1" data-path="../../os/linux/其它/memory barrier.html">
+            
+                <a href="../../os/linux/其它/memory barrier.html">
+            
+                    
+                    memory barrier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4.2" data-path="../../os/linux/其它/pthread线程资源的回收.html">
+            
+                <a href="../../os/linux/其它/pthread线程资源的回收.html">
+            
+                    
+                    pthread线程资源的回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4.3" data-path="../../os/linux/其它/为什么说从用户态切换到内核态开销大.html">
+            
+                <a href="../../os/linux/其它/为什么说从用户态切换到内核态开销大.html">
+            
+                    
+                    为什么说从用户态切换到内核态开销大
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4.4" data-path="../../os/linux/其它/经典的计算机系统架构.html">
+            
+                <a href="../../os/linux/其它/经典的计算机系统架构.html">
+            
+                    
+                    经典的计算机系统架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../os/windows/readme.html">
+            
+                <a href="../../os/windows/readme.html">
+            
+                    
+                    windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../shell/readme.html">
+            
+                <a href="../../shell/readme.html">
+            
+                    
+                    shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../shell/bashrc.html">
+            
+                <a href="../../shell/bashrc.html">
+            
+                    
+                    bashrc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../shell/man page.html">
+            
+                <a href="../../shell/man page.html">
+            
+                    
+                    man page
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../shell/shell语法.html">
+            
+                <a href="../../shell/shell语法.html">
+            
+                    
+                    shell语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../shell/常用命令.md/readme.html">
+            
+                <a href="../../shell/常用命令.md/readme.html">
+            
+                    
+                    常用命令.md
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.4.1" data-path="../../shell/常用命令.md/01 regular expression & grep.html">
+            
+                <a href="../../shell/常用命令.md/01 regular expression & grep.html">
+            
+                    
+                    01 regular expression & grep
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.2" data-path="../../shell/常用命令.md/02 tr.html">
+            
+                <a href="../../shell/常用命令.md/02 tr.html">
+            
+                    
+                    02 tr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.3" data-path="../../shell/常用命令.md/03 sed.html">
+            
+                <a href="../../shell/常用命令.md/03 sed.html">
+            
+                    
+                    03 sed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.4" data-path="../../shell/常用命令.md/04 awk.html">
+            
+                <a href="../../shell/常用命令.md/04 awk.html">
+            
+                    
+                    04 awk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.5" data-path="../../shell/常用命令.md/05 cat.html">
+            
+                <a href="../../shell/常用命令.md/05 cat.html">
+            
+                    
+                    05 cat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.6" data-path="../../shell/常用命令.md/06 tee.html">
+            
+                <a href="../../shell/常用命令.md/06 tee.html">
+            
+                    
+                    06 tee
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.7" data-path="../../shell/常用命令.md/07 env.html">
+            
+                <a href="../../shell/常用命令.md/07 env.html">
+            
+                    
+                    07 env
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.8" data-path="../../shell/常用命令.md/08 head&tail.html">
+            
+                <a href="../../shell/常用命令.md/08 head&tail.html">
+            
+                    
+                    08 head&tail
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.9" data-path="../../shell/常用命令.md/09 cut&paste.html">
+            
+                <a href="../../shell/常用命令.md/09 cut&paste.html">
+            
+                    
+                    09 cut&paste
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.10" data-path="../../shell/常用命令.md/10 diff&cmp&comm.html">
+            
+                <a href="../../shell/常用命令.md/10 diff&cmp&comm.html">
+            
+                    
+                    10 diff&cmp&comm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.11" data-path="../../shell/常用命令.md/11 sort&uniq&wc.html">
+            
+                <a href="../../shell/常用命令.md/11 sort&uniq&wc.html">
+            
+                    
+                    11 sort&uniq&wc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.12" data-path="../../shell/常用命令.md/12 find&xargs.html">
+            
+                <a href="../../shell/常用命令.md/12 find&xargs.html">
+            
+                    
+                    12 find&xargs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.13" data-path="../../shell/常用命令.md/13 lsof.html">
+            
+                <a href="../../shell/常用命令.md/13 lsof.html">
+            
+                    
+                    13 lsof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.14" data-path="../../shell/常用命令.md/temp.html">
+            
+                <a href="../../shell/常用命令.md/temp.html">
+            
+                    
+                    temp
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../shell/待整理.html">
+            
+                <a href="../../shell/待整理.html">
+            
+                    
+                    待整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../容器/readme.html">
+            
+                <a href="../../容器/readme.html">
+            
+                    
+                    容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../容器/docker容器.html">
+            
+                <a href="../../容器/docker容器.html">
+            
+                    
+                    docker容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../网络/readme.html">
+            
+                <a href="../../网络/readme.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../网络/csrf.html">
+            
+                <a href="../../网络/csrf.html">
+            
+                    
+                    csrf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../网络/Linux 网络编程/readme.html">
+            
+                <a href="../../网络/Linux 网络编程/readme.html">
+            
+                    
+                    Linux 网络编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.2.1" data-path="../../网络/Linux 网络编程/01 stream socket.html">
+            
+                <a href="../../网络/Linux 网络编程/01 stream socket.html">
+            
+                    
+                    01 stream socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.2" data-path="../../网络/Linux 网络编程/02 datagram socket.html">
+            
+                <a href="../../网络/Linux 网络编程/02 datagram socket.html">
+            
+                    
+                    02 datagram socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.3" data-path="../../网络/Linux 网络编程/03 unix domain socket.html">
+            
+                <a href="../../网络/Linux 网络编程/03 unix domain socket.html">
+            
+                    
+                    03 unix domain socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.4" data-path="../../网络/Linux 网络编程/04 raw socket.html">
+            
+                <a href="../../网络/Linux 网络编程/04 raw socket.html">
+            
+                    
+                    04 raw socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.5" data-path="../../网络/Linux 网络编程/05 select.html">
+            
+                <a href="../../网络/Linux 网络编程/05 select.html">
+            
+                    
+                    05 select
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.6" data-path="../../网络/Linux 网络编程/06 poll.html">
+            
+                <a href="../../网络/Linux 网络编程/06 poll.html">
+            
+                    
+                    06 poll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.7" data-path="../../网络/Linux 网络编程/07 epoll.html">
+            
+                <a href="../../网络/Linux 网络编程/07 epoll.html">
+            
+                    
+                    07 epoll
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../../网络/nettools/readme.html">
+            
+                <a href="../../网络/nettools/readme.html">
+            
+                    
+                    nettools
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.3.1" data-path="../../网络/nettools/arp-scan.html">
+            
+                <a href="../../网络/nettools/arp-scan.html">
+            
+                    
+                    arp-scan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.2" data-path="../../网络/nettools/arping.html">
+            
+                <a href="../../网络/nettools/arping.html">
+            
+                    
+                    arping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.3" data-path="../../网络/nettools/host.html">
+            
+                <a href="../../网络/nettools/host.html">
+            
+                    
+                    host
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.4" data-path="../../网络/nettools/iproute2-ip.html">
+            
+                <a href="../../网络/nettools/iproute2-ip.html">
+            
+                    
+                    iproute2-ip
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.5" data-path="../../网络/nettools/iptables.html">
+            
+                <a href="../../网络/nettools/iptables.html">
+            
+                    
+                    iptables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.6" data-path="../../网络/nettools/netcat.html">
+            
+                <a href="../../网络/nettools/netcat.html">
+            
+                    
+                    netcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.7" data-path="../../网络/nettools/nettools-arp.html">
+            
+                <a href="../../网络/nettools/nettools-arp.html">
+            
+                    
+                    nettools-arp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.8" data-path="../../网络/nettools/nettools-hostname.html">
+            
+                <a href="../../网络/nettools/nettools-hostname.html">
+            
+                    
+                    nettools-hostname
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.9" data-path="../../网络/nettools/nettools-ifconfig.html">
+            
+                <a href="../../网络/nettools/nettools-ifconfig.html">
+            
+                    
+                    nettools-ifconfig
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.10" data-path="../../网络/nettools/nettools-netstat.html">
+            
+                <a href="../../网络/nettools/nettools-netstat.html">
+            
+                    
+                    nettools-netstat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.11" data-path="../../网络/nettools/nettools-route.html">
+            
+                <a href="../../网络/nettools/nettools-route.html">
+            
+                    
+                    nettools-route
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.12" data-path="../../网络/nettools/temp.html">
+            
+                <a href="../../网络/nettools/temp.html">
+            
+                    
+                    temp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.13" data-path="../../网络/nettools/tmpdump.html">
+            
+                <a href="../../网络/nettools/tmpdump.html">
+            
+                    
+                    tmpdump
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../../网络/oauth.html">
+            
+                <a href="../../网络/oauth.html">
+            
+                    
+                    oauth
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../../网络/REST&RESTful.html">
+            
+                <a href="../../网络/REST&RESTful.html">
+            
+                    
+                    REST&RESTful
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../../网络/ssh-tunnel.html">
+            
+                <a href="../../网络/ssh-tunnel.html">
+            
+                    
+                    ssh-tunnel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../../网络/协议/readme.html">
+            
+                <a href="../../网络/协议/readme.html">
+            
+                    
+                    协议
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.7.1" data-path="../../网络/协议/01网络协议概览.html">
+            
+                <a href="../../网络/协议/01网络协议概览.html">
+            
+                    
+                    01网络协议概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.2" data-path="../../网络/协议/02 以太网与WiFi协议.html">
+            
+                <a href="../../网络/协议/02 以太网与WiFi协议.html">
+            
+                    
+                    02 以太网与WiFi协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.3" data-path="../../网络/协议/03 IP包的路由.html">
+            
+                <a href="../../网络/协议/03 IP包的路由.html">
+            
+                    
+                    03 IP包的路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.4" data-path="../../网络/协议/04 IP地址的分配.html">
+            
+                <a href="../../网络/协议/04 IP地址的分配.html">
+            
+                    
+                    04 IP地址的分配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.5" data-path="../../网络/协议/05 IP协议详解.html">
+            
+                <a href="../../网络/协议/05 IP协议详解.html">
+            
+                    
+                    05 IP协议详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.6" data-path="../../网络/协议/06 ICMP协议.html">
+            
+                <a href="../../网络/协议/06 ICMP协议.html">
+            
+                    
+                    06 ICMP协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.7" data-path="../../网络/协议/07 UDP.html">
+            
+                <a href="../../网络/协议/07 UDP.html">
+            
+                    
+                    07 UDP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.8" data-path="../../网络/协议/08 TCP 概述.html">
+            
+                <a href="../../网络/协议/08 TCP 概述.html">
+            
+                    
+                    08 TCP 概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.9" data-path="../../网络/协议/09 TCP 协议字段.html">
+            
+                <a href="../../网络/协议/09 TCP 协议字段.html">
+            
+                    
+                    09 TCP 协议字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.10" data-path="../../网络/协议/10 TCP 状态转换.html">
+            
+                <a href="../../网络/协议/10 TCP 状态转换.html">
+            
+                    
+                    10 TCP 状态转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.11" data-path="../../网络/协议/11 DNS协议.html">
+            
+                <a href="../../网络/协议/11 DNS协议.html">
+            
+                    
+                    11 DNS协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.12" data-path="../../网络/协议/12 CIDR.html">
+            
+                <a href="../../网络/协议/12 CIDR.html">
+            
+                    
+                    12 CIDR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.13" data-path="../../网络/协议/13 NAT.html">
+            
+                <a href="../../网络/协议/13 NAT.html">
+            
+                    
+                    13 NAT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.14" data-path="../../网络/协议/14 DHCP.html">
+            
+                <a href="../../网络/协议/14 DHCP.html">
+            
+                    
+                    14 DHCP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.15" data-path="../../网络/协议/15 http.html">
+            
+                <a href="../../网络/协议/15 http.html">
+            
+                    
+                    15 http
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.16" data-path="../../网络/协议/16 http2.html">
+            
+                <a href="../../网络/协议/16 http2.html">
+            
+                    
+                    16 http2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.17" data-path="../../网络/协议/17 ssl协议.html">
+            
+                <a href="../../网络/协议/17 ssl协议.html">
+            
+                    
+                    17 ssl协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.18" data-path="../../网络/协议/18 数字签名和证书.html">
+            
+                <a href="../../网络/协议/18 数字签名和证书.html">
+            
+                    
+                    18 数字签名和证书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.19" data-path="../../网络/协议/19 正向代理&反向代理.html">
+            
+                <a href="../../网络/协议/19 正向代理&反向代理.html">
+            
+                    
+                    19 正向代理&反向代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >9.以红黑树为底层数据结构的关联式容器</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>rb_tree
+<a href="https://www.youtube.com/watch?v=qvZGUFHWChY&amp;list=PL9xmBV_5YoZNqDI8qfOZgzbqahCUmUEin&amp;index=1" target="_blank">https://www.youtube.com/watch?v=qvZGUFHWChY&amp;list=PL9xmBV_5YoZNqDI8qfOZgzbqahCUmUEin&amp;index=1</a> 
+<a href="https://www.programiz.com/dsa/red-black-tree#google_vignette" target="_blank">https://www.programiz.com/dsa/red-black-tree#google_vignette</a>
+<img src="../../../images/c%26c%2B%2B/stl86.png" alt=""></img>
+STL中实现的rb_tree,多了一个head节点，该节点为红色，其left指针指向最小的节点，right指针指向最大的节点，parent指针指向root, root的parent指针指向head.
+如果rb_tree为空，也就是只有一个header节点，则header节点的left,right指针指向自己，parent指针为空。
+如果rb_tree只有一个root节点，则header的parent,left,right三个指针均指向root.
+rb_tree的begin()操作返回的迭代器，其中包含的指针指向的是第一个节点，也就是header的left节点。end()操作返回的迭代器，其中包含的指针指向header.
+如果rb_tree为空，则begin()==end().
+rb_tree所有的叶子节点，其left,right指针为null.</p>
+<p><img src="../../../images/c%26c%2B%2B/stl87.png" alt=""></img>
+上图中，候捷将key_compare说成是一个function object, 准确的说是functor对象。关键是他又标注了一个rb_tree的大小是9， 对齐到12. 这明显是错的，他将key_compare看做是一个empty class对象，然而key_compare是什么？其大小多少，是无法确定的。请看《关于模板参数是Functor的模板类的实例化.md》 一文</p>
+<p>模板参数中，Compare是Functor, 用于key的排序。但是为什么Compare不像KeyOfValue一样，在使用时只需要创建实参类型的默认临时对象即可，还在类中作为可被构造的成员呢？
+这提供了灵活性。对于模板参数是Functor而言，其具体的实参，除了是重载了函数调用的某个class以外，还可以是多种多样的，更泛化的类型，比如std::function&lt;&gt;类型。这时候，
+比如我们使用<code>rb_tree&lt;int,int,identity&lt;int&gt;,std::function&lt;bool(int,int)&gt;&gt;</code>参数实例化rb_tree,这时候，我们可以在构造函数中传入不同的functor构造对象。比如 <code>rb_tree&lt;int,int,identity&lt;int&gt;,std::function&lt;bool(int,int)&gt;&gt; itree1(comparefunc1)</code>或者<code>rb_tree&lt;int,int,identity&lt;int&gt;,std::function&lt;bool(int,int)&gt;&gt; itree2(comparefunc2)</code>。 hashtable也是如此设计的，对于需要更灵活的Functor而言，就将其作为类中的可被构造的成员。</p>
+<p><img src="../../../images/c%26c%2B%2B/stl88.png" alt=""></img>
+<img src="../../../images/c%26c%2B%2B/stl89.png" alt=""></img></p>
+<p>G2.8实现</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">typedef</span> <span class="hljs-type">bool</span> __rb_tree_color_type;
+<span class="hljs-type">const</span> __rb_tree_color_type __rb_tree_red = <span class="hljs-literal">false</span>;
+<span class="hljs-type">const</span> __rb_tree_color_type __rb_tree_black = <span class="hljs-literal">true</span>;
+
+
+
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">__rb_tree_node_base</span>
+{
+  <span class="hljs-keyword">typedef</span> __rb_tree_color_type color_type;
+  <span class="hljs-keyword">typedef</span> __rb_tree_node_base* base_ptr;
+
+  color_type color; 
+  base_ptr parent;
+  base_ptr left;
+  base_ptr right;
+
+  <span class="hljs-function"><span class="hljs-type">static</span> base_ptr <span class="hljs-title">minimum</span><span class="hljs-params">(base_ptr x)</span>
+  </span>{
+    <span class="hljs-keyword">while</span> (x-&gt;left != <span class="hljs-number">0</span>) x = x-&gt;left;
+    <span class="hljs-keyword">return</span> x;
+  }
+
+  <span class="hljs-function"><span class="hljs-type">static</span> base_ptr <span class="hljs-title">maximum</span><span class="hljs-params">(base_ptr x)</span>
+  </span>{
+    <span class="hljs-keyword">while</span> (x-&gt;right != <span class="hljs-number">0</span>) x = x-&gt;right;
+    <span class="hljs-keyword">return</span> x;
+  }
+};
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>&gt;
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">__rb_tree_node</span> : <span class="hljs-keyword">public</span> __rb_tree_node_base
+{
+  <span class="hljs-keyword">typedef</span> __rb_tree_node&lt;Value&gt;* link_type;
+  Value value_field;
+};
+
+
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">__rb_tree_base_iterator</span>
+{
+  <span class="hljs-keyword">typedef</span> __rb_tree_node_base::base_ptr base_ptr;
+  <span class="hljs-keyword">typedef</span> bidirectional_iterator_tag iterator_category;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-type">ptrdiff_t</span> difference_type;
+  base_ptr node;
+
+  <span class="hljs-comment">//increment不支持end++</span>
+  <span class="hljs-comment">//decrement不支持begin--</span>
+  <span class="hljs-comment">//begin--,end++都是没有意义的</span>
+
+  <span class="hljs-comment">//如果当前迭代器就是end(),也就是指向header,那么这个算法是不对的。</span>
+  <span class="hljs-comment">//也就是说，end()++是没有意义的，不支持end()++</span>
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">increment</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">if</span> (node-&gt;right != <span class="hljs-number">0</span>) {
+      node = node-&gt;right;
+      <span class="hljs-keyword">while</span> (node-&gt;left != <span class="hljs-number">0</span>)
+        node = node-&gt;left;
+    }
+    <span class="hljs-keyword">else</span> {
+      base_ptr y = node-&gt;parent;
+      <span class="hljs-keyword">while</span> (node == y-&gt;right) {
+        node = y;
+        y = y-&gt;parent;
+      }
+      <span class="hljs-comment">//按理说，这里最后直接node=y 即可，为什么要加个if判断呢？</span>
+      <span class="hljs-comment">//如果当前iterator指向root节点，并且root节点是最后一个节点，运行到这里时，node指向header，y指向root, 已经可以了，不能再将node指向root了。</span>
+      <span class="hljs-keyword">if</span> (node-&gt;right != y)
+        node = y;
+    }
+  }
+
+
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">decrement</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-comment">//当前iterator就是end,也就是指向header</span>
+    <span class="hljs-comment">//end--指向最大的节点</span>
+    <span class="hljs-keyword">if</span> (node-&gt;color == __rb_tree_red &amp;&amp;
+        node-&gt;parent-&gt;parent == node)
+      node = node-&gt;right;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (node-&gt;left != <span class="hljs-number">0</span>) {
+      base_ptr y = node-&gt;left;
+      <span class="hljs-keyword">while</span> (y-&gt;right != <span class="hljs-number">0</span>)
+        y = y-&gt;right;
+      node = y;
+    }
+    <span class="hljs-keyword">else</span> {
+      base_ptr y = node-&gt;parent;
+      <span class="hljs-keyword">while</span> (node == y-&gt;left) {
+        node = y;
+        y = y-&gt;parent;
+      }
+      <span class="hljs-comment">//如果当前的iterator指向root,并且root是最小的节点，也就是root是begin</span>
+      <span class="hljs-comment">//那么这里为什么不加个if(node-&gt;left!=y)的判断呢？</span>
+      <span class="hljs-comment">//因为begin--没有意义，不支持begin--的操作</span>
+      node = y;
+    }
+  }
+};
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Ref</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Ptr</span>&gt;
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">__rb_tree_iterator</span> : <span class="hljs-keyword">public</span> __rb_tree_base_iterator
+{
+  <span class="hljs-keyword">typedef</span> Value value_type;
+  <span class="hljs-keyword">typedef</span> Ref reference;
+  <span class="hljs-keyword">typedef</span> Ptr pointer;
+  <span class="hljs-keyword">typedef</span> __rb_tree_iterator&lt;Value, Value&amp;, Value*&gt;             iterator;
+  <span class="hljs-keyword">typedef</span> __rb_tree_iterator&lt;Value, <span class="hljs-type">const</span> Value&amp;, <span class="hljs-type">const</span> Value*&gt; const_iterator;
+  <span class="hljs-keyword">typedef</span> __rb_tree_iterator&lt;Value, Ref, Ptr&gt;                   self;
+  <span class="hljs-keyword">typedef</span> __rb_tree_node&lt;Value&gt;* link_type;
+
+
+
+  __rb_tree_iterator() {}
+  __rb_tree_iterator(link_type x) { node = x; }
+  __rb_tree_iterator(<span class="hljs-type">const</span> iterator&amp; it) { node = it.node; }
+
+  reference <span class="hljs-keyword">operator</span>*() <span class="hljs-type">const</span> { <span class="hljs-keyword">return</span> <span class="hljs-built_in">link_type</span>(node)-&gt;value_field; }
+  pointer <span class="hljs-keyword">operator</span>-&gt;() <span class="hljs-type">const</span> { <span class="hljs-keyword">return</span> &amp;(<span class="hljs-keyword">operator</span>*()); }
+
+  self&amp; <span class="hljs-keyword">operator</span>++() { <span class="hljs-built_in">increment</span>(); <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>; }
+  self <span class="hljs-keyword">operator</span>++(<span class="hljs-type">int</span>) {
+    self tmp = *<span class="hljs-keyword">this</span>;
+    <span class="hljs-built_in">increment</span>();
+    <span class="hljs-keyword">return</span> tmp;
+  }
+
+  self&amp; <span class="hljs-keyword">operator</span>--() { <span class="hljs-built_in">decrement</span>(); <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>; }
+  self <span class="hljs-keyword">operator</span>--(<span class="hljs-type">int</span>) {
+    self tmp = *<span class="hljs-keyword">this</span>;
+    <span class="hljs-built_in">decrement</span>();
+    <span class="hljs-keyword">return</span> tmp;
+  }
+};
+
+<span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>==(<span class="hljs-type">const</span> __rb_tree_base_iterator&amp; x,
+                       <span class="hljs-type">const</span> __rb_tree_base_iterator&amp; y) {
+  <span class="hljs-keyword">return</span> x.node == y.node;
+}
+
+<span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>!=(<span class="hljs-type">const</span> __rb_tree_base_iterator&amp; x,
+                       <span class="hljs-type">const</span> __rb_tree_base_iterator&amp; y) {
+  <span class="hljs-keyword">return</span> x.node != y.node;
+}
+
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>,
+          <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span> = alloc&gt;
+<span class="hljs-keyword">class</span> rb_tree {
+<span class="hljs-keyword">protected</span>:
+  <span class="hljs-keyword">typedef</span> <span class="hljs-type">void</span>* void_pointer;
+  <span class="hljs-keyword">typedef</span> __rb_tree_node_base* base_ptr;
+  <span class="hljs-keyword">typedef</span> __rb_tree_node&lt;Value&gt; rb_tree_node;
+  <span class="hljs-keyword">typedef</span> simple_alloc&lt;rb_tree_node, Alloc&gt; rb_tree_node_allocator;
+  <span class="hljs-keyword">typedef</span> __rb_tree_color_type color_type;
+<span class="hljs-keyword">public</span>:
+  <span class="hljs-keyword">typedef</span> Key key_type;
+  <span class="hljs-keyword">typedef</span> Value value_type;
+  <span class="hljs-keyword">typedef</span> value_type* pointer;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-type">const</span> value_type* const_pointer;
+  <span class="hljs-keyword">typedef</span> value_type&amp; reference;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-type">const</span> value_type&amp; const_reference;
+  <span class="hljs-keyword">typedef</span> rb_tree_node* link_type;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-type">size_t</span> size_type;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-type">ptrdiff_t</span> difference_type;
+<span class="hljs-keyword">protected</span>:
+  <span class="hljs-function">link_type <span class="hljs-title">get_node</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> rb_tree_node_allocator::<span class="hljs-built_in">allocate</span>(); }
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">put_node</span><span class="hljs-params">(link_type p)</span> </span>{ rb_tree_node_allocator::<span class="hljs-built_in">deallocate</span>(p); }
+
+  <span class="hljs-function">link_type <span class="hljs-title">create_node</span><span class="hljs-params">(<span class="hljs-type">const</span> value_type&amp; x)</span> </span>{
+    link_type tmp = <span class="hljs-built_in">get_node</span>();
+    __STL_TRY {
+      <span class="hljs-built_in">construct</span>(&amp;tmp-&gt;value_field, x);
+    }
+    __STL_UNWIND(<span class="hljs-built_in">put_node</span>(tmp));
+    <span class="hljs-keyword">return</span> tmp;
+  }
+
+  <span class="hljs-function">link_type <span class="hljs-title">clone_node</span><span class="hljs-params">(link_type x)</span> </span>{
+    link_type tmp = <span class="hljs-built_in">create_node</span>(x-&gt;value_field);
+    tmp-&gt;color = x-&gt;color;
+    tmp-&gt;left = <span class="hljs-number">0</span>;
+    tmp-&gt;right = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">return</span> tmp;
+  }
+
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">destroy_node</span><span class="hljs-params">(link_type p)</span> </span>{
+    <span class="hljs-built_in">destroy</span>(&amp;p-&gt;value_field);
+    <span class="hljs-built_in">put_node</span>(p);
+  }
+
+<span class="hljs-keyword">protected</span>:
+  size_type node_count; <span class="hljs-comment">// keeps track of size of tree</span>
+  link_type header;  
+  Compare key_compare; <span class="hljs-comment">//为什么要有个key_compare的成员，而不是像KeyOfValue一样直接创建临时对象使用，原因已经叙述过了</span>
+
+  <span class="hljs-function">link_type&amp; <span class="hljs-title">root</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> (link_type&amp;) header-&gt;parent; }
+  <span class="hljs-function">link_type&amp; <span class="hljs-title">leftmost</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> (link_type&amp;) header-&gt;left; }
+  <span class="hljs-function">link_type&amp; <span class="hljs-title">rightmost</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> (link_type&amp;) header-&gt;right; }
+
+  <span class="hljs-function"><span class="hljs-type">static</span> link_type&amp; <span class="hljs-title">left</span><span class="hljs-params">(link_type x)</span> </span>{ <span class="hljs-keyword">return</span> (link_type&amp;)(x-&gt;left); }
+  <span class="hljs-function"><span class="hljs-type">static</span> link_type&amp; <span class="hljs-title">right</span><span class="hljs-params">(link_type x)</span> </span>{ <span class="hljs-keyword">return</span> (link_type&amp;)(x-&gt;right); }
+  <span class="hljs-function"><span class="hljs-type">static</span> link_type&amp; <span class="hljs-title">parent</span><span class="hljs-params">(link_type x)</span> </span>{ <span class="hljs-keyword">return</span> (link_type&amp;)(x-&gt;parent); }
+  <span class="hljs-function"><span class="hljs-type">static</span> reference <span class="hljs-title">value</span><span class="hljs-params">(link_type x)</span> </span>{ <span class="hljs-keyword">return</span> x-&gt;value_field; }
+  <span class="hljs-function"><span class="hljs-type">static</span> <span class="hljs-type">const</span> Key&amp; <span class="hljs-title">key</span><span class="hljs-params">(link_type x)</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">KeyOfValue</span>()(<span class="hljs-built_in">value</span>(x)); }
+  <span class="hljs-function"><span class="hljs-type">static</span> color_type&amp; <span class="hljs-title">color</span><span class="hljs-params">(link_type x)</span> </span>{ <span class="hljs-keyword">return</span> (color_type&amp;)(x-&gt;color); }
+
+  <span class="hljs-function"><span class="hljs-type">static</span> link_type&amp; <span class="hljs-title">left</span><span class="hljs-params">(base_ptr x)</span> </span>{ <span class="hljs-keyword">return</span> (link_type&amp;)(x-&gt;left); }
+  <span class="hljs-function"><span class="hljs-type">static</span> link_type&amp; <span class="hljs-title">right</span><span class="hljs-params">(base_ptr x)</span> </span>{ <span class="hljs-keyword">return</span> (link_type&amp;)(x-&gt;right); }
+  <span class="hljs-function"><span class="hljs-type">static</span> link_type&amp; <span class="hljs-title">parent</span><span class="hljs-params">(base_ptr x)</span> </span>{ <span class="hljs-keyword">return</span> (link_type&amp;)(x-&gt;parent); }
+  <span class="hljs-function"><span class="hljs-type">static</span> reference <span class="hljs-title">value</span><span class="hljs-params">(base_ptr x)</span> </span>{ <span class="hljs-keyword">return</span> ((link_type)x)-&gt;value_field; }
+  <span class="hljs-function"><span class="hljs-type">static</span> <span class="hljs-type">const</span> Key&amp; <span class="hljs-title">key</span><span class="hljs-params">(base_ptr x)</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">KeyOfValue</span>()(<span class="hljs-built_in">value</span>(<span class="hljs-built_in">link_type</span>(x)));} 
+  <span class="hljs-function"><span class="hljs-type">static</span> color_type&amp; <span class="hljs-title">color</span><span class="hljs-params">(base_ptr x)</span> </span>{ <span class="hljs-keyword">return</span> (color_type&amp;)(<span class="hljs-built_in">link_type</span>(x)-&gt;color); }
+
+  <span class="hljs-function"><span class="hljs-type">static</span> link_type <span class="hljs-title">minimum</span><span class="hljs-params">(link_type x)</span> </span>{ 
+    <span class="hljs-keyword">return</span> (link_type)  __rb_tree_node_base::<span class="hljs-built_in">minimum</span>(x);
+  }
+  <span class="hljs-function"><span class="hljs-type">static</span> link_type <span class="hljs-title">maximum</span><span class="hljs-params">(link_type x)</span> </span>{
+    <span class="hljs-keyword">return</span> (link_type) __rb_tree_node_base::<span class="hljs-built_in">maximum</span>(x);
+  }
+
+<span class="hljs-keyword">public</span>:
+  <span class="hljs-keyword">typedef</span> __rb_tree_iterator&lt;value_type, reference, pointer&gt; iterator;
+  <span class="hljs-keyword">typedef</span> __rb_tree_iterator&lt;value_type, const_reference, const_pointer&gt; 
+          const_iterator;
+
+  <span class="hljs-keyword">typedef</span> reverse_iterator&lt;const_iterator&gt; const_reverse_iterator;
+  <span class="hljs-keyword">typedef</span> reverse_iterator&lt;iterator&gt; reverse_iterator;
+
+<span class="hljs-keyword">private</span>:
+<span class="hljs-comment">// y 为插入节点的父节点，x通常为null，返回指向插入节点的迭代器</span>
+  iterator __insert(base_ptr x, base_ptr y, <span class="hljs-type">const</span> value_type&amp; v);
+<span class="hljs-comment">// copy整颗以x为root的子树，并将该子树root-&gt;parent=p，返回指向该子树root的指针</span>
+  link_type __copy(link_type x, link_type p);
+<span class="hljs-comment">//删除整颗以x为root的子树</span>
+  <span class="hljs-type">void</span> __erase(link_type x);
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>{
+    header = <span class="hljs-built_in">get_node</span>();
+    <span class="hljs-built_in">color</span>(header) = __rb_tree_red; <span class="hljs-comment">// used to distinguish header from </span>
+                                   <span class="hljs-comment">// root, in iterator.operator--</span>
+    <span class="hljs-built_in">root</span>() = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">leftmost</span>() = header;
+    <span class="hljs-built_in">rightmost</span>() = header;
+  }
+<span class="hljs-keyword">public</span>:
+                                <span class="hljs-comment">// allocation/deallocation</span>
+  <span class="hljs-built_in">rb_tree</span>(<span class="hljs-type">const</span> Compare&amp; comp = <span class="hljs-built_in">Compare</span>())
+    : <span class="hljs-built_in">node_count</span>(<span class="hljs-number">0</span>), <span class="hljs-built_in">key_compare</span>(comp) { <span class="hljs-built_in">init</span>(); }
+
+  <span class="hljs-built_in">rb_tree</span>(<span class="hljs-type">const</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;&amp; x) 
+    : <span class="hljs-built_in">node_count</span>(<span class="hljs-number">0</span>), <span class="hljs-built_in">key_compare</span>(x.key_compare)
+  { 
+    header = <span class="hljs-built_in">get_node</span>();
+    <span class="hljs-built_in">color</span>(header) = __rb_tree_red;
+    <span class="hljs-keyword">if</span> (x.<span class="hljs-built_in">root</span>() == <span class="hljs-number">0</span>) {
+      <span class="hljs-built_in">root</span>() = <span class="hljs-number">0</span>;
+      <span class="hljs-built_in">leftmost</span>() = header;
+      <span class="hljs-built_in">rightmost</span>() = header;
+    }
+    <span class="hljs-keyword">else</span> {
+      __STL_TRY {
+        <span class="hljs-built_in">root</span>() = __copy(x.<span class="hljs-built_in">root</span>(), header);
+      }
+      __STL_UNWIND(<span class="hljs-built_in">put_node</span>(header));
+      <span class="hljs-built_in">leftmost</span>() = <span class="hljs-built_in">minimum</span>(<span class="hljs-built_in">root</span>());
+      <span class="hljs-built_in">rightmost</span>() = <span class="hljs-built_in">maximum</span>(<span class="hljs-built_in">root</span>());
+    }
+    node_count = x.node_count;
+  }
+  ~<span class="hljs-built_in">rb_tree</span>() {
+    <span class="hljs-comment">//clear: 清空除header之外的所有node,将整棵树重置为初始状态</span>
+    <span class="hljs-built_in">clear</span>();
+    <span class="hljs-built_in">put_node</span>(header);
+  }
+  rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;&amp; 
+  <span class="hljs-keyword">operator</span>=(<span class="hljs-type">const</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;&amp; x);
+
+<span class="hljs-keyword">public</span>:                                <span class="hljs-comment">// accessors:</span>
+  <span class="hljs-function">Compare <span class="hljs-title">key_comp</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> key_compare; }
+  <span class="hljs-function">iterator <span class="hljs-title">begin</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">leftmost</span>(); }
+  <span class="hljs-function">const_iterator <span class="hljs-title">begin</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">leftmost</span>(); }
+  <span class="hljs-function">iterator <span class="hljs-title">end</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> header; }
+  <span class="hljs-function">const_iterator <span class="hljs-title">end</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> header; }
+  <span class="hljs-function">reverse_iterator <span class="hljs-title">rbegin</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">reverse_iterator</span>(<span class="hljs-built_in">end</span>()); }
+  <span class="hljs-function">const_reverse_iterator <span class="hljs-title">rbegin</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ 
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">const_reverse_iterator</span>(<span class="hljs-built_in">end</span>()); 
+  }
+  <span class="hljs-function">reverse_iterator <span class="hljs-title">rend</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">reverse_iterator</span>(<span class="hljs-built_in">begin</span>()); }
+  <span class="hljs-function">const_reverse_iterator <span class="hljs-title">rend</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ 
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">const_reverse_iterator</span>(<span class="hljs-built_in">begin</span>());
+  } 
+  <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">empty</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> node_count == <span class="hljs-number">0</span>; }
+  <span class="hljs-function">size_type <span class="hljs-title">size</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> node_count; }
+  <span class="hljs-function">size_type <span class="hljs-title">max_size</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">size_type</span>(<span class="hljs-number">-1</span>); }
+
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;&amp; t)</span> </span>{
+    __STD::<span class="hljs-built_in">swap</span>(header, t.header);
+    __STD::<span class="hljs-built_in">swap</span>(node_count, t.node_count);
+    __STD::<span class="hljs-built_in">swap</span>(key_compare, t.key_compare);
+  }
+
+<span class="hljs-keyword">public</span>:
+                                <span class="hljs-comment">// insert/erase</span>
+  <span class="hljs-function">pair&lt;iterator,<span class="hljs-type">bool</span>&gt; <span class="hljs-title">insert_unique</span><span class="hljs-params">(<span class="hljs-type">const</span> value_type&amp; x)</span></span>;
+  <span class="hljs-function">iterator <span class="hljs-title">insert_equal</span><span class="hljs-params">(<span class="hljs-type">const</span> value_type&amp; x)</span></span>;
+
+
+
+
+  <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">InputIterator</span>&gt;
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert_unique</span><span class="hljs-params">(InputIterator first, InputIterator last)</span></span>;
+  <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">InputIterator</span>&gt;
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert_equal</span><span class="hljs-params">(InputIterator first, InputIterator last)</span></span>;
+
+
+
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">erase</span><span class="hljs-params">(iterator position)</span></span>;
+  <span class="hljs-function">size_type <span class="hljs-title">erase</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span></span>;
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">erase</span><span class="hljs-params">(iterator first, iterator last)</span></span>;
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">erase</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type* first, <span class="hljs-type">const</span> key_type* last)</span></span>;
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">clear</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">if</span> (node_count != <span class="hljs-number">0</span>) {
+      __erase(<span class="hljs-built_in">root</span>());
+      <span class="hljs-built_in">leftmost</span>() = header;
+      <span class="hljs-built_in">root</span>() = <span class="hljs-number">0</span>;
+      <span class="hljs-built_in">rightmost</span>() = header;
+      node_count = <span class="hljs-number">0</span>;
+    }
+  }      
+
+<span class="hljs-keyword">public</span>:
+  <span class="hljs-comment">//以下函数其const版本的实现无非就是返回的迭代器为const_iterator</span>
+
+  <span class="hljs-comment">//rb_tree自己提供的find和count操作，比遍历算法要快</span>
+  <span class="hljs-function">iterator <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span></span>;
+  <span class="hljs-function">const_iterator <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span></span>;
+  <span class="hljs-function">size_type <span class="hljs-title">count</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span></span>;
+  <span class="hljs-comment">//也有算法实现的lower_bound, upper_bound, equal_range, 都是通过二分搜索实现的。按理说，也应该适用于rb_tree.</span>
+  <span class="hljs-comment">//但是如果通过++，--来移动迭代器，就没有使用到二叉搜索树本身的特性，浪费了大量的迭代器移动操作</span>
+  <span class="hljs-comment">//而直接通过节点的left,right指针来移动，每次都可以快速定位到一个范围的大概mid iterator处，更高效。</span>
+  <span class="hljs-comment">//所以rb_tree单独提供了这些实现</span>
+  <span class="hljs-function">iterator <span class="hljs-title">lower_bound</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span></span>;
+  <span class="hljs-function">const_iterator <span class="hljs-title">lower_bound</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span></span>;
+  <span class="hljs-function">iterator <span class="hljs-title">upper_bound</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span></span>;
+  <span class="hljs-function">const_iterator <span class="hljs-title">upper_bound</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span></span>;
+  <span class="hljs-function">pair&lt;iterator,iterator&gt; <span class="hljs-title">equal_range</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span></span>;
+  <span class="hljs-function">pair&lt;const_iterator, const_iterator&gt; <span class="hljs-title">equal_range</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span></span>;
+
+};
+
+<span class="hljs-comment">//nonmember functions</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>==(<span class="hljs-type">const</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;&amp; x, 
+                       <span class="hljs-type">const</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;&amp; y) {
+  <span class="hljs-keyword">return</span> x.<span class="hljs-built_in">size</span>() == y.<span class="hljs-built_in">size</span>() &amp;&amp; <span class="hljs-built_in">equal</span>(x.<span class="hljs-built_in">begin</span>(), x.<span class="hljs-built_in">end</span>(), y.<span class="hljs-built_in">begin</span>());
+}
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt;(<span class="hljs-type">const</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;&amp; x, 
+                      <span class="hljs-type">const</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;&amp; y) {
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">lexicographical_compare</span>(x.<span class="hljs-built_in">begin</span>(), x.<span class="hljs-built_in">end</span>(), y.<span class="hljs-built_in">begin</span>(), y.<span class="hljs-built_in">end</span>());
+}
+
+
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;&amp; x, 
+                 rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;&amp; y)</span> </span>{
+  x.<span class="hljs-built_in">swap</span>(y);
+}
+
+<span class="hljs-comment">//protected/private member functions</span>
+
+<span class="hljs-comment">//所有的插入接口最后调用的都是这个内部函数</span>
+<span class="hljs-comment">//插入的位置必然是叶子节点，y_为叶子节点的父节点</span>
+<span class="hljs-comment">//if else 分支为左插 或者 右插</span>
+<span class="hljs-comment">//x_ 参数是干嘛的，鬼知道,通常为null</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">typename</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::iterator
+rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::
+__insert(base_ptr x_, base_ptr y_, <span class="hljs-type">const</span> Value&amp; v) {
+  link_type x = (link_type) x_;
+  link_type y = (link_type) y_;
+  link_type z;
+
+  <span class="hljs-keyword">if</span> (y == header || x != <span class="hljs-number">0</span> || <span class="hljs-built_in">key_compare</span>(<span class="hljs-built_in">KeyOfValue</span>()(v), <span class="hljs-built_in">key</span>(y))) {
+    z = <span class="hljs-built_in">create_node</span>(v);
+    <span class="hljs-built_in">left</span>(y) = z;                <span class="hljs-comment">// also makes rightmost() = z when y == header</span>
+    <span class="hljs-keyword">if</span> (y == header) {
+      <span class="hljs-built_in">root</span>() = z;
+      <span class="hljs-built_in">rightmost</span>() = z;
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (y == <span class="hljs-built_in">leftmost</span>())
+      <span class="hljs-built_in">leftmost</span>() = z;           <span class="hljs-comment">// maintain leftmost() pointing to min node</span>
+  }
+  <span class="hljs-keyword">else</span> {
+    z = <span class="hljs-built_in">create_node</span>(v);
+    <span class="hljs-built_in">right</span>(y) = z;
+    <span class="hljs-keyword">if</span> (y == <span class="hljs-built_in">rightmost</span>())
+      <span class="hljs-built_in">rightmost</span>() = z;          <span class="hljs-comment">// maintain rightmost() pointing to max node</span>
+  }
+  <span class="hljs-built_in">parent</span>(z) = y;
+  <span class="hljs-built_in">left</span>(z) = <span class="hljs-number">0</span>;
+  <span class="hljs-built_in">right</span>(z) = <span class="hljs-number">0</span>;
+  __rb_tree_rebalance(z, header-&gt;parent);
+  ++node_count;
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">iterator</span>(z);
+}
+
+<span class="hljs-comment">//copy整颗以x为root的子树，并将该子树root-&gt;parent=p，返回指向该子树root的指针</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">K</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">V</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">typename</span> rb_tree&lt;K, V, KeyOfValue, Compare, Alloc&gt;::link_type 
+rb_tree&lt;K, V, KeyOfValue, Compare, Alloc&gt;::__copy(link_type x, link_type p) {
+                                <span class="hljs-comment">// structural copy.  x and p must be non-null.</span>
+  link_type top = <span class="hljs-built_in">clone_node</span>(x);
+  top-&gt;parent = p;
+
+  __STL_TRY {
+    <span class="hljs-keyword">if</span> (x-&gt;right)
+      top-&gt;right = __copy(<span class="hljs-built_in">right</span>(x), top);
+    <span class="hljs-keyword">if</span> (x-&gt;left)
+      top-&gt;left= __copy(<span class="hljs-built_in">left</span>(x), top);
+  }
+  <span class="hljs-comment">/*
+  //源代码在处理完top-&gt;right之后是这样写的， 莫名其妙的不优雅
+    p = top;
+    x = left(x);
+
+    while (x != 0) {
+      link_type y = clone_node(x);
+      p-&gt;left = y;
+      y-&gt;parent = p;
+      if (x-&gt;right)
+        y-&gt;right = __copy(right(x), y);
+      p = y;
+      x = left(x);
+    }
+  }
+  */</span>
+  __STL_UNWIND(__erase(top));
+
+  <span class="hljs-keyword">return</span> top;
+}
+
+
+<span class="hljs-comment">//删除整颗以x为root的子树</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-type">void</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::__erase(link_type x) {
+
+  <span class="hljs-keyword">while</span> (x != <span class="hljs-number">0</span>) {
+    __erase(<span class="hljs-built_in">right</span>(x));
+    link_type y = <span class="hljs-built_in">left</span>(x);
+    <span class="hljs-built_in">destroy_node</span>(x);
+    x = y;
+  }
+<span class="hljs-comment">/*
+//左，右，中的处理顺序更简洁
+if(x-&gt;left){
+  __erase(left(x));
+}
+if(x-&gt;right){
+  __erase(right(x));
+}
+destroy_node(x);
+*/</span>
+}
+
+<span class="hljs-comment">//public member functions</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;&amp; 
+rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::
+<span class="hljs-keyword">operator</span>=(<span class="hljs-type">const</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;&amp; x) {
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span> != &amp;x) {
+                                <span class="hljs-comment">// Note that Key may be a constant type.</span>
+    <span class="hljs-built_in">clear</span>();
+    node_count = <span class="hljs-number">0</span>;
+    key_compare = x.key_compare;        
+    <span class="hljs-keyword">if</span> (x.<span class="hljs-built_in">root</span>() == <span class="hljs-number">0</span>) {
+      <span class="hljs-built_in">root</span>() = <span class="hljs-number">0</span>;
+      <span class="hljs-built_in">leftmost</span>() = header;
+      <span class="hljs-built_in">rightmost</span>() = header;
+    }
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-built_in">root</span>() = __copy(x.<span class="hljs-built_in">root</span>(), header);
+      <span class="hljs-built_in">leftmost</span>() = <span class="hljs-built_in">minimum</span>(<span class="hljs-built_in">root</span>());
+      <span class="hljs-built_in">rightmost</span>() = <span class="hljs-built_in">maximum</span>(<span class="hljs-built_in">root</span>());
+      node_count = x.node_count;
+    }
+  }
+  <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+}
+
+
+
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">typename</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::iterator
+rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::<span class="hljs-built_in">insert_equal</span>(<span class="hljs-type">const</span> Value&amp; v)
+{
+  link_type y = header;
+  link_type x = <span class="hljs-built_in">root</span>();
+  <span class="hljs-keyword">while</span> (x != <span class="hljs-number">0</span>) {
+    y = x;
+    x = <span class="hljs-built_in">key_compare</span>(<span class="hljs-built_in">KeyOfValue</span>()(v), <span class="hljs-built_in">key</span>(x)) ? <span class="hljs-built_in">left</span>(x) : <span class="hljs-built_in">right</span>(x);
+  }
+  <span class="hljs-keyword">return</span> __insert(x, y, v);
+}
+
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+pair&lt;<span class="hljs-keyword">typename</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::iterator, <span class="hljs-type">bool</span>&gt;
+rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::<span class="hljs-built_in">insert_unique</span>(<span class="hljs-type">const</span> Value&amp; v)
+{
+  link_type y = header;
+  link_type x = <span class="hljs-built_in">root</span>();
+  <span class="hljs-type">bool</span> comp = <span class="hljs-literal">true</span>;
+  <span class="hljs-keyword">while</span> (x != <span class="hljs-number">0</span>) {
+    y = x;
+    comp = <span class="hljs-built_in">key_compare</span>(<span class="hljs-built_in">KeyOfValue</span>()(v), <span class="hljs-built_in">key</span>(x));
+    x = comp ? <span class="hljs-built_in">left</span>(x) : <span class="hljs-built_in">right</span>(x);
+  }
+  iterator j = <span class="hljs-built_in">iterator</span>(y);   
+  <span class="hljs-keyword">if</span> (comp)
+    <span class="hljs-keyword">if</span> (j == <span class="hljs-built_in">begin</span>())     
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">pair</span>&lt;iterator,<span class="hljs-type">bool</span>&gt;(__insert(x, y, v), <span class="hljs-literal">true</span>);
+    <span class="hljs-keyword">else</span>
+      --j;
+  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">key_compare</span>(<span class="hljs-built_in">key</span>(j.node), <span class="hljs-built_in">KeyOfValue</span>()(v)))
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">pair</span>&lt;iterator,<span class="hljs-type">bool</span>&gt;(__insert(x, y, v), <span class="hljs-literal">true</span>);
+  <span class="hljs-comment">//如果无法插入，返回的第二个值为false,第一个值为值相同的节点的迭代器</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">pair</span>&lt;iterator,<span class="hljs-type">bool</span>&gt;(j, <span class="hljs-literal">false</span>);
+}
+
+
+
+
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">K</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">V</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KoV</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Cmp</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Al</span>&gt; <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">II</span>&gt;
+<span class="hljs-type">void</span> rb_tree&lt;K, V, KoV, Cmp, Al&gt;::<span class="hljs-built_in">insert_equal</span>(II first, II last) {
+  <span class="hljs-keyword">for</span> ( ; first != last; ++first)
+    <span class="hljs-built_in">insert_equal</span>(*first);
+}
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">K</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">V</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KoV</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Cmp</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Al</span>&gt; <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">II</span>&gt;
+<span class="hljs-type">void</span> rb_tree&lt;K, V, KoV, Cmp, Al&gt;::<span class="hljs-built_in">insert_unique</span>(II first, II last) {
+  <span class="hljs-keyword">for</span> ( ; first != last; ++first)
+    <span class="hljs-built_in">insert_unique</span>(*first);
+}
+
+
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">inline</span> <span class="hljs-type">void</span>
+rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::<span class="hljs-built_in">erase</span>(iterator position) {
+  link_type y = (link_type) __rb_tree_rebalance_for_erase(position.node,
+                                                          header-&gt;parent,
+                                                          header-&gt;left,
+                                                          header-&gt;right);
+  <span class="hljs-built_in">destroy_node</span>(y);
+  --node_count;
+}
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">typename</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::size_type 
+rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::<span class="hljs-built_in">erase</span>(<span class="hljs-type">const</span> Key&amp; x) {
+  pair&lt;iterator,iterator&gt; p = <span class="hljs-built_in">equal_range</span>(x);
+  size_type n = <span class="hljs-number">0</span>;
+  <span class="hljs-built_in">distance</span>(p.first, p.second, n);
+  <span class="hljs-built_in">erase</span>(p.first, p.second);
+  <span class="hljs-keyword">return</span> n;
+}
+
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-type">void</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::<span class="hljs-built_in">erase</span>(iterator first, 
+                                                            iterator last) {
+  <span class="hljs-keyword">if</span> (first == <span class="hljs-built_in">begin</span>() &amp;&amp; last == <span class="hljs-built_in">end</span>())
+    <span class="hljs-built_in">clear</span>();
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-keyword">while</span> (first != last) <span class="hljs-built_in">erase</span>(first++);
+}
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-type">void</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::<span class="hljs-built_in">erase</span>(<span class="hljs-type">const</span> Key* first, 
+                                                            <span class="hljs-type">const</span> Key* last) {
+  <span class="hljs-keyword">while</span> (first != last) <span class="hljs-built_in">erase</span>(*first++);
+}
+
+<span class="hljs-comment">//找不到返回end()</span>
+<span class="hljs-comment">//在存在多个key相同的情况下，返回的是最左边的node的迭代器。</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">typename</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::iterator 
+rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::<span class="hljs-built_in">find</span>(<span class="hljs-type">const</span> Key&amp; k) {
+  link_type y = header;        
+  link_type x = <span class="hljs-built_in">root</span>();       
+
+  <span class="hljs-keyword">while</span> (x != <span class="hljs-number">0</span>) 
+    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">key_compare</span>(<span class="hljs-built_in">key</span>(x), k))
+      y = x, x = <span class="hljs-built_in">left</span>(x);
+    <span class="hljs-keyword">else</span>
+      x = <span class="hljs-built_in">right</span>(x);
+
+  iterator j = <span class="hljs-built_in">iterator</span>(y);   
+  <span class="hljs-keyword">return</span> (j == <span class="hljs-built_in">end</span>() || <span class="hljs-built_in">key_compare</span>(k, <span class="hljs-built_in">key</span>(j.node))) ? <span class="hljs-built_in">end</span>() : j;
+}
+
+
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">typename</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::size_type 
+rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::<span class="hljs-built_in">count</span>(<span class="hljs-type">const</span> Key&amp; k) <span class="hljs-type">const</span> {
+  pair&lt;const_iterator, const_iterator&gt; p = <span class="hljs-built_in">equal_range</span>(k);
+  size_type n = <span class="hljs-number">0</span>;
+  <span class="hljs-built_in">distance</span>(p.first, p.second, n);
+  <span class="hljs-keyword">return</span> n;
+}
+
+<span class="hljs-comment">//返回第一个大于等于 k 的节点的iterator.</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">typename</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::iterator 
+rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::<span class="hljs-built_in">lower_bound</span>(<span class="hljs-type">const</span> Key&amp; k) {
+  link_type y = header; 
+  link_type x = <span class="hljs-built_in">root</span>(); 
+
+  <span class="hljs-keyword">while</span> (x != <span class="hljs-number">0</span>) 
+    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">key_compare</span>(<span class="hljs-built_in">key</span>(x), k))
+      y = x, x = <span class="hljs-built_in">left</span>(x);
+    <span class="hljs-keyword">else</span>
+      x = <span class="hljs-built_in">right</span>(x);
+
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">iterator</span>(y);
+}
+
+
+<span class="hljs-comment">//返回第一个大于 k 的节点的iterator.</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">typename</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::iterator 
+rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::<span class="hljs-built_in">upper_bound</span>(<span class="hljs-type">const</span> Key&amp; k) {
+  link_type y = header; 
+  link_type x = <span class="hljs-built_in">root</span>(); 
+
+   <span class="hljs-keyword">while</span> (x != <span class="hljs-number">0</span>) 
+     <span class="hljs-keyword">if</span> (<span class="hljs-built_in">key_compare</span>(k, <span class="hljs-built_in">key</span>(x)))
+       y = x, x = <span class="hljs-built_in">left</span>(x);
+     <span class="hljs-keyword">else</span>
+       x = <span class="hljs-built_in">right</span>(x);
+
+   <span class="hljs-keyword">return</span> <span class="hljs-built_in">iterator</span>(y);
+}
+
+
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Value</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyOfValue</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">inline</span> pair&lt;<span class="hljs-keyword">typename</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::iterator,
+            <span class="hljs-keyword">typename</span> rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::iterator&gt;
+rb_tree&lt;Key, Value, KeyOfValue, Compare, Alloc&gt;::<span class="hljs-built_in">equal_range</span>(<span class="hljs-type">const</span> Key&amp; k) {
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">pair</span>&lt;iterator, iterator&gt;(<span class="hljs-built_in">lower_bound</span>(k), <span class="hljs-built_in">upper_bound</span>(k));
+}
+</code></pre>
+<p>跟旋转有关的操作暂时省略，以后有机会再看………………</p>
+<p><img src="../../../images/c%26c%2B%2B/stl91.png" alt=""></img></p>
+<p><img src="../../../images/c%26c%2B%2B/stl92.png" alt=""></img></p>
+<p><img src="../../../images/c%26c%2B%2B/stl93.png" alt=""></img></p>
+<p>set实现 G2.8</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span> = less&lt;Key&gt;, <span class="hljs-keyword">class</span> Alloc = alloc&gt;
+<span class="hljs-keyword">class</span> set {
+<span class="hljs-keyword">public</span>:
+  <span class="hljs-keyword">typedef</span> Key key_type;
+  <span class="hljs-keyword">typedef</span> Key value_type;
+  <span class="hljs-keyword">typedef</span> Compare key_compare;
+  <span class="hljs-keyword">typedef</span> Compare value_compare;
+<span class="hljs-keyword">private</span>:
+  <span class="hljs-keyword">typedef</span> rb_tree&lt;key_type, value_type, 
+                  identity&lt;value_type&gt;, key_compare, Alloc&gt; rep_type;
+  rep_type t;  <span class="hljs-comment">// red-black tree representing set</span>
+<span class="hljs-keyword">public</span>:
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::const_pointer pointer;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::const_pointer const_pointer;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::const_reference reference;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::const_reference const_reference;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::const_iterator iterator;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::const_iterator const_iterator;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::const_reverse_iterator reverse_iterator;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::const_reverse_iterator const_reverse_iterator;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::size_type size_type;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::difference_type difference_type;
+
+  <span class="hljs-comment">// allocation/deallocation</span>
+  <span class="hljs-built_in">set</span>() : <span class="hljs-built_in">t</span>(<span class="hljs-built_in">Compare</span>()) {}
+  <span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">set</span><span class="hljs-params">(<span class="hljs-type">const</span> Compare&amp; comp)</span> : t(comp) {</span>}
+
+  <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">InputIterator</span>&gt;
+  <span class="hljs-built_in">set</span>(InputIterator first, InputIterator last)
+    : <span class="hljs-built_in">t</span>(<span class="hljs-built_in">Compare</span>()) { t.<span class="hljs-built_in">insert_unique</span>(first, last); }
+
+  <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">InputIterator</span>&gt;
+  <span class="hljs-built_in">set</span>(InputIterator first, InputIterator last, <span class="hljs-type">const</span> Compare&amp; comp)
+    : <span class="hljs-built_in">t</span>(comp) { t.<span class="hljs-built_in">insert_unique</span>(first, last); }
+
+
+  <span class="hljs-built_in">set</span>(<span class="hljs-type">const</span> set&lt;Key, Compare, Alloc&gt;&amp; x) : <span class="hljs-built_in">t</span>(x.t) {}
+  set&lt;Key, Compare, Alloc&gt;&amp; <span class="hljs-keyword">operator</span>=(<span class="hljs-type">const</span> set&lt;Key, Compare, Alloc&gt;&amp; x) { 
+    t = x.t; 
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+  }
+
+  <span class="hljs-comment">// accessors:</span>
+  <span class="hljs-function">key_compare <span class="hljs-title">key_comp</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">key_comp</span>(); }
+  <span class="hljs-function">value_compare <span class="hljs-title">value_comp</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">key_comp</span>(); }
+  <span class="hljs-function">iterator <span class="hljs-title">begin</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">begin</span>(); }
+  <span class="hljs-function">iterator <span class="hljs-title">end</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">end</span>(); }
+  <span class="hljs-function">reverse_iterator <span class="hljs-title">rbegin</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">rbegin</span>(); } 
+  <span class="hljs-function">reverse_iterator <span class="hljs-title">rend</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">rend</span>(); }
+  <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">empty</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">empty</span>(); }
+  <span class="hljs-function">size_type <span class="hljs-title">size</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">size</span>(); }
+  <span class="hljs-function">size_type <span class="hljs-title">max_size</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">max_size</span>(); }
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(set&lt;Key, Compare, Alloc&gt;&amp; x)</span> </span>{ t.<span class="hljs-built_in">swap</span>(x.t); }
+
+  <span class="hljs-comment">// insert/erase</span>
+  <span class="hljs-function">pair&lt;iterator,<span class="hljs-type">bool</span>&gt; <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">const</span> value_type&amp; x)</span> </span>{ 
+    pair&lt;<span class="hljs-keyword">typename</span> rep_type::iterator, <span class="hljs-type">bool</span>&gt; p = t.<span class="hljs-built_in">insert_unique</span>(x); 
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">pair</span>&lt;iterator, <span class="hljs-type">bool</span>&gt;(p.first, p.second);
+  }
+
+
+
+  <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">InputIterator</span>&gt;
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(InputIterator first, InputIterator last)</span> </span>{
+    t.<span class="hljs-built_in">insert_unique</span>(first, last);
+  }
+
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">erase</span><span class="hljs-params">(iterator position)</span> </span>{ 
+    <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::iterator rep_iterator;
+    t.<span class="hljs-built_in">erase</span>((rep_iterator&amp;)position); 
+  }
+  <span class="hljs-function">size_type <span class="hljs-title">erase</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> </span>{ 
+    <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">erase</span>(x); 
+  }
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">erase</span><span class="hljs-params">(iterator first, iterator last)</span> </span>{ 
+    <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::iterator rep_iterator;
+    t.<span class="hljs-built_in">erase</span>((rep_iterator&amp;)first, (rep_iterator&amp;)last); 
+  }
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">clear</span><span class="hljs-params">()</span> </span>{ t.<span class="hljs-built_in">clear</span>(); }
+
+  <span class="hljs-comment">// set operations:</span>
+
+  <span class="hljs-function">iterator <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">find</span>(x); }
+  <span class="hljs-function">size_type <span class="hljs-title">count</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">count</span>(x); }
+  <span class="hljs-function">iterator <span class="hljs-title">lower_bound</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span> </span>{
+    <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">lower_bound</span>(x);
+  }
+  <span class="hljs-function">iterator <span class="hljs-title">upper_bound</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span> </span>{
+    <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">upper_bound</span>(x); 
+  }
+  <span class="hljs-function">pair&lt;iterator,iterator&gt; <span class="hljs-title">equal_range</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span> </span>{
+    <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">equal_range</span>(x);
+  }
+  <span class="hljs-keyword">friend</span> <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>== __STL_NULL_TMPL_ARGS (<span class="hljs-type">const</span> set&amp;, <span class="hljs-type">const</span> set&amp;);
+  <span class="hljs-keyword">friend</span> <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt; __STL_NULL_TMPL_ARGS (<span class="hljs-type">const</span> set&amp;, <span class="hljs-type">const</span> set&amp;);
+};
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>==(<span class="hljs-type">const</span> set&lt;Key, Compare, Alloc&gt;&amp; x, 
+                       <span class="hljs-type">const</span> set&lt;Key, Compare, Alloc&gt;&amp; y) {
+  <span class="hljs-keyword">return</span> x.t == y.t;
+}
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt;(<span class="hljs-type">const</span> set&lt;Key, Compare, Alloc&gt;&amp; x, 
+                      <span class="hljs-type">const</span> set&lt;Key, Compare, Alloc&gt;&amp; y) {
+  <span class="hljs-keyword">return</span> x.t &lt; y.t;
+}
+
+
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(set&lt;Key, Compare, Alloc&gt;&amp; x, 
+                 set&lt;Key, Compare, Alloc&gt;&amp; y)</span> </span>{
+  x.<span class="hljs-built_in">swap</span>(y);
+}
+</code></pre>
+<p>multiset的实现同set唯一的区别就是所有的<code>insert_unique</code>操作替换为<code>intert_equal</code>操作，并且insert的操作只返回一个迭代器
+<img src="../../../images/c%26c%2B%2B/stl94.png" alt=""></img></p>
+<p><img src="../../../images/c%26c%2B%2B/stl95.png" alt=""></img></p>
+<p><img src="../../../images/c%26c%2B%2B/stl96.png" alt=""></img></p>
+<p>上述的使用代码中，对find只做了一种测试，其实使用find算法的测试，直接使用lambda就好了</p>
+<pre><code class="lang-c++">std::<span class="hljs-built_in">find_if</span>(c.<span class="hljs-built_in">begin</span>(), c.<span class="hljs-built_in">end</span>(), [=](<span class="hljs-type">const</span> std::pair&lt;<span class="hljs-type">const</span> <span class="hljs-type">long</span>, std::string&gt;&amp; ele){
+    <span class="hljs-keyword">return</span> ele.first == target;
+})
+</code></pre>
+<p>map G2.8实现</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span> = less&lt;Key&gt;, <span class="hljs-keyword">class</span> Alloc = alloc&gt;
+<span class="hljs-keyword">class</span> map {
+<span class="hljs-keyword">public</span>:
+<span class="hljs-comment">// typedefs:</span>
+  <span class="hljs-keyword">typedef</span> Key key_type;
+  <span class="hljs-keyword">typedef</span> T data_type;
+  <span class="hljs-keyword">typedef</span> T mapped_type;
+  <span class="hljs-keyword">typedef</span> pair&lt;<span class="hljs-type">const</span> Key, T&gt; value_type;
+  <span class="hljs-keyword">typedef</span> Compare key_compare;
+
+
+<span class="hljs-keyword">private</span>:
+  <span class="hljs-keyword">typedef</span> rb_tree&lt;key_type, value_type, 
+                  select1st&lt;value_type&gt;, key_compare, Alloc&gt; rep_type;
+  rep_type t;  <span class="hljs-comment">// red-black tree representing map</span>
+<span class="hljs-keyword">public</span>:
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::pointer pointer;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::const_pointer const_pointer;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::reference reference;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::const_reference const_reference;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::iterator iterator;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::const_iterator const_iterator;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::reverse_iterator reverse_iterator;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::const_reverse_iterator const_reverse_iterator;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::size_type size_type;
+  <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">typename</span> rep_type::difference_type difference_type;
+
+  <span class="hljs-comment">// allocation/deallocation</span>
+  <span class="hljs-built_in">map</span>() : <span class="hljs-built_in">t</span>(<span class="hljs-built_in">Compare</span>()) {}
+  <span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">map</span><span class="hljs-params">(<span class="hljs-type">const</span> Compare&amp; comp)</span> : t(comp) {</span>}
+
+
+  <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">InputIterator</span>&gt;
+  <span class="hljs-built_in">map</span>(InputIterator first, InputIterator last)
+    : <span class="hljs-built_in">t</span>(<span class="hljs-built_in">Compare</span>()) { t.<span class="hljs-built_in">insert_unique</span>(first, last); }
+
+  <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">InputIterator</span>&gt;
+  <span class="hljs-built_in">map</span>(InputIterator first, InputIterator last, <span class="hljs-type">const</span> Compare&amp; comp)
+    : <span class="hljs-built_in">t</span>(comp) { t.<span class="hljs-built_in">insert_unique</span>(first, last); }
+
+
+  <span class="hljs-built_in">map</span>(<span class="hljs-type">const</span> map&lt;Key, T, Compare, Alloc&gt;&amp; x) : <span class="hljs-built_in">t</span>(x.t) {}
+  map&lt;Key, T, Compare, Alloc&gt;&amp; <span class="hljs-keyword">operator</span>=(<span class="hljs-type">const</span> map&lt;Key, T, Compare, Alloc&gt;&amp; x)
+  {
+    t = x.t;
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>; 
+  }
+
+  <span class="hljs-comment">// accessors:</span>
+
+  <span class="hljs-function">key_compare <span class="hljs-title">key_comp</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">key_comp</span>(); }
+  <span class="hljs-function">iterator <span class="hljs-title">begin</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">begin</span>(); }
+  <span class="hljs-function">const_iterator <span class="hljs-title">begin</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">begin</span>(); }
+  <span class="hljs-function">iterator <span class="hljs-title">end</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">end</span>(); }
+  <span class="hljs-function">const_iterator <span class="hljs-title">end</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">end</span>(); }
+  <span class="hljs-function">reverse_iterator <span class="hljs-title">rbegin</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">rbegin</span>(); }
+  <span class="hljs-function">const_reverse_iterator <span class="hljs-title">rbegin</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">rbegin</span>(); }
+  <span class="hljs-function">reverse_iterator <span class="hljs-title">rend</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">rend</span>(); }
+  <span class="hljs-function">const_reverse_iterator <span class="hljs-title">rend</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">rend</span>(); }
+  <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">empty</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">empty</span>(); }
+  <span class="hljs-function">size_type <span class="hljs-title">size</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">size</span>(); }
+  <span class="hljs-function">size_type <span class="hljs-title">max_size</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">max_size</span>(); }
+  <span class="hljs-comment">//insert_unique在失败时，返回的第一个参数是已经存在的值相同节点的iterator</span>
+  T&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-type">const</span> key_type&amp; k) {
+    <span class="hljs-keyword">return</span> (*((<span class="hljs-built_in">insert</span>(<span class="hljs-built_in">value_type</span>(k, <span class="hljs-built_in">T</span>()))).first)).second;
+  }
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(map&lt;Key, T, Compare, Alloc&gt;&amp; x)</span> </span>{ t.<span class="hljs-built_in">swap</span>(x.t); }
+
+  <span class="hljs-comment">// insert/erase</span>
+
+  <span class="hljs-function">pair&lt;iterator,<span class="hljs-type">bool</span>&gt; <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">const</span> value_type&amp; x)</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">insert_unique</span>(x); }
+
+
+  <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">InputIterator</span>&gt;
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(InputIterator first, InputIterator last)</span> </span>{
+    t.<span class="hljs-built_in">insert_unique</span>(first, last);
+  }
+
+
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">erase</span><span class="hljs-params">(iterator position)</span> </span>{ t.<span class="hljs-built_in">erase</span>(position); }
+  <span class="hljs-function">size_type <span class="hljs-title">erase</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">erase</span>(x); }
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">erase</span><span class="hljs-params">(iterator first, iterator last)</span> </span>{ t.<span class="hljs-built_in">erase</span>(first, last); }
+  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">clear</span><span class="hljs-params">()</span> </span>{ t.<span class="hljs-built_in">clear</span>(); }
+
+  <span class="hljs-comment">// map operations:</span>
+
+  <span class="hljs-function">iterator <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">find</span>(x); }
+  <span class="hljs-function">const_iterator <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">find</span>(x); }
+  <span class="hljs-function">size_type <span class="hljs-title">count</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">count</span>(x); }
+  <span class="hljs-function">iterator <span class="hljs-title">lower_bound</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> </span>{<span class="hljs-keyword">return</span> t.<span class="hljs-built_in">lower_bound</span>(x); }
+  <span class="hljs-function">const_iterator <span class="hljs-title">lower_bound</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span> </span>{
+    <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">lower_bound</span>(x); 
+  }
+  <span class="hljs-function">iterator <span class="hljs-title">upper_bound</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> </span>{<span class="hljs-keyword">return</span> t.<span class="hljs-built_in">upper_bound</span>(x); }
+  <span class="hljs-function">const_iterator <span class="hljs-title">upper_bound</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span> </span>{
+    <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">upper_bound</span>(x); 
+  }
+
+  <span class="hljs-function">pair&lt;iterator,iterator&gt; <span class="hljs-title">equal_range</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> </span>{
+    <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">equal_range</span>(x);
+  }
+  <span class="hljs-function">pair&lt;const_iterator,const_iterator&gt; <span class="hljs-title">equal_range</span><span class="hljs-params">(<span class="hljs-type">const</span> key_type&amp; x)</span> <span class="hljs-type">const</span> </span>{
+    <span class="hljs-keyword">return</span> t.<span class="hljs-built_in">equal_range</span>(x);
+  }
+  <span class="hljs-keyword">friend</span> <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>== __STL_NULL_TMPL_ARGS (<span class="hljs-type">const</span> map&amp;, <span class="hljs-type">const</span> map&amp;);
+  <span class="hljs-keyword">friend</span> <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt; __STL_NULL_TMPL_ARGS (<span class="hljs-type">const</span> map&amp;, <span class="hljs-type">const</span> map&amp;);
+};
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>==(<span class="hljs-type">const</span> map&lt;Key, T, Compare, Alloc&gt;&amp; x, 
+                       <span class="hljs-type">const</span> map&lt;Key, T, Compare, Alloc&gt;&amp; y) {
+  <span class="hljs-keyword">return</span> x.t == y.t;
+}
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt;(<span class="hljs-type">const</span> map&lt;Key, T, Compare, Alloc&gt;&amp; x, 
+                      <span class="hljs-type">const</span> map&lt;Key, T, Compare, Alloc&gt;&amp; y) {
+  <span class="hljs-keyword">return</span> x.t &lt; y.t;
+}
+
+
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Key</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Compare</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alloc</span>&gt;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(map&lt;Key, T, Compare, Alloc&gt;&amp; x, 
+                 map&lt;Key, T, Compare, Alloc&gt;&amp; y)</span> </span>{
+  x.<span class="hljs-built_in">swap</span>(y);
+}
+</code></pre>
+<p>multimap的insert调用的是rb_tree的insert_equal操作。
+multimap的实现没有operator[]操作，因为multimap同一个key会存在多个data</p>
+<div class="navPagesContainer"> <div class="navPagesLinks"> <a class="card cardPrevious"> <div class="cardIcon"> <i class="fa fa-angle-left"></i> </div> <div class="cardPreviousBody"> <div class="cardHint"> <span>Previous</span> </div> <div class="cardTitle"> <span>8.序列式容器之deque</span> </div> </div> </a> <a class="card cardNext"> <div class="cardNextBody"> <div class="cardHint"> <span>Next</span> </div> <div class="cardTitle"> <span>10.以哈希表为底层数据结构的关联式容器</span> </div> </div> <div class="cardIcon"> <i class="fa fa-angle-right"></i> </div> </a> </div> </div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="8.序列式容器之deque.html" class="navigation navigation-prev " aria-label="Previous page: 8.序列式容器之deque">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="10.以哈希表为底层数据结构的关联式容器.html" class="navigation navigation-next " aria-label="Next page: 10.以哈希表为底层数据结构的关联式容器">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"9.以红黑树为底层数据结构的关联式容器","level":"1.2.6.9","depth":3,"next":{"title":"10.以哈希表为底层数据结构的关联式容器","level":"1.2.6.10","depth":3,"path":"posts/c&c++/stl/10.以哈希表为底层数据结构的关联式容器.md","ref":"./posts/c&c++/stl/10.以哈希表为底层数据结构的关联式容器.md","articles":[]},"previous":{"title":"8.序列式容器之deque","level":"1.2.6.8","depth":3,"path":"posts/c&c++/stl/8.序列式容器之deque.md","ref":"./posts/c&c++/stl/8.序列式容器之deque.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["bottom-navigation","collapsible-menu","livereload"],"pluginsConfig":{"bottom-navigation":{"navPrevSelector":null,"navNextSelector":null,"iconColor":null,"titleColor":null,"borderColor":"#873077","pageInnerWidth":null,"prevText":"Previous","nextText":"Next"},"collapsible-menu":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"posts/c&c++/stl/9.以红黑树为底层数据结构的关联式容器.md","mtime":"2024-08-28T09:52:19.012Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-05-02T00:47:25.524Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-bottom-navigation/stylish.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-bottom-navigation/href.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

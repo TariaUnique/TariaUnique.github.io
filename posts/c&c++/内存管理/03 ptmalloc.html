@@ -1,0 +1,5004 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>03 ptmalloc · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-bottom-navigation/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="04 tcmalloc.html" />
+    
+    
+    <link rel="prev" href="02 operator new & operator delete.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../readme.html">
+            
+                <a href="../readme.html">
+            
+                    
+                    c&c++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../boost asio/readme.html">
+            
+                <a href="../boost asio/readme.html">
+            
+                    
+                    boost asio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../c++2.0/readme.html">
+            
+                <a href="../c++2.0/readme.html">
+            
+                    
+                    c++2.0
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../c++2.0/01 decltype.html">
+            
+                <a href="../c++2.0/01 decltype.html">
+            
+                    
+                    01 decltype
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../c++2.0/02 auto & decltype(auto">
+            
+                <span>
+            
+                    
+                    02 auto & decltype(auto)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../c++2.0/03 value categories & rvalue reference.html">
+            
+                <a href="../c++2.0/03 value categories & rvalue reference.html">
+            
+                    
+                    03 value categories & rvalue reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../c++2.0/04 universal reference & reference collpsing.html">
+            
+                <a href="../c++2.0/04 universal reference & reference collpsing.html">
+            
+                    
+                    04 universal reference & reference collpsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../c++2.0/05 move semantics.html">
+            
+                <a href="../c++2.0/05 move semantics.html">
+            
+                    
+                    05 move semantics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../c++2.0/06 perfect forwarding.html">
+            
+                <a href="../c++2.0/06 perfect forwarding.html">
+            
+                    
+                    06 perfect forwarding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../c++2.0/07 lambda.html">
+            
+                <a href="../c++2.0/07 lambda.html">
+            
+                    
+                    07 lambda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="../c++2.0/08 可变模板.html">
+            
+                <a href="../c++2.0/08 可变模板.html">
+            
+                    
+                    08 可变模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="../c++2.0/09 uniform initialzation.html">
+            
+                <a href="../c++2.0/09 uniform initialzation.html">
+            
+                    
+                    09 uniform initialzation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="../c++2.0/10 template alias.html">
+            
+                <a href="../c++2.0/10 template alias.html">
+            
+                    
+                    10 template alias
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="../c++2.0/11 function.html">
+            
+                <a href="../c++2.0/11 function.html">
+            
+                    
+                    11 function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="../c++2.0/12 bind.html">
+            
+                <a href="../c++2.0/12 bind.html">
+            
+                    
+                    12 bind
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.13" data-path="../c++2.0/13 keywords.html">
+            
+                <a href="../c++2.0/13 keywords.html">
+            
+                    
+                    13 keywords
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.14" data-path="../c++2.0/14 shared_ptr.html">
+            
+                <a href="../c++2.0/14 shared_ptr.html">
+            
+                    
+                    14 shared_ptr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.15" data-path="../c++2.0/15 weak_ptr.html">
+            
+                <a href="../c++2.0/15 weak_ptr.html">
+            
+                    
+                    15 weak_ptr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.16" data-path="../c++2.0/16 unique_ptr.html">
+            
+                <a href="../c++2.0/16 unique_ptr.html">
+            
+                    
+                    16 unique_ptr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.17" data-path="../c++2.0/17 declval.html">
+            
+                <a href="../c++2.0/17 declval.html">
+            
+                    
+                    17 declval
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../exceptional c++/readme.html">
+            
+                <a href="../exceptional c++/readme.html">
+            
+                    
+                    exceptional c++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../exceptional c++/item1.html">
+            
+                <a href="../exceptional c++/item1.html">
+            
+                    
+                    item1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../exceptional c++/item2.html">
+            
+                <a href="../exceptional c++/item2.html">
+            
+                    
+                    item2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../exceptional c++/item5.html">
+            
+                <a href="../exceptional c++/item5.html">
+            
+                    
+                    item5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../exceptional c++/item6.html">
+            
+                <a href="../exceptional c++/item6.html">
+            
+                    
+                    item6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../exceptional c++/item8.html">
+            
+                <a href="../exceptional c++/item8.html">
+            
+                    
+                    item8
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../exceptional c++/item20.html">
+            
+                <a href="../exceptional c++/item20.html">
+            
+                    
+                    item20
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../exceptional c++/item21.html">
+            
+                <a href="../exceptional c++/item21.html">
+            
+                    
+                    item21
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../exceptional c++/item22.html">
+            
+                <a href="../exceptional c++/item22.html">
+            
+                    
+                    item22
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.9" data-path="../exceptional c++/item23.html">
+            
+                <a href="../exceptional c++/item23.html">
+            
+                    
+                    item23
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.10" data-path="../exceptional c++/item24.html">
+            
+                <a href="../exceptional c++/item24.html">
+            
+                    
+                    item24
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.11" data-path="../exceptional c++/item26.html">
+            
+                <a href="../exceptional c++/item26.html">
+            
+                    
+                    item26
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.12" data-path="../exceptional c++/item29.html">
+            
+                <a href="../exceptional c++/item29.html">
+            
+                    
+                    item29
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.13" data-path="../exceptional c++/item31.html">
+            
+                <a href="../exceptional c++/item31.html">
+            
+                    
+                    item31
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.14" data-path="../exceptional c++/item38.html">
+            
+                <a href="../exceptional c++/item38.html">
+            
+                    
+                    item38
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.15" data-path="../exceptional c++/item40.html">
+            
+                <a href="../exceptional c++/item40.html">
+            
+                    
+                    item40
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.16" data-path="../exceptional c++/item43.html">
+            
+                <a href="../exceptional c++/item43.html">
+            
+                    
+                    item43
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.17" data-path="../exceptional c++/item47.html">
+            
+                <a href="../exceptional c++/item47.html">
+            
+                    
+                    item47
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../inside the c++ object model/readme.html">
+            
+                <a href="../inside the c++ object model/readme.html">
+            
+                    
+                    inside the c++ object model
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../inside the c++ object model/Chapter 1. Object Lessons.html">
+            
+                <a href="../inside the c++ object model/Chapter 1. Object Lessons.html">
+            
+                    
+                    Chapter 1. Object Lessons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../inside the c++ object model/Chapter 2. The Semantics of Constructors.html">
+            
+                <a href="../inside the c++ object model/Chapter 2. The Semantics of Constructors.html">
+            
+                    
+                    Chapter 2. The Semantics of Constructors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="../inside the c++ object model/Chapter 3. The Semantics of Data.html">
+            
+                <a href="../inside the c++ object model/Chapter 3. The Semantics of Data.html">
+            
+                    
+                    Chapter 3. The Semantics of Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="../inside the c++ object model/Chapter 4. The Semantics of Function.html">
+            
+                <a href="../inside the c++ object model/Chapter 4. The Semantics of Function.html">
+            
+                    
+                    Chapter 4. The Semantics of Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="../inside the c++ object model/Chapter 5. Semantics of Construction, Destruction, and Copy.html">
+            
+                <a href="../inside the c++ object model/Chapter 5. Semantics of Construction, Destruction, and Copy.html">
+            
+                    
+                    Chapter 5. Semantics of Construction, Destruction, and Copy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.6" data-path="../inside the c++ object model/Chapter 6. Runtime Semantics.html">
+            
+                <a href="../inside the c++ object model/Chapter 6. Runtime Semantics.html">
+            
+                    
+                    Chapter 6. Runtime Semantics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.7" data-path="../inside the c++ object model/Chapter 7. On the Cusp of the Object Model.html">
+            
+                <a href="../inside the c++ object model/Chapter 7. On the Cusp of the Object Model.html">
+            
+                    
+                    Chapter 7. On the Cusp of the Object Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../more exceptional c++/readme.html">
+            
+                <a href="../more exceptional c++/readme.html">
+            
+                    
+                    more exceptional c++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="../more exceptional c++/item1.html">
+            
+                <a href="../more exceptional c++/item1.html">
+            
+                    
+                    item1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="../more exceptional c++/item4.html">
+            
+                <a href="../more exceptional c++/item4.html">
+            
+                    
+                    item4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="../more exceptional c++/item5.html">
+            
+                <a href="../more exceptional c++/item5.html">
+            
+                    
+                    item5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.4" data-path="../more exceptional c++/item6.html">
+            
+                <a href="../more exceptional c++/item6.html">
+            
+                    
+                    item6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.5" data-path="../more exceptional c++/item11.html">
+            
+                <a href="../more exceptional c++/item11.html">
+            
+                    
+                    item11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.6" data-path="../more exceptional c++/item13.html">
+            
+                <a href="../more exceptional c++/item13.html">
+            
+                    
+                    item13
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.7" data-path="../more exceptional c++/item17.html">
+            
+                <a href="../more exceptional c++/item17.html">
+            
+                    
+                    item17
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.8" data-path="../more exceptional c++/item19.html">
+            
+                <a href="../more exceptional c++/item19.html">
+            
+                    
+                    item19
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.9" data-path="../more exceptional c++/item20.html">
+            
+                <a href="../more exceptional c++/item20.html">
+            
+                    
+                    item20
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.10" data-path="../more exceptional c++/item22.html">
+            
+                <a href="../more exceptional c++/item22.html">
+            
+                    
+                    item22
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.11" data-path="../more exceptional c++/item23.html">
+            
+                <a href="../more exceptional c++/item23.html">
+            
+                    
+                    item23
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.12" data-path="../more exceptional c++/item24.html">
+            
+                <a href="../more exceptional c++/item24.html">
+            
+                    
+                    item24
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.13" data-path="../more exceptional c++/item25.html">
+            
+                <a href="../more exceptional c++/item25.html">
+            
+                    
+                    item25
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.14" data-path="../more exceptional c++/item26.html">
+            
+                <a href="../more exceptional c++/item26.html">
+            
+                    
+                    item26
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.15" data-path="../more exceptional c++/item27.html">
+            
+                <a href="../more exceptional c++/item27.html">
+            
+                    
+                    item27
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.16" data-path="../more exceptional c++/item28.html">
+            
+                <a href="../more exceptional c++/item28.html">
+            
+                    
+                    item28
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.17" data-path="../more exceptional c++/item29.html">
+            
+                <a href="../more exceptional c++/item29.html">
+            
+                    
+                    item29
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.18" data-path="../more exceptional c++/item32.html">
+            
+                <a href="../more exceptional c++/item32.html">
+            
+                    
+                    item32
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.19" data-path="../more exceptional c++/item33.html">
+            
+                <a href="../more exceptional c++/item33.html">
+            
+                    
+                    item33
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.20" data-path="../more exceptional c++/item34.html">
+            
+                <a href="../more exceptional c++/item34.html">
+            
+                    
+                    item34
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.21" data-path="../more exceptional c++/item35.html">
+            
+                <a href="../more exceptional c++/item35.html">
+            
+                    
+                    item35
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.22" data-path="../more exceptional c++/item36.html">
+            
+                <a href="../more exceptional c++/item36.html">
+            
+                    
+                    item36
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.23" data-path="../more exceptional c++/item37.html">
+            
+                <a href="../more exceptional c++/item37.html">
+            
+                    
+                    item37
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.24" data-path="../more exceptional c++/item39.html">
+            
+                <a href="../more exceptional c++/item39.html">
+            
+                    
+                    item39
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../stl/readme.html">
+            
+                <a href="../stl/readme.html">
+            
+                    
+                    stl
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="../stl/1.前序：模板知识.html">
+            
+                <a href="../stl/1.前序：模板知识.html">
+            
+                    
+                    1.前序：模板知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" data-path="../stl/2.总述.html">
+            
+                <a href="../stl/2.总述.html">
+            
+                    
+                    2.总述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.3" data-path="../stl/3.分配器.html">
+            
+                <a href="../stl/3.分配器.html">
+            
+                    
+                    3.分配器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.4" data-path="../stl/4.序列式容器之list.html">
+            
+                <a href="../stl/4.序列式容器之list.html">
+            
+                    
+                    4.序列式容器之list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.5" data-path="../stl/5.迭代器的属性和分类.html">
+            
+                <a href="../stl/5.迭代器的属性和分类.html">
+            
+                    
+                    5.迭代器的属性和分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.6" data-path="../stl/6.序列式容器之vector.html">
+            
+                <a href="../stl/6.序列式容器之vector.html">
+            
+                    
+                    6.序列式容器之vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.7" data-path="../stl/7.序列式容器之array,forward_list.html">
+            
+                <a href="../stl/7.序列式容器之array,forward_list.html">
+            
+                    
+                    7.序列式容器之array,forward_list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.8" data-path="../stl/8.序列式容器之deque.html">
+            
+                <a href="../stl/8.序列式容器之deque.html">
+            
+                    
+                    8.序列式容器之deque
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.9" data-path="../stl/9.以红黑树为底层数据结构的关联式容器.html">
+            
+                <a href="../stl/9.以红黑树为底层数据结构的关联式容器.html">
+            
+                    
+                    9.以红黑树为底层数据结构的关联式容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.10" data-path="../stl/10.以哈希表为底层数据结构的关联式容器.html">
+            
+                <a href="../stl/10.以哈希表为底层数据结构的关联式容器.html">
+            
+                    
+                    10.以哈希表为底层数据结构的关联式容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.11" data-path="../stl/11.算法.html">
+            
+                <a href="../stl/11.算法.html">
+            
+                    
+                    11.算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.12" data-path="../stl/12.仿函数.html">
+            
+                <a href="../stl/12.仿函数.html">
+            
+                    
+                    12.仿函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.13" data-path="../stl/13.适配器.html">
+            
+                <a href="../stl/13.适配器.html">
+            
+                    
+                    13.适配器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.14" data-path="../stl/14.其他.html">
+            
+                <a href="../stl/14.其他.html">
+            
+                    
+                    14.其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.15" data-path="../stl/15.string.html">
+            
+                <a href="../stl/15.string.html">
+            
+                    
+                    15.string
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../其他/readme.html">
+            
+                <a href="../其他/readme.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.7.1" data-path="../其他/access specifiers.html">
+            
+                <a href="../其他/access specifiers.html">
+            
+                    
+                    access specifiers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.2" data-path="../其他/c++ casting opeartion.html">
+            
+                <a href="../其他/c++ casting opeartion.html">
+            
+                    
+                    c++ casting opeartion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.3" data-path="../其他/characters in c++.html">
+            
+                <a href="../其他/characters in c++.html">
+            
+                    
+                    characters in c++
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.4" data-path="../其他/contextual conversion to bool.html">
+            
+                <a href="../其他/contextual conversion to bool.html">
+            
+                    
+                    contextual conversion to bool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.5" data-path="../其他/enum class.html">
+            
+                <a href="../其他/enum class.html">
+            
+                    
+                    enum class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.6" data-path="../其他/simple threadpool.html">
+            
+                <a href="../其他/simple threadpool.html">
+            
+                    
+                    simple threadpool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.7" data-path="../其他/the most vexing parse problem.html">
+            
+                <a href="../其他/the most vexing parse problem.html">
+            
+                    
+                    the most vexing parse problem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.8" data-path="../其他/关于模板参数是Functor的模板类的实例化.html">
+            
+                <a href="../其他/关于模板参数是Functor的模板类的实例化.html">
+            
+                    
+                    关于模板参数是Functor的模板类的实例化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.9" data-path="../其他/线程函数传递引用参数.html">
+            
+                <a href="../其他/线程函数传递引用参数.html">
+            
+                    
+                    线程函数传递引用参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    内存管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="01 总述.html">
+            
+                <a href="01 总述.html">
+            
+                    
+                    01 总述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.2" data-path="02 operator new & operator delete.html">
+            
+                <a href="02 operator new & operator delete.html">
+            
+                    
+                    02 operator new & operator delete
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.8.3" data-path="03 ptmalloc.html">
+            
+                <a href="03 ptmalloc.html">
+            
+                    
+                    03 ptmalloc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.4" data-path="04 tcmalloc.html">
+            
+                <a href="04 tcmalloc.html">
+            
+                    
+                    04 tcmalloc
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../设计模式/readme.html">
+            
+                <a href="../设计模式/readme.html">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.1" data-path="../设计模式/创建型/readme.html">
+            
+                <a href="../设计模式/创建型/readme.html">
+            
+                    
+                    创建型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.1.1" data-path="../设计模式/创建型/01 单例模式.html">
+            
+                <a href="../设计模式/创建型/01 单例模式.html">
+            
+                    
+                    01 单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.2" data-path="../设计模式/创建型/02 工厂模式.html">
+            
+                <a href="../设计模式/创建型/02 工厂模式.html">
+            
+                    
+                    02 工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.3" data-path="../设计模式/创建型/03 建造者模式.html">
+            
+                <a href="../设计模式/创建型/03 建造者模式.html">
+            
+                    
+                    03 建造者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.4" data-path="../设计模式/创建型/04 原型模式.html">
+            
+                <a href="../设计模式/创建型/04 原型模式.html">
+            
+                    
+                    04 原型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2" data-path="../设计模式/结构型/readme.html">
+            
+                <a href="../设计模式/结构型/readme.html">
+            
+                    
+                    结构型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.2.1" data-path="../设计模式/结构型/05 代理模式.html">
+            
+                <a href="../设计模式/结构型/05 代理模式.html">
+            
+                    
+                    05 代理模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.2" data-path="../设计模式/结构型/06 装饰器模式.html">
+            
+                <a href="../设计模式/结构型/06 装饰器模式.html">
+            
+                    
+                    06 装饰器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.3" data-path="../设计模式/结构型/07 适配器模式.html">
+            
+                <a href="../设计模式/结构型/07 适配器模式.html">
+            
+                    
+                    07 适配器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.4" data-path="../设计模式/结构型/08 桥接模式.html">
+            
+                <a href="../设计模式/结构型/08 桥接模式.html">
+            
+                    
+                    08 桥接模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.5" data-path="../设计模式/结构型/09 门面模式.html">
+            
+                <a href="../设计模式/结构型/09 门面模式.html">
+            
+                    
+                    09 门面模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.6" data-path="../设计模式/结构型/10 组合模式.html">
+            
+                <a href="../设计模式/结构型/10 组合模式.html">
+            
+                    
+                    10 组合模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2.7" data-path="../设计模式/结构型/11 享元模式.html">
+            
+                <a href="../设计模式/结构型/11 享元模式.html">
+            
+                    
+                    11 享元模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3" data-path="../设计模式/行为型/readme.html">
+            
+                <a href="../设计模式/行为型/readme.html">
+            
+                    
+                    行为型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.3.1" data-path="../设计模式/行为型/12 观察者模式.html">
+            
+                <a href="../设计模式/行为型/12 观察者模式.html">
+            
+                    
+                    12 观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.2" data-path="../设计模式/行为型/13 模版模式.html">
+            
+                <a href="../设计模式/行为型/13 模版模式.html">
+            
+                    
+                    13 模版模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.3" data-path="../设计模式/行为型/14 策略模式.html">
+            
+                <a href="../设计模式/行为型/14 策略模式.html">
+            
+                    
+                    14 策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.4" data-path="../设计模式/行为型/15 职责链模式.html">
+            
+                <a href="../设计模式/行为型/15 职责链模式.html">
+            
+                    
+                    15 职责链模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.5" data-path="../设计模式/行为型/16 状态模式.html">
+            
+                <a href="../设计模式/行为型/16 状态模式.html">
+            
+                    
+                    16 状态模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.3.6" data-path="../设计模式/行为型/17 迭代器模式.html">
+            
+                <a href="../设计模式/行为型/17 迭代器模式.html">
+            
+                    
+                    17 迭代器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../mysql/readme.html">
+            
+                <a href="../../mysql/readme.html">
+            
+                    
+                    mysql
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../mysql/01 basic.html">
+            
+                <a href="../../mysql/01 basic.html">
+            
+                    
+                    01 basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../mysql/02 variables.html">
+            
+                <a href="../../mysql/02 variables.html">
+            
+                    
+                    02 variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../os/readme.html">
+            
+                <a href="../../os/readme.html">
+            
+                    
+                    os
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../os/linux/readme.html">
+            
+                <a href="../../os/linux/readme.html">
+            
+                    
+                    linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../../os/linux/lkd/readme.html">
+            
+                <a href="../../os/linux/lkd/readme.html">
+            
+                    
+                    lkd
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1.1" data-path="../../os/linux/lkd/chapter1-Introduction to linux kernel.html">
+            
+                <a href="../../os/linux/lkd/chapter1-Introduction to linux kernel.html">
+            
+                    
+                    chapter1-Introduction to linux kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.2" data-path="../../os/linux/lkd/chapter2-Getting Started with the Kernel.html">
+            
+                <a href="../../os/linux/lkd/chapter2-Getting Started with the Kernel.html">
+            
+                    
+                    chapter2-Getting Started with the Kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.3" data-path="../../os/linux/lkd/chapter3-Process Management.html">
+            
+                <a href="../../os/linux/lkd/chapter3-Process Management.html">
+            
+                    
+                    chapter3-Process Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.4" data-path="../../os/linux/lkd/chapter4-Process Scheduling.html">
+            
+                <a href="../../os/linux/lkd/chapter4-Process Scheduling.html">
+            
+                    
+                    chapter4-Process Scheduling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.5" data-path="../../os/linux/lkd/chapter5-System Calls.html">
+            
+                <a href="../../os/linux/lkd/chapter5-System Calls.html">
+            
+                    
+                    chapter5-System Calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.6" data-path="../../os/linux/lkd/chapter7-Interrupts and Interrupt Handlers.html">
+            
+                <a href="../../os/linux/lkd/chapter7-Interrupts and Interrupt Handlers.html">
+            
+                    
+                    chapter7-Interrupts and Interrupt Handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.7" data-path="../../os/linux/lkd/chapter8-Bottom Halves and Deferring Work.html">
+            
+                <a href="../../os/linux/lkd/chapter8-Bottom Halves and Deferring Work.html">
+            
+                    
+                    chapter8-Bottom Halves and Deferring Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.8" data-path="../../os/linux/lkd/chapter10-Kernel Synchronization Methods.html">
+            
+                <a href="../../os/linux/lkd/chapter10-Kernel Synchronization Methods.html">
+            
+                    
+                    chapter10-Kernel Synchronization Methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.9" data-path="../../os/linux/lkd/chapter11-Timers ans Time Management.html">
+            
+                <a href="../../os/linux/lkd/chapter11-Timers ans Time Management.html">
+            
+                    
+                    chapter11-Timers ans Time Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.10" data-path="../../os/linux/lkd/chapter12-Memroy Management.html">
+            
+                <a href="../../os/linux/lkd/chapter12-Memroy Management.html">
+            
+                    
+                    chapter12-Memroy Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.11" data-path="../../os/linux/lkd/chapter13-The Process Address Space.html">
+            
+                <a href="../../os/linux/lkd/chapter13-The Process Address Space.html">
+            
+                    
+                    chapter13-The Process Address Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.12" data-path="../../os/linux/lkd/chapter14-The Virtual Filesystem.html">
+            
+                <a href="../../os/linux/lkd/chapter14-The Virtual Filesystem.html">
+            
+                    
+                    chapter14-The Virtual Filesystem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.13" data-path="../../os/linux/lkd/chapter15-FileIO and Page Cache.html">
+            
+                <a href="../../os/linux/lkd/chapter15-FileIO and Page Cache.html">
+            
+                    
+                    chapter15-FileIO and Page Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.14" data-path="../../os/linux/lkd/chapter16-The BlockIO.html">
+            
+                <a href="../../os/linux/lkd/chapter16-The BlockIO.html">
+            
+                    
+                    chapter16-The BlockIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.15" data-path="../../os/linux/lkd/chapter17-Module.html">
+            
+                <a href="../../os/linux/lkd/chapter17-Module.html">
+            
+                    
+                    chapter17-Module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.16" data-path="../../os/linux/lkd/chapter18-Devide Model and Sysfs.html">
+            
+                <a href="../../os/linux/lkd/chapter18-Devide Model and Sysfs.html">
+            
+                    
+                    chapter18-Devide Model and Sysfs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.1.17" data-path="../../os/linux/lkd/chapter19-Portability.html">
+            
+                <a href="../../os/linux/lkd/chapter19-Portability.html">
+            
+                    
+                    chapter19-Portability
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../../os/linux/temp.html">
+            
+                <a href="../../os/linux/temp.html">
+            
+                    
+                    temp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../../os/linux/ulk/readme.html">
+            
+                <a href="../../os/linux/ulk/readme.html">
+            
+                    
+                    ulk
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.3.1" data-path="../../os/linux/ulk/chapter1-Introduction.html">
+            
+                <a href="../../os/linux/ulk/chapter1-Introduction.html">
+            
+                    
+                    chapter1-Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.2" data-path="../../os/linux/ulk/chapter2-Memory Addressing.html">
+            
+                <a href="../../os/linux/ulk/chapter2-Memory Addressing.html">
+            
+                    
+                    chapter2-Memory Addressing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.3" data-path="../../os/linux/ulk/chapter8-Memory Management.html">
+            
+                <a href="../../os/linux/ulk/chapter8-Memory Management.html">
+            
+                    
+                    chapter8-Memory Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.4" data-path="../../os/linux/ulk/chapter9-Process Address Space.html">
+            
+                <a href="../../os/linux/ulk/chapter9-Process Address Space.html">
+            
+                    
+                    chapter9-Process Address Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.5" data-path="../../os/linux/ulk/chapter20-Program Execution.html">
+            
+                <a href="../../os/linux/ulk/chapter20-Program Execution.html">
+            
+                    
+                    chapter20-Program Execution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3.6" data-path="../../os/linux/ulk/system startup.html">
+            
+                <a href="../../os/linux/ulk/system startup.html">
+            
+                    
+                    system startup
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../../os/linux/其它/readme.html">
+            
+                <a href="../../os/linux/其它/readme.html">
+            
+                    
+                    其它
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.4.1" data-path="../../os/linux/其它/memory barrier.html">
+            
+                <a href="../../os/linux/其它/memory barrier.html">
+            
+                    
+                    memory barrier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4.2" data-path="../../os/linux/其它/pthread线程资源的回收.html">
+            
+                <a href="../../os/linux/其它/pthread线程资源的回收.html">
+            
+                    
+                    pthread线程资源的回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4.3" data-path="../../os/linux/其它/为什么说从用户态切换到内核态开销大.html">
+            
+                <a href="../../os/linux/其它/为什么说从用户态切换到内核态开销大.html">
+            
+                    
+                    为什么说从用户态切换到内核态开销大
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4.4" data-path="../../os/linux/其它/经典的计算机系统架构.html">
+            
+                <a href="../../os/linux/其它/经典的计算机系统架构.html">
+            
+                    
+                    经典的计算机系统架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../os/windows/readme.html">
+            
+                <a href="../../os/windows/readme.html">
+            
+                    
+                    windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../shell/readme.html">
+            
+                <a href="../../shell/readme.html">
+            
+                    
+                    shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../shell/bashrc.html">
+            
+                <a href="../../shell/bashrc.html">
+            
+                    
+                    bashrc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../shell/man page.html">
+            
+                <a href="../../shell/man page.html">
+            
+                    
+                    man page
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../shell/shell语法.html">
+            
+                <a href="../../shell/shell语法.html">
+            
+                    
+                    shell语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../shell/常用命令.md/readme.html">
+            
+                <a href="../../shell/常用命令.md/readme.html">
+            
+                    
+                    常用命令.md
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.4.1" data-path="../../shell/常用命令.md/01 regular expression & grep.html">
+            
+                <a href="../../shell/常用命令.md/01 regular expression & grep.html">
+            
+                    
+                    01 regular expression & grep
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.2" data-path="../../shell/常用命令.md/02 tr.html">
+            
+                <a href="../../shell/常用命令.md/02 tr.html">
+            
+                    
+                    02 tr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.3" data-path="../../shell/常用命令.md/03 sed.html">
+            
+                <a href="../../shell/常用命令.md/03 sed.html">
+            
+                    
+                    03 sed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.4" data-path="../../shell/常用命令.md/04 awk.html">
+            
+                <a href="../../shell/常用命令.md/04 awk.html">
+            
+                    
+                    04 awk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.5" data-path="../../shell/常用命令.md/05 cat.html">
+            
+                <a href="../../shell/常用命令.md/05 cat.html">
+            
+                    
+                    05 cat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.6" data-path="../../shell/常用命令.md/06 tee.html">
+            
+                <a href="../../shell/常用命令.md/06 tee.html">
+            
+                    
+                    06 tee
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.7" data-path="../../shell/常用命令.md/07 env.html">
+            
+                <a href="../../shell/常用命令.md/07 env.html">
+            
+                    
+                    07 env
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.8" data-path="../../shell/常用命令.md/08 head&tail.html">
+            
+                <a href="../../shell/常用命令.md/08 head&tail.html">
+            
+                    
+                    08 head&tail
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.9" data-path="../../shell/常用命令.md/09 cut&paste.html">
+            
+                <a href="../../shell/常用命令.md/09 cut&paste.html">
+            
+                    
+                    09 cut&paste
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.10" data-path="../../shell/常用命令.md/10 diff&cmp&comm.html">
+            
+                <a href="../../shell/常用命令.md/10 diff&cmp&comm.html">
+            
+                    
+                    10 diff&cmp&comm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.11" data-path="../../shell/常用命令.md/11 sort&uniq&wc.html">
+            
+                <a href="../../shell/常用命令.md/11 sort&uniq&wc.html">
+            
+                    
+                    11 sort&uniq&wc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.12" data-path="../../shell/常用命令.md/12 find&xargs.html">
+            
+                <a href="../../shell/常用命令.md/12 find&xargs.html">
+            
+                    
+                    12 find&xargs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.13" data-path="../../shell/常用命令.md/13 lsof.html">
+            
+                <a href="../../shell/常用命令.md/13 lsof.html">
+            
+                    
+                    13 lsof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.14" data-path="../../shell/常用命令.md/temp.html">
+            
+                <a href="../../shell/常用命令.md/temp.html">
+            
+                    
+                    temp
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../shell/待整理.html">
+            
+                <a href="../../shell/待整理.html">
+            
+                    
+                    待整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../容器/readme.html">
+            
+                <a href="../../容器/readme.html">
+            
+                    
+                    容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../容器/docker容器.html">
+            
+                <a href="../../容器/docker容器.html">
+            
+                    
+                    docker容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../网络/readme.html">
+            
+                <a href="../../网络/readme.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../网络/csrf.html">
+            
+                <a href="../../网络/csrf.html">
+            
+                    
+                    csrf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../网络/Linux 网络编程/readme.html">
+            
+                <a href="../../网络/Linux 网络编程/readme.html">
+            
+                    
+                    Linux 网络编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.2.1" data-path="../../网络/Linux 网络编程/01 stream socket.html">
+            
+                <a href="../../网络/Linux 网络编程/01 stream socket.html">
+            
+                    
+                    01 stream socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.2" data-path="../../网络/Linux 网络编程/02 datagram socket.html">
+            
+                <a href="../../网络/Linux 网络编程/02 datagram socket.html">
+            
+                    
+                    02 datagram socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.3" data-path="../../网络/Linux 网络编程/03 unix domain socket.html">
+            
+                <a href="../../网络/Linux 网络编程/03 unix domain socket.html">
+            
+                    
+                    03 unix domain socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.4" data-path="../../网络/Linux 网络编程/04 raw socket.html">
+            
+                <a href="../../网络/Linux 网络编程/04 raw socket.html">
+            
+                    
+                    04 raw socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.5" data-path="../../网络/Linux 网络编程/05 select.html">
+            
+                <a href="../../网络/Linux 网络编程/05 select.html">
+            
+                    
+                    05 select
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.6" data-path="../../网络/Linux 网络编程/06 poll.html">
+            
+                <a href="../../网络/Linux 网络编程/06 poll.html">
+            
+                    
+                    06 poll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.7" data-path="../../网络/Linux 网络编程/07 epoll.html">
+            
+                <a href="../../网络/Linux 网络编程/07 epoll.html">
+            
+                    
+                    07 epoll
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../../网络/nettools/readme.html">
+            
+                <a href="../../网络/nettools/readme.html">
+            
+                    
+                    nettools
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.3.1" data-path="../../网络/nettools/arp-scan.html">
+            
+                <a href="../../网络/nettools/arp-scan.html">
+            
+                    
+                    arp-scan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.2" data-path="../../网络/nettools/arping.html">
+            
+                <a href="../../网络/nettools/arping.html">
+            
+                    
+                    arping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.3" data-path="../../网络/nettools/host.html">
+            
+                <a href="../../网络/nettools/host.html">
+            
+                    
+                    host
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.4" data-path="../../网络/nettools/iproute2-ip.html">
+            
+                <a href="../../网络/nettools/iproute2-ip.html">
+            
+                    
+                    iproute2-ip
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.5" data-path="../../网络/nettools/iptables.html">
+            
+                <a href="../../网络/nettools/iptables.html">
+            
+                    
+                    iptables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.6" data-path="../../网络/nettools/netcat.html">
+            
+                <a href="../../网络/nettools/netcat.html">
+            
+                    
+                    netcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.7" data-path="../../网络/nettools/nettools-arp.html">
+            
+                <a href="../../网络/nettools/nettools-arp.html">
+            
+                    
+                    nettools-arp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.8" data-path="../../网络/nettools/nettools-hostname.html">
+            
+                <a href="../../网络/nettools/nettools-hostname.html">
+            
+                    
+                    nettools-hostname
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.9" data-path="../../网络/nettools/nettools-ifconfig.html">
+            
+                <a href="../../网络/nettools/nettools-ifconfig.html">
+            
+                    
+                    nettools-ifconfig
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.10" data-path="../../网络/nettools/nettools-netstat.html">
+            
+                <a href="../../网络/nettools/nettools-netstat.html">
+            
+                    
+                    nettools-netstat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.11" data-path="../../网络/nettools/nettools-route.html">
+            
+                <a href="../../网络/nettools/nettools-route.html">
+            
+                    
+                    nettools-route
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.12" data-path="../../网络/nettools/temp.html">
+            
+                <a href="../../网络/nettools/temp.html">
+            
+                    
+                    temp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.13" data-path="../../网络/nettools/tmpdump.html">
+            
+                <a href="../../网络/nettools/tmpdump.html">
+            
+                    
+                    tmpdump
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../../网络/oauth.html">
+            
+                <a href="../../网络/oauth.html">
+            
+                    
+                    oauth
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../../网络/REST&RESTful.html">
+            
+                <a href="../../网络/REST&RESTful.html">
+            
+                    
+                    REST&RESTful
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../../网络/ssh-tunnel.html">
+            
+                <a href="../../网络/ssh-tunnel.html">
+            
+                    
+                    ssh-tunnel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../../网络/协议/readme.html">
+            
+                <a href="../../网络/协议/readme.html">
+            
+                    
+                    协议
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.7.1" data-path="../../网络/协议/01网络协议概览.html">
+            
+                <a href="../../网络/协议/01网络协议概览.html">
+            
+                    
+                    01网络协议概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.2" data-path="../../网络/协议/02 以太网与WiFi协议.html">
+            
+                <a href="../../网络/协议/02 以太网与WiFi协议.html">
+            
+                    
+                    02 以太网与WiFi协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.3" data-path="../../网络/协议/03 IP包的路由.html">
+            
+                <a href="../../网络/协议/03 IP包的路由.html">
+            
+                    
+                    03 IP包的路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.4" data-path="../../网络/协议/04 IP地址的分配.html">
+            
+                <a href="../../网络/协议/04 IP地址的分配.html">
+            
+                    
+                    04 IP地址的分配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.5" data-path="../../网络/协议/05 IP协议详解.html">
+            
+                <a href="../../网络/协议/05 IP协议详解.html">
+            
+                    
+                    05 IP协议详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.6" data-path="../../网络/协议/06 ICMP协议.html">
+            
+                <a href="../../网络/协议/06 ICMP协议.html">
+            
+                    
+                    06 ICMP协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.7" data-path="../../网络/协议/07 UDP.html">
+            
+                <a href="../../网络/协议/07 UDP.html">
+            
+                    
+                    07 UDP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.8" data-path="../../网络/协议/08 TCP 概述.html">
+            
+                <a href="../../网络/协议/08 TCP 概述.html">
+            
+                    
+                    08 TCP 概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.9" data-path="../../网络/协议/09 TCP 协议字段.html">
+            
+                <a href="../../网络/协议/09 TCP 协议字段.html">
+            
+                    
+                    09 TCP 协议字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.10" data-path="../../网络/协议/10 TCP 状态转换.html">
+            
+                <a href="../../网络/协议/10 TCP 状态转换.html">
+            
+                    
+                    10 TCP 状态转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.11" data-path="../../网络/协议/11 DNS协议.html">
+            
+                <a href="../../网络/协议/11 DNS协议.html">
+            
+                    
+                    11 DNS协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.12" data-path="../../网络/协议/12 CIDR.html">
+            
+                <a href="../../网络/协议/12 CIDR.html">
+            
+                    
+                    12 CIDR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.13" data-path="../../网络/协议/13 NAT.html">
+            
+                <a href="../../网络/协议/13 NAT.html">
+            
+                    
+                    13 NAT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.14" data-path="../../网络/协议/14 DHCP.html">
+            
+                <a href="../../网络/协议/14 DHCP.html">
+            
+                    
+                    14 DHCP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.15" data-path="../../网络/协议/15 http.html">
+            
+                <a href="../../网络/协议/15 http.html">
+            
+                    
+                    15 http
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.16" data-path="../../网络/协议/16 http2.html">
+            
+                <a href="../../网络/协议/16 http2.html">
+            
+                    
+                    16 http2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.17" data-path="../../网络/协议/17 ssl协议.html">
+            
+                <a href="../../网络/协议/17 ssl协议.html">
+            
+                    
+                    17 ssl协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.18" data-path="../../网络/协议/18 数字签名和证书.html">
+            
+                <a href="../../网络/协议/18 数字签名和证书.html">
+            
+                    
+                    18 数字签名和证书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7.19" data-path="../../网络/协议/19 正向代理&反向代理.html">
+            
+                <a href="../../网络/协议/19 正向代理&反向代理.html">
+            
+                    
+                    19 正向代理&反向代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >03 ptmalloc</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>GNU C library使用的是ptmalloc的内存管理程序</p>
+<h3 id="version"><strong>version</strong></h3>
+<p>glibc2.17 </p>
+<h3 id="chunk"><strong>chunk</strong></h3>
+<p>用户请求分配的空间在 ptmalloc 中都使用一个 chunk 来表示,chunk为用户需要使用的内存空间，加上ptmalloc内部管理chunk的metadata</p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> INTERNAL_SIZE_T</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> INTERNAL_SIZE_T size_t</span>
+<span class="hljs-meta">#<span class="hljs-keyword">endif</span></span>
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_chunk</span> {</span>
+
+  INTERNAL_SIZE_T      prev_size;  <span class="hljs-comment">/* Size of previous chunk (if free).  */</span>
+  INTERNAL_SIZE_T      size;       <span class="hljs-comment">/* Size in bytes, including overhead. */</span>
+
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_chunk</span>* <span class="hljs-title">fd</span>;</span>         <span class="hljs-comment">/* double links -- used only if free. */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_chunk</span>* <span class="hljs-title">bk</span>;</span>
+
+  <span class="hljs-comment">/* Only used for large blocks: pointer to next larger size.  */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_chunk</span>* <span class="hljs-title">fd_nextsize</span>;</span> <span class="hljs-comment">/* double links -- used only if free. */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_chunk</span>* <span class="hljs-title">bk_nextsize</span>;</span>
+};
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_chunk</span>* <span class="hljs-title">mchunkptr</span>;</span>
+</code></pre>
+<p><img src="../../../images/c%26c%2B%2B/03.png" alt=""></img></p>
+<p>第一个域表示前一个chunk的大小，第二个域中，最后三个bit，A表示该chunk属于main arena还是non main arena，M表示该chunk是直接调用mmap分配的mmaped chunk，不属于任何arena, 还是从某个arena分配的。P表示之前的chunk是否空闲。如果P为1，表示前一个chunk正在使用中，则第一个表示其大小的域是无效的，被前一个域用来存储数据了，如果P为0，则前一个chunk是空闲的。</p>
+<p>如果chunk是空闲的，且被arena管理，会在chunk中用于用户存储数据的地方，存储四个指针：</p>
+<p>fd 和 bk：指针 fd 和 bk 只有当该 chunk 块空闲时才存在，其作用是用于将对应的空闲chunk 块加入到空闲 chunk 块链表中统一管理</p>
+<p>fd_nextsize 和 bk_nextsize:当当前的 chunk 存在于 large bins 中时，large bins 中的空闲chunk 是按照从大到小的，但同一个大小的 chunk 可能有多个，增加了这两个字段可以加快遍历空闲 chunk，并查找满足需要的空闲 chunk，fd_nextsize 指向下一个比当前 chunk 大小小的第一个空闲 chunk，bk_nextszie 指向前一个比当前 chunk 大小大的第一个空闲 chunk。</p>
+<p>为了使得 chunk 所占用的空间最小，ptmalloc 使用了空间复用，一个 chunk 或者正在被使用，或者已经被 free 掉是空闲的，所以 chunk 的中的一些域可以在使用状态和空闲状态表示不同的意义，来达到空间复用的效果。</p>
+<p>空闲时，一个 chunk 中至少需要 4个 size_t大小的空间，用来储 prev_size，size，fd 和 bk，64位系统是32B</p>
+<p>同时，每个chunk的大小要对齐到2*size_t。64位机上是16B.</p>
+<p>当一个 chunk 处于使用状态时，它的下一个 chunk 的 prev_size域肯定是无效的。所以实际上，这个空间也可以被当前 chunk 使用。故而实际上，一个使用中的 chunk 的大小的计算公式应该是：in_use_size = (用户请求大小+ 16 - 8 ) align to 16B，这里加 16 是因为需要存储 prev_size 和 size，但又因为向下一个 chunk“借”了 8B，所以要减去 8。</p>
+<p>最后，因为空闲的 chunk 和使用中的chunk 使用的是同一块空间。所以肯定要取其中最大者作为实际的分配空间。即最终的分配空间 chunk_size = max(in_use_size, 32)。这就是当用户请求内存分配时，ptmalloc 实际需要分配的内存大小。在后面的介绍中，如果不是特别指明的地方，指的都是这个经过转换的实际需要分配的内存大小，而不是用户请求的内存分配大小</p>
+<pre><code class="lang-c">
+
+<span class="hljs-comment">//p指向chunk头</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> chunk2mem(p)   ((void*)((char*)(p) + 2*SIZE_SZ))</span>
+<span class="hljs-comment">//mem指向user data部分</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> mem2chunk(mem) ((mchunkptr)((char*)(mem) - 2*SIZE_SZ))</span>
+
+<span class="hljs-comment">/* The smallest possible chunk */</span>
+<span class="hljs-comment">//4*SIZE_SZ</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> MIN_CHUNK_SIZE        (offsetof(struct malloc_chunk, fd_nextsize))</span>
+
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> MALLOC_ALIGNMENT       (2 * SIZE_SZ)</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> MALLOC_ALIGN_MASK      (MALLOC_ALIGNMENT - 1)</span>
+
+
+<span class="hljs-comment">//64位系统上是32B</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> MINSIZE  \
+  (unsigned long)(((MIN_CHUNK_SIZE+MALLOC_ALIGN_MASK) &amp; ~MALLOC_ALIGN_MASK)) </span>
+
+
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> request2size(req)                                         \
+  (((req) + SIZE_SZ + MALLOC_ALIGN_MASK &lt; MINSIZE)  ?             \
+   MINSIZE :                                                      \
+   ((req) + SIZE_SZ + MALLOC_ALIGN_MASK) &amp; ~MALLOC_ALIGN_MASK)</span>
+
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> PREV_INUSE 0x1</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> prev_inuse(p)       ((p)-&gt;size &amp; PREV_INUSE)</span>
+
+
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> IS_MMAPPED 0x2</span>
+
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> chunk_is_mmapped(p) ((p)-&gt;size &amp; IS_MMAPPED)</span>
+
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> NON_MAIN_ARENA 0x4</span>
+
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> chunk_non_main_arena(p) ((p)-&gt;size &amp; NON_MAIN_ARENA)</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> SIZE_BITS (PREV_INUSE|IS_MMAPPED|NON_MAIN_ARENA)</span>
+
+<span class="hljs-comment">//由此可见chunk size最起码是对齐到8B的，这里对齐到2*SIZE_SZ,因为有的系统上SIZE_SZ为4B</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> chunksize(p)         ((p)-&gt;size &amp; ~(SIZE_BITS))</span>
+
+
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> next_chunk(p) ((mchunkptr)( ((char*)(p)) + ((p)-&gt;size &amp; ~SIZE_BITS) ))</span>
+
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> prev_chunk(p) ((mchunkptr)( ((char*)(p)) - ((p)-&gt;prev_size) ))</span>
+</code></pre>
+<h3 id="bin"><strong>bin</strong></h3>
+<p>空闲chunk链表叫做bin,在ptmalloc中有4中类型的bin</p>
+<ul>
+<li>small bin</li>
+<li>large bin</li>
+<li>fast bin</li>
+<li>unsorted bin</li>
+</ul>
+<h4 id="small-bin"><strong>small bin</strong></h4>
+<p>small bin中的chunk大小相同，共62个small bin, 每个small bin的chunk大小相差MALLOC_ALIGNMENT，64位机上，最小的small bin 存储32B的chunk,最大的small bin存储1008B的chunk</p>
+<p>small bin中chunk的分配是精确匹配的。（因为分配的chunk大小都被alignment了，而small bins的大小正好相差alignment）</p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> NBINS             128</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> NSMALLBINS         64  </span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> SMALLBIN_WIDTH    MALLOC_ALIGNMENT</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> SMALLBIN_CORRECTION (MALLOC_ALIGNMENT &gt; 2 * SIZE_SZ) <span class="hljs-comment">//此值为0</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> MIN_LARGE_SIZE    ((NSMALLBINS - SMALLBIN_CORRECTION) * SMALLBIN_WIDTH) <span class="hljs-comment">// 64*16,1024</span></span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> in_smallbin_range(sz)  \
+  ((unsigned long)(sz) &lt; (unsigned long)MIN_LARGE_SIZE)</span>
+
+<span class="hljs-comment">//32/16=2,1008/16=63</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> smallbin_index(sz) \
+  ((SMALLBIN_WIDTH == 16 ? (((unsigned)(sz)) &gt;&gt; 4) : (((unsigned)(sz)) &gt;&gt; 3)) \
+   + SMALLBIN_CORRECTION)</span>
+</code></pre>
+<h4 id="large-bins"><strong>large bins</strong></h4>
+<p>large bins 中的每一个 bin 分别包含了一个给定大小范围内的 chunk，其中的 chunk 按从大到小排列。</p>
+<p>在64位机上，大于等于 1024B 的空闲 chunk，由 large bins管理。Large bins 一共包括 63 个 bin，每个bin的chunk大小并不是一样的，而是在一定范围内从大到小排列的。所有的bins分成6组，每组中的每个bin的最小chunk的大小，组成固定公差的等差数列，每组的 bin 数量依次为 32、16、8、4、2、1，公差依次为 64B、512B、4096B、32768B、262144B等。</p>
+<p>以64位机为例，第一组 large bins 的第一个bin 的最小 chunk 为 1024B，共 32 个 bin，公差为 64B，等差数列满足如下关系：<code>Chunk_size=1024 + 64 * index</code>，第二组 large bins的第一个bin 的最小 chunk 为第一组 bin 的结束 chunk 大小，满足如下关系<code>Chunk_size=1024 + 64 * 32 + 512 * index</code></p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> largebin_index_64(sz)                                                \
+(((((unsigned long)(sz)) &gt;&gt;  6) <span class="hljs-string">&lt;= 48)?  48 + (((unsigned long)(sz)) &gt;</span>&gt;  6): \
+ ((((unsigned long)(sz)) &gt;&gt;  9) <span class="hljs-string">&lt;= 20)?  91 + (((unsigned long)(sz)) &gt;</span>&gt;  9): \
+ ((((unsigned long)(sz)) &gt;&gt; 12) <span class="hljs-string">&lt;= 10)? 110 + (((unsigned long)(sz)) &gt;</span>&gt; 12): \
+ ((((unsigned long)(sz)) &gt;&gt; 15) <span class="hljs-string">&lt;=  4)? 119 + (((unsigned long)(sz)) &gt;</span>&gt; 15): \
+ ((((unsigned long)(sz)) &gt;&gt; 18) <span class="hljs-string">&lt;=  2)? 124 + (((unsigned long)(sz)) &gt;</span>&gt; 18): \
+                    126)</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> largebin_index(sz) \
+  (SIZE_SZ == 8 ? largebin_index_64 (sz)                                     \
+   : MALLOC_ALIGNMENT == 16 ? largebin_index_32_big (sz)                     \
+   : largebin_index_32 (sz))</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> bin_index(sz) \
+ ((in_smallbin_range(sz)) ? smallbin_index(sz) : largebin_index(sz))</span>
+</code></pre>
+<p>smallbin_index()返回的值为2-63，largebin_index()返回的值为64-126. 1 为unsorted bin的index
+62个small bin, 63个large bin, 1个unsorted bin</p>
+<h4 id="unsorted-bin"><strong>unsorted bin</strong></h4>
+<p>unsorted bin 可以看作是 small bins 和 large bins 的 cache，只有一个 unsorted bin,其中的chunk不排序，fast bins中的chunk在合并后先放到unsorted bin中，分配时，如果在 unsorted bin 中没有合适的 chunk，就会把 unsorted bin 中的chunk加入到对应的small bin或large bin中。 small bin中的chunk是精确匹配的，如果是从large bin中分配的，如果不是精确匹配的，则多余的chunk被放入unsorted bin</p>
+<p>unsorted bin的index是1</p>
+<h4 id="unsorted-binsmall-bin-large-bin的管理"><strong>unsorted bin,small bin, large bin的管理</strong></h4>
+<p>所有的small bins，large bins，和unsorted bin存储在arena的bin数组中，如下</p>
+<pre><code class="lang-c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_state</span> {</span>
+
+<span class="hljs-comment">//......</span>
+  mchunkptr        bins[NBINS * <span class="hljs-number">2</span> - <span class="hljs-number">2</span>];
+
+};
+</code></pre>
+<p>之间说过，unsorted bin只有一个，small bin 62个，large bin 63个。</p>
+<p>而NBINS宏等于128，这样，bins数组中存储254个元素，比所有的bins数量要多。
+<img src="../../../images/c%26c%2B%2B/05.png" alt=""></img>
+bins中存储的不是每个bin的第一个chunk的指针，而是每个bin的第一个chunk的fd和bk,分别指向该bin的第一个chunk和最后一个chunk。
+unsorted bin的两个指针存储在0,1位置，small bins存储在2-125，large bins存储在126-251，252,253不使用</p>
+<p>当我们要从arena中获取unsorted bin时，使用如下的代码</p>
+<pre><code class="lang-c">p=bin_at(a-&gt;bins,<span class="hljs-number">1</span>);
+first_chunk=p-&gt;fd; <span class="hljs-comment">//first_chunk指向unsorted bin的第一个chunk</span>
+last_chunk=p-&gt;bk; <span class="hljs-comment">//last_chunk指向unsorted bin的最后一个chunk</span>
+</code></pre>
+<p>如果是根据大小sz获取到small bin,或者large bin，代码如下</p>
+<pre><code class="lang-c">idx=bin_index(sz);
+p=bin_at(a-&gt;bins,idx);
+first_chunk=p-&gt;fd;
+last_chunk=p-&gt;bk;
+</code></pre>
+<p>bin_at的实现</p>
+<pre><code class="lang-c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_chunk</span>* <span class="hljs-title">mbinptr</span>;</span>
+
+<span class="hljs-comment">//其中m为指向arena的指针，i为相应bin的索引，unsorted bin为1，small bins为2-63，large bins 为64-126</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> bin_at(m, i) \
+  (mbinptr) (((char *) &amp;((m)-&gt;bins[((i) - 1) * 2]))                  \
+         - offsetof (struct malloc_chunk, fd))</span>
+</code></pre>
+<p>以bin_at(m,1)为例：</p>
+<ol>
+<li><p>&amp;((m)-&gt;bins[((i)-1)*2]),该式子根据bin的索引i，i为1时，即最开始的bin（unsorted bin）。获得bins[0]的地址。</p>
+</li>
+<li><p>offsetof(struct malloc_chunk,fd):得到fd成员在malloc_chunk结构中的偏移量。在64位系统系统下为16。</p>
+</li>
+<li><p>把第一步得到地址（令其为pt）转化为char*型，pt-16,bins[-2]的地址（假设bins[-2]存在）</p>
+</li>
+<li><p>将该地址强行转换成mbinptr，也就是chunk的指针，chunk中fd的偏移量为16，bk的偏移量为24，
+当调用p-&gt;fd,p-&gt;bk时，刚好访问到bins[0],bins[1]</p>
+</li>
+</ol>
+<h4 id="fast-bins"><strong>fast bins</strong></h4>
+<p>fast bins 小内存块的缓存，默认情况下大小小于等于 DEFAULT_MXFAST 的 chunk 分配 优先从fast bin中分配。 大小小于等于 DEFAULT_MXFAST 的 chunk 的回收都先放入fast bin中，在64位上为 128字节，这个阈值可以通过 mallopt 函数进行修改，最大值为 160B。
+fast bin也是精确匹配的，fast bin有单独的fast bin数组，其中存储的不是每个chunk的fd和bk,而就是指向chunk的指针。fast bin的链表是单链表，只需要连接每个chunk的fd即可。所以可以用CAS原子操作操作单链表</p>
+<pre><code class="lang-c">
+<span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> DEFAULT_MXFAST</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> DEFAULT_MXFAST     (64 * SIZE_SZ / 4) <span class="hljs-comment">//128</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">endif</span></span>
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_chunk</span>* <span class="hljs-title">mfastbinptr</span>;</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX_FAST_SIZE     (80 * SIZE_SZ / 4) <span class="hljs-comment">//160</span></span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> fastbin_index(sz) \
+  ((((unsigned int)(sz)) &gt;&gt; (SIZE_SZ == 8 ? 4 : 3)) - 2)</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> fastbin(ar_ptr, idx) ((ar_ptr)-&gt;fastbinsY[idx])</span>
+
+<span class="hljs-comment">//request2size(MAX_FAST_SIZE)=176,fastbin_index(176)=9,NFASTBINS=10</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> NFASTBINS  (fastbin_index(request2size(MAX_FAST_SIZE))+1)</span>
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_state</span> {</span>
+<span class="hljs-comment">//....</span>
+  <span class="hljs-comment">/* Fastbins */</span>
+  mfastbinptr      fastbinsY[NFASTBINS];
+
+};
+</code></pre>
+<h3 id="arena"><strong>arena</strong></h3>
+<p>一个arean是一个分配区，在最早版本的实现中只有一个主分配区（main arena），每次分配内存都必须对主分配区加锁，分配完成后释放锁。在多线程环境下，锁的争用严重影响内存分配的效率，现在这一版本增加了非主分配区（non main arena）支持. 所有的分配区用arena中的next连接.每一个分配区利用互斥锁（mutex）使线程对于该分配区的访问互斥。</p>
+<p>每个进程只有一个主分配区，但可能存在多个非主分配区，ptmalloc 根据系统对分配区的争用情况动态增加非主分配区的数量，分配区的数量一旦增加，就不会再减少了。</p>
+<p>同时，分配区的数量也是有限制的，默认情况下最多<code>2*num_cores</code>或者<code>8*num_cores</code>,可通过mallopt设置更大的值。当arena的数量达到上限时，便不会再增加arena</p>
+<p>主分配区使用堆地址空间，非主分配区使用mmap 映射区域</p>
+<p>当某一线程需要调用 malloc()分配内存空间时，该线程先查看线程本地存储是否已经存储指向某个分配区的指针，如果有，调用mutex_lock对该分配区加锁。 如果没有，并且arena的数量没有达到上线，则会创建新的分配区并绑定到当前线程的本地存储中。如果arena的数量达到上限了，则对所有arena连接成的连表一一尝试加锁，加锁成功，则绑定该arena并使用。也就是说，如果线程数量少于arena数量的限制，每个线程都会有自己的arena,如果线程数量多于arena数量的限制，则会存在多个线程使用同一个arena，从而造成锁争用的情况。在释放操作中，首先根据释放的chunk找到对应的arena，如果chunk大小小于max_fast,直接使用cas原子操作释放回fast bins中。否则对arena加锁，释放回arena中的bins数组中，或者和top chunk合并。</p>
+<p>因为释放回fastbins中，只需要访问每个fastbin的头节点，采用头插法，使用原子CAS操作即可。fastbin中的每个chunk只需要连接成单链表，也就是只设置fd变量。 而释放回bins链表中，bins的链表是双链表，最起码要访问两个链表元素。</p>
+<pre><code class="lang-c">
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_state</span> {</span>
+  <span class="hljs-comment">/* Serialize access.  */</span>
+  <span class="hljs-type">mutex_t</span> mutex;
+
+  <span class="hljs-comment">/* Flags (formerly in max_fast).  */</span>
+  <span class="hljs-type">int</span> flags;
+
+
+  <span class="hljs-comment">/* Fastbins */</span>
+  mfastbinptr      fastbinsY[NFASTBINS];
+
+  <span class="hljs-comment">/* Base of the topmost chunk -- not otherwise kept in a bin */</span>
+  mchunkptr        top;
+
+  <span class="hljs-comment">/* The remainder from the most recent split of a small request */</span>
+  mchunkptr        last_remainder;
+
+  <span class="hljs-comment">/* Normal bins packed as described above */</span>
+  mchunkptr        bins[NBINS * <span class="hljs-number">2</span> - <span class="hljs-number">2</span>];
+
+  <span class="hljs-comment">/* Bitmap of bins */</span>
+  <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span>     binmap[BINMAPSIZE];
+
+  <span class="hljs-comment">/* Linked list */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_state</span> *<span class="hljs-title">next</span>;</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> PER_THREAD </span>
+  <span class="hljs-comment">/* Linked list for free arenas.  */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_state</span> *<span class="hljs-title">next_free</span>;</span>
+<span class="hljs-meta">#<span class="hljs-keyword">endif</span></span>
+
+  <span class="hljs-comment">/* Memory allocated from the system in this arena.  */</span>
+  INTERNAL_SIZE_T system_mem;
+  INTERNAL_SIZE_T max_system_mem;
+};
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_state</span> *<span class="hljs-title">mstate</span>;</span>
+</code></pre>
+<ul>
+<li>flags，bit0 表示是否有 fast bin chunk
+```c<h1 id="define-fastchunksbit--------1u">define FASTCHUNKS_BIT        (1U)</h1>
+</li>
+</ul>
+<h1 id="define-havefastchunksm-----m-flags---fastchunksbit--0">define have_fastchunks(M)     (((M)-&gt;flags &amp;  FASTCHUNKS_BIT) == 0)</h1>
+<h1 id="define-clearfastchunksm----catomicor-m-flags-fastchunksbit">define clear_fastchunks(M)    catomic_or (&amp;(M)-&gt;flags, FASTCHUNKS_BIT)</h1>
+<h1 id="define-setfastchunksm------catomicand-m-flags-fastchunksbit">define set_fastchunks(M)      catomic_and (&amp;(M)-&gt;flags, ~FASTCHUNKS_BIT)</h1>
+<pre><code>
+* binmap，标识 bit 指向的 bin 是否有空闲 chunk。
+
+#### **binmap**
+```c
+
+#define BINMAPSHIFT      5
+#define BITSPERMAP       (1U &lt;&lt; BINMAPSHIFT) //32
+#define BINMAPSIZE       (NBINS / BITSPERMAP)  //4
+
+#define idx2block(i)     ((i) &gt;&gt; BINMAPSHIFT)
+#define idx2bit(i)       ((1U &lt;&lt; ((i) &amp; ((1U &lt;&lt; BINMAPSHIFT)-1))))
+
+#define mark_bin(m,i)    ((m)-&gt;binmap[idx2block(i)] |=  idx2bit(i))
+#define unmark_bin(m,i)  ((m)-&gt;binmap[idx2block(i)] &amp;= ~(idx2bit(i)))
+#define get_binmap(m,i)  ((m)-&gt;binmap[idx2block(i)] &amp;   idx2bit(i))
+</code></pre><p>idx2block(63):</p>
+<ul>
+<li>63&gt;&gt;5=1, 也就是binmap[1],这个unsigned int中的某一位</li>
+</ul>
+<p>idx2bit(63):</p>
+<ul>
+<li>63 &amp; 31 = 31</li>
+<li>1&lt;&lt;31,也就是第32位</li>
+</ul>
+<h4 id="top-chunk"><strong>top chunk</strong></h4>
+<p>top chunk并不是组织在bin中。ptmalloc每次在向系统申请内存时，申请的都是大块的内存，其中从低地址部分开始的chunk返回给用户使用，而剩下的chunk便是top chunk,从未被使用过。</p>
+<p>如果是main arena,调用sbrk从堆地址空间获取内存，低地址部分返回给用户，剩下的为main arena的top chunk。 如果是非main arena, 调用mmap从memory map地址空间获取内存，这个内存被称为heap, non main arena的heap可以有多个，地址不是连续的，所有的heap链接成连表。 non main arena的top chunk指向当前使用的heap的top chunk.</p>
+<p>当分配内存时，如果fast bins和bins中都无法满足要求，则从top chunk中分配，如果top chunk也无法满足，main arena会调用sbrk()系统调用拓展top chunk大小，non main arena则调用mmap()分配新的heap，并将top chunk指向当前新分配的heap.</p>
+<p>如果需要收缩ptmalloc管理的内存，释放空闲内存回系统，也是收缩的top chunk。 对于main arena,收缩的就是堆地址空间对应的top chunk, 对于非main arena,从当前使用的heap对应的top chunk开始收缩，如果当前的heap可以完全释放回系统，则将top chunk指向当前heap之前的heap,继续判断是否可以收缩。</p>
+<h4 id="lastremainder-chunk"><strong>last_remainder chunk</strong></h4>
+<p>如果分配区上次分配的chunk还有剩余，剩下的chunk由arena的last_remainder指向，并且该chunk被加入unsorted bin中</p>
+<p>此类型的chunk用于提高连续malloc small chunk 的效率和内存分配的局部性。</p>
+<h3 id="mmaped-chunk"><strong>mmaped chunk</strong></h3>
+<p>到目前位置，一个arena中管理的chunk,有各种bins中的chunk, top chunk, last_remainder chunk.</p>
+<p>mapped chunk不被arena管理，当需要分配的 chunk 足够大，ptmalloc会直接使用mmap分配chunk给用户使用。这样的 chunk 在被 free 时将直接调用unmap归还给系统。</p>
+<p>mapped chunk,其size 字段的M表示被设置了，<code>chunk_is_mmapped(p)</code>宏返回1</p>
+<h3 id="配置参数"><strong>配置参数</strong></h3>
+<p>可通过mallopt调整配置参数</p>
+<pre><code class="lang-c"><span class="hljs-type">int</span> <span class="hljs-title function_">mallopt</span><span class="hljs-params">(<span class="hljs-type">int</span> param, <span class="hljs-type">int</span> value)</span>;
+</code></pre>
+<p>其中param主要有如下几个选项</p>
+<pre><code>  Symbol               default    allowed param values
+  M_MXFAST             64         0-80  (0 disables fastbins)
+  M_TRIM_THRESHOLD     128*1024   any   (-1U disables trimming)
+  M_TOP_PAD            0          any
+  M_MMAP_THRESHOLD     128*1024   any   (or 0 if no MMAP support)
+  M_MMAP_MAX           65536      any   (0 disables use of mmap)
+</code></pre><p><strong>M_MXFAST</strong></p>
+<p>fast bin中保存的chunk大小的最大值。默认为<code>64*sizeof(size_t)/4</code>,64位机上是128B,这个值的范围为0 - 80*sizeof(size_t)/4，64位机上最大值是160B. 如果设置为0，disable the use of fastbins</p>
+<p><strong>M_MMAP_THRESHOLD</strong></p>
+<p>如果请求分配的内存大小大于等于M_MMAP_THRESHOLD，并且ptmalloc中各种bins和top chunk无法满足，则直接调用mmap分配chunk给用户，mmaped chunk在释放时直接调用munmap()释放回操作系统。</p>
+<p>M_MMAP_THRESHOLD 的默认值是128k,范围为0-512k(32bit),0-32M(64bit)</p>
+<p>mmap threshold是动态调整的，初始值是128k,如果munmap释放的chunk大小大于mmap threshold并且小于等于DEFAULT_MMAP_THRESHOLD_MAX ，则mmap threshold调整为释放的chunk大小。并且threshold for trimming 设置为chunk大小的两倍。这个动态调整机制是默认开启的，如果设置了M_TRIM_THRESHOLD，M_MMAP_THRESHOLD，M_TOP_PAD，M_MMAP_MAX其中的任意一个参数，则该机制关闭。</p>
+<p><strong>M_TRIM_THRESHOLD</strong></p>
+<p>M_TRIM_THRESHOLD 用于设置收缩阈值，默认值为 128KB。收缩只会在 free时才发生，如果当前 free 的 chunk 大小加上前后能合并 chunk 的大小大于 64KB，并且 top chunk 的大小达到 M_TRIM_THRESHOLD，对于非主分配区，调用 heap_trim()返回一部分内存给操作系统，对于主分配区，调用 systrim()返回一部分内存给操作系统。</p>
+<p>M_TRIM_THRESHOLD 的值必须设置为页大小对齐，设置为-1 会关闭内存收缩设置。</p>
+<p><strong>M_MMAP_MAX</strong>
+这个值没什么意义，设置为0便不会使用mmap分配大块内存</p>
+<p><strong>M_TOP_PAD</strong> 
+默认值是0
+当需要对top chunk做拓展时，这个值会被增加到需要拓展的大小
+当需要对top chunk做收缩时，会保留这个大小。
+In either case, the amount of padding is always rounded to a system page boundary.</p>
+<p><strong>M_ARENA_MAX</strong>
+这个值规定了可以创建的arenas的上限。默认是0，可以创建的arenas的上限由M_ARENA_TEST决定。</p>
+<p><strong>M_ARENA_TEST</strong>
+在32位机上，默认值是2， 在64位机上，默认值是8. 具体的限制规则见后续代码。总之，如果没有设置M_ARENA_MAX，能创建的arena数量，在32位机上，是<code>核心数*2</code>，在64位机上，是<code>核心数*8</code></p>
+<p>当前的版本已经默认支持了多线程优化，如果线程本地存储中没有绑定arena，如果arenas的数量没有达到上线，则直接创建arena.如果达到上限了，则从已经存在的arena中获取。 如果线程本地存储中已经有arena了，则直接调用mutex_lock加锁，这样，只会在线程数大于arena的数量限制时，才有可能多个线程共享同一个arena，从而造成锁争用。</p>
+<h3 id="分配流程"><strong>分配流程</strong></h3>
+<ul>
+<li>首先从fastbin中查找是否有精确匹配的内存块</li>
+<li>firstbin中没有精确匹配的chunk，则判断size是不是在small bin 的范围内，如果是的话，试图从small bin中获取。small bin 也是要求精确匹配的</li>
+<li>如果不是在samll bin 的范围内，则首先判断是否有fast chunk,如果有的话，首先执行fast bin的合并操作，合并后的chunk,要么并入unsorted bin中，要么是跟top chunk关联的，并入top chunk中。如果在small bin的范围内，不执行fast bin的合并操作。</li>
+<li>开始试图unsorted bin中获取。从unsorted bin中获取的逻辑为，从unsorted bin的末尾开始依次判断每个chunk,首先判断这个chunk是不是这个unsorted bin的唯一chunk,是不是last remainder指向的chunk, 并且这个chunk的大小大于 需要分配的chunk大小加上MINSIZE（32B）,并且分配的大小处于small bin 的范围内，以上这些条件都满足的，就切割这个last_remainder chunk并返回 。不满足的话，判断这个chunk是不是精确匹配要求的大小的，是的话，就直接返回这个chunk,否则，将这个chunk根据其大小，放入对应的bins列表中。small bin放入表头，large bin放入合适的位置。 这是个循环判断，最多判断10000次，也就是最多判断10000个unsorted bin，如果还是没有找到能返回的chunk,进入下一步</li>
+<li>如果大小属于largebins的范围，找到对应的large bin, large bin是从大到小排序的，找到大于size的最小chunk，如果需要切割，切割后的chunk放到unsorted bin的表头。</li>
+<li>后续根据bitmap来查找。找到满足要求的最小chunk。也就是说，找到idx之后的第一个bit被设置的链表，取这个链表的最后一个chunk,然后根据大小做切割。这一个逻辑可以满足不管是small bin中获取，还是large bin中获取的所有情况，切割后的chunk也是放入unsorted bin中</li>
+<li>如果还是没找到，则从top中查找。如果top大小大于等于<code>需要的大小 + MINSIZE</code>，则返回需要的chunk，更新剩下的top chunk</li>
+<li>如果top也无法满足要求，则首先判断请求大小是否大于mmap_shreshold，是的话，调用mmap分配chunk。否则需要拓展top chunk. 对于main arena 和 non main arena,有两种拓展方式<ul>
+<li>non main arena的拓展，在non main arena中分配新的heap时，每个heap映射的地址空间大小是HEAP_MAX_SIZE，在64位机上是64M,只不过除了需要的size地址空间被设置为可读写，剩下的空间为不可访问。如果heap可以拓展，只需要将所需的额外空间设置为可读写就可以了，如果不可以拓展，则需要申请新的heap,更新top到这个新的heap,并且老的heap中多余的空间调用_int_free释放，大概率是放入某个bin中</li>
+<li>main arena的拓展，就是调用sbrk拓展堆空间，更新top.当然ptmalloc中还设置了如果sbrk失败了，调用mmap拓展的逻辑,以及调用sbrk返回的堆地址空间不连续的逻辑（比如进程中有别的地方没有使用malloc获取内存，而是自己调用了sbrk系统调用），这些过于细节的处理省略。</li>
+</ul>
+</li>
+<li>拓展了top之后，就从中获取需要的chunk,更新剩余的top chunk</li>
+</ul>
+<h3 id="释放流程"><strong>释放流程</strong></h3>
+<ul>
+<li>指针为0直接return</li>
+<li>判断是不是mmap chunk，是的话直接调用munmap释放</li>
+<li>大小是否小于max_fast，并且是不是不跟top chunk相连，都满足的话插入对应的fastbin,采用的头插法，是连接fd指针，使用cas原子操作。到现在为止没有加锁</li>
+<li>否则的话，先给arena加锁</li>
+<li>如果prev chunk是free的话，先跟prev chunk合并。如果next chunk不是topchunk,并且也是free的，则也跟next chunk合并。合并后的chunk 头插入unsorted bin中</li>
+<li>如果next chunk是top chunk，和合并入top chunk,更新top chunk</li>
+<li>判断之前合并后的总size,包括与top合并，计入top大小的总size，是不是大于FASTBIN_CONSOLIDATION_THRESHOLD（64k），是的话，首先，如果有fastbin，将fastbin中的chunk合并到unsorted bin/top chunk中，然后，如果是main arena,并且top大小大于trim_threshold，调用systrim释放空间回操作系统。如果是非 main arena,调用heap_trim释放heap空间回操作系统，不需要判断trim_threshold阈值。<ul>
+<li>systrim 调用sbrk 收缩 堆空间大小，更新top chunk</li>
+<li>heap_trim 首先判断当前的heap是否可以全部free掉，如果可以的话，继续判断pre heap是否可以全部free调。全部free的heap直接调用unmap取消映射。可以全部free掉的heap的判断是<code>top_chunk == chunk_at_offset(heap, sizeof(*heap))</code>,也就是这个heap，除了heap info之外，都是top chunk. 当然，这也就意味着这个arena的第一个heap是不可以被全部free掉的。当一个heap不可以全部free掉时，也就是要shrink，会调用<code>mmap((char *)h + new_size, diff, PROT_NONE,MAP_FIXED)</code>将需要shrink的部分的读写权限取消，这块地址空间即不可访问，其对应的物理页面可以被回收，或者调用<code>__madvise ((char *)h + new_size, diff, MADV_DONTNEED);</code>只是给操作系统一个hint,表示程序在将来的一段时间不会再访问这段地址空间，其对应的物理页面可以被回收。但如果后续程序中还是访问到了这段地址空间，也不会出错,因为这块地址空间还是可以读写的。</li>
+</ul>
+</li>
+<li>最后，unlock对应的arena</li>
+</ul>
+<h3 id="代码分析"><strong>代码分析</strong></h3>
+<p>下面就是精简的代码分析，配合glibc2.17的代码食用</p>
+<h4 id="初始化"><strong>初始化</strong></h4>
+<p>glibc中定义了ptmalloc的初始化函数</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-type">void</span>
+<span class="hljs-title function_">ptmalloc_init</span> <span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+{
+  <span class="hljs-keyword">if</span>(__malloc_initialized &gt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;
+  __malloc_initialized = <span class="hljs-number">0</span>;
+<span class="hljs-comment">//...</span>
+
+  <span class="hljs-comment">//ptmalloc是如何使用线程本地存储 存储arena的指针的，见后续PS2</span>
+  tsd_key_create(&amp;arena_key, <span class="hljs-literal">NULL</span>);
+  <span class="hljs-comment">//当前线程的线程本地存储中存储的是main_arena</span>
+  tsd_setspecific(arena_key, (<span class="hljs-type">void</span> *)&amp;main_arena);
+
+  <span class="hljs-comment">//设置了在fork前后需要调用的函数，主要是arena全部加锁和解锁。</span>
+  <span class="hljs-comment">//fork系统调用需要拷贝父进程的地址空间，</span>
+  <span class="hljs-comment">//这时候除了父子进程之外，如果并发的其他线程也访问地址空间，</span>
+  <span class="hljs-comment">//则可能造成地址空间处于不一致的状态，这里给全部的anera加上锁，</span>
+  <span class="hljs-comment">//最起码保证其他线程如果要访问arena,需要等到fork完毕。</span>
+  thread_atfork(ptmalloc_lock_all, ptmalloc_unlock_all, ptmalloc_unlock_all2);
+ <span class="hljs-comment">//....</span>
+  <span class="hljs-comment">//开始处理环境变量，跟据环境变量调用__libc_mallopt设置配置参数</span>
+  <span class="hljs-keyword">if</span> (__builtin_expect (_environ != <span class="hljs-literal">NULL</span>, <span class="hljs-number">1</span>))
+  {
+    <span class="hljs-comment">//...</span>
+  }
+  <span class="hljs-comment">//.....</span>
+  __malloc_initialized = <span class="hljs-number">1</span>;
+}
+</code></pre>
+<p>初始化主要就是将main_arena设置到当前线程的本地存储中，然后根据环境变量设置好配置参数。 </p>
+<p>main_arena是static global variable,这里只初始化了mutex和next,其他的都是零值。main_arena的真正初始化在第一次使用main arena分配的时候</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">malloc_state</span> <span class="hljs-title">main_arena</span> =</span>
+  {
+    .mutex = MUTEX_INITIALIZER,
+    .next = &amp;main_arena
+  };
+</code></pre>
+<p>全局变量<code>int __malloc_initialized</code>表示是否初始化完成了,初值是-1</p>
+<p>什么时候初始化呢？</p>
+<p>首先ptmalloc定义了一个malloc_hook,如下</p>
+<pre><code class="lang-c"><span class="hljs-type">__malloc_ptr_t</span> <span class="hljs-title function_">weak_variable</span> <span class="hljs-params">(*__malloc_hook)</span>
+     <span class="hljs-params">(<span class="hljs-type">size_t</span> __size, <span class="hljs-type">const</span> <span class="hljs-type">__malloc_ptr_t</span>)</span> = malloc_hook_ini;
+</code></pre>
+<p><strong>malloc_hook是个函数指针，类型为 `</strong>malloc_ptr_t (size_t <strong>size, const </strong>malloc_ptr_t)`</p>
+<pre><code class="lang-c"><span class="hljs-meta"># <span class="hljs-keyword">define</span> __malloc_ptr_t  void *</span>
+
+<span class="hljs-meta"># <span class="hljs-keyword">define</span> weak_variable weak_function</span>
+
+<span class="hljs-comment">// 关于weak_function，见后续的PS1</span>
+<span class="hljs-meta"># <span class="hljs-keyword">define</span> weak_function __attribute__ ((weak))</span>
+</code></pre>
+<p>malloc_hook_ini定义如下,首先将__malloc_hook清空，然后调用ptmalloc_init初始化。</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-type">void</span>*
+<span class="hljs-title function_">malloc_hook_ini</span><span class="hljs-params">(<span class="hljs-type">size_t</span> sz, <span class="hljs-type">const</span> <span class="hljs-type">__malloc_ptr_t</span> caller)</span>
+{
+  __malloc_hook = <span class="hljs-literal">NULL</span>;
+  ptmalloc_init();
+  <span class="hljs-keyword">return</span> __libc_malloc(sz);
+}
+</code></pre>
+<p>当用户程序中调用malloc时，会调用glibc中的<strong>libc_malloc,首先会检查</strong>malloc_hook是否设置了，如果设置了hook，直接调用hook返回。</p>
+<p>除了malloc之外，realloc也设置了相应的hook,如下</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-type">void</span>*
+<span class="hljs-title function_">realloc_hook_ini</span><span class="hljs-params">(<span class="hljs-type">void</span>* ptr, <span class="hljs-type">size_t</span> sz, <span class="hljs-type">const</span> <span class="hljs-type">__malloc_ptr_t</span> caller)</span>
+{
+  __malloc_hook = <span class="hljs-literal">NULL</span>;
+  __realloc_hook = <span class="hljs-literal">NULL</span>;
+  ptmalloc_init();
+  <span class="hljs-keyword">return</span> __libc_realloc(ptr, sz);
+}
+</code></pre>
+<p>除此之外，代码中也在<code>__libc_mallopt</code>,<code>__libc_mallinfo</code>等中设置了检查</p>
+<pre><code class="lang-c">  <span class="hljs-keyword">if</span>(__malloc_initialized &lt; <span class="hljs-number">0</span>)
+    ptmalloc_init ();
+</code></pre>
+<p>也就是说，只要我们程序中第一次调用任意的ptmalloc提供的函数，都会首先初始化。
+后续我们将首先调用了初始化的线程，也就是绑定了main_arena的线程，叫做主线程。其他的线程叫做非主线程。</p>
+<h4 id="malloc"><strong>malloc</strong></h4>
+<p>在glibc中，malloc为__libc_malloc的强符号</p>
+<pre><code class="lang-c">strong_alias (__libc_malloc, <span class="hljs-built_in">malloc</span>)
+</code></pre>
+<p>所以，当我们调用malloc是，其实调用的是glibc中的__libc_malloc函数</p>
+<pre><code class="lang-c"><span class="hljs-type">void</span>*
+__libc_malloc(<span class="hljs-type">size_t</span> bytes)
+{
+  mstate ar_ptr; <span class="hljs-comment">//arena分配区</span>
+  <span class="hljs-type">void</span> *victim;
+
+<span class="hljs-comment">//首先检查是否设置了hook,如果设置了则直接调用该hook并返回</span>
+
+  <span class="hljs-type">__malloc_ptr_t</span> (*hook) (<span class="hljs-type">size_t</span>, <span class="hljs-type">const</span> <span class="hljs-type">__malloc_ptr_t</span>)
+    = force_reg (__malloc_hook); 
+  <span class="hljs-keyword">if</span> (__builtin_expect (hook != <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>)) <span class="hljs-comment">//__builtin_expect:分支预测，这里预测其没有设置hook</span>
+    <span class="hljs-keyword">return</span> (*hook)(bytes, RETURN_ADDRESS (<span class="hljs-number">0</span>));
+
+<span class="hljs-comment">//查找一个分配区</span>
+  arena_lookup(ar_ptr);
+<span class="hljs-comment">//给该分配区加锁</span>
+  arena_lock(ar_ptr, bytes);
+  <span class="hljs-keyword">if</span>(!ar_ptr)
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+<span class="hljs-comment">//_int_malloc，进入arena分配</span>
+  victim = _int_malloc(ar_ptr, bytes);
+  <span class="hljs-keyword">if</span>(!victim) {
+    ar_ptr = arena_get_retry(ar_ptr, bytes);
+    <span class="hljs-keyword">if</span> (__builtin_expect(ar_ptr != <span class="hljs-literal">NULL</span>, <span class="hljs-number">1</span>)) {
+      victim = _int_malloc(ar_ptr, bytes);
+      (<span class="hljs-type">void</span>)mutex_unlock(&amp;ar_ptr-&gt;mutex);
+    }
+  } <span class="hljs-keyword">else</span>
+    (<span class="hljs-type">void</span>)mutex_unlock(&amp;ar_ptr-&gt;mutex);
+  assert(!victim || chunk_is_mmapped(mem2chunk(victim)) || ar_ptr == arena_for_chunk(mem2chunk(victim)));
+  <span class="hljs-keyword">return</span> victim;
+}
+</code></pre>
+<h4 id="arenalookup"><strong>arena_lookup</strong></h4>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> arena_lookup(ptr) do { \
+  void *vptr = NULL; \
+  ptr = (mstate)tsd_getspecific(arena_key, vptr); \
+} while(0)</span>
+</code></pre>
+<p>这里只是获取线程本地存储中的值到ptr中，如果是非主线程，这个值可能会NULL.</p>
+<h4 id="arenalock"><strong>arena_lock</strong></h4>
+<pre><code class="lang-c"><span class="hljs-meta"># <span class="hljs-keyword">define</span> arena_lock(ptr, size) do { \
+  <span class="hljs-keyword">if</span>(ptr) \
+    (void)mutex_lock(&amp;ptr-&gt;mutex); \
+  <span class="hljs-keyword">else</span> \
+    ptr = arena_get2(ptr, (size), NULL); \
+} while(0)</span>
+</code></pre>
+<p>可以看到,如果是主线程，直接调用mutex_lock加完锁就可以了，如果是非主线程，且之前没有在线程本地存储中绑定arena,则这里会调用arena_get2。 也就是说，arena_get2函数只会在非主线程中调用，而其创建的arena，也是non main arena,其中使用的heap是调用mmap获取的内存。</p>
+<h4 id="arenaget2"><strong>arena_get2</strong></h4>
+<pre><code class="lang-c"><span class="hljs-type">static</span> mstate
+internal_function
+<span class="hljs-title function_">arena_get2</span><span class="hljs-params">(mstate a_tsd, <span class="hljs-type">size_t</span> size,...)</span>
+{
+  mstate a;
+  <span class="hljs-type">static</span> <span class="hljs-type">size_t</span> narenas_limit;
+  a = get_free_list ();
+  <span class="hljs-keyword">if</span> (a == <span class="hljs-literal">NULL</span>)
+  {
+
+    <span class="hljs-comment">//这里会根据arena_max和arena_test设置能创建的arena上限</span>
+    <span class="hljs-keyword">if</span> (narenas_limit == <span class="hljs-number">0</span>)
+      {
+        <span class="hljs-keyword">if</span> (mp_.arena_max != <span class="hljs-number">0</span>)
+          narenas_limit = mp_.arena_max;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (narenas &gt; mp_.arena_test)
+        {
+          <span class="hljs-type">int</span> n  = __get_nprocs ();
+
+          <span class="hljs-keyword">if</span> (n &gt;= <span class="hljs-number">1</span>)
+              narenas_limit = NARENAS_FROM_NCORES (n);
+          <span class="hljs-keyword">else</span>
+            <span class="hljs-comment">/* We have no information about the system.  Assume two
+            cores.  */</span>
+              narenas_limit = NARENAS_FROM_NCORES (<span class="hljs-number">2</span>);
+        }
+      }
+    repeat:;
+      <span class="hljs-type">size_t</span> n = narenas; <span class="hljs-comment">//narenas是全局变量 static size_t narenas = 1;</span>
+      <span class="hljs-comment">/* NB: the following depends on the fact that (size_t)0 - 1 is a
+     very large number and that the underflow is OK.  If arena_max
+     is set the value of arena_test is irrelevant.  If arena_test
+     is set but narenas is not yet larger or equal to arena_test
+     narenas_limit is 0.   */</span>
+
+      <span class="hljs-keyword">if</span> (__builtin_expect (n &lt;= narenas_limit - <span class="hljs-number">1</span>, <span class="hljs-number">0</span>))
+        {
+          <span class="hljs-keyword">if</span> (catomic_compare_and_exchange_bool_acq (&amp;narenas, n + <span class="hljs-number">1</span>, n))
+            <span class="hljs-keyword">goto</span> repeat;
+          a = _int_new_arena (size);
+          <span class="hljs-keyword">if</span> (__builtin_expect (a == <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>))
+            catomic_decrement (&amp;narenas);
+        }
+      <span class="hljs-keyword">else</span>
+          a = reused_arena (avoid_arena);
+  }
+  <span class="hljs-keyword">return</span> a;
+}
+
+<span class="hljs-meta"># <span class="hljs-keyword">define</span> NARENAS_FROM_NCORES(n) ((n) * (sizeof(long) == 4 ? 2 : 8))</span>
+</code></pre>
+<h4 id="intnewarena"><strong>_int_new_arena</strong></h4>
+<p>该函数只有非主线程会调用，创建一个non main arena。</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> mstate
+_int_new_arena(<span class="hljs-type">size_t</span> size)
+{
+  mstate a;
+  heap_info *h; <span class="hljs-comment">//一个arena可以有多个heap</span>
+  <span class="hljs-type">char</span> *ptr;
+  <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> misalign;
+  <span class="hljs-comment">//非main arena 的struct malloc_state ,也就是arena的matadata，存储在mmap分配的内存中，在head_info之后</span>
+  h = new_heap(size + (<span class="hljs-keyword">sizeof</span>(*h) + <span class="hljs-keyword">sizeof</span>(*a) + MALLOC_ALIGNMENT),
+           mp_.top_pad);
+  <span class="hljs-keyword">if</span>(!h) {
+    <span class="hljs-comment">/* Maybe size is too large to fit in a single heap.  So, just try
+       to create a minimally-sized arena and let _int_malloc() attempt
+       to deal with the large request via mmap_chunk().  */</span>
+    h = new_heap(<span class="hljs-keyword">sizeof</span>(*h) + <span class="hljs-keyword">sizeof</span>(*a) + MALLOC_ALIGNMENT, mp_.top_pad);
+    <span class="hljs-keyword">if</span>(!h)
+      <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  }
+  <span class="hljs-comment">//一个arena的第一个heap,第一块内存中存储heap本身的描述符，第二块内存中存储heap所属于的arena的描述符。</span>
+  a = h-&gt;ar_ptr = (mstate)(h+<span class="hljs-number">1</span>);
+
+  malloc_init_state(a); <span class="hljs-comment">//arena的初始化逻辑，主要是设置好bins</span>
+  <span class="hljs-comment">/*a-&gt;next = NULL;*/</span>
+  a-&gt;system_mem = a-&gt;max_system_mem = h-&gt;size;
+<span class="hljs-comment">//...</span>
+
+  <span class="hljs-comment">/* Set up the top chunk, with proper alignment. */</span>
+  ptr = (<span class="hljs-type">char</span> *)(a + <span class="hljs-number">1</span>);
+  misalign = (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)chunk2mem(ptr) &amp; MALLOC_ALIGN_MASK;
+  <span class="hljs-keyword">if</span> (misalign &gt; <span class="hljs-number">0</span>)
+    ptr += MALLOC_ALIGNMENT - misalign;
+  top(a) = (mchunkptr)ptr; <span class="hljs-comment">//top(a) : #define top(ar_ptr) ((ar_ptr)-&gt;top) </span>
+  set_head(top(a), (((<span class="hljs-type">char</span>*)h + h-&gt;size) - ptr) | PREV_INUSE); 
+
+  tsd_setspecific(arena_key, (<span class="hljs-type">void</span> *)a);
+  mutex_init(&amp;a-&gt;mutex);
+  (<span class="hljs-type">void</span>)mutex_lock(&amp;a-&gt;mutex);
+
+
+  (<span class="hljs-type">void</span>)mutex_lock(&amp;list_lock);
+
+
+  <span class="hljs-comment">/* Add the new arena to the global list.  */</span>
+  a-&gt;next = main_arena.next;
+  atomic_write_barrier ();
+  main_arena.next = a;
+
+
+  (<span class="hljs-type">void</span>)mutex_unlock(&amp;list_lock);
+
+  <span class="hljs-keyword">return</span> a;
+}
+
+<span class="hljs-comment">/* Set size at head, without disturbing its use bit */</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> set_head_size(p, s)  ((p)-&gt;size = (((p)-&gt;size &amp; SIZE_BITS) | (s)))</span>
+
+<span class="hljs-comment">/* Set size/use field */</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> set_head(p, s)       ((p)-&gt;size = (s))</span>
+
+
+<span class="hljs-comment">/* A heap is a single contiguous memory region holding (coalesceable)
+   malloc_chunks.  It is allocated with mmap() and always starts at an
+   address aligned to HEAP_MAX_SIZE.  */</span>
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> _<span class="hljs-title">heap_info</span> {</span>
+  mstate ar_ptr; <span class="hljs-comment">/* Arena for this heap. */</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> _<span class="hljs-title">heap_info</span> *<span class="hljs-title">prev</span>;</span> <span class="hljs-comment">/* Previous heap. */</span>
+  <span class="hljs-type">size_t</span> size;   <span class="hljs-comment">/* Current size in bytes. */</span>
+  <span class="hljs-type">size_t</span> mprotect_size;    <span class="hljs-comment">/* Size in bytes that has been mprotected
+               PROT_READ|PROT_WRITE.  */</span>
+<span class="hljs-comment">//...</span>
+} heap_info;
+</code></pre>
+<p>可以看到这个_int_new_arena创建了一个非main arena,设置好了heap地址空间，top chunk,bins等等，可以直接使用了。</p>
+<h4 id="newheap"><strong>new_heap</strong></h4>
+<p>此函数是给non main arena分配地址空间，一块地址空间叫heap,用mmap分配，分配的大小一定是HEAP_MAX_SIZE，在64位系统上是64M,并且起始地址对其到HEAP_MAX_SIZE，但是不是这一整块空间都是可用的，mmap分配的内存没有设置其权限，后续通过mprotect设置size部分的内存为可读可写。</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> heap_info *
+internal_function
+<span class="hljs-title function_">new_heap</span><span class="hljs-params">(<span class="hljs-type">size_t</span> size, <span class="hljs-type">size_t</span> top_pad)</span>
+{
+  <span class="hljs-type">size_t</span> page_mask = GLRO(dl_pagesize) - <span class="hljs-number">1</span>;
+  <span class="hljs-type">char</span>  *p2;
+  heap_info *h;
+  <span class="hljs-comment">//...</span>
+
+  <span class="hljs-keyword">if</span>(size+top_pad &lt; HEAP_MIN_SIZE)
+    size = HEAP_MIN_SIZE;
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(size+top_pad &lt;= HEAP_MAX_SIZE)
+    size += top_pad;
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(size &gt; HEAP_MAX_SIZE)
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">else</span>
+    size = HEAP_MAX_SIZE;
+  size = (size + page_mask) &amp; ~page_mask;
+
+
+  p2 = MAP_FAILED;
+
+  <span class="hljs-comment">/*
+  后续就是调用 
+  p2 = MMAP(xxx,HEAP_MAX_SIZE,PROT_NONE,MAP_NORESERVE)
+  加上一些对齐判断，比较啰嗦，省去。 
+  */</span>
+  <span class="hljs-comment">//...</span>
+
+  <span class="hljs-keyword">if</span>(__mprotect(p2, size, PROT_READ|PROT_WRITE) != <span class="hljs-number">0</span>) {
+    __munmap(p2, HEAP_MAX_SIZE);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  }
+  h = (heap_info *)p2;
+  h-&gt;size = size;
+  h-&gt;mprotect_size = size;
+  <span class="hljs-comment">//...</span>
+  <span class="hljs-keyword">return</span> h;
+}
+
+<span class="hljs-comment">// 64bit</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> DEFAULT_MMAP_THRESHOLD_MAX (4 * 1024 * 1024 * sizeof(long)) <span class="hljs-comment">//32M</span></span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> HEAP_MAX_SIZE (2 * DEFAULT_MMAP_THRESHOLD_MAX)  <span class="hljs-comment">//64M</span></span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> HEAP_MIN_SIZE (32*1024) <span class="hljs-comment">//32k</span></span>
+</code></pre>
+<p>每次分配的地址大小是HEAP_MAX_SIZE，一定要是HEAP_MAX_SIZE对齐的，其中的前size部分被设置成可读写，其他部分暂时无法访问。</p>
+<h4 id="intmalloc"><strong>_int_malloc</strong></h4>
+<p>该函数就是在arena中分配chunk了，这个函数比较长，分段看。 注意到这里， 如果是main arena第一次调用malloc,main arena还没有初始化，里面的值，要么为0，要么为NULL
+首先c语言，需要先将局部变量初始化在前，然后调用<code>checked_request2size(bytes, nb);</code>将请求大小转为chunk大小。转换逻辑之前已经说过了。</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-type">void</span>*
+_int_malloc(mstate av, <span class="hljs-type">size_t</span> bytes)
+{
+  INTERNAL_SIZE_T nb;               <span class="hljs-comment">/* normalized request size */</span>
+  <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span>    idx;              <span class="hljs-comment">/* associated bin index */</span>
+  mbinptr         bin;              <span class="hljs-comment">/* associated bin */</span>
+
+  mchunkptr       victim;           <span class="hljs-comment">/* inspected/selected chunk */</span>
+  INTERNAL_SIZE_T size;             <span class="hljs-comment">/* its size */</span>
+  <span class="hljs-type">int</span>             victim_index;     <span class="hljs-comment">/* its bin index */</span>
+
+  mchunkptr       remainder;        <span class="hljs-comment">/* remainder from a split */</span>
+  <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>   remainder_size;   <span class="hljs-comment">/* its size */</span>
+
+  <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span>    block;            <span class="hljs-comment">/* bit map traverser */</span>
+  <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span>    bit;              <span class="hljs-comment">/* bit map traverser */</span>
+  <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span>    <span class="hljs-built_in">map</span>;              <span class="hljs-comment">/* current word of binmap */</span>
+
+  mchunkptr       fwd;              <span class="hljs-comment">/* misc temp for linking */</span>
+  mchunkptr       bck;              <span class="hljs-comment">/* misc temp for linking */</span>
+
+  <span class="hljs-type">const</span> <span class="hljs-type">char</span> *errstr = <span class="hljs-literal">NULL</span>;
+  <span class="hljs-comment">//将请求大小转为chunk大小</span>
+  checked_request2size(bytes, nb);
+  <span class="hljs-comment">//....</span>
+</code></pre>
+<p>然后处理fastbin的分配，这里对fastbin的访问使用了cas,虽然在分配的时候给访问的arena加锁了，但在释放的时候，如果只释放回fastbin,也是使用的cas,没有加锁。</p>
+<pre><code class="lang-c">  <span class="hljs-comment">//如果main arena没有初始化，get_max_fast()返回0</span>
+  <span class="hljs-keyword">if</span> ((<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(nb) &lt;= (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(get_max_fast ())) {
+    idx = fastbin_index(nb);
+    mfastbinptr* fb = &amp;fastbin (av, idx);
+    mchunkptr pp = *fb;
+    <span class="hljs-keyword">do</span>{
+        victim = pp;
+        <span class="hljs-keyword">if</span> (victim == <span class="hljs-literal">NULL</span>)
+          <span class="hljs-keyword">break</span>;
+    }<span class="hljs-keyword">while</span> ((pp = catomic_compare_and_exchange_val_acq (fb, victim-&gt;fd, victim))!= victim);
+    <span class="hljs-keyword">if</span> (victim != <span class="hljs-number">0</span>) {
+      <span class="hljs-comment">//...</span>
+      <span class="hljs-type">void</span> *p = chunk2mem(victim);
+      <span class="hljs-comment">//...</span>
+      <span class="hljs-keyword">return</span> p;
+    }
+  }
+<span class="hljs-comment">//...</span>
+</code></pre>
+<p>fistbin数组中存储的就是chunk的指针，而不是像bins中存储chunk的fd和bk.</p>
+<p>firstbin中没有满足要求大小的bin，则判断是不是在smallbin 的范围内，如果是的话，试图从small bin中获取。
+如果是main arena，其初始化也是在这里。</p>
+<p>也就是说，不管是main arena还是非main arena,其初始化，都是在第一次调用malloc时初始化的。</p>
+<pre><code class="lang-c">  <span class="hljs-keyword">if</span> (in_smallbin_range(nb)) {
+    idx = smallbin_index(nb);
+    bin = bin_at(av,idx);
+
+    <span class="hljs-keyword">if</span> ( (victim = last(bin)) != bin) { <span class="hljs-comment">//如果链表是空的，last(bin)==bin,fast(bin)==bin</span>
+      <span class="hljs-keyword">if</span> (victim == <span class="hljs-number">0</span>) <span class="hljs-comment">//main arena没有初始化</span>
+          malloc_consolidate(av); <span class="hljs-comment">//这里是处理main arena中bins的初始化</span>
+      <span class="hljs-keyword">else</span> {
+        bck = victim-&gt;bk;
+        <span class="hljs-comment">//....</span>
+        <span class="hljs-comment">//victim的下一个chunk,其size字段的PRE_IN_USE bit要被设置。</span>
+          set_inuse_bit_at_offset(victim, nb);
+          bin-&gt;bk = bck;
+          bck-&gt;fd = bin;
+
+          <span class="hljs-keyword">if</span> (av != &amp;main_arena)
+            victim-&gt;size |= NON_MAIN_ARENA;
+        <span class="hljs-comment">//...</span>
+          <span class="hljs-type">void</span> *p = chunk2mem(victim);
+          <span class="hljs-comment">//...</span>
+          <span class="hljs-keyword">return</span> p;
+      }
+    }
+  }
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> first(b)     ((b)-&gt;fd)</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> last(b)      ((b)-&gt;bk)</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> set_inuse_bit_at_offset(p, s)\
+ (((mchunkptr)(((char*)(p)) + (s)))-&gt;size |= PREV_INUSE)</span>
+</code></pre>
+<p>small bin中的分配，根据分配的大小找到small bin的链表，如果不空，取链表最后一个chunk，这个逻辑很直接。</p>
+<p>看下malloc_consolidate中对main arena的初始化</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-type">void</span> <span class="hljs-title function_">malloc_consolidate</span><span class="hljs-params">(mstate av)</span>
+{
+<span class="hljs-comment">//声明了一堆函数局部变量</span>
+
+
+
+  <span class="hljs-keyword">if</span> (get_max_fast () != <span class="hljs-number">0</span>) {
+    <span class="hljs-comment">//这其中是fastbin中chunk的合并逻辑</span>
+  }<span class="hljs-keyword">else</span> {
+    malloc_init_state(av); <span class="hljs-comment">// non main arena在创建的时候（_int_new_arena)就调用了这个函数了，main arena的调用放在了这里</span>
+    <span class="hljs-comment">//...</span>
+  }
+}
+
+<span class="hljs-type">static</span> <span class="hljs-type">void</span> <span class="hljs-title function_">malloc_init_state</span><span class="hljs-params">(mstate av)</span>
+{
+  <span class="hljs-type">int</span>     i;
+  mbinptr bin;
+
+  <span class="hljs-comment">/* Establish circular links for normal bins */</span>
+  <span class="hljs-comment">//bins的初始化，每个bins都是空链表</span>
+  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt; NBINS; ++i) {
+    bin = bin_at(av,i);
+    bin-&gt;fd = bin-&gt;bk = bin;
+  }
+
+
+  <span class="hljs-keyword">if</span> (av != &amp;main_arena)
+    set_noncontiguous(av);
+  <span class="hljs-keyword">if</span> (av == &amp;main_arena) 
+    set_max_fast(DEFAULT_MXFAST);  
+  av-&gt;flags |= FASTCHUNKS_BIT; <span class="hljs-comment">//当前fastbin中还没有chunk</span>
+  <span class="hljs-comment">//把main arena的top设置为指向了unsorteb bin, </span>
+  <span class="hljs-comment">//也就是为bins数组的首地址-16，也就是main arena中的top成员的地址。</span>
+  <span class="hljs-comment">//如果是non main arena，在arena初始化时已经设置好了top chunk</span>
+  av-&gt;top            = initial_top(av);  
+}
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> initial_top(M)              (unsorted_chunks(M))</span>
+</code></pre>
+<p>返回之前的_int_malloc，不在small bin的范围内，走到这里</p>
+<pre><code class="lang-c">  <span class="hljs-keyword">else</span> {
+    idx = largebin_index(nb);
+    <span class="hljs-comment">//即使是main arena没有被初始化，这个判断也是满足的。所以最终没有初始化的main arena还是会被初始化</span>
+    <span class="hljs-keyword">if</span> (have_fastchunks(av))
+      <span class="hljs-comment">//先合并fastbin中chunk到unsorted bin</span>
+      malloc_consolidate(av);
+  }
+</code></pre>
+<p>不属于small bin的话，首先malloc_consolidate合并fast bin中的chunk，并入unsorted bin/top chunk中。 看下malloc_consolidate合并fast bin中的chunk的逻辑,很简单</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-type">void</span>  <span class="hljs-title function_">malloc_consolidate</span><span class="hljs-params">(mstate av)</span>
+{
+ <span class="hljs-comment">//...</span>
+
+  <span class="hljs-keyword">if</span> (get_max_fast () != <span class="hljs-number">0</span>) {
+    <span class="hljs-comment">//fast bin的合并逻辑</span>
+    <span class="hljs-comment">//合并完之后，fast bin为空</span>
+    clear_fastchunks(av);
+
+    unsorted_bin = unsorted_chunks(av);
+
+    <span class="hljs-comment">/*
+      Remove each chunk from fast bin and consolidate it, placing it
+      then in unsorted bin. Among other reasons for doing this,
+      placing in unsorted bin avoids needing to calculate actual bins
+      until malloc is sure that chunks aren't immediately going to be
+      reused anyway.
+    */</span>
+
+    maxfb = &amp;fastbin (av, NFASTBINS - <span class="hljs-number">1</span>);
+    fb = &amp;fastbin (av, <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">do</span> {
+      p = atomic_exchange_acq (fb, <span class="hljs-number">0</span>);
+      <span class="hljs-keyword">if</span> (p != <span class="hljs-number">0</span>) {
+          <span class="hljs-keyword">do</span> {
+            <span class="hljs-comment">//...</span>
+            nextp = p-&gt;fd;
+
+            <span class="hljs-comment">/* Slightly streamlined version of consolidation code in free() */</span>
+            size = p-&gt;size &amp; ~(PREV_INUSE|NON_MAIN_ARENA);
+            nextchunk = chunk_at_offset(p, size);
+            nextsize = chunksize(nextchunk);
+
+            <span class="hljs-keyword">if</span> (!prev_inuse(p)) {
+              prevsize = p-&gt;prev_size;
+              size += prevsize;
+              p = chunk_at_offset(p, -((<span class="hljs-type">long</span>) prevsize));
+              unlink(p, bck, fwd);
+            }
+
+            <span class="hljs-keyword">if</span> (nextchunk != av-&gt;top) {
+              nextinuse = inuse_bit_at_offset(nextchunk, nextsize);
+
+              <span class="hljs-keyword">if</span> (!nextinuse) {
+                size += nextsize;
+                unlink(nextchunk, bck, fwd);
+              } <span class="hljs-keyword">else</span>
+                clear_inuse_bit_at_offset(nextchunk, <span class="hljs-number">0</span>);
+
+              first_unsorted = unsorted_bin-&gt;fd;
+              unsorted_bin-&gt;fd = p;
+              first_unsorted-&gt;bk = p;
+
+              <span class="hljs-keyword">if</span> (!in_smallbin_range (size)) {
+                p-&gt;fd_nextsize = <span class="hljs-literal">NULL</span>;
+                p-&gt;bk_nextsize = <span class="hljs-literal">NULL</span>;
+              }
+
+              set_head(p, size | PREV_INUSE);
+              p-&gt;bk = unsorted_bin;
+              p-&gt;fd = first_unsorted;
+              set_foot(p, size);
+            }
+
+            <span class="hljs-keyword">else</span> {
+              size += nextsize;
+              set_head(p, size | PREV_INUSE);
+              av-&gt;top = p;
+            }
+
+          } <span class="hljs-keyword">while</span> ( (p = nextp) != <span class="hljs-number">0</span>);
+
+      }
+    } <span class="hljs-keyword">while</span> (fb++ != maxfb);
+  }<span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">//arena的初始化...</span>
+  }
+}
+</code></pre>
+<p>然后首先试图从unsorted bin中获取</p>
+<pre><code class="lang-c">    <span class="hljs-comment">//iters计数while循环10000次会结束  </span>
+    <span class="hljs-type">int</span> iters = <span class="hljs-number">0</span>;
+    <span class="hljs-comment">//循环处理unsorted bin中的chunk，最多处理10000个chunk。并且是从链表后开始处理</span>
+    <span class="hljs-keyword">while</span> ( (victim = unsorted_chunks(av)-&gt;bk) != unsorted_chunks(av)) {
+      bck = victim-&gt;bk;
+      <span class="hljs-comment">//...</span>
+      size = chunksize(victim);
+
+      <span class="hljs-keyword">if</span> (in_smallbin_range(nb) &amp;&amp; bck == unsorted_chunks(av) &amp;&amp; victim == av-&gt;last_remainder &amp;&amp; (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(size) &gt; (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(nb + MINSIZE)) {
+
+            <span class="hljs-comment">/* split and reattach remainder */</span>
+            remainder_size = size - nb;
+            remainder = chunk_at_offset(victim, nb);
+            unsorted_chunks(av)-&gt;bk = unsorted_chunks(av)-&gt;fd = remainder;
+            av-&gt;last_remainder = remainder;
+            remainder-&gt;bk = remainder-&gt;fd = unsorted_chunks(av);
+            <span class="hljs-keyword">if</span> (!in_smallbin_range(remainder_size))
+            {
+              remainder-&gt;fd_nextsize = <span class="hljs-literal">NULL</span>;
+              remainder-&gt;bk_nextsize = <span class="hljs-literal">NULL</span>;
+            }
+
+            set_head(victim, nb | PREV_INUSE | (av != &amp;main_arena ? NON_MAIN_ARENA : <span class="hljs-number">0</span>));
+            set_head(remainder, remainder_size | PREV_INUSE);
+            set_foot(remainder, remainder_size);
+          <span class="hljs-comment">//...</span>
+            <span class="hljs-type">void</span> *p = chunk2mem(victim);
+            <span class="hljs-comment">//...</span>
+            <span class="hljs-keyword">return</span> p;
+      }
+      <span class="hljs-comment">//....</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> unsorted_chunks(M)          (bin_at(M, 1))</span>
+
+<span class="hljs-comment">/* Treat space at ptr + offset as a chunk */</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> chunk_at_offset(p, s)  ((mchunkptr)(((char*)(p)) + (s)))</span>
+
+<span class="hljs-comment">/* Set size/use field */</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> set_head(p, s)       ((p)-&gt;size = (s))</span>
+
+<span class="hljs-comment">/* Set size at footer (only when chunk is not in use) */</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> set_foot(p, s)       (((mchunkptr)((char*)(p) + (s)))-&gt;prev_size = (s))</span>
+</code></pre>
+<p>循环处理unsortd bin中的chunk,最多循环10000次</p>
+<p>后续这个if判断，条件很多，分别是，分配的大小属于small bin, unsorted bin中只有一个bin,这个bin是个last_remainder bin, 并且last_raminder bin的大小大于 需要分配的chunk大小加上MINSIZE(64位机上是32byte)(否则的话，剩下的chunk大小都不够最小的一个chunk大小)</p>
+<pre><code class="lang-c"><span class="hljs-keyword">if</span> (in_smallbin_range(nb) &amp;&amp; bck == unsorted_chunks(av) &amp;&amp; victim == av-&gt;last_remainder &amp;&amp; (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(size) &gt; (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(nb + MINSIZE))
+</code></pre>
+<p>如果这些条件都满足，就切割这个last_remainder chunk并返回。</p>
+<p>否则的话，将其从unsorted bin中移除，如果其大小正好满足要求，设置好相关chunk的metadata并返回</p>
+<pre><code class="lang-c">      <span class="hljs-comment">/* remove from unsorted list */</span>
+      unsorted_chunks(av)-&gt;bk = bck;
+      bck-&gt;fd = unsorted_chunks(av);
+
+      <span class="hljs-comment">/* Take now instead of binning if exact fit */</span>
+
+      <span class="hljs-keyword">if</span> (size == nb) {
+        <span class="hljs-comment">//设置后续chunk的PRE_IN_USE bit</span>
+          set_inuse_bit_at_offset(victim, size);
+          <span class="hljs-keyword">if</span> (av != &amp;main_arena)
+            victim-&gt;size |= NON_MAIN_ARENA;
+          <span class="hljs-comment">//...</span>
+          <span class="hljs-type">void</span> *p = chunk2mem(victim);
+         <span class="hljs-comment">//...</span>
+          <span class="hljs-keyword">return</span> p;
+      }
+</code></pre>
+<p>否则的话，加入small bin或large bin中,small bin放入表头，large bin放入合适的位置。</p>
+<pre><code class="lang-c">      <span class="hljs-comment">/* place chunk in bin */</span>
+      <span class="hljs-keyword">if</span> (in_smallbin_range(size)) {
+        <span class="hljs-comment">//...</span>
+      }
+      <span class="hljs-keyword">else</span> {
+          <span class="hljs-comment">//...</span>
+      }
+      mark_bin(av, victim_index);
+      victim-&gt;bk = bck;
+      victim-&gt;fd = fwd;
+      fwd-&gt;bk = victim;
+      bck-&gt;fd = victim;
+
+    <span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX_ITERS    10000</span>
+      <span class="hljs-keyword">if</span> (++iters &gt;= MAX_ITERS)  <span class="hljs-comment">//unsorted bin最多判断10000次</span>
+          <span class="hljs-keyword">break</span>;
+    } <span class="hljs-comment">//对应 while ( (victim = unsorted_chunks(av)-&gt;bk) != unsorted_chunks(av))</span>
+
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> mark_bin(m,i)    ((m)-&gt;binmap[idx2block(i)] |=  idx2bit(i))</span>
+</code></pre>
+<p>最后的大括号对应最开始的while循环。</p>
+<p>后续代码是unsorted bin处理完之后的逻辑。</p>
+<p>如果大小属于largebins的范围，找到对应的large bin, large bin是从大到小排序的，找到大于size的最小chunk，如果需要切割，切割后的chunk放到unsorted bin的表头。</p>
+<pre><code class="lang-c">
+    <span class="hljs-keyword">if</span> (!in_smallbin_range(nb)) {
+      bin = bin_at(av, idx);
+
+      <span class="hljs-comment">/* skip scan if empty or largest chunk is too small */</span>
+      <span class="hljs-comment">//不会向后查找large bin</span>
+      <span class="hljs-keyword">if</span> ((victim = first(bin)) != bin &amp;&amp; (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(victim-&gt;size) &gt;= (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(nb)) {
+
+          victim = victim-&gt;bk_nextsize; <span class="hljs-comment">//这个是当前large bin中的最小的bin</span>
+          <span class="hljs-keyword">while</span> (((<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(size = chunksize(victim)) &lt;(<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(nb)))
+            victim = victim-&gt;bk_nextsize;
+
+          <span class="hljs-comment">/* Avoid removing the first entry for a size so that the skip
+          list does not have to be rerouted.  */</span>
+          <span class="hljs-keyword">if</span> (victim != last(bin) &amp;&amp; victim-&gt;size == victim-&gt;fd-&gt;size)
+            victim = victim-&gt;fd;
+
+          remainder_size = size - nb;
+          unlink(victim, bck, fwd);
+
+          <span class="hljs-comment">/* Exhaust */</span>
+        <span class="hljs-comment">//剩余空间不够最小的一个chunk</span>
+          <span class="hljs-keyword">if</span> (remainder_size &lt; MINSIZE)  {
+            set_inuse_bit_at_offset(victim, size);
+            <span class="hljs-keyword">if</span> (av != &amp;main_arena)
+              victim-&gt;size |= NON_MAIN_ARENA;
+          }
+          <span class="hljs-comment">/* Split */</span>
+          <span class="hljs-keyword">else</span> {
+            remainder = chunk_at_offset(victim, nb);
+          <span class="hljs-comment">//remainder chunk放入unsorted bin</span>
+          <span class="hljs-comment">//...</span>
+          }
+          <span class="hljs-comment">//...</span>
+          <span class="hljs-type">void</span> *p = chunk2mem(victim);
+        <span class="hljs-comment">//...</span>
+          <span class="hljs-keyword">return</span> p;
+      }
+    }
+</code></pre>
+<p>后续处理需要遍历bins,根据对应的idx的bin中确定是没有满足要求的chunk了，那么找到idx之后的第一个bit被设置的链表，取这个链表的最后一个chunk,然后根据大小做切割。切割后的chunk也是放入unsorted bin中</p>
+<pre><code class="lang-c">    ++idx; 
+    bin = bin_at(av,idx);
+    block = idx2block(idx);
+    <span class="hljs-built_in">map</span> = av-&gt;binmap[block];
+    bit = idx2bit(idx);
+
+    <span class="hljs-keyword">for</span> (;;) {
+      <span class="hljs-comment">//...实在是不想看了</span>
+    }
+</code></pre>
+<p>到这里，就从top中找了</p>
+<pre><code class="lang-c">  use_top:
+    victim = av-&gt;top;
+    <span class="hljs-comment">//如果是main arena,top chunk没有初始化，</span>
+    <span class="hljs-comment">//只是被设置为了unsorted bin,也就是bins数组的起始地址-16， </span>
+    <span class="hljs-comment">//这里chunksize返回的是main arena中last_remainder的值，显然，也是0.</span>
+    size = chunksize(victim);  
+
+    <span class="hljs-keyword">if</span> ((<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(size) &gt;= (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(nb + MINSIZE)) {
+      remainder_size = size - nb;
+      remainder = chunk_at_offset(victim, nb);
+      av-&gt;top = remainder;
+      set_head(victim, nb | PREV_INUSE |(av != &amp;main_arena ? NON_MAIN_ARENA : <span class="hljs-number">0</span>));
+      set_head(remainder, remainder_size | PREV_INUSE);
+
+      <span class="hljs-comment">//...</span>
+      <span class="hljs-type">void</span> *p = chunk2mem(victim);
+      <span class="hljs-comment">//...</span>
+      <span class="hljs-keyword">return</span> p;
+    }
+
+<span class="hljs-comment">//...</span>
+    <span class="hljs-comment">/*
+       Otherwise, relay to handle system-dependent cases
+    */</span>
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-type">void</span> *p = sysmalloc(nb, av);
+      <span class="hljs-comment">//...</span>
+      <span class="hljs-keyword">return</span> p;
+    }
+  <span class="hljs-comment">//...</span>
+}<span class="hljs-comment">//_int_malloc结束</span>
+</code></pre>
+<h4 id="sysmalloc"><strong>sysmalloc</strong></h4>
+<p>该函数只在这一处被调用，也就是top也无法满足分配时。</p>
+<p>首先判断如果大小大于mmap_shreshold,并且mmap次数满足最大mmap次数，直接调用mmap分配chunk。需要注意的是，最后的chunk的metadata中要设置好IS_MMAPPED标志，表示这是一个mmaped chunk。 </p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-type">void</span>* <span class="hljs-title function_">sysmalloc</span><span class="hljs-params">(INTERNAL_SIZE_T nb, mstate av)</span>
+{
+  <span class="hljs-comment">//...</span>
+  <span class="hljs-keyword">if</span> ((<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(nb) &gt;= (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(mp_.mmap_threshold) &amp;&amp;
+      (mp_.n_mmaps &lt; mp_.n_mmaps_max)) {
+
+    <span class="hljs-type">char</span>* mm;             <span class="hljs-comment">/* return value from mmap call*/</span>
+
+  try_mmap:
+    <span class="hljs-comment">//.... mmap的大小要是page size的整数倍,size的alignment</span>
+    tried_mmap = <span class="hljs-literal">true</span>;
+
+    <span class="hljs-comment">/* Don't try if size wraps around 0 */</span>
+    <span class="hljs-keyword">if</span> ((<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(size) &gt; (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(nb)) {
+
+      mm = (<span class="hljs-type">char</span>*)(MMAP(<span class="hljs-number">0</span>, size, PROT_READ|PROT_WRITE, <span class="hljs-number">0</span>));
+
+      <span class="hljs-keyword">if</span> (mm != MAP_FAILED) {
+            <span class="hljs-comment">//对齐有关的设置....</span>
+            set_head(p, size|IS_MMAPPED);
+           <span class="hljs-comment">//更新一些统计数据...</span>
+              <span class="hljs-keyword">return</span> chunk2mem(p);
+      }
+    }
+  }
+</code></pre>
+<p>如果不能直接调用mmap获取mmaped chunk返回，就需要拓展top chunk了。</p>
+<p>首先看如果是non main arena如何拓展</p>
+<pre><code class="lang-c">  old_top  = av-&gt;top;
+  old_size = chunksize(old_top);
+  old_end  = (<span class="hljs-type">char</span>*)(chunk_at_offset(old_top, old_size));
+  <span class="hljs-comment">//首先将brk和snd_brk初始化为0，</span>
+  brk = snd_brk = (<span class="hljs-type">char</span>*)(MORECORE_FAILURE);
+
+<span class="hljs-comment">//..</span>
+
+   <span class="hljs-keyword">if</span> (av != &amp;main_arena) {
+    <span class="hljs-comment">//这里面是非main_arena的处理</span>
+    heap_info *old_heap, *heap;
+    <span class="hljs-type">size_t</span> old_heap_size;
+    <span class="hljs-comment">//#define heap_for_ptr(ptr)  ((heap_info *)((unsigned long)(ptr) &amp; ~(HEAP_MAX_SIZE-1)))</span>
+    old_heap = heap_for_ptr(old_top); 
+    old_heap_size = old_heap-&gt;size;
+    <span class="hljs-keyword">if</span> ((<span class="hljs-type">long</span>) (MINSIZE + nb - old_size) &gt; <span class="hljs-number">0</span> &amp;&amp; grow_heap(old_heap, MINSIZE + nb - old_size) == <span class="hljs-number">0</span>) {
+        <span class="hljs-comment">//直接在之前的heap上拓展</span>
+      av-&gt;system_mem += old_heap-&gt;size - old_heap_size;
+      <span class="hljs-comment">//...</span>
+      set_head(old_top, (((<span class="hljs-type">char</span> *)old_heap + old_heap-&gt;size) - (<span class="hljs-type">char</span> *)old_top) | PREV_INUSE);
+    }
+    <span class="hljs-comment">//注意连续的heap分配，第二个heap中只存储heap info, 不会再存储arena info</span>
+    <span class="hljs-comment">//arena info还是使用的第一个heap中的arena info</span>
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ((heap = new_heap(nb + (MINSIZE + <span class="hljs-keyword">sizeof</span>(*heap)), mp_.top_pad))) {
+      <span class="hljs-comment">//分配新的heap</span>
+      heap-&gt;ar_ptr = av;
+      heap-&gt;prev = old_heap;  
+      av-&gt;system_mem += heap-&gt;size;
+      <span class="hljs-comment">//...</span>
+      <span class="hljs-comment">/* Set up the new top.  */</span>
+      top(av) = chunk_at_offset(heap, <span class="hljs-keyword">sizeof</span>(*heap));
+      set_head(top(av), (heap-&gt;size - <span class="hljs-keyword">sizeof</span>(*heap)) | PREV_INUSE);
+
+     <span class="hljs-comment">/* Setup fencepost and free the old top chunk with a multiple of
+     MALLOC_ALIGNMENT in size. */</span>
+      <span class="hljs-comment">/* The fencepost takes at least MINSIZE bytes, because it might
+     become the top chunk again later.  Note that a footer is set
+     up, too, although the chunk is marked in use. */</span>
+
+      old_size = (old_size - MINSIZE) &amp; ~MALLOC_ALIGN_MASK;
+      <span class="hljs-comment">//2个fencepost，第一个2*size_t</span>
+      set_head(chunk_at_offset(old_top, old_size + <span class="hljs-number">2</span>*SIZE_SZ), <span class="hljs-number">0</span>|PREV_INUSE);
+      <span class="hljs-keyword">if</span> (old_size &gt;= MINSIZE) {
+        <span class="hljs-comment">//第二个也是2*size_t</span>
+          set_head(chunk_at_offset(old_top, old_size), (<span class="hljs-number">2</span>*SIZE_SZ)|PREV_INUSE);
+          set_foot(chunk_at_offset(old_top, old_size), (<span class="hljs-number">2</span>*SIZE_SZ));
+          set_head(old_top, old_size|PREV_INUSE|NON_MAIN_ARENA);
+        <span class="hljs-comment">//多余的chunk大概率是放到某个bin中</span>
+          _int_free(av, old_top, <span class="hljs-number">1</span>);
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">//多余的chunk不够一个最小的可用chunk大小，则第二个fencepost的大小为</span>
+        <span class="hljs-comment">//old_size + 2*SIZE_SZ</span>
+          set_head(old_top, (old_size + <span class="hljs-number">2</span>*SIZE_SZ)|PREV_INUSE);
+          set_foot(old_top, (old_size + <span class="hljs-number">2</span>*SIZE_SZ));
+      }
+    }
+   <span class="hljs-comment">//...</span>
+
+  } <span class="hljs-keyword">else</span> { <span class="hljs-comment">/* av == main_arena */</span>
+  <span class="hljs-comment">//...</span>
+  }
+</code></pre>
+<p>在non main arena中分配新的heap时，每个heap映射的地址空间大小是HEAP_MAX_SIZE，在64位机上是64M,只不过除了需要的size地址空间被设置为可读写，剩下的空间为不可访问。如果heap可以拓展，只需要将所需的额外空间设置为可读写就可以了，如果不可以拓展，则需要申请新的heap,更新top到这个新的heap,并且老的heap中多余的空间调用_int_free释放，大概率是放入某个bin中</p>
+<p>再看如果是main arena如何拓展top chunk</p>
+<pre><code class="lang-c">  <span class="hljs-keyword">if</span> (av != &amp;main_arena) {
+    <span class="hljs-comment">//....</span>
+
+  } <span class="hljs-keyword">else</span> { <span class="hljs-comment">/* av == main_arena */</span>
+
+    size = nb + mp_.top_pad + MINSIZE;
+
+    <span class="hljs-comment">//...</span>
+        <span class="hljs-comment">//堆地址空间是连续的，可以减去已有的old_size</span>
+        size -= old_size;
+
+    size = (size + pagemask) &amp; ~pagemask;
+
+    <span class="hljs-keyword">if</span> (size &gt; <span class="hljs-number">0</span>)
+        brk = (<span class="hljs-type">char</span>*)(MORECORE(size)); <span class="hljs-comment">//这里调用sbrk系统调用拓展堆地址空间，如果成功，返回拓展的地址空间的起始地址。</span>
+
+    <span class="hljs-keyword">if</span> (brk != (<span class="hljs-type">char</span>*)(MORECORE_FAILURE)) {
+        <span class="hljs-comment">/* Call the `morecore' hook if necessary.  */</span>
+        <span class="hljs-comment">//默认没有hook</span>
+        <span class="hljs-comment">//这个hook可用于内存检测的软件</span>
+        <span class="hljs-type">void</span> (*hook) (<span class="hljs-type">void</span>) = force_reg (__after_morecore_hook);
+        <span class="hljs-keyword">if</span> (__builtin_expect (hook != <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>))
+            (*hook) ();
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">//如果brk失败后，调用mmap处理，但过于复杂，不看了</span>
+       <span class="hljs-comment">//...</span>
+    }
+    <span class="hljs-comment">//brk!=0,即要么sbrk调用成功，要么mmap调用成功</span>
+    <span class="hljs-keyword">if</span> (brk != (<span class="hljs-type">char</span>*)(MORECORE_FAILURE)) {
+        <span class="hljs-comment">//...</span>
+        av-&gt;system_mem += size;
+        <span class="hljs-keyword">if</span> (brk == old_end &amp;&amp; snd_brk == (<span class="hljs-type">char</span>*)(MORECORE_FAILURE))
+            <span class="hljs-comment">//调用sbrk成功，并且，brk == old_end, 直接拓展之前的top即可</span>
+            set_head(old_top, (size + old_size) | PREV_INUSE);
+        <span class="hljs-comment">//后续的代码跟其他异常情况有关，见前文</span>
+        <span class="hljs-comment">//....</span>
+
+    }
+
+ } <span class="hljs-comment">//av==main_arena</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> MORECORE_FAILURE 0</span>
+</code></pre>
+<p>拓展完top后就从top中取出需要的chunk返回</p>
+<pre><code class="lang-c">
+  <span class="hljs-comment">/* finally, do the allocation */</span>
+    p = av-&gt;top;
+    size = chunksize(p);
+
+  <span class="hljs-comment">/* check that one of the above allocation paths succeeded */</span>
+    <span class="hljs-keyword">if</span> ((<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(size) &gt;= (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(nb + MINSIZE)) {
+        remainder_size = size - nb;
+        remainder = chunk_at_offset(p, nb);
+        av-&gt;top = remainder;
+        set_head(p, nb | PREV_INUSE | (av != &amp;main_arena ? NON_MAIN_ARENA : <span class="hljs-number">0</span>));
+        set_head(remainder, remainder_size | PREV_INUSE);
+       <span class="hljs-comment">//...</span>
+        <span class="hljs-keyword">return</span> chunk2mem(p);
+    }
+    __set_errno (ENOMEM);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+} <span class="hljs-comment">//sysmalloc</span>
+</code></pre>
+<p>至此，分配的代码就看完了。</p>
+<h4 id="libcfree"><strong>__libc_free</strong></h4>
+<p>当用户调用glibc的free函数，实际调用的是__libc_free</p>
+<pre><code class="lang-c"><span class="hljs-type">void</span>
+__libc_free(<span class="hljs-type">void</span>* mem)
+{
+  mstate ar_ptr;
+  mchunkptr p;                         
+  <span class="hljs-comment">//有hook,直接调用hook返回</span>
+  <span class="hljs-type">void</span> (*hook) (<span class="hljs-type">__malloc_ptr_t</span>, <span class="hljs-type">const</span> <span class="hljs-type">__malloc_ptr_t</span>)
+    = force_reg (__free_hook);
+  <span class="hljs-keyword">if</span> (__builtin_expect (hook != <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>)) {
+    (*hook)(mem, RETURN_ADDRESS (<span class="hljs-number">0</span>));
+    <span class="hljs-keyword">return</span>;
+  }
+
+  <span class="hljs-keyword">if</span> (mem == <span class="hljs-number">0</span>)                              <span class="hljs-comment">/* free(0) has no effect */</span>
+    <span class="hljs-keyword">return</span>;
+
+  p = mem2chunk(mem);
+
+  <span class="hljs-keyword">if</span> (chunk_is_mmapped(p))                       <span class="hljs-comment">/* release mmapped memory. */</span>
+  {
+    <span class="hljs-comment">//mp_.mmap_threshold和mp_.trim_threshold的动态调整机制</span>
+    <span class="hljs-keyword">if</span> (!mp_.no_dyn_threshold &amp;&amp; p-&gt;size &gt; mp_.mmap_threshold &amp;&amp; p-&gt;size &lt;= DEFAULT_MMAP_THRESHOLD_MAX)
+    {
+     mp_.mmap_threshold = chunksize (p);
+     mp_.trim_threshold = <span class="hljs-number">2</span> * mp_.mmap_threshold;
+    }
+    munmap_chunk(p);
+    <span class="hljs-keyword">return</span>;
+  }
+
+  ar_ptr = arena_for_chunk(p);
+  _int_free(ar_ptr, p, <span class="hljs-number">0</span>);
+}
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> arena_for_chunk(ptr) \
+ (chunk_non_main_arena(ptr) ? heap_for_ptr(ptr)-&gt;ar_ptr : &amp;main_arena)</span>
+</code></pre>
+<h4 id="intfree"><strong>int_free</strong></h4>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-type">void</span>
+_int_free(mstate av, mchunkptr p, <span class="hljs-type">int</span> have_lock)
+{
+  INTERNAL_SIZE_T size;        <span class="hljs-comment">/* its size */</span>
+  mfastbinptr*    fb;          <span class="hljs-comment">/* associated fastbin */</span>
+  mchunkptr       nextchunk;   <span class="hljs-comment">/* next contiguous chunk */</span>
+  INTERNAL_SIZE_T nextsize;    <span class="hljs-comment">/* its size */</span>
+  <span class="hljs-type">int</span>             nextinuse;   <span class="hljs-comment">/* true if nextchunk is used */</span>
+  INTERNAL_SIZE_T prevsize;    <span class="hljs-comment">/* size of previous contiguous chunk */</span>
+  mchunkptr       bck;         <span class="hljs-comment">/* misc temp for linking */</span>
+  mchunkptr       fwd;         <span class="hljs-comment">/* misc temp for linking */</span>
+
+  <span class="hljs-type">const</span> <span class="hljs-type">char</span> *errstr = <span class="hljs-literal">NULL</span>;
+  <span class="hljs-type">int</span> locked = <span class="hljs-number">0</span>;
+
+  size = chunksize(p);
+
+  <span class="hljs-comment">//...some check</span>
+  <span class="hljs-keyword">if</span> ((<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(size) &lt;= (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(get_max_fast ())
+
+<span class="hljs-meta">#<span class="hljs-keyword">if</span> TRIM_FASTBINS</span>
+      <span class="hljs-comment">/*
+    If TRIM_FASTBINS set, don't place chunks
+    bordering top into fastbins
+      */</span>
+      &amp;&amp; (chunk_at_offset(p, size) != av-&gt;top)
+<span class="hljs-meta">#<span class="hljs-keyword">endif</span></span>
+      ) {
+        <span class="hljs-comment">//...some check</span>
+
+        set_fastchunks(av); <span class="hljs-comment">//catomic_and (&amp;(M)-&gt;flags, ~FASTCHUNKS_BIT)</span>
+        <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> idx = fastbin_index(size);
+        fb = &amp;fastbin (av, idx);
+
+        mchunkptr fd;
+        mchunkptr old = *fb;
+        <span class="hljs-keyword">do</span>
+        {
+          <span class="hljs-comment">//...</span>
+         p-&gt;fd = fd = old;
+        }<span class="hljs-keyword">while</span> ((old = catomic_compare_and_exchange_val_rel (fb, p, fd)) != fd);
+        <span class="hljs-comment">//...</span>
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!chunk_is_mmapped(p)) {
+       <span class="hljs-keyword">if</span> (! have_lock) {
+        <span class="hljs-comment">//...</span>
+        (<span class="hljs-type">void</span>)mutex_lock(&amp;av-&gt;mutex);
+        locked = <span class="hljs-number">1</span>;
+       }
+
+        nextchunk = chunk_at_offset(p, size);
+        <span class="hljs-comment">//some check ...</span>
+
+        nextsize = chunksize(nextchunk);
+        <span class="hljs-comment">//some check ...</span>
+
+        <span class="hljs-comment">/* consolidate backward */</span>
+        <span class="hljs-keyword">if</span> (!prev_inuse(p)) {
+            prevsize = p-&gt;prev_size;
+            size += prevsize;
+            p = chunk_at_offset(p, -((<span class="hljs-type">long</span>) prevsize));
+            unlink(p, bck, fwd);
+        }
+
+        <span class="hljs-keyword">if</span> (nextchunk != av-&gt;top) {
+            <span class="hljs-comment">/* get and clear inuse bit */</span>
+            nextinuse = inuse_bit_at_offset(nextchunk, nextsize);
+
+            <span class="hljs-comment">/* consolidate forward */</span>
+            <span class="hljs-keyword">if</span> (!nextinuse) {
+                unlink(nextchunk, bck, fwd);
+                size += nextsize;
+            } <span class="hljs-keyword">else</span>
+                clear_inuse_bit_at_offset(nextchunk, <span class="hljs-number">0</span>);
+            <span class="hljs-comment">//头插入unsorted bin</span>
+            bck = unsorted_chunks(av);
+            fwd = bck-&gt;fd;
+            p-&gt;fd = fwd;
+            p-&gt;bk = bck;
+            <span class="hljs-keyword">if</span> (!in_smallbin_range(size))
+            {
+                p-&gt;fd_nextsize = <span class="hljs-literal">NULL</span>;
+                p-&gt;bk_nextsize = <span class="hljs-literal">NULL</span>;
+            }
+            bck-&gt;fd = p;
+            fwd-&gt;bk = p;
+
+            set_head(p, size | PREV_INUSE);
+            set_foot(p, size);
+            <span class="hljs-comment">//some check...</span>
+        }<span class="hljs-keyword">else</span> {
+            size += nextsize;
+            set_head(p, size | PREV_INUSE);
+            av-&gt;top = p;
+            <span class="hljs-comment">//some check...</span>
+        }
+        <span class="hljs-keyword">if</span> ((<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(size) &gt;= FASTBIN_CONSOLIDATION_THRESHOLD) {
+            <span class="hljs-keyword">if</span> (have_fastchunks(av))
+                malloc_consolidate(av);
+
+            <span class="hljs-keyword">if</span> (av == &amp;main_arena) {
+              <span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> MORECORE_CANNOT_TRIM</span>
+                  <span class="hljs-keyword">if</span> ((<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(chunksize(av-&gt;top)) &gt;=
+                      (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)(mp_.trim_threshold))
+                    systrim(mp_.top_pad, av);
+              <span class="hljs-meta">#<span class="hljs-keyword">endif</span></span>
+            } <span class="hljs-keyword">else</span> {
+             <span class="hljs-comment">/* Always try heap_trim(), even if the top chunk is not
+             large, because the corresponding heap might go away.  */</span>
+             heap_info *heap = heap_for_ptr(top(av));
+             assert(heap-&gt;ar_ptr == av);
+             heap_trim(heap, mp_.top_pad);
+          }
+        }
+
+        <span class="hljs-keyword">if</span> (! have_lock) {
+          assert (locked);
+          (<span class="hljs-type">void</span>)mutex_unlock(&amp;av-&gt;mutex);
+        }
+    }<span class="hljs-keyword">else</span> {
+        munmap_chunk (p);
+    }
+}
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> FASTBIN_CONSOLIDATION_THRESHOLD  (65536UL)</span>
+</code></pre>
+<h4 id="systrim"><strong>systrim</strong></h4>
+<p>如果是main arena,并且main arena的top chunk大于mp_.trim_threshold，则调用systrim收缩,pad是需要留下的大小。</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">systrim</span><span class="hljs-params">(<span class="hljs-type">size_t</span> pad, mstate av)</span>
+{
+  <span class="hljs-type">long</span>  top_size;        <span class="hljs-comment">/* Amount of top-most memory */</span>
+  <span class="hljs-type">long</span>  extra;           <span class="hljs-comment">/* Amount to release */</span>
+  <span class="hljs-type">long</span>  released;        <span class="hljs-comment">/* Amount actually released */</span>
+  <span class="hljs-type">char</span>* current_brk;     <span class="hljs-comment">/* address returned by pre-check sbrk call */</span>
+  <span class="hljs-type">char</span>* new_brk;         <span class="hljs-comment">/* address returned by post-check sbrk call */</span>
+  <span class="hljs-type">size_t</span> pagesz;
+
+  pagesz = GLRO(dl_pagesize);
+  top_size = chunksize(av-&gt;top);
+
+  <span class="hljs-comment">/* Release in pagesize units, keeping at least one page */</span>
+  extra = (top_size - pad - MINSIZE - <span class="hljs-number">1</span>) &amp; ~(pagesz - <span class="hljs-number">1</span>);
+
+  <span class="hljs-keyword">if</span> (extra &gt; <span class="hljs-number">0</span>) {
+
+    <span class="hljs-comment">//如果当前top属于堆地址空间，才收缩</span>
+    current_brk = (<span class="hljs-type">char</span>*)(MORECORE(<span class="hljs-number">0</span>));
+    <span class="hljs-keyword">if</span> (current_brk == (<span class="hljs-type">char</span>*)(av-&gt;top) + top_size) {
+
+
+
+      MORECORE(-extra);
+
+      <span class="hljs-type">void</span> (*hook) (<span class="hljs-type">void</span>) = force_reg (__after_morecore_hook);
+      <span class="hljs-keyword">if</span> (__builtin_expect (hook != <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>))
+          (*hook) ();
+
+      new_brk = (<span class="hljs-type">char</span>*)(MORECORE(<span class="hljs-number">0</span>));
+
+      <span class="hljs-keyword">if</span> (new_brk != (<span class="hljs-type">char</span>*)MORECORE_FAILURE) {
+          released = (<span class="hljs-type">long</span>)(current_brk - new_brk);
+
+          <span class="hljs-keyword">if</span> (released != <span class="hljs-number">0</span>) {
+            <span class="hljs-comment">/* Success. Adjust top. */</span>
+            av-&gt;system_mem -= released;
+            set_head(av-&gt;top, (top_size - released) | PREV_INUSE);
+            <span class="hljs-comment">//...</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+          }
+      }
+    }
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h4 id="heaptrim"><strong>heap_trim</strong></h4>
+<pre><code class="lang-c"><span class="hljs-type">static</span> <span class="hljs-type">int</span>
+internal_function
+<span class="hljs-title function_">heap_trim</span><span class="hljs-params">(heap_info *heap, <span class="hljs-type">size_t</span> pad)</span>
+{
+  mstate ar_ptr = heap-&gt;ar_ptr;
+  <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> pagesz = GLRO(dl_pagesize);
+  mchunkptr top_chunk = top(ar_ptr), p, bck, fwd;
+  heap_info *prev_heap;
+  <span class="hljs-type">long</span> new_size, top_size, extra, prev_size, misalign;
+
+  <span class="hljs-comment">/* Can this heap go away completely? */</span>
+  <span class="hljs-keyword">while</span>(top_chunk == chunk_at_offset(heap, <span class="hljs-keyword">sizeof</span>(*heap))) {
+    prev_heap = heap-&gt;prev;
+    prev_size = prev_heap-&gt;size - (MINSIZE<span class="hljs-number">-2</span>*SIZE_SZ);
+    p = chunk_at_offset(prev_heap, prev_size);
+    <span class="hljs-comment">/* fencepost must be properly aligned.  */</span>
+    misalign = ((<span class="hljs-type">long</span>) p) &amp; MALLOC_ALIGN_MASK;
+    p = chunk_at_offset(prev_heap, prev_size - misalign);
+    assert(p-&gt;size == (<span class="hljs-number">0</span>|PREV_INUSE)); <span class="hljs-comment">/* must be fencepost */</span>
+    p = prev_chunk(p);
+    new_size = chunksize(p) + (MINSIZE<span class="hljs-number">-2</span>*SIZE_SZ) + misalign;
+    assert(new_size&gt;<span class="hljs-number">0</span> &amp;&amp; new_size&lt;(<span class="hljs-type">long</span>)(<span class="hljs-number">2</span>*MINSIZE));
+    <span class="hljs-keyword">if</span>(!prev_inuse(p))
+      new_size += p-&gt;prev_size;
+    assert(new_size&gt;<span class="hljs-number">0</span> &amp;&amp; new_size&lt;HEAP_MAX_SIZE);
+    <span class="hljs-keyword">if</span>(new_size + (HEAP_MAX_SIZE - prev_heap-&gt;size) &lt; pad + MINSIZE + pagesz)
+      <span class="hljs-keyword">break</span>;
+    ar_ptr-&gt;system_mem -= heap-&gt;size;
+    arena_mem -= heap-&gt;size;
+    delete_heap(heap);
+    heap = prev_heap;
+    <span class="hljs-keyword">if</span>(!prev_inuse(p)) { <span class="hljs-comment">/* consolidate backward */</span>
+      p = prev_chunk(p);
+      unlink(p, bck, fwd);
+    }
+    assert(((<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)((<span class="hljs-type">char</span>*)p + new_size) &amp; (pagesz<span class="hljs-number">-1</span>)) == <span class="hljs-number">0</span>);
+    assert( ((<span class="hljs-type">char</span>*)p + new_size) == ((<span class="hljs-type">char</span>*)heap + heap-&gt;size) );
+    top(ar_ptr) = top_chunk = p;
+    set_head(top_chunk, new_size | PREV_INUSE);
+    <span class="hljs-comment">/*check_chunk(ar_ptr, top_chunk);*/</span>
+  }
+  top_size = chunksize(top_chunk);
+  extra = (top_size - pad - MINSIZE - <span class="hljs-number">1</span>) &amp; ~(pagesz - <span class="hljs-number">1</span>);
+  <span class="hljs-keyword">if</span>(extra &lt; (<span class="hljs-type">long</span>)pagesz)
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  <span class="hljs-comment">/* Try to shrink. */</span>
+  <span class="hljs-keyword">if</span>(shrink_heap(heap, extra) != <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  ar_ptr-&gt;system_mem -= extra;
+  arena_mem -= extra;
+
+  <span class="hljs-comment">/* Success. Adjust top accordingly. */</span>
+  set_head(top_chunk, (top_size - extra) | PREV_INUSE);
+  <span class="hljs-comment">/*check_chunk(ar_ptr, top_chunk);*/</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+}
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> prev_chunk(p) ((mchunkptr)( ((char*)(p)) - ((p)-&gt;prev_size) ))</span>
+
+<span class="hljs-type">static</span> <span class="hljs-type">int</span>
+<span class="hljs-title function_">shrink_heap</span><span class="hljs-params">(heap_info *h, <span class="hljs-type">long</span> diff)</span>
+{
+  <span class="hljs-type">long</span> new_size;
+
+  new_size = (<span class="hljs-type">long</span>)h-&gt;size - diff;
+  <span class="hljs-keyword">if</span>(new_size &lt; (<span class="hljs-type">long</span>)<span class="hljs-keyword">sizeof</span>(*h))
+    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+  <span class="hljs-keyword">if</span> (__builtin_expect (check_may_shrink_heap (), <span class="hljs-number">0</span>))
+  {
+    <span class="hljs-comment">//将这段地址空间重新映射为不可访问。</span>
+    <span class="hljs-keyword">if</span>((<span class="hljs-type">char</span> *)MMAP((<span class="hljs-type">char</span> *)h + new_size, diff, PROT_NONE,MAP_FIXED) == (<span class="hljs-type">char</span> *) MAP_FAILED)
+          <span class="hljs-keyword">return</span> <span class="hljs-number">-2</span>;
+    h-&gt;mprotect_size = new_size;
+  }
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-comment">//只是给操作系统一个hint,表示程序在将来的一段时间不会再访问这段地址空间，其对应的物理页面可以被回收。</span>
+    <span class="hljs-comment">//但如果后续程序中还是访问到了这段地址空间，也不会出错。</span>
+    __madvise ((<span class="hljs-type">char</span> *)h + new_size, diff, MADV_DONTNEED);
+
+  h-&gt;size = new_size;
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> delete_heap(heap) \
+  do {                                \
+    <span class="hljs-keyword">if</span> ((char *)(heap) + HEAP_MAX_SIZE == aligned_heap_area)    \
+      aligned_heap_area = NULL;                    \
+    __munmap((char*)(heap), HEAP_MAX_SIZE);            \
+  } while (0)</span>
+
+
+<span class="hljs-comment">/* Force an unmap when the heap shrinks in a secure exec.  This ensures that
+   the old data pages immediately cease to be accessible.  */</span>
+<span class="hljs-type">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span>
+<span class="hljs-title function_">check_may_shrink_heap</span> <span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+{
+  <span class="hljs-keyword">return</span> __libc_enable_secure;
+}
+</code></pre>
+<p>到这里，free chunk的代码就结束了。</p>
+<h3 id="ps1">PS1</h3>
+<p>关于weak function,answer from GPT-3.5</p>
+<p>In C and C++, functions can be declared as weak functions, which means that they can be overwritten by a stronger function with the same name at runtime. This feature is commonly used in embedded systems and device driver programming where you may need to provide a default implementation of a function that can be overridden by a more complete or customized implementation later.</p>
+<p>When a function is declared as weak, it can be overridden if a stronger version of the same function exists in the code. If there is no stronger version of the function, the weak version will be used. </p>
+<p>Here is an example of how to declare a weak function in C:</p>
+<pre><code>// Declare a weak function
+__attribute__((weak)) void myWeakFunction() {
+  // Default implementation of myWeakFunction
+}
+</code></pre><p>In this example, we declare a weak version of the </p>
+<p><code>myWeakFunction()</code></p>
+<p> function. If a stronger version of </p>
+<p><code>myWeakFunction()</code></p>
+<p> is defined later in the code, it will overwrite this weak version. If no stronger version of the function is defined, then the default implementation provided will be used.</p>
+<h3 id="ps2">PS2</h3>
+<p>我们看下如果使用pthread线程库，线程本地存储是怎么实现的</p>
+<pre><code class="lang-c"><span class="hljs-keyword">typedef</span> <span class="hljs-type">int</span> <span class="hljs-type">tsd_key_t</span>[<span class="hljs-number">1</span>];    <span class="hljs-comment">/* no key data structure, libc magic does it */</span>
+<span class="hljs-type">static</span> <span class="hljs-type">tsd_key_t</span> arena_key;
+
+
+__libc_tsd_define (<span class="hljs-type">static</span>, <span class="hljs-type">void</span> *, MALLOC)    <span class="hljs-comment">/* declaration/common definition */</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> tsd_key_create(key, destr)    ((void) (key)) </span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> tsd_setspecific(key, data)    __libc_tsd_set (void *, MALLOC, (data))</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> tsd_getspecific(key, vptr)    ((vptr) = __libc_tsd_get (void *, MALLOC))</span>
+
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> __libc_tsd_define(CLASS, TYPE, KEY)    \
+  CLASS __thread TYPE __libc_tsd_##KEY attribute_tls_model_ie;</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> __libc_tsd_address(TYPE, KEY)        (&amp;__libc_tsd_##KEY)</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> __libc_tsd_get(TYPE, KEY)        (__libc_tsd_##KEY)</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> __libc_tsd_set(TYPE, KEY, VALUE)    (__libc_tsd_##KEY = (VALUE))</span>
+</code></pre>
+<p>可以看到，使用pthread创建线程本地存储的全局变量，就是加上 <code>__thread</code>关键字。这里实际线程本地存储的全局变量的变量名实际是</p>
+<pre><code class="lang-c"><span class="hljs-type">static</span> __thread <span class="hljs-type">void</span> * __libc_tsd_MALLOC
+</code></pre>
+<p><code>tsd_setspecific(arena_key,(void *)&amp;main_arena)</code> 拓展成</p>
+<pre><code class="lang-c">__libc_tsd_MALLOC = (<span class="hljs-type">void</span> *)&amp;main_arena
+</code></pre>
+<p><code>tsd_getspecific(arena_key, vptr)</code>直接拓展成</p>
+<pre><code class="lang-c">vptr=__libc_tsd_MALLOC
+</code></pre>
+<p>直接返回线程本地存储的全局变量就可以了。</p>
+<p>而只在主线程中调用的<code>tsd_key_create(&amp;arena_key, NULL);</code>,拓展成<code>(void) (&amp;arena_key)</code>,实际上是没有效果的，这个<code>arena_key</code>就是一个全局变量，真正的线程本地存储的全局变量，是__libc_tsd_MALLOC</p>
+<div class="navPagesContainer"> <div class="navPagesLinks"> <a class="card cardPrevious"> <div class="cardIcon"> <i class="fa fa-angle-left"></i> </div> <div class="cardPreviousBody"> <div class="cardHint"> <span>Previous</span> </div> <div class="cardTitle"> <span>02 operator new &amp; operator delete</span> </div> </div> </a> <a class="card cardNext"> <div class="cardNextBody"> <div class="cardHint"> <span>Next</span> </div> <div class="cardTitle"> <span>04 tcmalloc</span> </div> </div> <div class="cardIcon"> <i class="fa fa-angle-right"></i> </div> </a> </div> </div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02 operator new & operator delete.html" class="navigation navigation-prev " aria-label="Previous page: 02 operator new & operator delete">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="04 tcmalloc.html" class="navigation navigation-next " aria-label="Next page: 04 tcmalloc">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"03 ptmalloc","level":"1.2.8.3","depth":3,"next":{"title":"04 tcmalloc","level":"1.2.8.4","depth":3,"path":"posts/c&c++/内存管理/04 tcmalloc.md","ref":"./posts/c&c++/内存管理/04 tcmalloc.md","articles":[]},"previous":{"title":"02 operator new & operator delete","level":"1.2.8.2","depth":3,"path":"posts/c&c++/内存管理/02 operator new & operator delete.md","ref":"./posts/c&c++/内存管理/02 operator new & operator delete.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["bottom-navigation","collapsible-menu","livereload"],"pluginsConfig":{"bottom-navigation":{"navPrevSelector":null,"navNextSelector":null,"iconColor":null,"titleColor":null,"borderColor":"#873077","pageInnerWidth":null,"prevText":"Previous","nextText":"Next"},"collapsible-menu":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"posts/c&c++/内存管理/03 ptmalloc.md","mtime":"2024-07-30T07:48:02.605Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-05-02T00:47:25.524Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-bottom-navigation/stylish.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-bottom-navigation/href.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
